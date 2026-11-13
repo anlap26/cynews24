@@ -44,7 +44,7 @@ UI = {
  "en":dict(home="Home",latest="Latest",more="More news",sources="Sources",related="Related stories",toplines="Top stories",
   byline="By the CyNews 24 newsroom",illus="Illustration created for CyNews 24 (AI-generated, not a photograph)",
   sources_note="This article is an original rewrite of facts reported by the outlets below; read the originals for full detail.",
-  read="Read more",tags="Topics",lang="Language",about="About us",menu="Sections",skip="Skip to content",
+  read="Read more",tags="Topics",lang="Language",about="About us",ads="Advertise & Contact",menu="Sections",skip="Skip to content",
   tagline="Cyprus news in three languages",
   footer="CyNews 24 summarises public reporting from Cypriot and international media in Russian, English and Greek. Articles are rewritten in our own words and link to their sources; photographs are used under open licences and credited. CyNews 24 is not affiliated with the outlets cited.",
   copy="All rights reserved.",updated="Updated",home_h="Top stories from Cyprus",realestate_h="Real estate & planning",allnews="All news",
@@ -52,7 +52,7 @@ UI = {
  "ru":dict(home="Главная",latest="Последние новости",more="Ещё новости",sources="Источники",related="Читайте также",toplines="Главное",
   byline="Редакция CyNews 24",illus="Иллюстрация создана для CyNews 24 (сгенерирована ИИ, не фотография)",
   sources_note="Материал — авторский пересказ фактов, опубликованных изданиями ниже; полные подробности — в оригиналах.",
-  read="Читать далее",tags="Темы",lang="Язык",about="О проекте",menu="Разделы",skip="Перейти к содержанию",
+  read="Читать далее",tags="Темы",lang="Язык",about="О проекте",ads="Реклама и контакты",menu="Разделы",skip="Перейти к содержанию",
   tagline="Новости Кипра на трёх языках",
   footer="CyNews 24 обобщает публикации кипрских и международных СМИ на русском, английском и греческом языках. Тексты написаны своими словами и содержат ссылки на источники; фотографии используются по открытым лицензиям с указанием автора. CyNews 24 не связан с упомянутыми изданиями.",
   copy="Все права защищены.",updated="Обновлено",home_h="Главные новости Кипра",realestate_h="Недвижимость и градостроительство",allnews="Все новости",
@@ -60,7 +60,7 @@ UI = {
  "el":dict(home="Αρχική",latest="Τελευταία νέα",more="Περισσότερες ειδήσεις",sources="Πηγές",related="Σχετικά θέματα",toplines="Κορυφαία θέματα",
   byline="Η συντακτική ομάδα του CyNews 24",illus="Εικονογράφηση για το CyNews 24 (δημιουργήθηκε με ΤΝ, όχι φωτογραφία)",
   sources_note="Το κείμενο είναι πρωτότυπη αναδιατύπωση γεγονότων που δημοσίευσαν τα παρακάτω μέσα· για πλήρεις λεπτομέρειες δείτε τα πρωτότυπα.",
-  read="Διαβάστε περισσότερα",tags="Θέματα",lang="Γλώσσα",about="Σχετικά με εμάς",menu="Ενότητες",skip="Μετάβαση στο περιεχόμενο",
+  read="Διαβάστε περισσότερα",tags="Θέματα",lang="Γλώσσα",about="Σχετικά με εμάς",ads="Διαφήμιση & Επικοινωνία",menu="Ενότητες",skip="Μετάβαση στο περιεχόμενο",
   tagline="Ειδήσεις Κύπρου σε τρεις γλώσσες",
   footer="Το CyNews 24 συνοψίζει δημοσιεύματα κυπριακών και διεθνών μέσων στα ρωσικά, αγγλικά και ελληνικά. Τα κείμενα γράφονται με δικά μας λόγια και παραπέμπουν στις πηγές τους· οι φωτογραφίες χρησιμοποιούνται με ανοιχτές άδειες και αναφέρουν τον δημιουργό. Το CyNews 24 δεν συνδέεται με τα μέσα που αναφέρονται.",
   copy="Με επιφύλαξη παντός δικαιώματος.",updated="Ενημερώθηκε",home_h="Κορυφαίες ειδήσεις από την Κύπρο",realestate_h="Ακίνητα και πολεοδομία",allnews="Όλες οι ειδήσεις",
@@ -266,8 +266,34 @@ footer p{max-width:820px;margin:8px 0}
 .choose{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--dark);color:#fff;text-align:center;padding:24px}
 .choose .logo{font-size:44px;justify-content:center;margin-bottom:12px}.choose p{color:#c8cdd5;margin:6px 0 24px}
 .choose .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.choose .btns a{background:#fff;color:var(--dark);font-weight:800;padding:14px 26px;font-size:18px}.choose .btns a:hover{background:var(--acc);color:#fff}
+nav.cats li.promo a{color:var(--acc)}
+.adpage{max-width:760px;margin:0 auto;padding-bottom:8px}
+.adpage h1{font-size:40px;line-height:1.1;letter-spacing:-.8px;margin:22px 0 12px}
+.adpage h2{font-size:22px;border-top:4px solid var(--ink);padding-top:8px;margin:28px 0 12px}
+.adpage .leadin{font-size:18px;line-height:1.55;margin:0 0 12px}
+.adpage a.mail{color:#0b57b0;text-decoration:underline}
+.fmts{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.fmt{border:1px solid var(--line);border-top:4px solid var(--acc);padding:12px 14px;background:#fff}
+.fmt h3{margin:0 0 6px;font-size:16px}
+.fmt p{margin:0;color:#2b2f35;font-size:14.5px;line-height:1.45}
+.adnote{background:var(--soft);border-left:4px solid var(--acc);padding:12px 14px;margin:16px 0;font-size:15px;line-height:1.5}
+.adform{display:grid;gap:14px;margin-top:8px}
+.adform .fld span,.checks legend{display:block;font-weight:700;font-size:14px;margin-bottom:4px}
+.adform input[type=text],.adform input[type=email],.adform input[type=tel],.adform select,.adform textarea{width:100%;font:inherit;padding:10px 12px;border:1px solid #cfd3d8;background:#fff}
+.adform textarea{min-height:140px;resize:vertical}
+.adform input:focus,.adform select:focus,.adform textarea:focus{outline:2px solid var(--acc);outline-offset:1px}
+.checks{border:0;margin:0;padding:0;display:grid;gap:8px}
+.checks label,.consent{display:flex;gap:8px;align-items:flex-start;font-weight:500;font-size:15px;line-height:1.4}
+.checks input,.consent input{width:18px;height:18px;margin-top:2px;flex:none}
+.hint{font-weight:400;color:var(--mut);font-size:13px}
+button.send{justify-self:start;background:var(--dark);color:#fff;font-weight:800;border:0;padding:12px 22px;font-size:16px;cursor:pointer}
+button.send:hover{background:var(--acc)}
+.hp{position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden}
+.social{display:flex;gap:10px;flex-wrap:wrap}
+.social a{display:inline-flex;align-items:center;gap:8px;border:1px solid var(--line);padding:8px 12px;font-weight:700}
+.social svg{display:block}
 @media(max-width:980px){.lead{grid-template-columns:1fr}.grid,.g3{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.rel .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1{font-size:30px}.grid,.g3,.rel .grid{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}}
+@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}}
 """
 
 def alt_links(l, pathfn):
@@ -277,11 +303,11 @@ def alt_links(l, pathfn):
     out.append(f'<link rel="alternate" hreflang="x-default" href="{abs_("/")}">')
     return "\n".join(out)
 
-def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None):
+def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None, robots="index,follow,max-image-preview:large,max-snippet:-1"):
     h=[f'<!doctype html><html lang="{l}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
     f'<title>{e(title)}</title><meta name="description" content="{e(desc)}">',
     f'<meta name="keywords" content="{e(", ".join(kws))}">',
-    '<meta name="robots" content="index,follow,max-image-preview:large,max-snippet:-1">',
+    f'<meta name="robots" content="{e(robots)}">',
     f'<link rel="canonical" href="{abs_(path)}">',
     alt_links(l,pathfn),
     f'<meta property="og:site_name" content="{SITE}"><meta property="og:type" content="{typ}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{abs_(path)}"><meta property="og:image" content="{abs_(og_img)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="{LOCALE[l]}">']
@@ -302,6 +328,7 @@ def header(l, pathfn, active=None):
     sw="".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}" {"aria-current=\"true\"" if x==l else ""} title="{LANGNAME[x]}">{x.upper()}</a>' for x in LANGS)
     nav=f'<li><a href="{href(f"/{l}/")}" {"aria-current=\"page\"" if active=="home" else ""}>{u["home"]}</a></li>'+"".join(
       f'<li><a href="{href(f"/{l}/{c}/")}" {"aria-current=\"page\"" if active==c else ""}>{CATN[l][c]}</a></li>' for c in CATS)
+    nav+=f'<li class="promo"><a href="{href(f"/{l}/advertising/")}" {"aria-current=\"page\"" if active=="advertising" else ""}>{u["ads"]}</a></li>'
     return (f'<body><a class="skip" href="#main">{u["skip"]}</a><header class="top"><div class="wrap"><a class="logo" href="{href(f"/{l}/")}" aria-label="{SITE}"><b>CyNews</b><i>24</i></a>'
       f'<div class="tr"><span class="date">{fdate(TODAY,l,True)}</span><nav class="lang" aria-label="{u["lang"]}">{sw}</nav></div></div></header>'
       f'<nav class="cats" aria-label="{u["menu"]}"><div class="wrap"><ul>{nav}</ul></div></nav>')
@@ -309,7 +336,7 @@ def header(l, pathfn, active=None):
 def footer(l):
     u=UI[l]
     return (f'<footer><div class="wrap"><div class="logo"><b>CyNews</b><i>24</i></div><p>{u["footer"]}</p>'
-      f'<p><a href="{href(f"/{l}/about/")}">{u["about"]}</a> · '+" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)+f'</p><p>© 2026 {SITE}. {u["copy"]}</p></div></footer></body></html>')
+      f'<p><a href="{href(f"/{l}/about/")}">{u["about"]}</a> · <a href="{href(f"/{l}/advertising/")}">{u["ads"]}</a> · '+" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)+f'</p><p>© 2026 {SITE}. {u["copy"]}</p></div></footer></body></html>')
 
 def S_(s,key,l): return s[key][l]
 def img_tag(s,l,w,lazy=True,prio=False,sizes="100%"):
@@ -340,7 +367,7 @@ def page_home(l):
     latest=sorted_all()[:8]
     kws=GKW[l]
     ld=[{"@context":"https://schema.org","@type":"WebSite","name":SITE,"url":abs_(f"/{l}/"),"inLanguage":l,"description":HOME_D[l],"publisher":{"@id":abs_("/")+"#org"}},
-        {"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512},"description":HOME_D[l]},
+        {"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),"email":AD_EMAIL,"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512},"description":HOME_D[l],"contactPoint":{"@type":"ContactPoint","contactType":"advertising","email":AD_EMAIL,"availableLanguage":["Russian","English","Greek"],"url":abs_(f"/{l}/advertising/")}},
         {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":abs_(f"/{l}/{s['slug']}/"),"name":s["title"][l]} for i,s in enumerate(sorted_all())]}]
     h=head(l,HOME_T[l],HOME_D[l],kws,f"/{l}/",pathfn,"/assets/og-default.jpg",jsonld=ld)
     h+=header(l,pathfn,"home")
@@ -403,6 +430,145 @@ def page_about(l):
     h+=f'<main id="main" class="wrap"><article class="a"><h1 style="margin-top:24px">{e(a["t"])}</h1><div class="body">'+"".join(f"<p>{e(p)}</p>" for p in a["p"])+'</div></article></main>'+footer(l)
     return h
 
+AD_EMAIL="cynews24@gmail.com"
+# Real profile URLs only. An empty string is not rendered, so unfinished accounts stay hidden.
+SOCIAL={"facebook":"","instagram":"","telegram":""}
+AD={
+ "en":dict(
+  title="Advertise & Contact",
+  desc="Advertise on CyNews 24, the Cyprus news site in Russian, English and Greek. Rates and a media kit are available on request.",
+  pitch="CyNews 24 publishes Cyprus news in Russian, English and Greek. Readers include residents, expats, investors and people buying property. Every story is available in all three languages.",
+  rates="Rates are available on request. A media kit is also available on request.",
+  formats_h="Formats",
+  formats=[
+   ("Display banners","Leaderboard 728×90, MPU 300×250 and mobile 320×100, in the header or the sidebar."),
+   ("Sponsored articles","A story published with a clear “Sponsored” label."),
+   ("Category sponsorship","Your brand alongside a section, for example Real Estate."),
+   ("Native placements","A labelled item in the news feed."),
+   ("Social media posts","A post on CyNews 24’s Facebook, Instagram or Telegram."),
+   ("Newsletter and Telegram","A mention in the newsletter or the Telegram channel."),
+   ("Three languages","One campaign prepared for Russian, English and Greek.")],
+  standards="Sponsored content is labelled in line with advertising standards and is kept separate from newsroom reporting.",
+  contact_h="Contact", email_l="Email",
+  name="Name", company="Company", email="Email", phone="Phone", optional="optional",
+  formats_l="Formats you are interested in",
+  budget_l="Your budget", budget_hint="Our rates are on request. This only tells us the scale you have in mind.",
+  budgets=[("","Prefer not to say"),("discuss","To be discussed"),("smaller","A smaller campaign"),("larger","A larger campaign")],
+  message="Message",
+  consent="I agree that CyNews 24 may use these details only to reply to this advertising enquiry.",
+  send="Send request", honey="Leave this field empty", follow="Follow us",
+  thanks_t="Thank you",
+  thanks="Your advertising enquiry has been sent. We will reply to the email address you provided.",
+  back="Back to advertising"),
+ "ru":dict(
+  title="Реклама и контакты",
+  desc="Реклама на CyNews 24 — новости Кипра на русском, английском и греческом. Стоимость и медиакит предоставляются по запросу.",
+  pitch="CyNews 24 публикует новости Кипра на русском, английском и греческом языках. Среди читателей — жители острова, экспаты, инвесторы и покупатели недвижимости. Каждый материал доступен на всех трёх языках.",
+  rates="Стоимость — по запросу. Медиакит тоже отправим по запросу.",
+  formats_h="Форматы",
+  formats=[
+   ("Баннеры","Лидерборд 728×90, MPU 300×250 и мобильный баннер 320×100 — в шапке или в боковой колонке."),
+   ("Спонсорские статьи","Материал публикуется с явной пометкой «Реклама»."),
+   ("Спонсорство раздела","Бренд рядом с рубрикой, например «Недвижимость»."),
+   ("Нативные размещения","Помеченный материал в ленте новостей."),
+   ("Посты в соцсетях","Публикация на страницах CyNews 24 в Facebook, Instagram или Telegram."),
+   ("Рассылка и Telegram","Упоминание в рассылке или в Telegram-канале."),
+   ("Три языка","Одна кампания сразу на русском, английском и греческом.")],
+  standards="Рекламные материалы помечаются по стандартам рекламы и отделены от редакционных новостей.",
+  contact_h="Контакты", email_l="Эл. почта",
+  name="Имя", company="Компания", email="Эл. почта", phone="Телефон", optional="необязательно",
+  formats_l="Интересующие форматы",
+  budget_l="Ваш бюджет", budget_hint="Наши расценки — по запросу. Здесь только масштаб, который вы имеете в виду.",
+  budgets=[("","Не указывать"),("discuss","Обсудим"),("smaller","Небольшая кампания"),("larger","Крупная кампания")],
+  message="Сообщение",
+  consent="Я согласен, что CyNews 24 использует эти данные только чтобы ответить на запрос о рекламе.",
+  send="Отправить запрос", honey="Оставьте это поле пустым", follow="Мы в соцсетях",
+  thanks_t="Спасибо",
+  thanks="Запрос о рекламе отправлен. Мы ответим на указанный адрес электронной почты.",
+  back="К странице рекламы"),
+ "el":dict(
+  title="Διαφήμιση & Επικοινωνία",
+  desc="Διαφήμιση στο CyNews 24, ειδήσεις Κύπρου στα ρωσικά, αγγλικά και ελληνικά. Τιμές και media kit κατόπιν αιτήματος.",
+  pitch="Το CyNews 24 δημοσιεύει ειδήσεις Κύπρου στα ρωσικά, αγγλικά και ελληνικά. Το κοινό περιλαμβάνει κατοίκους, expats, επενδυτές και αγοραστές ακινήτων. Κάθε θέμα υπάρχει και στις τρεις γλώσσες.",
+  rates="Οι τιμές δίνονται κατόπιν αιτήματος. Το media kit αποστέλλεται επίσης κατόπιν αιτήματος.",
+  formats_h="Μορφές",
+  formats=[
+   ("Banners","Leaderboard 728×90, MPU 300×250 και mobile 320×100, στην κεφαλίδα ή στην πλαϊνή στήλη."),
+   ("Χορηγούμενα άρθρα","Άρθρο που δημοσιεύεται με σαφή ένδειξη «Χορηγούμενο»."),
+   ("Χορηγία ενότητας","Η επωνυμία δίπλα σε μια ενότητα, για παράδειγμα Ακίνητα."),
+   ("Native τοποθετήσεις","Επισημασμένο στοιχείο στη ροή ειδήσεων."),
+   ("Αναρτήσεις στα social","Ανάρτηση στο Facebook, το Instagram ή το Telegram του CyNews 24."),
+   ("Newsletter και Telegram","Αναφορά στο newsletter ή στο κανάλι Telegram."),
+   ("Τρεις γλώσσες","Μία καμπάνια στα ρωσικά, αγγλικά και ελληνικά.")],
+  standards="Το χορηγούμενο περιεχόμενο επισημαίνεται σύμφωνα με τα πρότυπα διαφήμισης και διαχωρίζεται από το ρεπορτάζ της σύνταξης.",
+  contact_h="Επικοινωνία", email_l="Email",
+  name="Όνομα", company="Εταιρεία", email="Email", phone="Τηλέφωνο", optional="προαιρετικό",
+  formats_l="Μορφές που σας ενδιαφέρουν",
+  budget_l="Ο προϋπολογισμός σας", budget_hint="Οι τιμές μας δίνονται κατόπιν αιτήματος. Εδώ δηλώνετε μόνο την κλίμακα που έχετε κατά νου.",
+  budgets=[("","Χωρίς ένδειξη"),("discuss","Προς συζήτηση"),("smaller","Μικρότερη καμπάνια"),("larger","Μεγαλύτερη καμπάνια")],
+  message="Μήνυμα",
+  consent="Συμφωνώ ότι το CyNews 24 θα χρησιμοποιήσει αυτά τα στοιχεία μόνο για να απαντήσει σε αυτό το αίτημα διαφήμισης.",
+  send="Αποστολή αιτήματος", honey="Αφήστε κενό αυτό το πεδίο", follow="Ακολουθήστε μας",
+  thanks_t="Ευχαριστούμε",
+  thanks="Το αίτημα διαφήμισης στάλθηκε. Θα απαντήσουμε στη διεύθυνση email που δώσατε.",
+  back="Πίσω στη διαφήμιση"),
+}
+def _icons():
+    return {
+     "facebook":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>',
+     "instagram":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm8 2H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3zm-4 3.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2A1.8 1.8 0 1 0 13.8 12 1.8 1.8 0 0 0 12 10.2zM17.4 6.6a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>',
+     "telegram":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21 4 2.8 11.2c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.1.9.8.9.4 0 .6-.2.8-.4l2.6-2.5 5.4 4c.6.4 1.2.2 1.3-.6L22.2 5c.2-1-.4-1.4-1.2-1zM8.7 14.3l9.2-5.8c.4-.3.8 0 .5.3l-7.6 6.9-.3 3.3z"/></svg>',
+    }
+def social_block(l):
+    a=AD[l]; icons=_icons(); names={"facebook":"Facebook","instagram":"Instagram","telegram":"Telegram"}
+    bits=[]
+    for key in ("facebook","instagram","telegram"):
+        url=(SOCIAL.get(key) or "").strip()
+        if not url: continue
+        bits.append(f'<a href="{e(url)}" rel="noopener noreferrer">{icons[key]}{e(names[key])}</a>')
+    if not bits: return ""
+    return f'<h2>{e(a["follow"])}</h2><div class="social">{"".join(bits)}</div>'
+def contact_point(l):
+    return {"@type":"ContactPoint","contactType":"advertising","email":AD_EMAIL,"availableLanguage":["Russian","English","Greek"],"url":abs_(f"/{l}/advertising/")}
+def ad_form(l):
+    a=AD[l]
+    checks="".join(f'<label><input type="checkbox" name="formats" value="{e(name)}"> <span>{e(name)}</span></label>' for name,_desc in a["formats"])
+    opts="".join(f'<option value="{e(v)}">{e(lab)}</option>' for v,lab in a["budgets"])
+    return f'''<form class="adform" action="https://formsubmit.co/{AD_EMAIL}" method="POST">
+<input type="hidden" name="_subject" value="CyNews 24 advertising request">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_next" value="{e(abs_(f"/{l}/advertising/thanks/"))}">
+<p class="hp" aria-hidden="true"><label>{e(a["honey"])}<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
+<label class="fld"><span>{e(a["name"])}</span><input type="text" name="name" required autocomplete="name"></label>
+<label class="fld"><span>{e(a["company"])}</span><input type="text" name="company" required autocomplete="organization"></label>
+<label class="fld"><span>{e(a["email"])}</span><input type="email" name="email" required autocomplete="email"></label>
+<label class="fld"><span>{e(a["phone"])} <span class="hint">({e(a["optional"])})</span></span><input type="tel" name="phone" autocomplete="tel"></label>
+<fieldset class="checks"><legend>{e(a["formats_l"])}</legend>{checks}</fieldset>
+<label class="fld"><span>{e(a["budget_l"])} <span class="hint">({e(a["optional"])})</span></span><select name="budget">{opts}</select><span class="hint">{e(a["budget_hint"])}</span></label>
+<label class="fld"><span>{e(a["message"])}</span><textarea name="message" required></textarea></label>
+<label class="consent"><input type="checkbox" name="consent" value="yes" required> <span>{e(a["consent"])}</span></label>
+<button class="send" type="submit">{e(a["send"])}</button>
+</form>'''
+def page_advertising(l):
+    a=AD[l]; pathfn=lambda x:f"/{x}/advertising/"
+    ld=[{"@context":"https://schema.org","@type":"ContactPage","name":a["title"],"url":abs_(f"/{l}/advertising/"),"inLanguage":l,"description":a["desc"],
+         "mainEntity":{"@type":"Organization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),"email":AD_EMAIL,"contactPoint":contact_point(l)}}]
+    cards="".join(f'<article class="fmt"><h3>{e(n)}</h3><p>{e(d)}</p></article>' for n,d in a["formats"])
+    h=head(l,f'{a["title"]} | {SITE}',a["desc"],[a["title"],SITE,"Cyprus"],f"/{l}/advertising/",pathfn,"/assets/og-default.jpg",jsonld=ld)
+    h+=header(l,pathfn,"advertising")
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(a["title"])}</h1><p class="leadin">{e(a["pitch"])}</p><p class="adnote">{e(a["rates"])}</p>'
+    h+=f'<h2>{e(a["formats_h"])}</h2><div class="fmts">{cards}</div><p class="adnote">{e(a["standards"])}</p>'
+    h+=f'<h2>{e(a["contact_h"])}</h2><p>{e(a["email_l"])}: <a class="mail" href="mailto:{AD_EMAIL}">{AD_EMAIL}</a></p>'
+    h+=ad_form(l)+social_block(l)+'</article></main>'+footer(l)
+    return h
+def page_ad_thanks(l):
+    a=AD[l]; pathfn=lambda x:f"/{x}/advertising/thanks/"
+    h=head(l,f'{a["thanks_t"]} | {SITE}',a["thanks"],[SITE],f"/{l}/advertising/thanks/",pathfn,"/assets/og-default.jpg",robots="noindex,follow")
+    h+=header(l,pathfn,"advertising")
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(a["thanks_t"])}</h1><p class="leadin">{e(a["thanks"])}</p><p><a class="mail" href="{href(f"/{l}/advertising/")}">{e(a["back"])}</a></p></article></main>'+footer(l)
+    return h
+
 def page_root():
     # language chooser = x-default
     alts="\n".join(f'<link rel="alternate" hreflang="{x}" href="{abs_(f"/{x}/")}">' for x in LANGS)+f'\n<link rel="alternate" hreflang="x-default" href="{abs_("/")}">'
@@ -443,6 +609,7 @@ def sitemap():
     for c in CATS: x.append(entry(lambda l,c=c:f"/{l}/{c}/",TODAY,"0.7"))
     for s in STORIES: x.append(entry(lambda l,s=s:f"/{l}/{s['slug']}/",TODAY,"0.8"))
     x.append(entry(lambda l:f"/{l}/about/",TODAY,"0.3"))
+    x.append(entry(lambda l:f"/{l}/advertising/",TODAY,"0.4"))
     x.append('</urlset>'); return "".join(x)
 
 def w(path,content):
@@ -459,7 +626,10 @@ def main():
         w(f"/{l}/index.html",page_home(l))
         for c in CATS: w(f"/{l}/{c}/index.html",page_cat(l,c))
         for s in STORIES: w(f"/{l}/{s['slug']}/index.html",page_article(l,s))
-        w(f"/{l}/about/index.html",page_about(l)); w(f"/{l}/feed.xml",rss(l))
+        w(f"/{l}/about/index.html",page_about(l))
+        w(f"/{l}/advertising/index.html",page_advertising(l))
+        w(f"/{l}/advertising/thanks/index.html",page_ad_thanks(l))
+        w(f"/{l}/feed.xml",rss(l))
     w("/sitemap.xml",sitemap())
     w("/robots.txt",f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
     w("/404.html",f'<!doctype html><meta charset="utf-8"><title>404 — {SITE}</title><meta name="robots" content="noindex"><link rel="stylesheet" href="{href("/assets/css/style.css")}"><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p><div class="btns"><a href="{href("/ru/")}">RU</a><a href="{href("/en/")}">EN</a><a href="{href("/el/")}">EL</a></div></div></main>')
