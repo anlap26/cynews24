@@ -4,6 +4,7 @@ from urllib.parse import urlparse
 from PIL import Image, ImageDraw, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
+import mycytax
 with open(os.path.join(HERE,"events.json"),encoding="utf8") as _ef:
     _EV=json.load(_ef)
 EV_EVENTS=_EV["events"]
@@ -135,7 +136,7 @@ UI = {
   read="Read more",tags="Topics",lang="Language",about="About us",ads="Advertise & Contact",events="Events",menu="Sections",skip="Skip to content",
   policy="Editorial policy",privacy="Privacy policy",published="Published",team="CyNews 24 Editorial Team",
   tg="Telegram",tg_cta="Follow Cyprus news on Telegram",
-  tg_ru="Telegram (RU)",tg_en="Telegram (EN)",mycytax="Property & tax calculators — MyCyTax",
+  tg_ru="Telegram (RU)",tg_en="Telegram (EN)",
   tagline="Cyprus news in three languages",
   footer="CyNews 24 summarises public reporting from Cypriot and international media in Russian, English and Greek. Articles are rewritten in our own words and link to their sources; photographs are used under open licences and credited. CyNews 24 is not affiliated with the outlets cited.",
   copy="All rights reserved.",updated="Updated",home_h="Top stories from Cyprus",realestate_h="Real estate & planning",allnews="All news",
@@ -146,7 +147,7 @@ UI = {
   read="Читать далее",tags="Темы",lang="Язык",about="О проекте",ads="Реклама и контакты",events="Мероприятия",menu="Разделы",skip="Перейти к содержанию",
   policy="Редакционная политика",privacy="Политика конфиденциальности",published="Опубликовано",team="Редакционная группа CyNews 24",
   tg="Telegram",tg_cta="Подписывайтесь на наш Telegram-канал — новости Кипра первыми",
-  tg_ru="Telegram (RU)",tg_en="Telegram (EN)",mycytax="Калькуляторы недвижимости — MyCyTax",
+  tg_ru="Telegram (RU)",tg_en="Telegram (EN)",
   tagline="Новости Кипра на трёх языках",
   footer="CyNews 24 обобщает публикации кипрских и международных СМИ на русском, английском и греческом языках. Тексты написаны своими словами и содержат ссылки на источники; фотографии используются по открытым лицензиям с указанием автора. CyNews 24 не связан с упомянутыми изданиями.",
   copy="Все права защищены.",updated="Обновлено",home_h="Главные новости Кипра",realestate_h="Недвижимость и градостроительство",allnews="Все новости",
@@ -157,7 +158,7 @@ UI = {
   read="Διαβάστε περισσότερα",tags="Θέματα",lang="Γλώσσα",about="Σχετικά με εμάς",ads="Διαφήμιση & Επικοινωνία",events="Εκδηλώσεις",menu="Ενότητες",skip="Μετάβαση στο περιεχόμενο",
   policy="Συντακτική πολιτική",privacy="Πολιτική απορρήτου",published="Δημοσιεύτηκε",team="Συντακτική ομάδα CyNews 24",
   tg="Telegram",tg_cta="Ακολουθήστε μας στο Telegram",
-  tg_ru="Telegram (RU)",tg_en="Telegram (EN)",mycytax="Υπολογιστές ακινήτων — MyCyTax",
+  tg_ru="Telegram (RU)",tg_en="Telegram (EN)",
   tagline="Ειδήσεις Κύπρου σε τρεις γλώσσες",
   footer="Το CyNews 24 συνοψίζει δημοσιεύματα κυπριακών και διεθνών μέσων στα ρωσικά, αγγλικά και ελληνικά. Τα κείμενα γράφονται με δικά μας λόγια και παραπέμπουν στις πηγές τους· οι φωτογραφίες χρησιμοποιούνται με ανοιχτές άδειες και αναφέρουν τον δημιουργό. Το CyNews 24 δεν συνδέεται με τα μέσα που αναφέρονται.",
   copy="Με επιφύλαξη παντός δικαιώματος.",updated="Ενημερώθηκε",home_h="Κορυφαίες ειδήσεις από την Κύπρο",realestate_h="Ακίνητα και πολεοδομία",allnews="Όλες οι ειδήσεις",
@@ -459,6 +460,11 @@ figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6p
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}.tags li{border:1px solid var(--line);border-radius:20px;padding:3px 12px;font-size:13px;color:#33383f}
 .tgcta{margin:4px 0 28px}.tgcta a{display:flex;align-items:center;gap:12px;background:var(--dark);color:#fff;padding:14px 16px;font-weight:700;font-size:17px;line-height:1.35}
 .tgcta a:hover{background:var(--acc)}.tgcta span{min-width:0}.tgcta svg{flex:none}
+.sister{background:var(--soft);border-left:4px solid var(--acc);padding:14px 16px;margin:8px 0 18px}
+.sister h2{font-size:16px;margin:0 0 8px}.sister ul{margin:0;padding-left:18px}.sister li{margin:4px 0}
+.sister a,.sisterline a{color:#0b57b0;text-decoration:underline}
+.sisterline{margin:0 0 16px;font-size:15px}
+footer .projects{margin:12px 0 4px}footer .projects .plabel{font-weight:800;color:#fff;margin:0 0 2px}
 .rel h2{font-size:22px;border-top:4px solid var(--ink);padding-top:8px}
 .rel .grid{grid-template-columns:repeat(3,1fr)}
 .langsw{display:flex;gap:10px;font-size:14px;margin:0 0 6px;flex-wrap:wrap}.langsw a{text-decoration:underline}
@@ -610,7 +616,7 @@ def footer(l):
     langs=" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)
     return (f'<footer><div class="wrap"><div class="logo"><b>CyNews</b><i>24</i></div><p>{u["footer"]}</p>'
       f'<nav class="flinks" aria-label="footer">{fl}</nav>{footer_social(l)}'
-      f'<p><a href="https://mycytax.com/">{e(u["mycytax"])}</a></p>'
+      f'{mycytax.projects_html(l, mycytax_catalog())}'
       f'<p>{langs}</p><p>© 2026 {SITE}. {u["copy"]}</p></div></footer></body></html>')
 
 def S_(s,key,l): return s[key][l]
@@ -729,6 +735,8 @@ def page_article(l,s):
     if s["kw"][l]:
         h+=f'<h2 style="font-size:16px;margin:0 0 8px">{u["tags"]}</h2><ul class="tags">'+"".join(f'<li>{e(k)}</li>' for k in s["kw"][l])+'</ul>'
     h+=f'<p class="langsw">'+" ".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS if x!=l)+'</p>'
+    # Page language, immediately before the Telegram subscribe line.
+    h+=mycytax.article_crosslink(l, s["title"][l], s["body"][l], s["kw"][l], mycytax_catalog())
     cta=telegram_for(l)
     if cta:
         h+=f'<p class="tgcta"><a href="{e(cta)}" target="_blank" rel="noopener">{_icons()["telegram"]}<span>{e(u["tg_cta"])}</span></a></p>'
@@ -1093,6 +1101,13 @@ def news_sitemap():
     x.append("</urlset>")
     return "".join(x)
 
+_MYCYTAX=None
+def mycytax_catalog():
+    """Fetched once per build. A sitemap timeout falls back to the committed list."""
+    global _MYCYTAX
+    if _MYCYTAX is None:
+        _MYCYTAX=mycytax.load_catalog()
+    return _MYCYTAX
 def w(path,content):
     p=OUT+path; os.makedirs(os.path.dirname(p),exist_ok=True); open(p,"w",encoding="utf8").write(content)
 
