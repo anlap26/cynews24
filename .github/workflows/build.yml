@@ -3,6 +3,8 @@
 # Pushes made with GITHUB_TOKEN do not start workflows again, including the Pages
 # build. A normal push already starts Pages, so this workflow requests a build
 # only after its own commit, or on the daily/manual run. There is no loop.
+# source/content/telegram-posted.json is excluded so a state-file commit cannot
+# rebuild the site even if a later token does start workflows.
 name: Build site
 
 on:
@@ -10,10 +12,12 @@ on:
     branches: [main]
     paths:
       - "source/**"
+      - "!source/content/telegram-posted.json"
       - ".github/workflows/build.yml"
   pull_request:
     paths:
       - "source/**"
+      - "!source/content/telegram-posted.json"
       - "admin/**"
       - ".github/workflows/build.yml"
   workflow_dispatch:
@@ -44,6 +48,9 @@ jobs:
       - uses: actions/setup-python@v5
         with:
           python-version: "3.12"
+
+      - name: Test Telegram poster
+        run: python -m unittest discover -s source -p 'test_*.py' -v
 
       - name: Install fonts and Pillow
         run: |

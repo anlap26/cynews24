@@ -1,0 +1,72 @@
+# Posts each new article once @cynews24 (Russian, /ru/) and @cynews24en
+# (English, /en/) after Build site has committed the pages. The job then waits
+# until the article URL returns HTTP 200 before sending, so link previews work.
+#
+# Dedup state lives in source/content/telegram-posted.json. This workflow commits
+# that file with GITHUB_TOKEN, which does not start other workflows. build.yml
+# also ignores that path, so a state commit cannot rebuild the site or post again.
+# English is stored separately: a missing translation is left unmarked and is
+# posted later, once, when the English text exists and is live.
+#
+# Repository secret: TELEGRAM_BOT_TOKEN (bot @Cynews24_poster_bot). If it is
+# unset the job logs a notice, does not change the state file and exits green.
+# The dry_run dispatch input prints the messages and does not call Telegram.
+name: Post to Telegram
+
+on:
+  workflow_run:
+    workflows: ["Build site"]
+    types: [completed]
+    branches: [main]
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Print the Telegram messages and do not send them"
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: telegram-post
+  cancel-in-progress: false
+
+jobs:
+  post:
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      (github.event.workflow_run.conclusion == 'success' &&
+       github.event.workflow_run.head_branch == 'main')
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Update main
+        run: git pull --ff-only origin main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Post new articles
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'true' }}
+          PUSH_STATE: "1"
+          BASE: https://cynews24.net
+        run: |
+          if [ -n "$TELEGRAM_BOT_TOKEN" ]; then
+            echo "TELEGRAM_BOT_TOKEN is configured (value not printed)."
+          else
+            echo "TELEGRAM_BOT_TOKEN is not set (value not printed)."
+          fi
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry run: messages are printed below and nothing is sent."
+          fi
+          python source/telegram_post.py
