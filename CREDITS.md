@@ -20,5 +20,16 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `fencing-bronze` | A fencing bout at the 2013 World Championships; the athletes are not identifiable and this is not Aris Kiayias | Marie-Lan Nguyen | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Final_2013_Fencing_WCH_FMS-EQ_t194733.jpg) |
 | `nicosia-christmas-market` | Eleftheria Square, Nicosia | Iakovos Hatzistavrou, European Commission | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eleftherias_Square_5.jpg) |
 
+## Event photographs
+
+| Image | Author | Licence | Original |
+|---|---|---|---|
+| `events/eleftheria` | Iakovos Hatzistavrou, European Commission | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eleftherias_Square_5.jpg) |
+| `events/finikoudes` | An. Antoniou | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:A@a._Larnaca%22finikoudes%22_-_panoramio.jpg) |
+| `events/spilia` | Mboesch | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Spilia-village.jpg) |
+| `events/kakopetria` | Petros3 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kakopetria_village_and_Troodos_Mountains_in_the_background_Republic_of_Cyprus.jpg) |
+| `events/lefkara` | Qasinka | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2022_03_Pano_Lefkara_1.jpg) |
+| `events/ayia-napa` | Wojciech Biegun | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ayia_Napa_harbour,_Cyprus_-_panoramio.jpg) |
+
 CC BY-SA files: the cropped, resized and watermarked images published with the site are adaptations and remain under the same CC BY-SA licence as the original.
 
