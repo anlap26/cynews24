@@ -475,7 +475,7 @@ def footer(l):
     langs=" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)
     return (f'<footer><div class="wrap"><div class="logo"><b>CyNews</b><i>24</i></div><p>{u["footer"]}</p>'
       f'<nav class="flinks" aria-label="footer">{fl}</nav>{footer_social(l)}'
-      f'<p><a href="https://anlap26.github.io/mycytax/">{e(u["mycytax"])}</a></p>'
+      f'<p><a href="https://anlap26.github.io/MyCyTax/">{e(u["mycytax"])}</a></p>'
       f'<p>{langs}</p><p>© 2026 {SITE}. {u["copy"]}</p></div></footer></body></html>')
 
 def S_(s,key,l): return s[key][l]
