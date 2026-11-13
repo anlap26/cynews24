@@ -1,0 +1,95 @@
+{
+  "note": "Slugs already handled for the Facebook Page. FB_POST_LANG chooses the post language (default en, link /en/; ru links to /ru/, el to /el/). An entry means do not post again.",
+  "posted": {
+    "cape-greco-monastery-legalisation": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "cyprus-video-game-industry": {
+      "at": "2026-11-12T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "diabetes-undiagnosed-cyprus": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "driver-hours-campaign": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "eu-ai-summit-dublin": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "fintech-jobs-not-registrations": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "fitto-cyprus-talks": {
+      "at": "2026-11-12T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "frozen-assets-51-million": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "governors-beach-caravan-eviction": {
+      "at": "2026-11-11T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "homes-without-electricity-paphos": {
+      "at": "2026-11-04T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "kiayias-youth-olympic-fencing-bronze": {
+      "at": "2026-11-10T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "microsoft-outage-second-day": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "missing-mushroom-picker-paphos-forest": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "nicosia-christmas-market-2026": {
+      "at": "2026-11-10T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "pedestrian-crossing-camera-fine": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "pension-reform-1-january": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "planning-enforcement-audit": {
+      "at": "2026-11-13T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    },
+    "property-sale-fines-100000": {
+      "at": "2026-11-09T00:00:00Z",
+      "lang": "en",
+      "status": "seeded"
+    }
+  }
+}
