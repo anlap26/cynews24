@@ -1,0 +1,181 @@
+{
+  "origin": "https://mycytax.com",
+  "pages": [
+    {
+      "id": "transfer-fees",
+      "kind": "calculator",
+      "path": "/calculators/transfer-fees/",
+      "topics": {"property": 2, "tax": 2, "purchase": 5},
+      "title": {
+        "en": "Property transfer fees",
+        "ru": "Сборы за переоформление",
+        "el": "Τέλη μεταβίβασης ακινήτου"
+      }
+    },
+    {
+      "id": "stamp-duty",
+      "kind": "calculator",
+      "path": "/calculators/stamp-duty/",
+      "topics": {"property": 2, "tax": 3, "purchase": 4},
+      "title": {
+        "en": "Stamp duty on a purchase contract",
+        "ru": "Гербовый сбор с договора купли",
+        "el": "Χαρτόσημο συμβολαίου αγοράς"
+      }
+    },
+    {
+      "id": "vat",
+      "kind": "calculator",
+      "path": "/calculators/vat/",
+      "topics": {"vat": 6, "tax": 2, "property": 2},
+      "title": {
+        "en": "VAT on a new property",
+        "ru": "НДС на новое жильё",
+        "el": "ΦΠΑ σε νέα κατοικία"
+      }
+    },
+    {
+      "id": "capital-gains",
+      "kind": "calculator",
+      "path": "/calculators/capital-gains/",
+      "topics": {"tax": 4, "sale": 5, "property": 2},
+      "title": {
+        "en": "Capital gains tax",
+        "ru": "Налог на прирост капитала",
+        "el": "Φόρος κεφαλαιουχικών κερδών"
+      }
+    },
+    {
+      "id": "rental-yield",
+      "kind": "calculator",
+      "path": "/calculators/rental-yield/",
+      "topics": {"rent": 6, "tax": 2, "property": 2},
+      "title": {
+        "en": "Rental yield and income tax",
+        "ru": "Доходность аренды и подоходный налог",
+        "el": "Απόδοση ενοικίου και φόρος εισοδήματος"
+      }
+    },
+    {
+      "id": "mortgage",
+      "kind": "calculator",
+      "path": "/calculators/mortgage/",
+      "topics": {"mortgage": 6, "property": 2},
+      "title": {
+        "en": "Mortgage payment",
+        "ru": "Платёж по ипотеке",
+        "el": "Δόση στεγαστικού"
+      }
+    },
+    {
+      "id": "buying-as-a-foreigner",
+      "kind": "guide",
+      "path": "/guides/buying-as-a-foreigner/",
+      "topics": {"property": 3, "residency": 2, "purchase": 4},
+      "title": {
+        "en": "Buying property in Cyprus as a foreigner, step by step",
+        "ru": "Покупка недвижимости на Кипре иностранцем, шаг за шагом",
+        "el": "Αγορά ακινήτου στην Κύπρο από ξένο, βήμα βήμα"
+      }
+    },
+    {
+      "id": "total-cost",
+      "kind": "guide",
+      "path": "/guides/total-cost/",
+      "topics": {"property": 3, "tax": 2, "purchase": 5},
+      "title": {
+        "en": "The total cost of buying property in Cyprus",
+        "ru": "Полная стоимость покупки недвижимости на Кипре",
+        "el": "Το συνολικό κόστος αγοράς ακινήτου στην Κύπρο"
+      }
+    },
+    {
+      "id": "selling-and-taxes",
+      "kind": "guide",
+      "path": "/guides/selling-and-taxes/",
+      "topics": {"tax": 4, "sale": 5, "property": 3},
+      "title": {
+        "en": "Selling property in Cyprus and the taxes",
+        "ru": "Продажа недвижимости на Кипре и налоги",
+        "el": "Πώληση ακινήτου στην Κύπρο και οι φόροι"
+      }
+    },
+    {
+      "id": "tax-residency",
+      "kind": "guide",
+      "path": "/guides/tax-residency/",
+      "topics": {"residency": 6, "tax": 3, "salary": 3, "pension": 3, "social": 3},
+      "title": {
+        "en": "Cyprus tax residency: the 60-day rule and the 183-day rule",
+        "ru": "Налоговое резидентство на Кипре: правило 60 дней и правило 183 дней",
+        "el": "Φορολογική κατοικία στην Κύπρο: ο κανόνας των 60 ημερών και ο κανόνας των 183 ημερών"
+      }
+    },
+    {
+      "id": "non-dom",
+      "kind": "guide",
+      "path": "/guides/non-dom/",
+      "topics": {"tax": 4, "residency": 4, "salary": 2, "pension": 2, "social": 2},
+      "title": {
+        "en": "Non-dom status in Cyprus",
+        "ru": "Статус non-dom на Кипре",
+        "el": "Καθεστώς non-dom στην Κύπρο"
+      }
+    },
+    {
+      "id": "residence-permit",
+      "kind": "guide",
+      "path": "/guides/residence-permit/",
+      "topics": {"residency": 6, "property": 2},
+      "title": {
+        "en": "A residence permit through property investment, Regulation 6(2)",
+        "ru": "Разрешение на проживание через инвестицию в недвижимость, правило 6(2)",
+        "el": "Άδεια διαμονής μέσω επένδυσης σε ακίνητο, Κανονισμός 6(2)"
+      }
+    },
+    {
+      "id": "title-deeds",
+      "kind": "guide",
+      "path": "/guides/title-deeds/",
+      "topics": {"property": 5, "sale": 1, "purchase": 2},
+      "title": {
+        "en": "Title deeds and specific performance",
+        "ru": "Титулы и специальное исполнение",
+        "el": "Τίτλοι ιδιοκτησίας και ειδική εκτέλεση"
+      }
+    },
+    {
+      "id": "renting-out",
+      "kind": "guide",
+      "path": "/guides/renting-out/",
+      "topics": {"rent": 6, "property": 3, "tax": 2},
+      "title": {
+        "en": "Renting out a Cyprus property on a long let",
+        "ru": "Сдача кипрской недвижимости в долгосрочную аренду",
+        "el": "Ενοικίαση κυπριακού ακινήτου με μακροχρόνια μίσθωση"
+      }
+    },
+    {
+      "id": "off-plan",
+      "kind": "guide",
+      "path": "/guides/off-plan/",
+      "topics": {"property": 3, "vat": 3, "purchase": 3},
+      "title": {
+        "en": "Buying off-plan from a Cyprus developer",
+        "ru": "Покупка на стадии строительства у кипрского застройщика",
+        "el": "Αγορά από τα σχέδια από κυπριακή εταιρεία ανάπτυξης"
+      }
+    },
+    {
+      "id": "taxes-overview",
+      "kind": "guide",
+      "path": "/guides/taxes-overview/",
+      "topics": {"tax": 4, "property": 2, "vat": 1, "salary": 1, "pension": 1, "social": 1},
+      "title": {
+        "en": "Cyprus property taxes, an overview",
+        "ru": "Налоги на недвижимость Кипра: обзор",
+        "el": "Φόροι ακινήτων στην Κύπρο, μια επισκόπηση"
+      }
+    }
+  ]
+}
