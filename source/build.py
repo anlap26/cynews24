@@ -11,6 +11,8 @@ with open(os.path.join(HERE,"events.json"),encoding="utf8") as _ef:
 EV_EVENTS=_EV["events"]
 EV_PHOTOS=_EV["photos"]
 SITE = "CyNews 24"
+ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1547877294743851" crossorigin="anonymous"></script>'
+ADS_TXT = "google.com, pub-1547877294743851, DIRECT, f08c47fec0942fa0\n"
 # Absolute origin, no trailing slash. Include the repo path for GitHub project pages:
 #   BASE=https://cynews24.net python3 build.py
 BASE = os.environ.get("BASE","https://cynews24.net").rstrip("/")
@@ -146,24 +148,24 @@ PRIVACY = {
   sections=[
    ("Who we are",["This policy covers the CyNews 24 website. The publisher is Anna. The site is based in Cyprus. Email: cynews24@gmail.com."]),
    ("Advertising contact form",["The Advertise & Contact page has a form that sends your message through FormSubmit (formsubmit.co) to cynews24@gmail.com. The fields are your name, company, email, phone if you provide one, the formats you select, an optional budget range, your message and your consent. We use those details only to reply to that enquiry. FormSubmit processes the submission in order to deliver the email. We do not sell the details and we do not add them to a marketing list."]),
-   ("Analytics",["The site does not use Google Analytics or any other analytics service. It does not embed third-party tracking scripts."]),
-   ("Cookies",["CyNews 24 does not set its own cookies and does not use advertising cookies. The language chooser on the front page reads the browser language and may redirect once; it does not store a cookie. If you follow a link to another site, that site has its own policy."]),
+   ("Analytics",["The site does not use Google Analytics. It loads Google AdSense (ca-pub-1547877294743851) so Google can show ads. AdSense may receive technical data such as the page address and a cookie identifier."]),
+   ("Cookies",["CyNews 24 does not set its own cookies. The pages load Google AdSense, which may set advertising cookies. The language chooser on the front page reads the browser language and may redirect once; it does not store a cookie. If you follow a link to another site, that site has its own policy."]),
    ("Email",["If you email cynews24@gmail.com, we use the message to answer you or to correct a story. We keep it for as long as that purpose requires."]),
    ("Changes",["If this policy changes, the new text replaces this page."])]),
  "ru":dict(t="Политика конфиденциальности",d="Как CyNews 24 обрабатывает форму рекламного обращения, аналитику и файлы cookie.",
   sections=[
    ("Кто мы",["Эта политика относится к сайту CyNews 24. Издатель — Анна. Сайт базируется на Кипре. Эл. почта: cynews24@gmail.com."]),
    ("Форма рекламного обращения",["На странице «Реклама и контакты» есть форма. Она отправляет сообщение через FormSubmit (formsubmit.co) на cynews24@gmail.com. Поля: имя, компания, эл. почта, телефон, если вы его указали, выбранные форматы, необязательный диапазон бюджета, сообщение и согласие. Мы используем эти сведения только чтобы ответить на это обращение. FormSubmit обрабатывает отправку, чтобы доставить письмо. Мы не продаём эти сведения и не добавляем их в маркетинговый список."]),
-   ("Аналитика",["Сайт не использует Google Analytics и никакой другой сервис аналитики. Сторонние скрипты слежения не подключаются."]),
-   ("Файлы cookie",["CyNews 24 не ставит собственные cookie и не использует рекламные cookie. Выбор языка на первой странице читает язык браузера и может один раз перенаправить; cookie при этом не сохраняется. Если вы переходите по ссылке на другой сайт, у того сайта своя политика."]),
+   ("Аналитика",["Сайт не использует Google Analytics. Он подключает Google AdSense (ca-pub-1547877294743851), чтобы Google мог показывать объявления. AdSense может получать технические данные, например адрес страницы и идентификатор cookie."]),
+   ("Файлы cookie",["CyNews 24 не ставит собственные cookie. Страницы подключают Google AdSense, который может ставить рекламные cookie. Выбор языка на первой странице читает язык браузера и может один раз перенаправить; cookie при этом не сохраняется. Если вы переходите по ссылке на другой сайт, у того сайта своя политика."]),
    ("Почта",["Если вы пишете на cynews24@gmail.com, мы используем письмо, чтобы ответить или исправить материал. Мы храним его, пока это нужно для этой цели."]),
    ("Изменения",["Если политика изменится, новый текст заменит эту страницу."])]),
  "el":dict(t="Πολιτική απορρήτου",d="Πώς το CyNews 24 χειρίζεται τη φόρμα διαφημιστικής επικοινωνίας, τα αναλυτικά και τα cookies.",
   sections=[
    ("Ποιοι είμαστε",["Αυτή η πολιτική καλύπτει τον ιστότοπο CyNews 24. Εκδότρια είναι η Άννα. Ο ιστότοπος έχει έδρα την Κύπρο. Email: cynews24@gmail.com."]),
    ("Φόρμα διαφημιστικής επικοινωνίας",["Η σελίδα Διαφήμιση & Επικοινωνία έχει φόρμα που στέλνει το μήνυμά σας μέσω του FormSubmit (formsubmit.co) στο cynews24@gmail.com. Τα πεδία είναι το όνομα, η εταιρεία, το email, το τηλέφωνο αν το δώσετε, οι μορφές που επιλέγετε, ένα προαιρετικό εύρος προϋπολογισμού, το μήνυμα και η συγκατάθεσή σας. Χρησιμοποιούμε αυτά τα στοιχεία μόνο για να απαντήσουμε σε εκείνο το αίτημα. Το FormSubmit επεξεργάζεται την υποβολή για να παραδώσει το email. Δεν πουλάμε τα στοιχεία και δεν τα προσθέτουμε σε λίστα μάρκετινγκ."]),
-   ("Αναλυτικά",["Ο ιστότοπος δεν χρησιμοποιεί Google Analytics ούτε άλλη υπηρεσία αναλυτικών. Δεν ενσωματώνει σενάρια παρακολούθησης τρίτων."]),
-   ("Cookies",["Το CyNews 24 δεν τοποθετεί δικά του cookies και δεν χρησιμοποιεί διαφημιστικά cookies. Η επιλογή γλώσσας στην πρώτη σελίδα διαβάζει τη γλώσσα του προγράμματος περιήγησης και μπορεί να ανακατευθύνει μία φορά· δεν αποθηκεύει cookie. Αν ακολουθήσετε σύνδεσμο προς άλλον ιστότοπο, εκείνος έχει τη δική του πολιτική."]),
+   ("Αναλυτικά",["Ο ιστότοπος δεν χρησιμοποιεί Google Analytics. Φορτώνει το Google AdSense (ca-pub-1547877294743851) ώστε η Google να εμφανίζει διαφημίσεις. Το AdSense μπορεί να λαμβάνει τεχνικά δεδομένα, όπως τη διεύθυνση της σελίδας και ένα αναγνωριστικό cookie."]),
+   ("Cookies",["Το CyNews 24 δεν τοποθετεί δικά του cookies. Οι σελίδες φορτώνουν το Google AdSense, το οποίο μπορεί να τοποθετεί διαφημιστικά cookies. Η επιλογή γλώσσας στην πρώτη σελίδα διαβάζει τη γλώσσα του προγράμματος περιήγησης και μπορεί να ανακατευθύνει μία φορά· δεν αποθηκεύει cookie. Αν ακολουθήσετε σύνδεσμο προς άλλον ιστότοπο, εκείνος έχει τη δική του πολιτική."]),
    ("Email",["Αν στείλετε email στο cynews24@gmail.com, χρησιμοποιούμε το μήνυμα για να απαντήσουμε ή για να διορθώσουμε ένα άρθρο. Το κρατάμε για όσο χρειάζεται αυτός ο σκοπός."]),
    ("Αλλαγές",["Αν η πολιτική αλλάξει, το νέο κείμενο αντικαθιστά αυτή τη σελίδα."])])}
 e=html.escape
@@ -422,7 +424,7 @@ def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jso
     h.append(f'<link rel="alternate" type="application/rss+xml" title="{SITE} ({l.upper()})" href="{href(f"/{l}/feed.xml")}">')
     if jsonld:
         for j in jsonld: h.append('<script type="application/ld+json">'+json.dumps(j,ensure_ascii=False).replace("</","<\\/")+'</script>')
-    h.append(extra); h.append('</head>')
+    h.append(extra); h.append(ADSENSE); h.append('</head>')
     return "\n".join(h)
 
 def header(l, pathfn, active=None):
@@ -880,7 +882,7 @@ def page_root():
 <meta property="og:site_name" content="{SITE}"><meta property="og:type" content="website"><meta property="og:title" content="CyNews 24 – Cyprus News · Новости Кипра · Ειδήσεις Κύπρου"><meta property="og:description" content="Cyprus news in English, Russian and Greek."><meta property="og:url" content="{abs_("/")}"><meta property="og:image" content="{abs_("/assets/og-default.jpg")}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="CyNews 24"><meta name="twitter:description" content="Cyprus news in English, Russian and Greek."><meta name="twitter:image" content="{abs_("/assets/og-default.jpg")}">
 <link rel="icon" href="{href("/favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="{href("/apple-touch-icon.png")}"><meta name="theme-color" content="#111827"><link rel="stylesheet" href="{href("/assets/css/style.css")}">
-<script type="application/ld+json">{json.dumps(ld)}</script></head>
+<script type="application/ld+json">{json.dumps(ld)}</script>{ADSENSE}</head>
 <body class="choose-body"><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>Cyprus news · Новости Кипра · Ειδήσεις Κύπρου</p>
 <div class="btns"><a href="{href("/ru/")}" hreflang="ru" lang="ru">Русский</a><a href="{href("/en/")}" hreflang="en" lang="en">English</a><a href="{href("/el/")}" hreflang="el" lang="el">Ελληνικά</a></div></div></main>
 <script>try{{var l=(navigator.language||"en").slice(0,2).toLowerCase();if(!/[?&]choose/.test(location.search)&&["ru","en","el"].indexOf(l)>-1&&!document.referrer.includes(location.host)){{location.replace("{href("/")}"+l+"/")}}}}catch(e){{}}</script>
@@ -954,13 +956,14 @@ def main():
     w("/sitemap.xml",sitemap())
     w("/news-sitemap.xml",news_sitemap())
     w("/robots.txt",f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/news-sitemap.xml\n")
-    w("/404.html",f'<!doctype html><meta charset="utf-8"><title>404 — {SITE}</title><meta name="robots" content="noindex"><link rel="stylesheet" href="{href("/assets/css/style.css")}"><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p><div class="btns"><a href="{href("/ru/")}">RU</a><a href="{href("/en/")}">EN</a><a href="{href("/el/")}">EL</a></div></div></main>')
+    w("/404.html",f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>404 — {SITE}</title><meta name="robots" content="noindex"><link rel="stylesheet" href="{href("/assets/css/style.css")}">{ADSENSE}</head><body><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p><div class="btns"><a href="{href("/ru/")}">RU</a><a href="{href("/en/")}">EN</a><a href="{href("/el/")}">EL</a></div></div></main></body></html>')
     w("/_headers","/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n")
     open(os.path.join(OUT,".nojekyll"),"w").close()
     # Google Search Console verification. Rewritten on every build so a rebuild cannot drop it.
     w("/google62249645dc64d12b.html","google-site-verification: google62249645dc64d12b.html\n")
     # GitHub Pages custom domain. Rewritten on every build so a rebuild cannot drop it.
     w("/CNAME","cynews24.net\n")
+    w("/ads.txt",ADS_TXT)
     write_credits_md()
     print("built",len(STORIES),"stories; BASE=",BASE,"; PREFIX=",PREFIX or "(root)","; OUT=",OUT,"; photos",sum(1 for s in STORIES if s["img"] in CREDITS))
 main()
