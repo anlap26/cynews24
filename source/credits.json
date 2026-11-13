@@ -1,0 +1,152 @@
+{
+  "fitto-cyprus-talks": {
+    "author": "Iakovos Hatzistavrou, European Commission",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Cypriot_Presidential_Palace_3.jpg",
+    "file": "fitto-cyprus-talks.jpg",
+    "focus": [0.5, 0.32],
+    "depicts": "Presidential Palace, Nicosia, with the flags of Cyprus and the European Union"
+  },
+  "eu-ai-summit": {
+    "author": "Metro Centric",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Convention_Centre_Dublin_in_2019.jpg",
+    "file": "eu-ai-summit.jpg",
+    "focus": [0.42, 0.38],
+    "depicts": "The Convention Centre Dublin"
+  },
+  "microsoft-outage": {
+    "author": "Shixart1985",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Hands_typing_on_a_laptop_during_work_hours_in_a_modern_office_setting.jpg",
+    "file": "microsoft-outage.jpg",
+    "focus": [0.5, 0.4],
+    "depicts": "Hands on a laptop keyboard in an office"
+  },
+  "video-games": {
+    "author": "Vu Hoang",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Hands_holding_video_game_controller_(50811892858).jpg",
+    "file": "video-games.jpg",
+    "focus": [0.5, 0.48],
+    "depicts": "Hands holding a video game controller"
+  },
+  "pension-reform": {
+    "author": "ΣτηρίζωΚύπρο",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Ministry_of_Finance_building_in_Nicosia_Republic_of_Cyprus.jpg",
+    "file": "pension-reform.jpg",
+    "focus": [0.55, 0.42],
+    "depicts": "Ministry of Finance, Nicosia"
+  },
+  "property-fines": {
+    "author": "Leonid Mamchenkov",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Limassol,_Cyprus_2.jpg",
+    "file": "property-fines.jpg",
+    "focus": [0.22, 0.5],
+    "depicts": "Apartment buildings on the Limassol seafront"
+  },
+  "homes-no-electricity": {
+    "author": "Michal Klajban",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:A_house_in_Ayia_Marina_Chrysochous,_Cyprus.jpg",
+    "file": "homes-no-electricity.jpg",
+    "focus": [0.5, 0.48],
+    "depicts": "A house in Ayia Marina Chrysochous, Paphos district"
+  },
+  "governors-beach": {
+    "author": "Dm Bsg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Governor%27s_Beach,_Cyprus_-_panoramio_(46).jpg",
+    "file": "governors-beach.jpg",
+    "focus": [0.62, 0.4],
+    "depicts": "Governor's Beach, Limassol"
+  },
+  "cape-greco": {
+    "author": "kallerna",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Cape_Greco_view_1.jpg",
+    "file": "cape-greco.jpg",
+    "focus": [0.48, 0.58],
+    "depicts": "The coast at Cape Greco"
+  },
+  "frozen-assets": {
+    "author": "TourinNicosia",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Cyprus_central_bank_Nicosia_Republic_of_Cyprus.jpg",
+    "file": "frozen-assets.jpg",
+    "focus": [0.48, 0.42],
+    "depicts": "Central Bank of Cyprus headquarters, Nicosia"
+  },
+  "crossing-camera": {
+    "author": "Thomas Leuthard",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:23901765136_-_Flickr_-_Thomas_Leuthard.jpg",
+    "file": "crossing-camera.jpg",
+    "focus": [0.55, 0.22],
+    "depicts": "A pedestrian zebra crossing"
+  },
+  "diabetes": {
+    "author": "Celeda",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Capteur_de_glyc%C3%A9mie_pour_personnes_diab%C3%A9tiques.jpg",
+    "file": "diabetes.jpg",
+    "focus": [0.62, 0.48],
+    "depicts": "A blood glucose meter, test strips and a lancing device"
+  },
+  "missing-mushroom-picker": {
+    "author": "Gerda Arendt",
+    "source": "Wikimedia Commons",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Cedar_Valley,_Cyprus,_trail.jpg",
+    "file": "missing-mushroom-picker.jpg",
+    "focus": [0.58, 0.55],
+    "depicts": "A trail in Cedar Valley, Cyprus"
+  },
+  "fencing-bronze": {
+    "author": "Marie-Lan Nguyen",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Final_2013_Fencing_WCH_FMS-EQ_t194733.jpg",
+    "file": "fencing-bronze.jpg",
+    "focus": [0.5, 0.5],
+    "depicts": "A fencing bout at the 2013 World Championships; the athletes are not identifiable and this is not Aris Kiayias"
+  },
+  "nicosia-christmas-market": {
+    "author": "Iakovos Hatzistavrou, European Commission",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Eleftherias_Square_5.jpg",
+    "file": "nicosia-christmas-market.jpg",
+    "focus": [0.5, 0.7],
+    "depicts": "Eleftheria Square, Nicosia"
+  }
+}

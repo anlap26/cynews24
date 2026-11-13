@@ -3,9 +3,9 @@ S = []
 CM="https://cyprus-mail.com/2026/11/"
 S.append(dict(
 slug="frozen-assets-51-million", cat="society", date="2026-11-13", img="frozen-assets",
-alt=dict(en="Frost-covered padlock and chain around stacks of coins in front of a bank building, illustration of frozen assets",
- ru="Покрытый инеем замок и цепь вокруг стопок монет на фоне здания банка — иллюстрация замороженных активов",
- el="Παγωμένο λουκέτο και αλυσίδα γύρω από στοίβες νομισμάτων μπροστά από κτίριο τράπεζας — εικονογράφηση δεσμευμένων περιουσιών"),
+alt=dict(en="The Central Bank of Cyprus headquarters in Nicosia",
+ ru="Штаб-квартира Центрального банка Кипра в Никосии",
+ el="Τα κεντρικά γραφεία της Κεντρικής Τράπεζας της Κύπρου στη Λευκωσία"),
 title=dict(
  en="Over €51.5 million in assets frozen in Cyprus since 2023, half tied to golden passports",
  ru="С 2023 года на Кипре заморожено активов более чем на €51,5 млн, половина связана с «золотыми паспортами»",
@@ -38,9 +38,9 @@ kw=dict(en=["frozen assets Cyprus","golden passports","money laundering Cyprus",
 
 S.append(dict(
 slug="pedestrian-crossing-camera-fine", cat="society", date="2026-11-13", img="crossing-camera",
-alt=dict(en="Rainy pedestrian crossing with traffic light, enforcement camera and a stopped car, illustration",
- ru="Дождливый пешеходный переход со светофором, камерой фиксации и остановившимся автомобилем — иллюстрация",
- el="Βροχερή διάβαση πεζών με φωτεινό σηματοδότη, κάμερα και σταματημένο όχημα — εικονογράφηση"),
+alt=dict(en="A pedestrian zebra crossing",
+ ru="Пешеходный переход «зебра»",
+ el="Διάβαση πεζών τύπου ζέβρας"),
 title=dict(
  en="Crossing-camera fine cost the state €1.2m and has produced 2,500 bookings",
  ru="Штраф за остановку на «зебре» обошёлся государству в €1,2 млн и дал всего 2500 нарушителей",
@@ -72,9 +72,9 @@ kw=dict(en=["Cyprus traffic cameras","pedestrian crossing fine","traffic fines C
 
 S.append(dict(
 slug="diabetes-undiagnosed-cyprus", cat="society", date="2026-11-13", img="diabetes",
-alt=dict(en="Glucose meter, stethoscope, apple and glass of water in front of a large blue circle, illustration for World Diabetes Day",
- ru="Глюкометр, стетоскоп, яблоко и стакан воды на фоне большого синего круга — иллюстрация ко Всемирному дню борьбы с диабетом",
- el="Γλυκομετρητής, στηθοσκόπιο, μήλο και ποτήρι νερό μπροστά σε μεγάλο μπλε κύκλο — εικονογράφηση για την Παγκόσμια Ημέρα Διαβήτη"),
+alt=dict(en="A blood glucose meter, test strips and a lancing device",
+ ru="Глюкометр, тест-полоски и ручка для прокола пальца",
+ el="Μετρητής γλυκόζης αίματος, ταινίες μέτρησης και συσκευή τρυπήματος"),
 title=dict(
  en="More than a third of people with diabetes in Cyprus do not know they have it",
  ru="Более трети людей с диабетом на Кипре не знают о своём заболевании",
@@ -106,9 +106,9 @@ kw=dict(en=["diabetes Cyprus","World Diabetes Day","health Cyprus","free health 
 
 S.append(dict(
 slug="missing-mushroom-picker-paphos-forest", cat="society", date="2026-11-13", img="missing-mushroom-picker",
-alt=dict(en="Autumn mountain forest with a basket of mushrooms and a search helicopter in the misty distance, illustration",
- ru="Осенний горный лес, корзина с грибами и поисковый вертолёт в туманной дали — иллюстрация",
- el="Φθινοπωρινό ορεινό δάσος με καλάθι μανιτάρια και ελικόπτερο έρευνας στην ομιχλώδη απόσταση — εικονογράφηση"),
+alt=dict(en="A footpath through cedar trees in Cedar Valley, Cyprus",
+ ru="Тропа среди кедров в Кедровой долине на Кипре",
+ el="Μονοπάτι ανάμεσα σε κέδρους στην Κοιλάδα των Κέδρων στην Κύπρο"),
 title=dict(
  en="Helicopters and drones search Paphos forest for missing mushroom picker",
  ru="Вертолёты и дроны ищут в лесу Пафоса пропавшего сборщика грибов",
@@ -142,9 +142,9 @@ kw=dict(en=["missing person Cyprus","Paphos forest","Cedar Valley","search and r
 
 S.append(dict(
 slug="kiayias-youth-olympic-fencing-bronze", cat="sport", date="2026-11-10", img="fencing-bronze",
-alt=dict(en="Crossed fencing foils, a fencing mask and a bronze medal on a white strip with an African sunset behind, illustration",
- ru="Скрещённые рапиры, фехтовальная маска и бронзовая медаль на белой дорожке на фоне африканского заката — иллюстрация",
- el="Σταυρωτά ξίφη ξιφασκίας, μάσκα και χάλκινο μετάλλιο σε λευκό διάδρομο με αφρικανικό ηλιοβασίλεμα — εικονογράφηση"),
+alt=dict(en="Two fencers in a bout, their faces hidden by motion blur",
+ ru="Два фехтовальщика в поединке, лица скрыты смазом движения",
+ el="Δύο ξιφομάχοι σε αγώνα, με τα πρόσωπα κρυμμένα από το θάμπωμα της κίνησης"),
 title=dict(
  en="Aris Kiayias wins Cyprus's first Youth Olympic fencing medal",
  ru="Арис Киайяс завоевал для Кипра первую в истории медаль юношеских Олимпиад по фехтованию",
@@ -176,9 +176,9 @@ kw=dict(en=["Cyprus sport","Youth Olympic Games Dakar","fencing","Aris Kiayias",
 
 S.append(dict(
 slug="nicosia-christmas-market-2026", cat="tourism", date="2026-11-10", img="nicosia-christmas-market",
-alt=dict(en="Wooden Christmas market stalls with string lights, a decorated tree and palm trees in a Mediterranean square, illustration",
- ru="Деревянные рождественские лотки с гирляндами, украшенная ёлка и пальмы на средиземноморской площади — иллюстрация",
- el="Ξύλινα περίπτερα χριστουγεννιάτικης αγοράς με φωτάκια, στολισμένο δέντρο και φοίνικες σε μεσογειακή πλατεία — εικονογράφηση"),
+alt=dict(en="Eleftheria Square in Nicosia, seen from above",
+ ru="Площадь Элефтерия в Никосии, вид сверху",
+ el="Η πλατεία Ελευθερίας στη Λευκωσία, από ψηλά"),
 title=dict(
  en="Nicosia Christmas market returns to Eleftheria Square for a second year",
  ru="Рождественский рынок Никосии второй год подряд откроется на площади Элефтерия",

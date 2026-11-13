@@ -3,9 +3,9 @@ S = []
 CM="https://cyprus-mail.com/2026/11/"
 S.append(dict(
 slug="fitto-cyprus-talks", cat="politics", date="2026-11-12", img="fitto-cyprus-talks",
-alt=dict(en="Two empty chairs facing each other across a small table with an olive branch, illustration of Cyprus talks",
- ru="Два пустых кресла друг напротив друга и оливковая ветвь на столе — иллюстрация переговоров по Кипру",
- el="Δύο άδειες καρέκλες απέναντι με κλαδί ελιάς στο τραπέζι — εικονογράφηση για τις συνομιλίες για το Κυπριακό"),
+alt=dict(en="The Presidential Palace in Nicosia, with the flags of Cyprus and the European Union",
+ ru="Президентский дворец в Никосии, флаги Кипра и Европейского союза",
+ el="Το Προεδρικό Μέγαρο στη Λευκωσία, με τις σημαίες της Κύπρου και της Ευρωπαϊκής Ένωσης"),
 title=dict(
  en="EU envoy Fitto to carry the Cyprus question to Ankara on 20 November",
  ru="Спецпосланник ЕС Фитто повезёт кипрский вопрос в Анкару 20 ноября",
@@ -40,9 +40,9 @@ kw=dict(en=["Cyprus problem","Cyprus talks","Fitto","Christodoulides","Crans-Mon
 
 S.append(dict(
 slug="eu-ai-summit-dublin", cat="world", date="2026-11-13", img="eu-ai-summit",
-alt=dict(en="Circle of empty summit chairs around a glowing neural-network brain under a ring of stars, illustration",
- ru="Круг кресел для участников саммита вокруг светящегося мозга-нейросети под кольцом звёзд — иллюстрация",
- el="Κύκλος από καρέκλες συνόδου γύρω από έναν φωτεινό εγκέφαλο νευρωνικού δικτύου κάτω από δακτύλιο αστεριών — εικονογράφηση"),
+alt=dict(en="The Convention Centre Dublin beside the River Liffey",
+ ru="Конференц-центр Дублина у реки Лиффи",
+ el="Το Συνεδριακό Κέντρο του Δουβλίνου δίπλα στον ποταμό Λίφει"),
 title=dict(
  en="EU leaders hold first-ever summit on artificial intelligence in Dublin",
  ru="Лидеры ЕС впервые собрались в Дублине на саммит по искусственному интеллекту",
@@ -74,9 +74,9 @@ kw=dict(en=["EU AI summit","artificial intelligence","Dublin","Cyprus AI strateg
 
 S.append(dict(
 slug="microsoft-outage-second-day", cat="world", date="2026-11-13", img="microsoft-outage",
-alt=dict(en="Grey cloud with a broken cable and warning sign above office desks with blank laptops, illustration of an IT outage",
- ru="Серое облако с оборванным кабелем и знаком предупреждения над рабочими столами с пустыми ноутбуками — иллюстрация сбоя",
- el="Γκρίζο σύννεφο με κομμένο καλώδιο και προειδοποιητικό σήμα πάνω από γραφεία με κενά laptop — εικονογράφηση διακοπής υπηρεσιών"),
+alt=dict(en="Hands typing on a laptop in an office",
+ ru="Руки на клавиатуре ноутбука в офисе",
+ el="Χέρια που πληκτρολογούν σε φορητό υπολογιστή σε γραφείο"),
 title=dict(
  en="Global Microsoft outage drags into a second day",
  ru="Глобальный сбой Microsoft продолжается второй день",
@@ -108,9 +108,9 @@ kw=dict(en=["Microsoft outage","Outlook down","Teams","Copilot","Microsoft 365",
 
 S.append(dict(
 slug="cyprus-video-game-industry", cat="economy", date="2026-11-12", img="video-games",
-alt=dict(en="Game controller with pixel coins and hearts above an island silhouette in a blue sea, illustration of the gaming industry",
- ru="Игровой контроллер с пиксельными монетами и сердцами над силуэтом острова в синем море — иллюстрация игровой индустрии",
- el="Χειριστήριο παιχνιδιών με pixel νομίσματα και καρδιές πάνω από σιλουέτα νησιού σε γαλάζια θάλασσα — εικονογράφηση βιομηχανίας παιχνιδιών"),
+alt=dict(en="Hands holding a video game controller",
+ ru="Руки с игровым контроллером",
+ el="Χέρια που κρατούν χειριστήριο βιντεοπαιχνιδιού"),
 title=dict(
  en="Cyprus wants to make video games, not just host game companies",
  ru="Кипр хочет не только принимать игровые компании, но и создавать игры",

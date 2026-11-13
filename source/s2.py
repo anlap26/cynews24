@@ -3,9 +3,9 @@ S = []
 CM="https://cyprus-mail.com/2026/11/"
 S.append(dict(
 slug="pension-reform-1-january", cat="economy", date="2026-11-13", img="pension-reform",
-alt=dict(en="Hourglass, piggy bank and blank calendar under an olive tree, illustration of pension reform",
- ru="Песочные часы, копилка и пустой календарь под оливковым деревом — иллюстрация пенсионной реформы",
- el="Κλεψύδρα, κουμπαράς και κενό ημερολόγιο κάτω από μια ελιά — εικονογράφηση συνταξιοδοτικής μεταρρύθμισης"),
+alt=dict(en="The Ministry of Finance building in Nicosia",
+ ru="Здание Министерства финансов в Никосии",
+ el="Το κτίριο του Υπουργείου Οικονομικών στη Λευκωσία"),
 title=dict(
  en="Pension reform: government still aims for 1 January start despite delay",
  ru="Пенсионная реформа: власти по-прежнему нацелены на 1 января, несмотря на задержку",
@@ -35,9 +35,9 @@ kw=dict(en=["Cyprus pension reform","early retirement 63","Mousiouttas","provide
 
 S.append(dict(
 slug="property-sale-fines-100000", cat="real-estate", date="2026-11-09", img="property-fines",
-alt=dict(en="Small model house, magnifying glass, stamped document, keys and scales of justice, illustration of property sale checks",
- ru="Макет дома, лупа, документ с печатью, ключи и весы правосудия — иллюстрация проверок при продаже недвижимости",
- el="Μακέτα σπιτιού, μεγεθυντικός φακός, έγγραφο με σφραγίδα, κλειδιά και ζυγαριά δικαιοσύνης — εικονογράφηση ελέγχων στην πώληση ακινήτων"),
+alt=dict(en="Apartment buildings along the seafront in Limassol",
+ ru="Жилые дома на набережной Лимассола",
+ el="Πολυκατοικίες στην παραλία της Λεμεσού"),
 title=dict(
  en="Selling property in Cyprus: fines of up to €100,000 for missed obligations",
  ru="Продажа недвижимости на Кипре: штрафы до €100 000 за невыполнение обязанностей",
@@ -71,9 +71,9 @@ kw=dict(en=["Cyprus property sale","Land Registry search certificate","Cyprus re
 
 S.append(dict(
 slug="homes-without-electricity-paphos", cat="real-estate", date="2026-11-04", img="homes-no-electricity",
-alt=dict(en="Finished white villas with dark windows and unconnected power poles at dusk, illustration of homes awaiting electricity",
- ru="Готовые белые виллы с тёмными окнами и неподключённые опоры ЛЭП в сумерках — иллюстрация домов без электричества",
- el="Ολοκληρωμένες λευκές βίλες με σκοτεινά παράθυρα και μη συνδεδεμένοι στύλοι ρεύματος στο σούρουπο — εικονογράφηση σπιτιών χωρίς ρεύμα"),
+alt=dict(en="A house in Ayia Marina Chrysochous, in the Paphos district",
+ ru="Дом в Айя-Марина Хрисохус, район Пафоса",
+ el="Κατοικία στην Αγία Μαρίνα Χρυσοχούς, στην επαρχία Πάφου"),
 title=dict(
  en="Finished, but not deliverable: new homes in Paphos wait for electricity",
  ru="Построены, но не сданы: новые дома в Пафосе ждут электричества",
@@ -105,9 +105,9 @@ kw=dict(en=["Paphos property","new build Cyprus","EAC electricity connection","o
 
 S.append(dict(
 slug="governors-beach-caravan-eviction", cat="real-estate", date="2026-11-11", img="governors-beach",
-alt=dict(en="Row of white caravans on a sandy beach at sunset with a fenced construction site and crane in the distance",
- ru="Ряд белых караванов на песчаном берегу на закате, вдали огороженная стройплощадка и кран",
- el="Σειρά λευκών τροχόσπιτων σε αμμώδη παραλία το ηλιοβασίλεμα με περιφραγμένο εργοτάξιο και γερανό στο βάθος"),
+alt=dict(en="The rocky shoreline at Governor's Beach, Limassol",
+ ru="Скалистый берег пляжа Гувернор в Лимассоле",
+ el="Η βραχώδης ακτή στην παραλία Governor's Beach, στη Λεμεσό"),
 title=dict(
  en="330 families told to leave caravan site at Governor's Beach",
  ru="330 семьям велено покинуть кемпинг Governor's Beach",
@@ -142,9 +142,9 @@ kw=dict(en=["Governor's Beach","Limassol","caravan eviction","Turkish Cypriot pr
 
 S.append(dict(
 slug="cape-greco-monastery-legalisation", cat="real-estate", date="2026-11-13", img="cape-greco",
-alt=dict(en="Rugged sea cliffs with caves, a small stone chapel on the headland and wildflowers, illustration of Cape Greco",
- ru="Скалистые морские обрывы с пещерами, небольшая каменная часовня на мысе и полевые цветы — иллюстрация мыса Греко",
- el="Βραχώδεις θαλάσσιοι βράχοι με σπηλιές, μικρό πέτρινο εκκλησάκι στο ακρωτήρι και αγριολούλουδα — εικονογράφηση Κάβο Γκρέκο"),
+alt=dict(en="The rocky coast of Cape Greco, Cyprus",
+ ru="Скалистый берег мыса Греко на Кипре",
+ el="Η βραχώδης ακτή στο Κάβο Γκρέκο της Κύπρου"),
 title=dict(
  en="Cape Greco: planning council meets on legalising an unauthorised monastery in a Natura 2000 area",
  ru="Мыс Греко: градостроительный совет решает судьбу незаконно построенного монастыря в зоне Natura 2000",

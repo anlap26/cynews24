@@ -46,7 +46,7 @@ UI = {
   sources_note="This article is an original rewrite of facts reported by the outlets below; read the originals for full detail.",
   read="Read more",tags="Topics",lang="Language",about="About us",menu="Sections",skip="Skip to content",
   tagline="Cyprus news in three languages",
-  footer="CyNews 24 summarises public reporting from Cypriot and international media in Russian, English and Greek. Articles are rewritten in our own words and link to their sources; images are AI-generated illustrations. CyNews 24 is not affiliated with the outlets cited.",
+  footer="CyNews 24 summarises public reporting from Cypriot and international media in Russian, English and Greek. Articles are rewritten in our own words and link to their sources; photographs are used under open licences and credited. CyNews 24 is not affiliated with the outlets cited.",
   copy="All rights reserved.",updated="Updated",home_h="Top stories from Cyprus",realestate_h="Real estate & planning",allnews="All news",
   cat_h="{c} — news from Cyprus", crumb_home="Home"),
  "ru":dict(home="Главная",latest="Последние новости",more="Ещё новости",sources="Источники",related="Читайте также",toplines="Главное",
@@ -54,7 +54,7 @@ UI = {
   sources_note="Материал — авторский пересказ фактов, опубликованных изданиями ниже; полные подробности — в оригиналах.",
   read="Читать далее",tags="Темы",lang="Язык",about="О проекте",menu="Разделы",skip="Перейти к содержанию",
   tagline="Новости Кипра на трёх языках",
-  footer="CyNews 24 обобщает публикации кипрских и международных СМИ на русском, английском и греческом языках. Тексты написаны своими словами и содержат ссылки на источники; изображения — иллюстрации, созданные ИИ. CyNews 24 не связан с упомянутыми изданиями.",
+  footer="CyNews 24 обобщает публикации кипрских и международных СМИ на русском, английском и греческом языках. Тексты написаны своими словами и содержат ссылки на источники; фотографии используются по открытым лицензиям с указанием автора. CyNews 24 не связан с упомянутыми изданиями.",
   copy="Все права защищены.",updated="Обновлено",home_h="Главные новости Кипра",realestate_h="Недвижимость и градостроительство",allnews="Все новости",
   cat_h="{c} — новости Кипра", crumb_home="Главная"),
  "el":dict(home="Αρχική",latest="Τελευταία νέα",more="Περισσότερες ειδήσεις",sources="Πηγές",related="Σχετικά θέματα",toplines="Κορυφαία θέματα",
@@ -62,7 +62,7 @@ UI = {
   sources_note="Το κείμενο είναι πρωτότυπη αναδιατύπωση γεγονότων που δημοσίευσαν τα παρακάτω μέσα· για πλήρεις λεπτομέρειες δείτε τα πρωτότυπα.",
   read="Διαβάστε περισσότερα",tags="Θέματα",lang="Γλώσσα",about="Σχετικά με εμάς",menu="Ενότητες",skip="Μετάβαση στο περιεχόμενο",
   tagline="Ειδήσεις Κύπρου σε τρεις γλώσσες",
-  footer="Το CyNews 24 συνοψίζει δημοσιεύματα κυπριακών και διεθνών μέσων στα ρωσικά, αγγλικά και ελληνικά. Τα κείμενα γράφονται με δικά μας λόγια και παραπέμπουν στις πηγές τους· οι εικόνες είναι εικονογραφήσεις που δημιουργήθηκαν με ΤΝ. Το CyNews 24 δεν συνδέεται με τα μέσα που αναφέρονται.",
+  footer="Το CyNews 24 συνοψίζει δημοσιεύματα κυπριακών και διεθνών μέσων στα ρωσικά, αγγλικά και ελληνικά. Τα κείμενα γράφονται με δικά μας λόγια και παραπέμπουν στις πηγές τους· οι φωτογραφίες χρησιμοποιούνται με ανοιχτές άδειες και αναφέρουν τον δημιουργό. Το CyNews 24 δεν συνδέεται με τα μέσα που αναφέρονται.",
   copy="Με επιφύλαξη παντός δικαιώματος.",updated="Ενημερώθηκε",home_h="Κορυφαίες ειδήσεις από την Κύπρο",realestate_h="Ακίνητα και πολεοδομία",allnews="Όλες οι ειδήσεις",
   cat_h="{c} — ειδήσεις από την Κύπρο", crumb_home="Αρχική"),
 }
@@ -80,20 +80,20 @@ CAT_D = {
  "ru":{"politics":"Политические новости Кипра: кипрская проблема, правительство, парламент и дела ЕС.","economy":"Экономические новости Кипра: бизнес, пенсии, технологии и финансы.","real-estate":"Новости недвижимости Кипра: законы, градостроительство, новостройки и рынок жилья.","society":"Общественные новости Кипра: суды, полиция, здоровье и повседневная жизнь.","tourism":"Новости туризма и событий Кипра: афиша, праздничные рынки и путешествия.","sport":"Спортивные новости Кипра: результаты, спортсмены и крупные события.","world":"Мировые новости с кипрским акцентом: ЕС, технологии и глобальные события."},
  "el":{"politics":"Πολιτικές ειδήσεις Κύπρου: Κυπριακό, κυβέρνηση, Βουλή και ευρωπαϊκά θέματα.","economy":"Οικονομικές ειδήσεις Κύπρου: επιχειρήσεις, συντάξεις, τεχνολογία και χρηματοοικονομικά.","real-estate":"Ειδήσεις ακινήτων Κύπρου: νομοθεσία, πολεοδομία, νεόδμητα και αγορά κατοικίας.","society":"Κοινωνικές ειδήσεις Κύπρου: δικαστήρια, αστυνομία, υγεία και καθημερινότητα.","tourism":"Ειδήσεις τουρισμού και εκδηλώσεων Κύπρου: προγράμματα, εορταστικές αγορές και ταξίδια.","sport":"Αθλητικές ειδήσεις Κύπρου: αποτελέσματα, αθλητές και μεγάλες διοργανώσεις.","world":"Παγκόσμιες ειδήσεις με κυπριακό ενδιαφέρον: ΕΕ, τεχνολογία και διεθνή γεγονότα."}}
 ABOUT = {
- "en":dict(t="About CyNews 24",d="How CyNews 24 works: a trilingual Cyprus news site that rewrites public reporting in its own words, links to sources and uses AI-generated illustrations.",
+ "en":dict(t="About CyNews 24",d="How CyNews 24 works: a trilingual Cyprus news site that rewrites public reporting in its own words, links to sources and credits openly licensed photographs.",
   p=["CyNews 24 is a news site about Cyprus published in Russian, English and Greek. Every story exists in all three languages.",
    "We follow reporting from Cypriot and international outlets, check that the same story is not covered twice, and write each article in our own words. We add facts only from the cited sources — no invented numbers or quotes — and every article lists the original reports it is based on.",
-   "Images on this site are illustrations generated with AI for CyNews 24. They are not photographs and do not depict real events or identifiable people.",
+   "Photographs on this site are real pictures published under open licences that allow commercial use and adaptation — CC0, CC BY or CC BY-SA, from Wikimedia Commons. Each picture is credited with its author, source and licence and links to the original file. Where the licence is CC BY-SA, the cropped and watermarked version stays under that same licence. A picture shows the place or subject of a story; it is not a photograph of a person named in the article unless the credit says so.",
    "CyNews 24 is an independent project and is not affiliated with the media outlets it cites. For breaking developments, always check the linked original sources."]),
- "ru":dict(t="О проекте CyNews 24",d="Как устроен CyNews 24: трёхъязычный сайт новостей Кипра, который пересказывает открытые публикации своими словами, указывает источники и использует иллюстрации, созданные ИИ.",
+ "ru":dict(t="О проекте CyNews 24",d="Как устроен CyNews 24: трёхъязычный сайт новостей Кипра, который пересказывает открытые публикации своими словами, указывает источники и подписывает фотографии с открытой лицензией.",
   p=["CyNews 24 — новостной сайт о Кипре на русском, английском и греческом языках. Каждый материал доступен на всех трёх языках.",
    "Мы следим за публикациями кипрских и международных изданий, не дублируем одну и ту же историю и пишем каждый материал своими словами. Мы добавляем только факты из указанных источников — без выдуманных цифр и цитат — и в каждом материале перечисляем оригинальные публикации, на которых он основан.",
-   "Изображения на сайте — иллюстрации, созданные ИИ специально для CyNews 24. Это не фотографии, они не изображают реальные события или узнаваемых людей.",
+   "Фотографии на сайте — настоящие снимки по открытым лицензиям, которые разрешают коммерческое использование и переработку: CC0, CC BY или CC BY-SA, с Wikimedia Commons. У каждого снимка указаны автор, источник и лицензия и есть ссылка на оригинал. Если лицензия CC BY-SA, кадрированная версия с водяным знаком остаётся под той же лицензией. Снимок показывает место или тему материала и не является фотографией человека, названного в тексте, если это прямо не сказано в подписи.",
    "CyNews 24 — независимый проект, не связанный с упомянутыми изданиями. По оперативным новостям всегда сверяйтесь с оригинальными источниками по ссылкам."]),
- "el":dict(t="Σχετικά με το CyNews 24",d="Πώς λειτουργεί το CyNews 24: τρίγλωσσος ιστότοπος ειδήσεων Κύπρου που αναδιατυπώνει δημόσιο ρεπορτάζ με δικά του λόγια, παραπέμπει σε πηγές και χρησιμοποιεί εικονογραφήσεις ΤΝ.",
+ "el":dict(t="Σχετικά με το CyNews 24",d="Πώς λειτουργεί το CyNews 24: τρίγλωσσος ιστότοπος ειδήσεων Κύπρου που αναδιατυπώνει δημόσιο ρεπορτάζ με δικά του λόγια, παραπέμπει σε πηγές και αναφέρει φωτογραφίες με ανοιχτή άδεια.",
   p=["Το CyNews 24 είναι ιστότοπος ειδήσεων για την Κύπρο στα ρωσικά, αγγλικά και ελληνικά. Κάθε είδηση υπάρχει και στις τρεις γλώσσες.",
    "Παρακολουθούμε ρεπορτάζ κυπριακών και διεθνών μέσων, φροντίζουμε να μην καλύπτουμε δύο φορές το ίδιο θέμα και γράφουμε κάθε άρθρο με δικά μας λόγια. Προσθέτουμε μόνο γεγονότα από τις αναφερόμενες πηγές — χωρίς επινοημένους αριθμούς ή δηλώσεις — και κάθε άρθρο παραθέτει τα πρωτότυπα δημοσιεύματα στα οποία βασίζεται.",
-   "Οι εικόνες του ιστότοπου είναι εικονογραφήσεις που δημιουργήθηκαν με ΤΝ για το CyNews 24. Δεν είναι φωτογραφίες και δεν απεικονίζουν πραγματικά γεγονότα ή αναγνωρίσιμα πρόσωπα.",
+   "Οι φωτογραφίες του ιστότοπου είναι πραγματικές εικόνες με ανοιχτές άδειες που επιτρέπουν εμπορική χρήση και διασκευή — CC0, CC BY ή CC BY-SA, από τα Wikimedia Commons. Κάθε εικόνα αναφέρει τον δημιουργό, την πηγή και την άδεια και συνδέεται με το πρωτότυπο αρχείο. Όταν η άδεια είναι CC BY-SA, η περικομμένη εκδοχή με το υδατογράφημα παραμένει στην ίδια άδεια. Η εικόνα δείχνει τον τόπο ή το θέμα του άρθρου και δεν είναι φωτογραφία προσώπου που κατονομάζεται στο κείμενο, εκτός αν αυτό αναφέρεται στη λεζάντα.",
    "Το CyNews 24 είναι ανεξάρτητο εγχείρημα και δεν συνδέεται με τα μέσα που αναφέρει. Για εξελισσόμενα γεγονότα, ελέγχετε πάντα τις πρωτότυπες πηγές."])}
 e=html.escape
 def href(path):
@@ -108,14 +108,92 @@ def trunc(s,n=158):
     c=s[:n-1]; c=c[:c.rfind(" ")] if " " in c else c
     return c.rstrip(",;:—- ")+"…"
 
+# ---------- photos ----------
+FONT_BOLD="/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf"
+def load_credits():
+    p=os.path.join(HERE,"credits.json")
+    if not os.path.exists(p): return {}
+    with open(p,encoding="utf8") as f: return json.load(f)
+CREDITS=load_credits()
+def cover_crop(im, tw, th, focus=(0.5,0.5)):
+    im=im.convert("RGB"); sw,sh=im.size
+    tr=tw/th; sr=sw/sh
+    if sr>tr:
+        nw=int(round(sh*tr)); left=int(round((sw-nw)*focus[0])); left=max(0,min(left,sw-nw))
+        im=im.crop((left,0,left+nw,sh))
+    else:
+        nh=int(round(sw/tr)); top=int(round((sh-nh)*focus[1])); top=max(0,min(top,sh-nh))
+        im=im.crop((0,top,sw,top+nh))
+    return im.resize((tw,th),Image.LANCZOS)
+def wordmark(img_w):
+    """Semi-transparent CyNews 24 badge, matching the dark/orange header."""
+    h=max(26,int(round(img_w*0.042)))
+    pad=int(h*0.38); gap=int(h*0.18)
+    font=ImageFont.truetype(FONT_BOLD,int(h*0.56))
+    probe=ImageDraw.Draw(Image.new("RGB",(1,1)))
+    def box(text):
+        b=probe.textbbox((0,0),text,font=font); return b[2]-b[0], b[3]-b[1]
+    tw1,th1=box("CyNews"); tw2,th2=box("24")
+    box_w=tw2+int(h*0.46); box_h=int(h*0.72)
+    bw=pad+tw1+gap+box_w+pad
+    badge=Image.new("RGBA",(bw,h),(0,0,0,0)); d=ImageDraw.Draw(badge)
+    d.rounded_rectangle((0,0,bw-1,h-1),radius=max(3,h//6),fill=(17,24,39,168))
+    d.text((pad,(h-th1)/2-1),"CyNews",font=font,fill=(255,255,255,235))
+    bx=pad+tw1+gap; by=(h-box_h)//2
+    d.rounded_rectangle((bx,by,bx+box_w,by+box_h),radius=max(2,h//10),fill=(196,87,26,214))
+    d.text((bx+(box_w-tw2)/2, by+(box_h-th2)/2-1),"24",font=font,fill=(255,255,255,245))
+    return badge
+def watermark(im):
+    im=im.convert("RGBA"); badge=wordmark(im.width)
+    m=max(8,int(im.width*0.016))
+    im.paste(badge,(im.width-badge.width-m, im.height-badge.height-m),badge)
+    return im.convert("RGB")
+def photo_caption(s,l):
+    c=CREDITS.get(s["img"])
+    if not c: return UI[l]["illus"]
+    label={"en":"Photo","ru":"Фото","el":"Φωτογραφία"}[l]
+    return (f'{label}: {e(c["author"])} / '
+            f'<a href="{e(c["page"])}">{e(c["source"])}</a>, '
+            f'<a href="{e(c["license_url"])}">{e(c["license"])}</a>')
+def image_ld(s):
+    c=CREDITS.get(s["img"])
+    obj={"@type":"ImageObject","url":abs_(f"/assets/img/{s['img']}-1200.webp"),
+         "contentUrl":abs_(f"/assets/img/{s['img']}-1200.webp"),"width":1200,"height":675}
+    if c:
+        credit=f'{c["author"]} / {c["source"]}, {c["license"]}'
+        obj.update({"creditText":credit,"copyrightNotice":credit,"license":c["license_url"],
+                    "acquireLicensePage":c["page"],"creator":{"@type":"Person","name":c["author"]}})
+    return obj
+def write_credits_md():
+    lines=["# Photo credits","","Story photographs are openly licensed pictures. The generator crops each one to 16:9, resizes it and adds a CyNews 24 watermark. Adaptations of CC BY-SA photographs stay under the same licence.","","| Image | What it shows | Author | Licence | Original |","|---|---|---|---|---|"]
+    for s in STORIES:
+        c=CREDITS.get(s["img"])
+        if not c:
+            lines.append(f'| `{s["img"]}` | Original illustration kept | — | — | — |')
+            continue
+        lines.append(f'| `{s["img"]}` | {c.get("depicts","")} | {c["author"]} | [{c["license"]}]({c["license_url"]}) | [{c["source"]}]({c["page"]}) |')
+    lines += ["","CC BY-SA files: the cropped, resized and watermarked images published with the site are adaptations and remain under the same CC BY-SA licence as the original.",""]
+    text="\n".join(lines)+"\n"
+    open(os.path.join(OUT,"CREDITS.md"),"w",encoding="utf8").write(text)
+
 # ---------- assets ----------
 def build_assets():
     d=OUT+"/assets/img"; os.makedirs(d,exist_ok=True)
     for s in STORIES:
-        im=Image.open(os.path.join(SRC, f"{s['img']}.jpg")).convert("RGB")
-        a=im.resize((1200,675),Image.LANCZOS); a.save(f"{d}/{s['img']}-1200.webp","WEBP",quality=78,method=6)
-        b=im.resize((600,338),Image.LANCZOS); b.save(f"{d}/{s['img']}-600.webp","WEBP",quality=76,method=6)
-        o=im.resize((1200,675),Image.LANCZOS).crop((0,22,1200,652)); o.save(f"{d}/{s['img']}-og.jpg","JPEG",quality=82,optimize=True,progressive=True)
+        c=CREDITS.get(s["img"])
+        photo=os.path.join(HERE,"photos",c["file"]) if c else ""
+        if c and os.path.exists(photo):
+            src=Image.open(photo)
+            focus=tuple(c.get("focus",[0.5,0.5]))
+            plain=cover_crop(src,1200,675,focus)
+            watermark(plain).save(f"{d}/{s['img']}-1200.webp","WEBP",quality=78,method=6)
+            watermark(plain.resize((600,338),Image.LANCZOS)).save(f"{d}/{s['img']}-600.webp","WEBP",quality=76,method=6)
+            watermark(plain.crop((0,22,1200,652))).save(f"{d}/{s['img']}-og.jpg","JPEG",quality=82,optimize=True,progressive=True)
+        else:
+            im=Image.open(os.path.join(SRC, f"{s['img']}.jpg")).convert("RGB")
+            a=im.resize((1200,675),Image.LANCZOS); a.save(f"{d}/{s['img']}-1200.webp","WEBP",quality=78,method=6)
+            b=im.resize((600,338),Image.LANCZOS); b.save(f"{d}/{s['img']}-600.webp","WEBP",quality=76,method=6)
+            o=im.resize((1200,675),Image.LANCZOS).crop((0,22,1200,652)); o.save(f"{d}/{s['img']}-og.jpg","JPEG",quality=82,optimize=True,progressive=True)
     # logo
     W=512; lg=Image.new("RGB",(W,W),(17,24,39)); dr=ImageDraw.Draw(lg)
     f1=ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",150)
@@ -176,7 +254,7 @@ article.a{max-width:760px;margin:0 auto}
 article.a h1{font-size:40px;line-height:1.1;letter-spacing:-.8px;margin:6px 0 12px}
 .dek{font-size:20px;line-height:1.4;font-weight:600;color:#23272d;margin:0 0 14px}
 .by{font-size:14px;color:var(--mut);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:18px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
-figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6px}
+figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6px}figcaption a{color:#0b57b0;text-decoration:underline}
 .body p{font-size:18px;line-height:1.65;margin:0 0 18px}
 .src{background:var(--soft);border-left:4px solid var(--acc);padding:14px 16px;margin:28px 0;font-size:15px}.src h2{font-size:15px;margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}.src p{margin:0 0 8px;color:var(--mut)}.src ul{margin:0;padding-left:18px}.src a{text-decoration:underline;color:#0b57b0}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}.tags li{border:1px solid var(--line);border-radius:20px;padding:3px 12px;font-size:13px;color:#33383f}
@@ -298,7 +376,7 @@ def page_article(l,s):
     kws=s["kw"][l]+GKW[l][:4]
     pub=f'{s["date"]}T09:00:00+02:00'; mod=f'{TODAY}T10:00:00+02:00'
     og=f'/assets/img/{s["img"]}-og.jpg'
-    ld=[{"@context":"https://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":s["title"][l][:110],"description":s["lede"][l],"image":[abs_(f"/assets/img/{s['img']}-1200.webp"),abs_(og)],"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
+    ld=[{"@context":"https://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":s["title"][l][:110],"description":s["lede"][l],"image":image_ld(s),"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
         "author":{"@type":"Organization","name":SITE,"url":abs_("/")},"publisher":{"@type":"NewsMediaOrganization","name":SITE,"url":abs_("/"),"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512}},
         "isBasedOn":[x[1] for x in s["sources"]],"citation":[{"@type":"CreativeWork","name":x[0],"url":x[1]} for x in s["sources"]],"articleBody":" ".join(s["body"][l]),"url":abs_(path),
         "locationCreated":{"@type":"Place","name":"Cyprus"},"about":{"@type":"Place","name":"Cyprus"}},
@@ -308,7 +386,7 @@ def page_article(l,s):
     h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{u["crumb_home"]}</a> › <a href="{href(f"/{l}/{s["cat"]}/")}">{CATN[l][s["cat"]]}</a></nav>'
     h+=f'<article class="a"><span class="cat">{CATN[l][s["cat"]]}</span><h1>{e(s["title"][l])}</h1><p class="dek">{e(s["lede"][l])}</p>'
     h+=f'<div class="by"><span>{u["byline"]}</span><span><time datetime="{pub}">{fdate(s["date"],l)}</time></span></div>'
-    h+=f'<figure>{img_tag(s,l,1200,False,True,"(max-width:800px) 100vw,760px")}<figcaption>{u["illus"]}</figcaption></figure>'
+    h+=f'<figure>{img_tag(s,l,1200,False,True,"(max-width:800px) 100vw,760px")}<figcaption>{photo_caption(s,l)}</figcaption></figure>'
     h+='<div class="body">'+"".join(f'<p>{e(p)}</p>' for p in s["body"][l])+'</div>'
     h+=f'<section class="src" aria-label="{u["sources"]}"><h2>{u["sources"]}</h2><p>{u["sources_note"]}</p><ul>'+"".join(f'<li><a href="{e(x[1])}" target="_blank" rel="noopener nofollow">{e(x[0])}</a></li>' for x in s["sources"])+'</ul></section>'
     h+=f'<h2 style="font-size:16px;margin:0 0 8px">{u["tags"]}</h2><ul class="tags">'+"".join(f'<li>{e(k)}</li>' for k in s["kw"][l])+'</ul>'
@@ -387,5 +465,6 @@ def main():
     w("/404.html",f'<!doctype html><meta charset="utf-8"><title>404 — {SITE}</title><meta name="robots" content="noindex"><link rel="stylesheet" href="{href("/assets/css/style.css")}"><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p><div class="btns"><a href="{href("/ru/")}">RU</a><a href="{href("/en/")}">EN</a><a href="{href("/el/")}">EL</a></div></div></main>')
     w("/_headers","/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n")
     open(os.path.join(OUT,".nojekyll"),"w").close()
-    print("built",len(STORIES),"stories; BASE=",BASE,"; PREFIX=",PREFIX or "(root)","; OUT=",OUT)
+    write_credits_md()
+    print("built",len(STORIES),"stories; BASE=",BASE,"; PREFIX=",PREFIX or "(root)","; OUT=",OUT,"; photos",sum(1 for s in STORIES if s["img"] in CREDITS))
 main()
