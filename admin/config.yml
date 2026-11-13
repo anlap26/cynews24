@@ -142,9 +142,10 @@ collections:
           - { name: alt, label: Περιγραφή φωτογραφίας, widget: string, required: false }
           - { name: kw, label: Θέματα, widget: list, required: false }
       # Technical fields of articles migrated from the old generator (photo from credits.json, order).
-      - { name: img, label: img, widget: hidden, required: false }
-      - { name: seq, label: seq, widget: hidden, required: false }
-      - { name: updated, label: updated, widget: hidden, required: false }
+      # Hidden fields cannot set `required` (Sveltia rejects the config and blocks sign-in).
+      - { name: img, label: img, widget: hidden }
+      - { name: seq, label: seq, widget: hidden }
+      - { name: updated, label: updated, widget: hidden }
 
   - name: settings
     label: Главная страница

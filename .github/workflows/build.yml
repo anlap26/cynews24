@@ -1,6 +1,7 @@
 # Rebuilds the static site from source/ and commits the generated pages to main.
 # GitHub Pages keeps serving branch main / root, so the custom domain (CNAME) is unchanged.
-# Pushes made with GITHUB_TOKEN do not start workflows again, so there is no build loop.
+# Pushes made with GITHUB_TOKEN do not start workflows again, including the Pages
+# build, so after a commit this workflow requests that build itself. There is no loop.
 name: Build site
 
 on:
@@ -22,6 +23,7 @@ on:
 
 permissions:
   contents: write
+  pages: write
 
 concurrency:
   group: build-site-${{ github.ref }}
@@ -35,6 +37,8 @@ jobs:
       - uses: actions/checkout@v4
         with:
           ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || 'main' }}
+          # Full history so the push retry can rebase if main moved.
+          fetch-depth: 0
 
       - uses: actions/setup-python@v5
         with:
@@ -72,3 +76,13 @@ jobs:
             git pull --rebase -q origin main || { git rebase --abort; exit 1; }
           done
           exit 1
+
+      # Branch-source Pages does not build after a GITHUB_TOKEN push. This call
+      # builds the latest main (same result as a normal push) and keeps CNAME.
+      - name: Request GitHub Pages build
+        if: github.event_name != 'pull_request'
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh api --method POST -H "Accept: application/vnd.github+json" \
+            "/repos/${GITHUB_REPOSITORY}/pages/builds"

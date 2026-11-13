@@ -13,7 +13,7 @@ Article fields: `slug` (page address; empty = file name), `cat` (politics, econo
 
 ## Publishing
 
-A push to `main` that touches `source/` starts the **Build site** workflow (`.github/workflows/build.yml`). It runs `source/build.py` with `BASE=https://cynews24.net` and commits the generated pages to `main`; Pages then publishes them. The workflow also runs daily so the date in the header, the events of the week and the sitemaps stay current, and on pull requests as a check.
+A push to `main` that touches `source/` starts the **Build site** workflow (`.github/workflows/build.yml`). It runs `source/build.py` with `BASE=https://cynews24.net`, commits the generated pages to `main`, and requests a GitHub Pages build of that branch. Pages keeps serving `main` / root, with the custom domain in `CNAME`. A commit the workflow pushes with its own token does not start Pages on its own, so the workflow asks for the build after the push. The workflow also runs daily so the date in the header, the events of the week and the sitemaps stay current, and on pull requests as a check.
 
 ## Rebuild locally
 
