@@ -1071,7 +1071,7 @@
   },
   {
    "id": "little-red",
-   "type": "kids",
+   "type": "theatre",
    "city": "nicosia",
    "start": "2026-10-18",
    "end": "2026-12-13",
@@ -1541,6 +1541,510 @@
    "high": "70",
    "url": "https://www.visitcyprus.com/event/xm-limassol-marathon-3-4-4-2027/",
    "source": "Visit Cyprus"
+  },
+  {
+   "id": "the-lie",
+   "type": "theatre",
+   "city": "nicosia",
+   "start": "2026-11-07",
+   "end": "2026-12-20",
+   "when": {
+    "en": "Saturdays 20:00 and Sundays 18:30, through 20 December 2026. Premiere was 7 November.",
+    "ru": "По субботам в 20:00 и воскресеньям в 18:30, до 20 декабря 2026. Премьера была 7 ноября.",
+    "el": "Κάθε Σάββατο 20:00 και Κυριακή 18:30, έως 20 Δεκεμβρίου 2026. Η πρεμιέρα ήταν 7 Νοεμβρίου."
+   },
+   "venue": {
+    "en": "Satiriko Theatre, main stage",
+    "ru": "Театр «Сатирико», главная сцена",
+    "el": "Σατιρικό Θέατρο, κεντρική σκηνή"
+   },
+   "locality": "Nicosia",
+   "street": "11–15 Vladimirou Kafkaridi, Aglantzia",
+   "title": {
+    "en": "The Lie",
+    "ru": "«Ложь»",
+    "el": "Το Ψέμα"
+   },
+   "desc": {
+    "en": "Satiriko stages Florian Zeller’s comedy, translated by Marialena Kotsaki and directed by Marianna Kafkaridou. The theatre’s ticket page lists €16, or €13 for pupils, students and pensioners.",
+    "ru": "«Сатирико» играет комедию Флориана Зеллера в переводе Мариалены Коцаки и постановке Марианны Кафкариду. На кассе театра билет €16 или €13 для школьников, студентов и пенсионеров.",
+    "el": "Το Σατιρικό ανεβάζει την κωμωδία του Florian Zeller, μετάφραση Μαριαλένας Κωτσάκη και σκηνοθεσία Μαριάννας Καυκαρίδου. Το ταμείο του θεάτρου αναφέρει €16 ή €13 για μαθητές, φοιτητές και συνταξιούχους."
+   },
+   "price": {
+    "en": "€13–€16",
+    "ru": "€13–€16",
+    "el": "€13–€16"
+   },
+   "low": "13",
+   "high": "16",
+   "url": "https://www.satirikotheatro.com/%CF%84%CE%BF-%CF%88%CE%AD%CE%BC%CE%B1",
+   "source": "Satiriko Theatre"
+  },
+  {
+   "id": "snow-queen",
+   "type": "theatre",
+   "city": "nicosia",
+   "start": "2026-10-04",
+   "end": "2026-12-20",
+   "when": {
+    "en": "Every Sunday at 11:00. Premiere was 4 October 2026.",
+    "ru": "Каждое воскресенье в 11:00. Премьера была 4 октября 2026.",
+    "el": "Κάθε Κυριακή στις 11:00. Η πρεμιέρα ήταν 4 Οκτωβρίου 2026."
+   },
+   "venue": {
+    "en": "Satiriko Theatre, main stage",
+    "ru": "Театр «Сатирико», главная сцена",
+    "el": "Σατιρικό Θέατρο, κεντρική σκηνή"
+   },
+   "locality": "Nicosia",
+   "street": "11–15 Vladimirou Kafkaridi, Aglantzia",
+   "title": {
+    "en": "The Snow Queen",
+    "ru": "«Снежная королева»",
+    "el": "Η Βασίλισσα του Χιονιού"
+   },
+   "desc": {
+    "en": "The children’s stage musical of Andersen’s story, adapted and directed by Eleni Anastasiou. Satiriko lists a 60-minute show for ages three and up, at €13.",
+    "ru": "Музыкальный спектакль детской сцены по Андерсену, адаптация и постановка Элени Анастасиу. «Сатирико» указывает 60 минут, с трёх лет, билет €13.",
+    "el": "Μουσική παράσταση της παιδικής σκηνής πάνω στο παραμύθι του Άντερσεν, διασκευή και σκηνοθεσία Ελένης Αναστασίου. Το Σατιρικό αναφέρει 60 λεπτά, από τριών ετών, €13."
+   },
+   "price": {
+    "en": "€13",
+    "ru": "€13",
+    "el": "€13"
+   },
+   "low": "13",
+   "high": "13",
+   "url": "https://www.satirikotheatro.com/%CE%B7%CE%B2%CE%B1%CF%83%CE%AF%CE%BB%CE%B9%CF%83%CF%83%CE%B1%CF%84%CE%BF%CF%85%CF%87%CE%B9%CE%BF%CE%BD%CE%B9%CE%BF%CF%8D",
+   "source": "Satiriko Theatre"
+  },
+  {
+   "id": "flash-festival",
+   "type": "theatre",
+   "city": "limassol",
+   "start": "2026-11-27T19:00:00+02:00",
+   "end": "2026-11-29",
+   "when": {
+    "en": "27–29 November 2026. Friday opens at 19:00.",
+    "ru": "27–29 ноября 2026. В пятницу начало в 19:00.",
+    "el": "27–29 Νοεμβρίου 2026. Την Παρασκευή ανοίγει στις 19:00."
+   },
+   "venue": {
+    "en": "Rialto Theatre",
+    "ru": "Театр Риалто",
+    "el": "Θέατρο Ριάλτο"
+   },
+   "locality": "Limassol",
+   "street": "Andrea Drousioti 19",
+   "title": {
+    "en": "Flash Festival",
+    "ru": "Flash Festival",
+    "el": "Flash Festival"
+   },
+   "desc": {
+    "en": "Three days of new dance, music, theatre and film on the Rialto stage, including Satiriko’s The Effect on 29 November. Philenews lists a festival pass at €30; most single tickets are €8 or €10, and The Effect is €13.",
+    "ru": "Три дня нового танца, музыки, театра и кино на сцене Риалто, включая «Эффект» театра «Сатирико» 29 ноября. Philenews указывает абонемент €30; большинство отдельных билетов €8 или €10, «Эффект» — €13.",
+    "el": "Τρεις μέρες νέου χορού, μουσικής, θεάτρου και κινηματογράφου στη σκηνή του Ριάλτο, με το The Effect του Σατιρικού στις 29 Νοεμβρίου. Το Philenews αναφέρει πάσο €30· τα περισσότερα μεμονωμένα είναι €8 ή €10 και το The Effect €13."
+   },
+   "price": {
+    "en": "€8–€30",
+    "ru": "€8–€30",
+    "el": "€8–€30"
+   },
+   "low": "8",
+   "high": "30",
+   "url": "https://en.philenews.com/whats-on/flash-festival-three-days-of-contemporary-artistic-creation-at-rialto/",
+   "source": "Philenews / Rialto Theatre"
+  },
+  {
+   "id": "how-to-rob-a-bank",
+   "type": "cinema",
+   "city": "larnaca",
+   "start": "2026-11-12",
+   "end": "2026-11-18",
+   "when": {
+    "en": "Showing 13–18 November 2026. Premiere listed as 12 November.",
+    "ru": "В прокате 13–18 ноября 2026. Премьера указана 12 ноября.",
+    "el": "Προβάλλεται 13–18 Νοεμβρίου 2026. Πρεμιέρα 12 Νοεμβρίου."
+   },
+   "venue": {
+    "en": "K-Cineplex Larnaca and Paphos",
+    "ru": "K-Cineplex Ларнака и Пафос",
+    "el": "K-Cineplex Λάρνακα και Πάφος"
+   },
+   "locality": "Larnaca",
+   "title": {
+    "en": "How to Rob a Bank",
+    "ru": "How to Rob a Bank",
+    "el": "How to Rob a Bank"
+   },
+   "desc": {
+    "en": "David Leitch’s crime film, with Nicholas Hoult and Zoë Kravitz, is on the K-Cineplex Larnaca and Paphos schedules from 13 to 18 November. K-Cineplex lists the premiere as 12 November. Clock times are only on the cinema’s schedule page.",
+    "ru": "Криминальный фильм Дэвида Литча с Николасом Холтом и Зои Кравиц стоит в расписании K-Cineplex в Ларнаке и Пафосе с 13 по 18 ноября. Премьеру сеть указывает 12 ноября. Часы сеансов — только на странице расписания кинотеатра.",
+    "el": "Η ταινία εγκλήματος του David Leitch, με τους Nicholas Hoult και Zoë Kravitz, είναι στο πρόγραμμα των K-Cineplex Λάρνακας και Πάφου από 13 έως 18 Νοεμβρίου. Το K-Cineplex δίνει πρεμιέρα 12 Νοεμβρίου. Οι ώρες προβολών είναι μόνο στη σελίδα προγράμματος του κινηματογράφου."
+   },
+   "url": "https://www.kcineplex.com/NowShowingMovies.aspx?CinemaId=966",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "ebenezer",
+   "type": "cinema",
+   "city": "paphos",
+   "start": "2026-11-12",
+   "end": "2026-11-18",
+   "when": {
+    "en": "Showing through 18 November 2026. Premiere 12 November.",
+    "ru": "В прокате до 18 ноября 2026. Премьера 12 ноября.",
+    "el": "Προβάλλεται έως 18 Νοεμβρίου 2026. Πρεμιέρα 12 Νοεμβρίου."
+   },
+   "venue": {
+    "en": "K-Cineplex Paphos and Larnaca",
+    "ru": "K-Cineplex Пафос и Ларнака",
+    "el": "K-Cineplex Πάφος και Λάρνακα"
+   },
+   "locality": "Paphos",
+   "title": {
+    "en": "Ebenezer",
+    "ru": "Ebenezer",
+    "el": "Ebenezer"
+   },
+   "desc": {
+    "en": "The Dickens ghost story with Johnny Depp is on the K-Cineplex Paphos and Larnaca schedules through 18 November. The chain’s premiere date is 12 November. Clock times are only on the cinema’s schedule page.",
+    "ru": "История о призраках по Диккенсу с Джонни Деппом стоит в расписании K-Cineplex в Пафосе и Ларнаке до 18 ноября. Дата премьеры у сети — 12 ноября. Часы сеансов — только на странице расписания кинотеатра.",
+    "el": "Η ιστορία φαντασμάτων του Ντίκενς με τον Johnny Depp είναι στο πρόγραμμα των K-Cineplex Πάφου και Λάρνακας έως 18 Νοεμβρίου. Η πρεμιέρα της αλυσίδας είναι 12 Νοεμβρίου. Οι ώρες προβολών είναι μόνο στη σελίδα προγράμματος του κινηματογράφου."
+   },
+   "url": "https://www.kcineplex.com/NowShowingMovies.aspx",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "cat-in-the-hat",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-11-12",
+   "end": "2026-11-18",
+   "when": {
+    "en": "On the schedule through 18 November 2026.",
+    "ru": "В расписании до 18 ноября 2026.",
+    "el": "Στο πρόγραμμα έως 18 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "K-Cineplex Nicosia",
+    "ru": "K-Cineplex Никосия",
+    "el": "K-Cineplex Λευκωσία"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "The Cat in the Hat",
+    "ru": "The Cat in the Hat",
+    "el": "The Cat in the Hat"
+   },
+   "desc": {
+    "en": "The family film is on the K-Cineplex Nicosia schedule in Greek and English, and in Greek at K-Cineplex Larnaca, on dates through 18 November. Clock times are only on the cinema’s schedule page.",
+    "ru": "Семейный фильм стоит в расписании K-Cineplex в Никосии на греческом и английском и в Ларнаке на греческом, на даты до 18 ноября. Часы сеансов — только на странице расписания кинотеатра.",
+    "el": "Η οικογενειακή ταινία είναι στο πρόγραμμα του K-Cineplex Λευκωσίας στα ελληνικά και αγγλικά και στη Λάρνακα στα ελληνικά, σε ημερομηνίες έως 18 Νοεμβρίου. Οι ώρες προβολών είναι μόνο στη σελίδα προγράμματος του κινηματογράφου."
+   },
+   "url": "https://www.kcineplex.com/NowShowingMovies.aspx?CinemaId=964",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "clayface",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-11-11",
+   "end": "2026-11-18",
+   "when": {
+    "en": "Listed 11–18 November 2026.",
+    "ru": "В расписании 11–18 ноября 2026.",
+    "el": "Στο πρόγραμμα 11–18 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "K-Cineplex Nicosia",
+    "ru": "K-Cineplex Никосия",
+    "el": "K-Cineplex Λευκωσία"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Clayface",
+    "ru": "Clayface",
+    "el": "Clayface"
+   },
+   "desc": {
+    "en": "The 18-rated DC film is listed on the K-Cineplex Nicosia schedule on dates from 11 to 18 November. Clock times are only on the cinema’s schedule page.",
+    "ru": "Фильм DC с возрастным ограничением 18+ стоит в расписании K-Cineplex в Никосии с 11 по 18 ноября. Часы сеансов — только на странице расписания кинотеатра.",
+    "el": "Η ταινία DC με ένδειξη 18+ είναι στο πρόγραμμα του K-Cineplex Λευκωσίας από 11 έως 18 Νοεμβρίου. Οι ώρες προβολών είναι μόνο στη σελίδα προγράμματος του κινηματογράφου."
+   },
+   "url": "https://www.kcineplex.com/NowShowingMovies.aspx?CinemaId=964",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "coyote-acme",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-11-11",
+   "end": "2026-11-18",
+   "when": {
+    "en": "On this week’s Nicosia schedule.",
+    "ru": "В расписании Никосии на эту неделю.",
+    "el": "Στο πρόγραμμα Λευκωσίας αυτής της εβδομάδας."
+   },
+   "venue": {
+    "en": "K-Cineplex Nicosia",
+    "ru": "K-Cineplex Никосия",
+    "el": "K-Cineplex Λευκωσία"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Coyote vs. ACME",
+    "ru": "Coyote vs. ACME",
+    "el": "Coyote vs. ACME"
+   },
+   "desc": {
+    "en": "The Looney Tunes film is on the K-Cineplex Nicosia schedule, in English and Greek, across this week’s published dates. Clock times are only on the cinema’s schedule page.",
+    "ru": "Фильм Looney Tunes стоит в расписании K-Cineplex в Никосии, на английском и греческом, на опубликованные даты этой недели. Часы сеансов — только на странице расписания кинотеатра.",
+    "el": "Η ταινία Looney Tunes είναι στο πρόγραμμα του K-Cineplex Λευκωσίας, στα αγγλικά και ελληνικά, στις δημοσιευμένες ημερομηνίες της εβδομάδας. Οι ώρες προβολών είναι μόνο στη σελίδα προγράμματος του κινηματογράφου."
+   },
+   "url": "https://www.kcineplex.com/NowShowingMovies.aspx?CinemaId=964",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "monster-mia",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-11-13",
+   "end": "2026-11-15",
+   "when": {
+    "en": "13–15 November 2026.",
+    "ru": "13–15 ноября 2026.",
+    "el": "13–15 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "K-Cineplex Nicosia",
+    "ru": "K-Cineplex Никосия",
+    "el": "K-Cineplex Λευκωσία"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Monster Mia",
+    "ru": "Monster Mia",
+    "el": "Monster Mia"
+   },
+   "desc": {
+    "en": "The Greek-language animated film is on the K-Cineplex Nicosia schedule for 13–15 November. Clock times are only on the cinema’s schedule page.",
+    "ru": "Анимационный фильм на греческом стоит в расписании K-Cineplex в Никосии на 13–15 ноября. Часы сеансов — только на странице расписания кинотеатра.",
+    "el": "Η ελληνόφωνη ταινία κινουμένων σχεδίων είναι στο πρόγραμμα του K-Cineplex Λευκωσίας για 13–15 Νοεμβρίου. Οι ώρες προβολών είναι μόνο στη σελίδα προγράμματος του κινηματογράφου."
+   },
+   "url": "https://www.kcineplex.com/NowShowingMovies.aspx?CinemaId=964",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "crystal-planet",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-11-19",
+   "end": "2026-11-19",
+   "when": {
+    "en": "Premiere 19 November 2026.",
+    "ru": "Премьера 19 ноября 2026.",
+    "el": "Πρεμιέρα 19 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "K-Cineplex",
+    "ru": "K-Cineplex",
+    "el": "K-Cineplex"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "The Crystal Planet",
+    "ru": "The Crystal Planet",
+    "el": "The Crystal Planet"
+   },
+   "desc": {
+    "en": "K-Cineplex lists this Greek-language animated premiere for 19 November. Which screens and which times are on the coming-soon page, not repeated here.",
+    "ru": "K-Cineplex указывает премьеру этого анимационного фильма на греческом на 19 ноября. Залы и часы — на странице «скоро», здесь они не повторяются.",
+    "el": "Το K-Cineplex αναφέρει την ελληνόφωνη πρεμιέρα κινουμένων σχεδίων στις 19 Νοεμβρίου. Αίθουσες και ώρες είναι στη σελίδα «σύντομα», δεν επαναλαμβάνονται εδώ."
+   },
+   "url": "https://www.kcineplex.com/ComingSoon.aspx",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "i-play-rocky",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-11-19",
+   "end": "2026-11-19",
+   "when": {
+    "en": "Premiere 19 November 2026.",
+    "ru": "Премьера 19 ноября 2026.",
+    "el": "Πρεμιέρα 19 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "K-Cineplex",
+    "ru": "K-Cineplex",
+    "el": "K-Cineplex"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "I Play Rocky",
+    "ru": "I Play Rocky",
+    "el": "I Play Rocky"
+   },
+   "desc": {
+    "en": "Peter Farrelly’s film, with Anthony Ippolito, is a K-Cineplex premiere on 19 November. Clock times are only on the cinema’s schedule page.",
+    "ru": "Фильм Питера Фаррелли с Энтони Ипполито — премьера K-Cineplex 19 ноября. Часы сеансов — только на странице расписания кинотеатра.",
+    "el": "Η ταινία του Peter Farrelly, με τον Anthony Ippolito, είναι πρεμιέρα K-Cineplex στις 19 Νοεμβρίου. Οι ώρες προβολών είναι μόνο στη σελίδα προγράμματος του κινηματογράφου."
+   },
+   "url": "https://www.kcineplex.com/ComingSoon.aspx",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "mikroi-iroes",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-11-19",
+   "end": "2026-11-19",
+   "when": {
+    "en": "Premiere 19 November 2026.",
+    "ru": "Премьеρα 19 ноября 2026.",
+    "el": "Πρεμιέρα 19 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "K-Cineplex",
+    "ru": "K-Cineplex",
+    "el": "K-Cineplex"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Mikroi Iroes",
+    "ru": "«Маленькие герои»",
+    "el": "Μικροί ήρωες"
+   },
+   "desc": {
+    "en": "K-Cineplex lists this Greek-language animated premiere for 19 November. Clock times are only on the cinema’s schedule page.",
+    "ru": "K-Cineplex указывает премьеру этого анимационного фильма на греческом на 19 ноября. Часы сеансов — только на странице расписания кинотеатра.",
+    "el": "Το K-Cineplex αναφέρει αυτή την ελληνόφωνη πρεμιέρα κινουμένων σχεδίων στις 19 Νοεμβρίου. Οι ώρες προβολών είναι μόνο στη σελίδα προγράμματος του κινηματογράφου."
+   },
+   "url": "https://www.kcineplex.com/ComingSoon.aspx",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "magic-faraway",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-12-10",
+   "end": "2026-12-10",
+   "when": {
+    "en": "Premiere 10 December 2026.",
+    "ru": "Премьера 10 декабря 2026.",
+    "el": "Πρεμιέρα 10 Δεκεμβρίου 2026."
+   },
+   "venue": {
+    "en": "K-Cineplex",
+    "ru": "K-Cineplex",
+    "el": "K-Cineplex"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "The Magic Faraway Tree",
+    "ru": "The Magic Faraway Tree",
+    "el": "The Magic Faraway Tree"
+   },
+   "desc": {
+    "en": "K-Cineplex lists the family film, with Andrew Garfield and Claire Foy, as a premiere on 10 December. Screens and times are not published on that page yet.",
+    "ru": "K-Cineplex указывает семейный фильм с Эндрю Гарфилдом и Клер Фой как премьеру 10 декабря. Залы и часы на этой странице ещё не опубликованы.",
+    "el": "Το K-Cineplex αναφέρει την οικογενειακή ταινία, με τους Andrew Garfield και Claire Foy, ως πρεμιέρα στις 10 Δεκεμβρίου. Αίθουσες και ώρες δεν έχουν δημοσιευτεί ακόμη σε αυτή τη σελίδα."
+   },
+   "url": "https://www.kcineplex.com/ComingSoon.aspx",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "avengers-doomsday",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-12-16",
+   "end": "2026-12-16",
+   "when": {
+    "en": "Premiere 16 December 2026.",
+    "ru": "Премьера 16 декабря 2026.",
+    "el": "Πρεμιέρα 16 Δεκεμβρίου 2026."
+   },
+   "venue": {
+    "en": "K-Cineplex",
+    "ru": "K-Cineplex",
+    "el": "K-Cineplex"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Avengers: Doomsday",
+    "ru": "«Мстители: Судный день»",
+    "el": "Avengers: Doomsday"
+   },
+   "desc": {
+    "en": "K-Cineplex lists the Marvel premiere for 16 December. Showtimes are not on the coming-soon page.",
+    "ru": "K-Cineplex указывает премьеру Marvel на 16 декабря. Сеансов на странице «скоро» ещё нет.",
+    "el": "Το K-Cineplex αναφέρει την πρεμιέρα Marvel στις 16 Δεκεμβρίου. Δεν υπάρχουν ακόμη ώρες στη σελίδα «σύντομα»."
+   },
+   "url": "https://www.kcineplex.com/ComingSoon.aspx",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "dune-3",
+   "type": "cinema",
+   "city": "nicosia",
+   "start": "2026-12-17",
+   "end": "2026-12-17",
+   "when": {
+    "en": "Premiere 17 December 2026.",
+    "ru": "Премьера 17 декабря 2026.",
+    "el": "Πρεμιέρα 17 Δεκεμβρίου 2026."
+   },
+   "venue": {
+    "en": "K-Cineplex",
+    "ru": "K-Cineplex",
+    "el": "K-Cineplex"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Dune: Part Three",
+    "ru": "«Дюна: часть третья»",
+    "el": "Dune: Part Three"
+   },
+   "desc": {
+    "en": "K-Cineplex lists the sequel premiere for 17 December, with Timothée Chalamet. Showtimes are not published on that page yet.",
+    "ru": "K-Cineplex указывает премьеру продолжения 17 декабря, с Тимоти Шаламе. Сеансов на этой странице ещё нет.",
+    "el": "Το K-Cineplex αναφέρει την πρεμιέρα της συνέχειας στις 17 Δεκεμβρίου, με τον Timothée Chalamet. Ώρες δεν έχουν δημοσιευτεί ακόμη σε αυτή τη σελίδα."
+   },
+   "url": "https://www.kcineplex.com/ComingSoon.aspx",
+   "source": "K-Cineplex"
+  },
+  {
+   "id": "cyprus-film-days-2027",
+   "type": "cinema",
+   "city": "limassol",
+   "start": "2027-04-16",
+   "end": "2027-04-24",
+   "when": {
+    "en": "16–24 April 2027.",
+    "ru": "16–24 апреля 2027.",
+    "el": "16–24 Απριλίου 2027."
+   },
+   "venue": {
+    "en": "Rialto Theatre, Limassol, and Zena Palace, Nicosia",
+    "ru": "Театр Риалто, Лимассол, и Zena Palace, Никосия",
+    "el": "Θέατρο Ριάλτο, Λεμεσός, και Zena Palace, Λευκωσία"
+   },
+   "locality": "Limassol",
+   "title": {
+    "en": "Cyprus Film Days",
+    "ru": "Кипрские дни кино",
+    "el": "Κινηματογραφικές Μέρες – Κύπρος"
+   },
+   "desc": {
+    "en": "The festival’s own site dates the 25th edition to 16–24 April 2027 and keeps the same two venues as 2026: Rialto in Limassol and Zena Palace in Nicosia. The day-by-day programme is not published yet.",
+    "ru": "Сайт фестиваля ставит 25-й выпуск на 16–24 апреля 2027 и оставляет те же две площадки, что в 2026-м: Риалто в Лимассоле и Zena Palace в Никосии. Подневной программы ещё нет.",
+    "el": "Ο ιστότοπος του φεστιβάλ βάζει την 25η διοργάνωση στις 16–24 Απριλίου 2027 και κρατά τους ίδιους δύο χώρους με το 2026: Ριάλτο στη Λεμεσό και Zena Palace στη Λευκωσία. Το αναλυτικό πρόγραμμα δεν έχει δημοσιευτεί ακόμη."
+   },
+   "url": "https://www.cyprusfilmdays.com/",
+   "source": "Cyprus Film Days"
   }
  ]
 }

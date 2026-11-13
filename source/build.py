@@ -604,17 +604,17 @@ EVL={
   desc="Concerts, festivals, fairs, exhibitions, theatre, family shows and sport in Cyprus. Dates and prices come from the linked sources and are left out where a source does not give them.",
   city="City",kind="Type",all="All",source="Source",empty="No events match these filters.",
   cities=dict(nicosia="Nicosia",limassol="Limassol",larnaca="Larnaca",paphos="Paphos",**{"ayia-napa":"Ayia Napa & Protaras"},other="Towns & villages"),
-  types=dict(concert="Concerts",festival="Festivals",fair="Fairs & markets",exhibition="Exhibitions",theatre="Theatre",kids="For children",sport="Sport")),
+  types=dict(theatre="Theatre",cinema="Cinema",concert="Concerts",festival="Festivals",fair="Fairs & markets",exhibition="Exhibitions",kids="For children",sport="Sport")),
  "ru":dict(title="Мероприятия",week="На этой неделе",upcoming="В ближайшие месяцы",later="Позже",see="Все события",
   desc="Концерты, фестивали, ярмарки, выставки, театр, семейные спектакли и спорт на Кипре. Даты и цены взяты из указанных источников и не дополняются, если источник их не называет.",
   city="Город",kind="Тип",all="Все",source="Источник",empty="Нет событий с таким фильтром.",
   cities=dict(nicosia="Никосия",limassol="Лимассол",larnaca="Ларнака",paphos="Пафос",**{"ayia-napa":"Айя-Напа и Протарас"},other="Города и деревни"),
-  types=dict(concert="Концерты",festival="Фестивали",fair="Ярмарки",exhibition="Выставки",theatre="Театр",kids="Для детей",sport="Спорт")),
+  types=dict(theatre="Театр",cinema="Кино",concert="Концерты",festival="Фестивали",fair="Ярмарки",exhibition="Выставки",kids="Для детей",sport="Спорт")),
  "el":dict(title="Εκδηλώσεις",week="Αυτή την εβδομάδα",upcoming="Τους επόμενους μήνες",later="Αργότερα",see="Όλες οι εκδηλώσεις",
   desc="Συναυλίες, φεστιβάλ, αγορές, εκθέσεις, θέατρο, οικογενειακές παραστάσεις και αθλητισμός στην Κύπρο. Ημερομηνίες και τιμές προέρχονται από τις πηγές και δεν συμπληρώνονται όταν η πηγή δεν τις δίνει.",
   city="Πόλη",kind="Είδος",all="Όλα",source="Πηγή",empty="Καμία εκδήλωση με αυτά τα φίλτρα.",
   cities=dict(nicosia="Λευκωσία",limassol="Λεμεσός",larnaca="Λάρνακα",paphos="Πάφος",**{"ayia-napa":"Αγία Νάπα & Πρωταράς"},other="Πόλεις και χωριά"),
-  types=dict(concert="Συναυλίες",festival="Φεστιβάλ",fair="Αγορές",exhibition="Εκθέσεις",theatre="Θέατρο",kids="Για παιδιά",sport="Αθλητισμός")),
+  types=dict(theatre="Θέατρο",cinema="Κινηματογράφος",concert="Συναυλίες",festival="Φεστιβάλ",fair="Αγορές",exhibition="Εκθέσεις",kids="Για παιδιά",sport="Αθλητισμός")),
 }
 def event_buckets():
     today=datetime.date.fromisoformat(TODAY)
@@ -640,6 +640,7 @@ def ev_icon(kind):
      "theatre":'<path d="M16 20c6 8 26 8 32 0v22c-6-6-26-6-32 0z" fill="none" stroke="#fff" stroke-width="2"/><path d="M32 20v22" stroke="#c4571a" stroke-width="2"/>',
      "sport":'<circle cx="32" cy="32" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M32 18v28M18 32h28" stroke="#c4571a" stroke-width="2"/>',
      "kids":'<circle cx="32" cy="24" r="8" fill="none" stroke="#fff" stroke-width="2"/><path d="M18 48c2-8 8-12 14-12s12 4 14 12" fill="none" stroke="#c4571a" stroke-width="2"/>',
+     "cinema":'<rect x="12" y="18" width="40" height="28" rx="2" fill="none" stroke="#fff" stroke-width="2"/><path d="M12 26h40M22 18l-4 8M32 18l-4 8M42 18l-4 8" stroke="#c4571a" stroke-width="2"/>',
     }
     return f'<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">{paths.get(kind, paths["festival"])}</svg>'
 def ev_caption(photo,l):
@@ -649,7 +650,8 @@ def ev_caption(photo,l):
 def event_ld(ev,l):
     addr={"@type":"PostalAddress","addressLocality":ev["locality"],"addressCountry":"CY"}
     if ev.get("street"): addr["streetAddress"]=ev["street"]
-    obj={"@type":"Event","name":ev["title"][l],"startDate":ev["start"],"eventStatus":"https://schema.org/EventScheduled",
+    kind="ScreeningEvent" if ev.get("type")=="cinema" else "Event"
+    obj={"@type":kind,"name":ev["title"][l],"startDate":ev["start"],"eventStatus":"https://schema.org/EventScheduled",
          "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
          "location":{"@type":"Place","name":ev["venue"][l],"address":addr},
          "url":ev["url"],"description":ev["desc"][l],
