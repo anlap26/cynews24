@@ -1,7 +1,8 @@
 # Rebuilds the static site from source/ and commits the generated pages to main.
 # GitHub Pages keeps serving branch main / root, so the custom domain (CNAME) is unchanged.
 # Pushes made with GITHUB_TOKEN do not start workflows again, including the Pages
-# build, so after a commit this workflow requests that build itself. There is no loop.
+# build. A normal push already starts Pages, so this workflow requests a build
+# only after its own commit, or on the daily/manual run. There is no loop.
 name: Build site
 
 on:
@@ -60,6 +61,7 @@ jobs:
         run: cd source && python build.py
 
       - name: Commit generated site
+        id: commit
         if: github.event_name != 'pull_request'
         run: |
           git config user.name "cynews24-build[bot]"
@@ -67,20 +69,29 @@ jobs:
           git add -A
           if git diff --cached --quiet; then
             echo "Nothing changed."
+            echo "pushed=false" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           git commit -q -m "Пересборка сайта (${GITHUB_SHA::7})"
           for i in 1 2 3; do
-            git push origin HEAD:main && exit 0
+            if git push origin HEAD:main; then
+              echo "pushed=true" >> "$GITHUB_OUTPUT"
+              exit 0
+            fi
             echo "main moved on; rebasing and retrying"
             git pull --rebase -q origin main || { git rebase --abort; exit 1; }
           done
           exit 1
 
-      # Branch-source Pages does not build after a GITHUB_TOKEN push. This call
-      # builds the latest main (same result as a normal push) and keeps CNAME.
+      # A push from this token does not start Pages. A normal push already did,
+      # and a second request cancels that build, so only ask after our own commit
+      # or when nothing else will (the daily run and a manual run).
       - name: Request GitHub Pages build
-        if: github.event_name != 'pull_request'
+        if: >-
+          github.event_name != 'pull_request' &&
+          (steps.commit.outputs.pushed == 'true' ||
+           github.event_name == 'schedule' ||
+           github.event_name == 'workflow_dispatch')
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
