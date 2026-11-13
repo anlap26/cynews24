@@ -134,6 +134,7 @@ UI = {
   sources_note="This article is an original rewrite of facts reported by the outlets below; read the originals for full detail.",
   read="Read more",tags="Topics",lang="Language",about="About us",ads="Advertise & Contact",events="Events",menu="Sections",skip="Skip to content",
   policy="Editorial policy",privacy="Privacy policy",published="Published",team="CyNews 24 Editorial Team",
+  tg="Telegram",tg_cta="Follow Cyprus news on Telegram",
   tg_ru="Telegram (RU)",tg_en="Telegram (EN)",mycytax="Property & tax calculators — MyCyTax",
   tagline="Cyprus news in three languages",
   footer="CyNews 24 summarises public reporting from Cypriot and international media in Russian, English and Greek. Articles are rewritten in our own words and link to their sources; photographs are used under open licences and credited. CyNews 24 is not affiliated with the outlets cited.",
@@ -144,6 +145,7 @@ UI = {
   sources_note="Материал — авторский пересказ фактов, опубликованных изданиями ниже; полные подробности — в оригиналах.",
   read="Читать далее",tags="Темы",lang="Язык",about="О проекте",ads="Реклама и контакты",events="Мероприятия",menu="Разделы",skip="Перейти к содержанию",
   policy="Редакционная политика",privacy="Политика конфиденциальности",published="Опубликовано",team="Редакционная группа CyNews 24",
+  tg="Telegram",tg_cta="Подписывайтесь на наш Telegram-канал — новости Кипра первыми",
   tg_ru="Telegram (RU)",tg_en="Telegram (EN)",mycytax="Калькуляторы недвижимости — MyCyTax",
   tagline="Новости Кипра на трёх языках",
   footer="CyNews 24 обобщает публикации кипрских и международных СМИ на русском, английском и греческом языках. Тексты написаны своими словами и содержат ссылки на источники; фотографии используются по открытым лицензиям с указанием автора. CyNews 24 не связан с упомянутыми изданиями.",
@@ -154,6 +156,7 @@ UI = {
   sources_note="Το κείμενο είναι πρωτότυπη αναδιατύπωση γεγονότων που δημοσίευσαν τα παρακάτω μέσα· για πλήρεις λεπτομέρειες δείτε τα πρωτότυπα.",
   read="Διαβάστε περισσότερα",tags="Θέματα",lang="Γλώσσα",about="Σχετικά με εμάς",ads="Διαφήμιση & Επικοινωνία",events="Εκδηλώσεις",menu="Ενότητες",skip="Μετάβαση στο περιεχόμενο",
   policy="Συντακτική πολιτική",privacy="Πολιτική απορρήτου",published="Δημοσιεύτηκε",team="Συντακτική ομάδα CyNews 24",
+  tg="Telegram",tg_cta="Ακολουθήστε μας στο Telegram",
   tg_ru="Telegram (RU)",tg_en="Telegram (EN)",mycytax="Υπολογιστές ακινήτων — MyCyTax",
   tagline="Ειδήσεις Κύπρου σε τρεις γλώσσες",
   footer="Το CyNews 24 συνοψίζει δημοσιεύματα κυπριακών και διεθνών μέσων στα ρωσικά, αγγλικά και ελληνικά. Τα κείμενα γράφονται με δικά μας λόγια και παραπέμπουν στις πηγές τους· οι φωτογραφίες χρησιμοποιούνται με ανοιχτές άδειες και αναφέρουν τον δημιουργό. Το CyNews 24 δεν συνδέεται με τα μέσα που αναφέρονται.",
@@ -417,6 +420,9 @@ img{max-width:100%;height:auto;display:block}
 .tr{display:flex;align-items:center;gap:16px;font-size:13px}
 .date{color:#c8cdd5}
 .lang{display:flex;gap:2px}.lang a{padding:4px 9px;border:1px solid #3b4556;font-weight:700;font-size:12px;letter-spacing:.5px}.lang a[aria-current=true]{background:#fff;color:var(--dark);border-color:#fff}.lang a:hover{background:#2a3446}.lang a[aria-current=true]:hover{background:#fff}
+.tr .tg{display:inline-flex;align-items:center;gap:6px;background:var(--acc);color:#fff;padding:5px 10px;font-weight:800;font-size:12px;letter-spacing:.4px}
+.tr .tg:hover{background:#fff;color:var(--dark)}
+.tr .tg svg{display:block}
 nav.cats{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20}
 nav.cats ul{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;scrollbar-width:none}
 nav.cats li a{display:block;padding:13px 14px;font-weight:700;font-size:15px;white-space:nowrap;border-bottom:4px solid transparent}
@@ -451,6 +457,8 @@ figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6p
 .body p{font-size:18px;line-height:1.65;margin:0 0 18px}
 .src{background:var(--soft);border-left:4px solid var(--acc);padding:14px 16px;margin:28px 0;font-size:15px}.src h2{font-size:15px;margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}.src p{margin:0 0 8px;color:var(--mut)}.src ul{margin:0;padding-left:18px}.src a{text-decoration:underline;color:#0b57b0}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}.tags li{border:1px solid var(--line);border-radius:20px;padding:3px 12px;font-size:13px;color:#33383f}
+.tgcta{margin:4px 0 28px}.tgcta a{display:flex;align-items:center;gap:12px;background:var(--dark);color:#fff;padding:14px 16px;font-weight:700;font-size:17px;line-height:1.35}
+.tgcta a:hover{background:var(--acc)}.tgcta span{min-width:0}.tgcta svg{flex:none}
 .rel h2{font-size:22px;border-top:4px solid var(--ink);padding-top:8px}
 .rel .grid{grid-template-columns:repeat(3,1fr)}
 .langsw{display:flex;gap:10px;font-size:14px;margin:0 0 6px;flex-wrap:wrap}.langsw a{text-decoration:underline}
@@ -459,6 +467,7 @@ footer p{max-width:820px;margin:8px 0}
 footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;margin:12px 0}
 footer .social{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 4px}
 footer .social a{display:inline-flex;align-items:center;gap:8px;border:1px solid #3a4250;padding:6px 10px;text-decoration:none;font-weight:700}
+footer .social a.tg{border-color:var(--acc)}footer .social a.tg:hover{background:var(--acc);border-color:var(--acc)}
 .choose{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--dark);color:#fff;text-align:center;padding:24px}
 .choose .logo{font-size:44px;justify-content:center;margin-bottom:12px}.choose p{color:#c8cdd5;margin:6px 0 24px}
 .choose .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.choose .btns a{background:#fff;color:var(--dark);font-weight:800;padding:14px 26px;font-size:18px}.choose .btns a:hover{background:var(--acc);color:#fff}
@@ -541,6 +550,9 @@ def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jso
     h.append(extra); h.append(ADSENSE); h.append('</head>')
     return "\n".join(h)
 
+def telegram_for(l):
+    """Channel for this page. Russian uses @cynews24; English and Greek use @cynews24en."""
+    return (TELEGRAM.get("ru" if l=="ru" else "en") or "").strip()
 def header(l, pathfn, active=None):
     u=UI[l]
     sw="".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}" {"aria-current=\"true\"" if x==l else ""} title="{LANGNAME[x]}">{x.upper()}</a>' for x in LANGS)
@@ -548,8 +560,10 @@ def header(l, pathfn, active=None):
       f'<li><a href="{href(f"/{l}/{c}/")}" {"aria-current=\"page\"" if active==c else ""}>{CATN[l][c]}</a></li>' for c in CATS)
     nav+=f'<li><a href="{href(f"/{l}/events/")}" {"aria-current=\"page\"" if active=="events" else ""}>{u["events"]}</a></li>'
     nav+=f'<li class="promo"><a href="{href(f"/{l}/advertising/")}" {"aria-current=\"page\"" if active=="advertising" else ""}>{u["ads"]}</a></li>'
+    tg=telegram_for(l)
+    tg_btn=f'<a class="tg" href="{e(tg)}" target="_blank" rel="noopener">{_icons()["telegram"]}<span>{e(u["tg"])}</span></a>' if tg else ""
     return (f'<body><a class="skip" href="#main">{u["skip"]}</a><header class="top"><div class="wrap"><a class="logo" href="{href(f"/{l}/")}" aria-label="{SITE}"><b>CyNews</b><i>24</i></a>'
-      f'<div class="tr"><span class="date">{fdate(TODAY,l,True)}</span><nav class="lang" aria-label="{u["lang"]}">{sw}</nav></div></div></header>'
+      f'<div class="tr">{tg_btn}<span class="date">{fdate(TODAY,l,True)}</span><nav class="lang" aria-label="{u["lang"]}">{sw}</nav></div></div></header>'
       f'<nav class="cats" aria-label="{u["menu"]}"><div class="wrap"><ul>{nav}</ul></div></nav>')
 
 def social_items():
@@ -562,12 +576,17 @@ def social_items():
         if url: items.append((url, label, key))
     return icons, items
 def footer_social(l):
+    """Page-language Telegram button, then any other configured profiles."""
     u=UI[l]; icons, items=social_items()
-    if not items: return ""
     bits=[]
+    tg=telegram_for(l)
+    if tg:
+        bits.append(f'<a class="tg" href="{e(tg)}" target="_blank" rel="noopener">{icons["telegram"]}<span>{e(u["tg"])}</span></a>')
     for url,label,key in items:
+        if key=="telegram": continue
         name=u[label] if label in u else label
         bits.append(f'<a href="{e(url)}" rel="noopener noreferrer">{icons[key]}{e(name)}</a>')
+    if not bits: return ""
     return f'<div class="social">{"".join(bits)}</div>'
 def same_as():
     return [url for url,_label,_key in social_items()[1]]
@@ -688,7 +707,7 @@ def page_article(l,s):
     kws=s["kw"][l]+GKW[l][:4]
     pub,mod=article_times(s)
     og=f'/assets/img/{s["img"]}-og.jpg'
-    publisher={"@type":"NewsMediaOrganization","name":SITE,"url":abs_("/"),"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512}}
+    publisher={"@type":"NewsMediaOrganization","name":SITE,"url":abs_("/"),"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512},"sameAs":same_as()}
     ld=[{"@context":"https://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":title,"description":s["lede"][l],"image":image_ld(s),"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
         "author":{"@type":"Organization","name":u["byline"],"url":abs_(f"/{l}/about/")},"publisher":publisher,
         "isBasedOn":[x[1] for x in s["sources"]],"citation":[{"@type":"CreativeWork","name":x[0],"url":x[1]} for x in s["sources"]],"articleBody":" ".join(s["body"][l]),"url":abs_(path),
@@ -709,7 +728,11 @@ def page_article(l,s):
         h+=f'<section class="src" aria-label="{u["sources"]}"><h2>{u["sources"]}</h2><p>{u["sources_note"]}</p><ul>'+"".join(f'<li><a href="{e(x[1])}" target="_blank" rel="noopener nofollow">{e(x[0])}</a></li>' for x in s["sources"])+'</ul></section>'
     if s["kw"][l]:
         h+=f'<h2 style="font-size:16px;margin:0 0 8px">{u["tags"]}</h2><ul class="tags">'+"".join(f'<li>{e(k)}</li>' for k in s["kw"][l])+'</ul>'
-    h+=f'<p class="langsw">'+" ".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS if x!=l)+'</p></article>'
+    h+=f'<p class="langsw">'+" ".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS if x!=l)+'</p>'
+    cta=telegram_for(l)
+    if cta:
+        h+=f'<p class="tgcta"><a href="{e(cta)}" target="_blank" rel="noopener">{_icons()["telegram"]}<span>{e(u["tg_cta"])}</span></a></p>'
+    h+='</article>'
     rel=[x for x in sorted_all() if x["slug"]!=s["slug"]]
     rel.sort(key=lambda x:(x["cat"]!=s["cat"],))
     h+=f'<section class="rel"><h2>{u["related"]}</h2><div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
@@ -822,7 +845,7 @@ def _icons():
     return {
      "facebook":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>',
      "instagram":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm8 2H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3zm-4 3.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2A1.8 1.8 0 1 0 13.8 12 1.8 1.8 0 0 0 12 10.2zM17.4 6.6a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>',
-     "telegram":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21 4 2.8 11.2c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.1.9.8.9.4 0 .6-.2.8-.4l2.6-2.5 5.4 4c.6.4 1.2.2 1.3-.6L22.2 5c.2-1-.4-1.4-1.2-1zM8.7 14.3l9.2-5.8c.4-.3.8 0 .5.3l-7.6 6.9-.3 3.3z"/></svg>',
+     "telegram":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>',
     }
 def social_block(l):
     a=AD[l]; block=footer_social(l)
@@ -853,7 +876,7 @@ def ad_form(l):
 def page_advertising(l):
     a=AD[l]; pathfn=lambda x:f"/{x}/advertising/"
     ld=[{"@context":"https://schema.org","@type":"ContactPage","name":a["title"],"url":abs_(f"/{l}/advertising/"),"inLanguage":l,"description":a["desc"],
-         "mainEntity":{"@type":"Organization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),"email":AD_EMAIL,"contactPoint":contact_point(l)}}]
+         "mainEntity":{"@type":"Organization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),"email":AD_EMAIL,"sameAs":same_as(),"contactPoint":contact_point(l)}}]
     cards="".join(f'<article class="fmt"><h3>{e(n)}</h3><p>{e(d)}</p></article>' for n,d in a["formats"])
     h=head(l,f'{a["title"]} | {SITE}',a["desc"],[a["title"],SITE,"Cyprus"],f"/{l}/advertising/",pathfn,"/assets/og-default.jpg",jsonld=ld)
     h+=header(l,pathfn,"advertising")
