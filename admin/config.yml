@@ -1,0 +1,173 @@
+# CyNews 24 editor (Sveltia CMS). Open https://cynews24.net/admin/ and sign in with a GitHub token.
+# Saving an article commits a JSON file to source/content/articles/ on main; the "Build site"
+# GitHub Action then regenerates the pages and the site updates in a few minutes.
+backend:
+  name: github
+  repo: anlap26/cynews24
+  branch: main
+  commit_messages:
+    create: "Новая статья: {{slug}}"
+    update: "Правка статьи: {{slug}}"
+    delete: "Удалена статья: {{slug}}"
+    uploadMedia: "Загружено фото: {{path}}"
+    deleteMedia: "Удалено фото: {{path}}"
+
+site_url: https://cynews24.net
+display_url: https://cynews24.net
+
+media_folder: source/src
+public_folder: /source/src
+media_libraries:
+  default:
+    config:
+      max_file_size: 15000000
+      transformations:
+        raster_image:
+          format: webp
+          quality: 88
+          width: 2400
+          height: 2400
+
+# Filenames from Russian titles are transliterated to Latin letters.
+slug:
+  encoding: ascii
+  clean_accents: true
+  maxlength: 70
+
+collections:
+  - name: articles
+    label: Статьи
+    label_singular: статью
+    description: Новости сайта. Обязателен только русский текст; английский и греческий можно добавить позже.
+    folder: source/content/articles
+    extension: json
+    format: json
+    create: true
+    delete: true
+    slug: "{{ru.title}}"
+    summary: "{{date}} · {{ru.title}}"
+    sortable_fields:
+      fields: [date, ru.title]
+      default:
+        field: date
+        direction: descending
+    preview_path: "ru/{{slug}}/"
+    fields:
+      - name: ru
+        label: Текст на русском
+        widget: object
+        fields:
+          - { name: title, label: Заголовок, widget: string }
+          - { name: lede, label: "Лид (1–2 предложения под заголовком)", widget: text }
+          - name: body
+            label: Текст статьи
+            widget: text
+            hint: Абзацы разделяйте пустой строкой.
+          - { name: alt, label: Описание фото (что на снимке), widget: string, required: false }
+          - name: kw
+            label: Темы / ключевые слова
+            widget: list
+            required: false
+            hint: "Через запятую, например: Лимассол, недвижимость"
+      - name: cat
+        label: Рубрика
+        widget: select
+        options:
+          - { label: Политика, value: politics }
+          - { label: Экономика, value: economy }
+          - { label: Недвижимость, value: real-estate }
+          - { label: Общество, value: society }
+          - { label: Туризм, value: tourism }
+          - { label: Спорт, value: sport }
+          - { label: В мире, value: world }
+      - name: date
+        label: Дата публикации
+        widget: datetime
+        format: YYYY-MM-DD
+        time_format: false
+        default: "{{now}}"
+      - name: image
+        label: Фото
+        widget: image
+        required: false
+        hint: "JPG, PNG или WebP, лучше горизонтальное. Сайт сам обрежет его до 16:9 и поставит логотип. У старых статей фото задано отдельно — оставьте поле пустым, чтобы его не менять."
+      - name: photo_credit
+        label: Автор и источник фото
+        widget: object
+        required: false
+        collapsed: true
+        fields:
+          - { name: author, label: Автор, widget: string, required: false }
+          - { name: source, label: "Источник (например, Pexels, Wikimedia Commons)", widget: string, required: false }
+          - { name: page, label: Ссылка на оригинал фото, widget: string, required: false }
+          - { name: license, label: "Лицензия (например, CC BY 4.0)", widget: string, required: false }
+          - { name: license_url, label: Ссылка на лицензию, widget: string, required: false }
+      - name: sources
+        label: Источники новости
+        label_singular: источник
+        widget: list
+        required: false
+        summary: "{{fields.name}}"
+        fields:
+          - { name: name, label: "Название издания (например, Cyprus Mail)", widget: string }
+          - { name: url, label: Ссылка на статью, widget: string }
+      - name: slug
+        label: Адрес страницы (необязательно)
+        widget: string
+        required: false
+        pattern: ['^[a-z0-9]+(-[a-z0-9]+)*$', 'Только латинские строчные буквы, цифры и дефисы, например new-law-limassol']
+        hint: "Можно оставить пустым — адрес создастся из заголовка. Не меняйте его у опубликованных статей: старая ссылка перестанет работать."
+      - name: en
+        label: English (необязательно)
+        widget: object
+        required: false
+        collapsed: true
+        hint: Если оставить пустым, на английской версии будет русский текст, пока не появится перевод.
+        fields:
+          - { name: title, label: Title, widget: string, required: false }
+          - { name: lede, label: Lede, widget: text, required: false }
+          - { name: body, label: Text, widget: text, required: false }
+          - { name: alt, label: Photo description, widget: string, required: false }
+          - { name: kw, label: Topics, widget: list, required: false }
+      - name: el
+        label: Ελληνικά (необязательно)
+        widget: object
+        required: false
+        collapsed: true
+        hint: Если оставить пустым, на греческой версии будет русский текст, пока не появится перевод.
+        fields:
+          - { name: title, label: Τίτλος, widget: string, required: false }
+          - { name: lede, label: Εισαγωγή, widget: text, required: false }
+          - { name: body, label: Κείμενο, widget: text, required: false }
+          - { name: alt, label: Περιγραφή φωτογραφίας, widget: string, required: false }
+          - { name: kw, label: Θέματα, widget: list, required: false }
+      # Technical fields of articles migrated from the old generator (photo from credits.json, order).
+      - { name: img, label: img, widget: hidden, required: false }
+      - { name: seq, label: seq, widget: hidden, required: false }
+      - { name: updated, label: updated, widget: hidden, required: false }
+
+  - name: settings
+    label: Главная страница
+    files:
+      - name: home
+        label: Главные новости на главной
+        file: source/content/home.json
+        format: json
+        fields:
+          - name: lead
+            label: Главная новость (большая)
+            widget: relation
+            collection: articles
+            value_field: "{{slug}}"
+            search_fields: [ru.title]
+            display_fields: [ru.title]
+          - name: side
+            label: Ещё 4 новости справа
+            widget: relation
+            collection: articles
+            value_field: "{{slug}}"
+            search_fields: [ru.title]
+            display_fields: [ru.title]
+            multiple: true
+            max: 4
+            required: false

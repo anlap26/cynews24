@@ -4,8 +4,6 @@ from urllib.parse import urlparse
 from PIL import Image, ImageDraw, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import s1,s2,s3,s4
-STORIES = s1.S + s2.S + s3.S + s4.S
 with open(os.path.join(HERE,"events.json"),encoding="utf8") as _ef:
     _EV=json.load(_ef)
 EV_EVENTS=_EV["events"]
@@ -35,6 +33,83 @@ CATN = {
  "en":dict(zip(CATS,["Politics","Economy","Real Estate","Society","Tourism","Sport","World"])),
  "ru":dict(zip(CATS,["Политика","Экономика","Недвижимость","Общество","Туризм","Спорт","В мире"])),
  "el":dict(zip(CATS,["Πολιτική","Οικονομία","Ακίνητα","Κοινωνία","Τουρισμός","Αθλητισμός","Κόσμος"]))}
+# ---------- articles ----------
+# One JSON file per article in content/articles/ (edited by hand or in the /admin/ CMS).
+# Russian is required. English and Greek are optional: a missing translation falls back
+# to the Russian text, and that language version is marked noindex until it is translated.
+CONTENT = os.path.join(HERE, "content")
+ART_DIR = os.path.join(CONTENT, "articles")
+TEXT_FIELDS = ("title", "lede", "body", "alt", "kw")
+def _clean(v):
+    if v is None: return ""
+    return v.strip() if isinstance(v, str) else v
+def _paras(v):
+    """Body as a list of paragraphs. Accepts a list, or text with blank lines between paragraphs."""
+    if isinstance(v, list): return [str(p).strip() for p in v if str(p).strip()]
+    v = (v or "").replace("\r\n", "\n")
+    return [" ".join(x.strip() for x in p.split("\n")).strip() for p in re.split(r"\n\s*\n", v) if p.strip()]
+def _kw(v):
+    if isinstance(v, str): v = v.split(",")
+    return [str(k).strip() for k in (v or []) if str(k).strip()]
+def _media_path(v):
+    """CMS image value (/source/src/x.jpg, source/src/x.jpg or x.jpg) -> file on disk."""
+    v = (v or "").strip()
+    if not v: return ""
+    for cand in (os.path.join(HERE, "..", v.lstrip("/")), os.path.join(SRC, os.path.basename(v)), os.path.join(HERE, v.lstrip("/"))):
+        if os.path.exists(cand): return os.path.normpath(cand)
+    print(f"WARNING: image not found, using a placeholder: {v}")
+    return ""
+_TR = dict(zip("абвгдеёзийклмнопрстуфхыэ", "abvgdeezijklmnoprstufhye")) | {"ж":"zh","ц":"ts","ч":"ch","ш":"sh","щ":"sch","ю":"yu","я":"ya","ъ":"","ь":""}
+def slugify(v):
+    v = "".join(_TR.get(ch, ch) for ch in str(v).lower())
+    return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", v)).strip("-")[:70].strip("-")
+def load_story(path):
+    with open(path, encoding="utf8") as f: d = json.load(f)
+    stem = os.path.splitext(os.path.basename(path))[0]
+    # Page address: the slug field, else the file name, else the Russian title, in Latin letters.
+    slug = slugify(_clean(d.get("slug")) or stem) or slugify((d.get("ru") or {}).get("title", ""))
+    if not slug: raise SystemExit(f"{path}: cannot make a page address (slug)")
+    cat = _clean(d.get("cat"))
+    if cat not in CATS: raise SystemExit(f"{path}: unknown category {cat!r}")
+    date = str(_clean(d.get("date")))[:10]
+    datetime.date.fromisoformat(date)
+    ru = d.get("ru") or {}
+    for k in ("title", "lede", "body"):
+        if not _clean(ru.get(k)): raise SystemExit(f"{path}: Russian {k} is required")
+    s = {"slug": slug, "file": stem, "cat": cat, "date": date, "seq": d.get("seq"), "missing": set()}
+    for k in ("title", "lede", "alt"): s[k] = {}
+    s["body"] = {}; s["kw"] = {}
+    for l in LANGS:
+        src = d.get(l) or {}
+        if l != "ru" and not (_clean(src.get("title")) and _clean(src.get("lede")) and _clean(src.get("body"))):
+            s["missing"].add(l); src = ru
+        s["title"][l] = _clean(src.get("title")); s["lede"][l] = _clean(src.get("lede"))
+        s["body"][l] = _paras(src.get("body"))
+        s["alt"][l] = _clean(src.get("alt")) or _clean(ru.get("alt")) or s["title"][l]
+        s["kw"][l] = _kw(src.get("kw"))
+    s["sources"] = [(_clean(x.get("name")) or _clean(x.get("url")), _clean(x.get("url")))
+                    for x in (d.get("sources") or []) if _clean(x.get("url"))]
+    if _clean(d.get("updated")): s["updated"] = _clean(d["updated"])
+    image = _clean(d.get("image"))
+    if image:
+        # Uploaded in the CMS: the picture is cropped to 16:9 and watermarked under the slug's name.
+        s["img"] = slug; s["upload"] = _media_path(image)
+        pc = d.get("photo_credit") or {}
+        s["credit"] = {k: _clean(pc.get(k)) for k in ("author", "source", "page", "license", "license_url")}
+    elif _clean(d.get("img")):
+        s["img"] = _clean(d["img"])
+    else:
+        # No picture yet: a plain CyNews 24 card is generated so the build never fails.
+        s["img"] = slug; s["upload"] = None; s["credit"] = {}
+    return s
+def load_stories():
+    out = [load_story(os.path.join(ART_DIR, f)) for f in sorted(os.listdir(ART_DIR)) if f.endswith(".json")]
+    slugs = [s["slug"] for s in out]
+    dup = {x for x in slugs if slugs.count(x) > 1}
+    if dup: raise SystemExit(f"Duplicate slugs: {sorted(dup)}")
+    # Articles migrated from the old generator keep their original order (seq). New ones follow, oldest first.
+    return sorted(out, key=lambda s: (s["seq"] is None, s["seq"] if s["seq"] is not None else 0, s["date"], s["slug"]))
+STORIES = load_stories()
 MONTHS = {"en":["January","February","March","April","May","June","July","August","September","October","November","December"],
  "ru":["января","февраля","марта","апреля","мая","июня","июля","августа","сентября","октября","ноября","декабря"],
  "el":["Ιανουαρίου","Φεβρουαρίου","Μαρτίου","Απριλίου","Μαΐου","Ιουνίου","Ιουλίου","Αυγούστου","Σεπτεμβρίου","Οκτωβρίου","Νοεμβρίου","Δεκεμβρίου"]}
@@ -45,7 +120,14 @@ def fdate(d,l,wd=False):
     dt=datetime.date.fromisoformat(d)
     s = f"{dt.day} {MONTHS[l][dt.month-1]} {dt.year}" if l!="en" else f"{dt.day} {MONTHS[l][dt.month-1]} {dt.year}"
     return (WD[l][dt.weekday()]+", "+s) if wd else s
-TODAY="2026-11-13"
+# Site date (header, events "this week", sitemap lastmod): today in Cyprus unless TODAY=YYYY-MM-DD is set.
+def _today():
+    try:
+        from zoneinfo import ZoneInfo
+        return datetime.datetime.now(ZoneInfo("Asia/Nicosia")).date().isoformat()
+    except Exception:
+        return (datetime.datetime.utcnow()+datetime.timedelta(hours=2)).date().isoformat()
+TODAY=os.environ.get("TODAY") or _today()
 UI = {
  "en":dict(home="Home",latest="Latest",more="More news",sources="Sources",related="Related stories",toplines="Top stories",
   byline="CyNews 24 Editorial Team",illus="Illustration created for CyNews 24 (AI-generated, not a photograph)",
@@ -188,6 +270,12 @@ def load_credits():
     if not os.path.exists(p): return {}
     with open(p,encoding="utf8") as f: return json.load(f)
 CREDITS=load_credits()
+def credit_for(s):
+    """Photo credit: from the article itself for CMS uploads, otherwise from credits.json."""
+    if "upload" in s:
+        c=s.get("credit") or {}
+        return c if c.get("author") else None
+    return CREDITS.get(s["img"])
 def cover_crop(im, tw, th, focus=(0.5,0.5)):
     im=im.convert("RGB"); sw,sh=im.size
     tr=tw/th; sr=sw/sh
@@ -222,25 +310,38 @@ def watermark(im):
     im.paste(badge,(im.width-badge.width-m, im.height-badge.height-m),badge)
     return im.convert("RGB")
 def photo_caption(s,l):
-    c=CREDITS.get(s["img"])
-    if not c: return UI[l]["illus"]
+    c=credit_for(s)
+    if not c: return "" if "upload" in s else UI[l]["illus"]
     label={"en":"Photo","ru":"Фото","el":"Φωτογραφία"}[l]
+    if "upload" in s and not (c.get("page") and c.get("source") and c.get("license") and c.get("license_url")):
+        bits=[e(c["author"])]
+        if c.get("source"): bits.append(f'<a href="{e(c["page"])}">{e(c["source"])}</a>' if c.get("page") else e(c["source"]))
+        out=f'{label}: '+" / ".join(bits)
+        if c.get("license"): out+=", "+(f'<a href="{e(c["license_url"])}">{e(c["license"])}</a>' if c.get("license_url") else e(c["license"]))
+        return out
     return (f'{label}: {e(c["author"])} / '
             f'<a href="{e(c["page"])}">{e(c["source"])}</a>, '
             f'<a href="{e(c["license_url"])}">{e(c["license"])}</a>')
 def image_ld(s):
-    c=CREDITS.get(s["img"])
+    c=credit_for(s)
     obj={"@type":"ImageObject","url":abs_(f"/assets/img/{s['img']}-1200.webp"),
          "contentUrl":abs_(f"/assets/img/{s['img']}-1200.webp"),"width":1200,"height":675}
     if c:
-        credit=f'{c["author"]} / {c["source"]}, {c["license"]}'
-        obj.update({"creditText":credit,"copyrightNotice":credit,"license":c["license_url"],
-                    "acquireLicensePage":c["page"],"creator":{"@type":"Person","name":c["author"]}})
+        credit=", ".join(x for x in (" / ".join(x for x in (c["author"],c.get("source")) if x),c.get("license")) if x)
+        obj.update({"creditText":credit,"copyrightNotice":credit})
+        if c.get("license_url"): obj["license"]=c["license_url"]
+        if c.get("page"): obj["acquireLicensePage"]=c["page"]
+        obj["creator"]={"@type":"Person","name":c["author"]}
     return obj
 def write_credits_md():
     lines=["# Photo credits","","Story photographs are openly licensed pictures. The generator crops each one to 16:9, resizes it and adds a CyNews 24 watermark. Adaptations of CC BY-SA photographs stay under the same licence.","","| Image | What it shows | Author | Licence | Original |","|---|---|---|---|---|"]
     for s in STORIES:
-        c=CREDITS.get(s["img"])
+        c=credit_for(s)
+        if c and "upload" in s:
+            lic=f'[{c.get("license") or "—"}]({c["license_url"]})' if c.get("license_url") else (c.get("license") or "—")
+            orig=f'[{c.get("source") or "link"}]({c["page"]})' if c.get("page") else (c.get("source") or "—")
+            lines.append(f'| `{s["img"]}` | {s["alt"]["en"]} | {c["author"]} | {lic} | {orig} |')
+            continue
         if not c:
             lines.append(f'| `{s["img"]}` | Original illustration kept | — | — | — |')
             continue
@@ -253,14 +354,27 @@ def write_credits_md():
     open(os.path.join(OUT,"CREDITS.md"),"w",encoding="utf8").write(text)
 
 # ---------- assets ----------
+def placeholder_image(s):
+    """1200x675 dark card with the CyNews 24 wordmark and section name, for articles without a photo."""
+    im=Image.new("RGB",(1200,675),(17,24,39)); d=ImageDraw.Draw(im)
+    f1=ImageFont.truetype(FONT_BOLD,150); f2=ImageFont.truetype(FONT_BOLD,44)
+    d.text((600,300),"CyNews",font=f1,fill=(255,255,255),anchor="mm")
+    d.rectangle((420,390,780,470),fill=(196,87,26)); d.text((600,430),"24",font=ImageFont.truetype(FONT_BOLD,64),fill=(255,255,255),anchor="mm")
+    d.text((600,560),CATN["en"][s["cat"]].upper(),font=f2,fill=(200,205,213),anchor="mm")
+    return im
 def build_assets():
     d=OUT+"/assets/img"; os.makedirs(d,exist_ok=True)
     for s in STORIES:
-        c=CREDITS.get(s["img"])
-        photo=os.path.join(HERE,"photos",c["file"]) if c else ""
-        if c and os.path.exists(photo):
+        c=None if "upload" in s else CREDITS.get(s["img"])
+        photo=s["upload"] if "upload" in s else (os.path.join(HERE,"photos",c["file"]) if c else "")
+        if "upload" in s and not photo:
+            plain=placeholder_image(s)
+            plain.save(f"{d}/{s['img']}-1200.webp","WEBP",quality=78,method=6)
+            plain.resize((600,338),Image.LANCZOS).save(f"{d}/{s['img']}-600.webp","WEBP",quality=76,method=6)
+            plain.crop((0,22,1200,652)).save(f"{d}/{s['img']}-og.jpg","JPEG",quality=82,optimize=True,progressive=True)
+        elif photo and os.path.exists(photo):
             src=Image.open(photo)
-            focus=tuple(c.get("focus",[0.5,0.5]))
+            focus=tuple(c.get("focus",[0.5,0.5])) if c else (0.5,0.5)
             plain=cover_crop(src,1200,675,focus)
             watermark(plain).save(f"{d}/{s['img']}-1200.webp","WEBP",quality=78,method=6)
             watermark(plain.resize((600,338),Image.LANCZOS)).save(f"{d}/{s['img']}-600.webp","WEBP",quality=76,method=6)
@@ -495,15 +609,34 @@ def card(s,l,kind="grid",lazy=True):
         return (f'<article class="card"><a href="{link}" class="img">{img_tag(s,l,600,lazy,sizes="128px")}</a><div><span class="cat">{CATN[l][s["cat"]]}</span><a href="{link}"><h3>{e(s["title"][l])}</h3></a><div class="meta"><time datetime="{s["date"]}">{fdate(s["date"],l)}</time></div></div></article>')
     return (f'<article class="card"><a href="{link}" class="img" tabindex="-1">{img_tag(s,l,600,lazy,sizes="(max-width:600px) 100vw,(max-width:980px) 50vw,280px")}</a><span class="cat" style="display:block;margin-top:10px">{CATN[l][s["cat"]]}</span><a href="{link}"><h3 style="margin-top:4px">{e(s["title"][l])}</h3></a><p>{e(trunc(s["lede"][l],150))}</p><div class="meta"><time datetime="{s["date"]}">{fdate(s["date"],l)}</time></div></article>')
 
-ORDER_LEAD=["fitto-cyprus-talks","eu-ai-summit-dublin","frozen-assets-51-million","property-sale-fines-100000","governors-beach-caravan-eviction"]
 BYSLUG={s["slug"]:s for s in STORIES}
+BYFILE={s["file"]:s["slug"] for s in STORIES}
 def sorted_all():
     return sorted(STORIES,key=lambda s:(s["date"],STORIES.index(s)),reverse=True)
+def home_order():
+    """Lead story and four side stories from content/home.json. Slugs that no longer exist are
+    skipped and empty places are filled with the newest stories."""
+    try:
+        with open(os.path.join(CONTENT,"home.json"),encoding="utf8") as f: cfg=json.load(f)
+    except FileNotFoundError:
+        cfg={}
+    want=[cfg.get("lead")]+list(cfg.get("side") or [])
+    out=[]
+    for x in want:
+        x=(x or "").strip() if isinstance(x,str) else ""
+        x=x if x in BYSLUG else BYFILE.get(x,x)
+        if x in BYSLUG and x not in out: out.append(x)
+    for s in sorted_all():
+        if len(out)>=5: break
+        if s["slug"] not in out: out.append(s["slug"])
+    return out[:5]
+ORDER_LEAD=home_order()
 
 def page_home(l):
     u=UI[l]; pathfn=lambda x:f"/{x}/"
     lead=BYSLUG[ORDER_LEAD[0]]; side=[BYSLUG[x] for x in ORDER_LEAD[1:]]
-    re_=[s for s in STORIES if s["cat"]=="real-estate"]
+    # Real-estate band: articles added after the migration first (newest first), then the original ones in order.
+    re_=[s for s in sorted_all() if s["cat"]=="real-estate" and s["seq"] is None]+[s for s in STORIES if s["cat"]=="real-estate" and s["seq"] is not None]
     used=set(ORDER_LEAD)|{s["slug"] for s in re_}
     rest=[s for s in sorted_all() if s["slug"] not in used]
     latest=sorted_all()[:8]
@@ -562,14 +695,20 @@ def page_article(l,s):
         "locationCreated":{"@type":"Place","name":"Cyprus"},"about":{"@type":"Place","name":"Cyprus"}},
       {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":u["crumb_home"],"item":abs_(f"/{l}/")},{"@type":"ListItem","position":2,"name":CATN[l][s["cat"]],"item":abs_(f"/{l}/{s['cat']}/")},{"@type":"ListItem","position":3,"name":title,"item":abs_(path)}]}]
     preload=f'<link rel="preload" as="image" href="{href(f"/assets/img/{s["img"]}-1200.webp")}" imagesrcset="{href(f"/assets/img/{s["img"]}-600.webp")} 600w, {href(f"/assets/img/{s["img"]}-1200.webp")} 1200w" imagesizes="(max-width:800px) 100vw,760px">'
-    h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod)+header(l,pathfn,s["cat"])
+    if l in s.get("missing",()):
+        # Not translated yet: the Russian text is shown, so keep this copy out of search results.
+        h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod,robots="noindex,follow")+header(l,pathfn,s["cat"])
+    else:
+        h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod)+header(l,pathfn,s["cat"])
     h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{u["crumb_home"]}</a> › <a href="{href(f"/{l}/{s["cat"]}/")}">{CATN[l][s["cat"]]}</a></nav>'
     h+=f'<article class="a"><span class="cat">{CATN[l][s["cat"]]}</span><h1>{e(title)}</h1><p class="dek">{e(s["lede"][l])}</p>'
     h+=f'<div class="by"><span class="who">{e(u["byline"])}</span><span class="when"><time datetime="{pub}">{e(u["published"])}: {fdt(pub,l)}</time><time datetime="{mod}">{e(u["updated"])}: {fdt(mod,l)}</time></span></div>'
-    h+=f'<figure>{img_tag(s,l,1200,False,True,"(max-width:800px) 100vw,760px")}<figcaption>{photo_caption(s,l)}</figcaption></figure>'
+    h+=f'<figure>{img_tag(s,l,1200,False,True,"(max-width:800px) 100vw,760px")}{f"<figcaption>{photo_caption(s,l)}</figcaption>" if photo_caption(s,l) else ""}</figure>'
     h+='<div class="body">'+"".join(f'<p>{e(p)}</p>' for p in s["body"][l])+'</div>'
-    h+=f'<section class="src" aria-label="{u["sources"]}"><h2>{u["sources"]}</h2><p>{u["sources_note"]}</p><ul>'+"".join(f'<li><a href="{e(x[1])}" target="_blank" rel="noopener nofollow">{e(x[0])}</a></li>' for x in s["sources"])+'</ul></section>'
-    h+=f'<h2 style="font-size:16px;margin:0 0 8px">{u["tags"]}</h2><ul class="tags">'+"".join(f'<li>{e(k)}</li>' for k in s["kw"][l])+'</ul>'
+    if s["sources"]:
+        h+=f'<section class="src" aria-label="{u["sources"]}"><h2>{u["sources"]}</h2><p>{u["sources_note"]}</p><ul>'+"".join(f'<li><a href="{e(x[1])}" target="_blank" rel="noopener nofollow">{e(x[0])}</a></li>' for x in s["sources"])+'</ul></section>'
+    if s["kw"][l]:
+        h+=f'<h2 style="font-size:16px;margin:0 0 8px">{u["tags"]}</h2><ul class="tags">'+"".join(f'<li>{e(k)}</li>' for k in s["kw"][l])+'</ul>'
     h+=f'<p class="langsw">'+" ".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS if x!=l)+'</p></article>'
     rel=[x for x in sorted_all() if x["slug"]!=s["slug"]]
     rel.sort(key=lambda x:(x["cat"]!=s["cat"],))
@@ -965,5 +1104,5 @@ def main():
     w("/CNAME","cynews24.net\n")
     w("/ads.txt",ADS_TXT)
     write_credits_md()
-    print("built",len(STORIES),"stories; BASE=",BASE,"; PREFIX=",PREFIX or "(root)","; OUT=",OUT,"; photos",sum(1 for s in STORIES if s["img"] in CREDITS))
+    print("built",len(STORIES),"stories; BASE=",BASE,"; PREFIX=",PREFIX or "(root)","; OUT=",OUT,"; photos",sum(1 for s in STORIES if credit_for(s)),"; untranslated",{l:sorted(s["slug"] for s in STORIES if l in s["missing"]) for l in ("en","el")})
 main()

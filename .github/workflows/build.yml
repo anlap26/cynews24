@@ -1,0 +1,74 @@
+# Rebuilds the static site from source/ and commits the generated pages to main.
+# GitHub Pages keeps serving branch main / root, so the custom domain (CNAME) is unchanged.
+# Pushes made with GITHUB_TOKEN do not start workflows again, so there is no build loop.
+name: Build site
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - "source/**"
+      - ".github/workflows/build.yml"
+  pull_request:
+    paths:
+      - "source/**"
+      - "admin/**"
+      - ".github/workflows/build.yml"
+  workflow_dispatch:
+  schedule:
+    # Daily at 22:10 UTC (00:10 Cyprus winter time, 01:10 summer time) so the
+    # header date, "this week" events and sitemaps stay current.
+    - cron: "10 22 * * *"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: build-site-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: ${{ github.event_name == 'pull_request' && github.event.pull_request.head.sha || 'main' }}
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install fonts and Pillow
+        run: |
+          sudo apt-get update -qq && sudo apt-get install -y -qq fonts-dejavu-core
+          pip install -r source/requirements.txt
+
+      - name: Check CMS config
+        if: github.event_name == 'pull_request'
+        run: pip install pyyaml && python -c "import yaml; yaml.safe_load(open('admin/config.yml', encoding='utf8'))"
+
+      - name: Build
+        env:
+          BASE: https://cynews24.net
+          PREFIX: ""
+        run: cd source && python build.py
+
+      - name: Commit generated site
+        if: github.event_name != 'pull_request'
+        run: |
+          git config user.name "cynews24-build[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -A
+          if git diff --cached --quiet; then
+            echo "Nothing changed."
+            exit 0
+          fi
+          git commit -q -m "Пересборка сайта (${GITHUB_SHA::7})"
+          for i in 1 2 3; do
+            git push origin HEAD:main && exit 0
+            echo "main moved on; rebasing and retrying"
+            git pull --rebase -q origin main || { git rebase --abort; exit 1; }
+          done
+          exit 1

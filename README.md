@@ -1,26 +1,27 @@
 # CyNews 24
 
-Trilingual Cyprus news site (Russian, English, Greek). Static HTML, CSS and images.
+Trilingual Cyprus news site (Russian, English, Greek) at https://cynews24.net. Static HTML, CSS and images, served by GitHub Pages from branch `main`, folder `/ (root)`, with the custom domain in `CNAME`.
 
-Intended URL: https://anlap26.github.io/cynews24/
+## Editing articles
 
-The built site is on the `main` branch at the repository root, including `.nojekyll`. Canonical, hreflang, Open Graph, JSON-LD, sitemap and RSS URLs use `https://anlap26.github.io/cynews24`. Internal links, stylesheets and images are prefixed with `/cynews24/` so they work on the GitHub Pages project path.
+- **In the browser:** https://cynews24.net/admin/ (Sveltia CMS, configured in `admin/config.yml`). Sign in with a GitHub fine-grained token that has *Contents: Read and write* on this repository.
+- **By hand:** one JSON file per article in `source/content/articles/`. Russian (`ru`) is required; `en` and `el` are optional. A missing translation falls back to the Russian text and that language page is marked `noindex` until it is translated.
+- The lead story and the four side stories on the home pages are set in `source/content/home.json`.
+- Uploaded photos go to `source/src/`. The generator crops them to 16:9, resizes and watermarks them. Photos of the original articles are listed in `source/credits.json` and stored in `source/photos/`.
 
-## GitHub Pages
+Article fields: `slug` (page address; empty = file name), `cat` (politics, economy, real-estate, society, tourism, sport, world), `date` (YYYY-MM-DD), `image` (uploaded photo) or `img` (credits.json key), `photo_credit`, `sources` (`name`, `url`), and per language `title`, `lede`, `body` (paragraphs separated by a blank line), `alt`, `kw`.
 
-The site is published from branch `main`, folder `/ (root)`, at https://anlap26.github.io/cynews24/. `robots.txt` points at https://anlap26.github.io/cynews24/sitemap.xml. A push to `main` starts a new Pages build.
+## Publishing
 
-The generator in `source/` is part of the repository, so it is also reachable under `/cynews24/source/` when Pages serves the branch root. The site does not link to it.
+A push to `main` that touches `source/` starts the **Build site** workflow (`.github/workflows/build.yml`). It runs `source/build.py` with `BASE=https://cynews24.net` and commits the generated pages to `main`; Pages then publishes them. The workflow also runs daily so the date in the header, the events of the week and the sitemaps stay current, and on pull requests as a check.
 
-Story photographs are openly licensed (CC0, CC BY, CC BY-SA) and listed in [CREDITS.md](CREDITS.md). `source/credits.json` and `source/photos/` are what `build.py` uses, so the next rebuild keeps the same pictures, captions and watermark.
+## Rebuild locally
 
-## Rebuild
-
-From `source/` (Python 3 and Pillow):
+From `source/` (Python 3 and Pillow, DejaVu fonts):
 
 ```bash
 pip install -r requirements.txt
-BASE=https://anlap26.github.io/cynews24 python3 build.py
+BASE=https://cynews24.net python3 build.py
 ```
 
-`BASE` is the public origin, including `/cynews24` when the site is a project page. The generator uses that path as the prefix for root-relative links. Set `PREFIX` only to override it (`PREFIX=` keeps links at the domain root). Set `OUT` to write the site somewhere other than the repository root.
+`TODAY=YYYY-MM-DD` overrides the site date (default: today in Cyprus). `OUT` writes the site somewhere other than the repository root.
