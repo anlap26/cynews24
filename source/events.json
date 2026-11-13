@@ -2045,6 +2045,74 @@
    },
    "url": "https://www.cyprusfilmdays.com/",
    "source": "Cyprus Film Days"
+  },
+  {
+   "id": "awareness-reheritage",
+   "type": "festival",
+   "city": "nicosia",
+   "start": "2026-11-13T17:00:00+02:00",
+   "end": "2026-11-15T00:00:00+02:00",
+   "when": {
+    "en": "13–14 November 2026. Friday 17:00–23:00, Saturday 10:00–00:00.",
+    "ru": "13–14 ноября 2026. Пятница 17:00–23:00, суббота 10:00–00:00.",
+    "el": "13–14 Νοεμβρίου 2026. Παρασκευή 17:00–23:00, Σάββατο 10:00–00:00."
+   },
+   "venue": {
+    "en": "Acropolis Park, “Spilies”, Strovolos",
+    "ru": "Парк Акрополя, «Спильес», Строволос",
+    "el": "Πάρκο Ακρόπολης, «Σπηλιές», Στρόβολος"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Awareness 2026: ReHeritAge",
+    "ru": "Awareness 2026: ReHeritAge",
+    "el": "Awareness 2026: ReHeritAge"
+   },
+   "desc": {
+    "en": "After:noon Project Nicosia’s two-day gathering on cultural heritage and the digital age, with an exhibition, performances, DJ sets and workshops at Acropolis Park.",
+    "ru": "Двухдневная встреча After:noon Project Nicosia о культурном наследии и цифровой эпохе: выставка, перформансы, диджей-сеты и мастерские в парке Акрополя.",
+    "el": "Διήμερη συνάντηση του After:noon Project Nicosia για την πολιτιστική κληρονομιά και την ψηφιακή εποχή, με έκθεση, περφόρμανς, DJ sets και εργαστήρια στο Πάρκο Ακρόπολης."
+   },
+   "url": "https://afternoonproject.net/awareness2026/",
+   "source": "After:noon Project"
+  },
+  {
+   "id": "lemba-jazz-pre-event",
+   "type": "concert",
+   "city": "paphos",
+   "start": "2026-11-21T20:00:00+02:00",
+   "end": "2026-11-21",
+   "when": {
+    "en": "Saturday 21 November 2026, 20:00.",
+    "ru": "Суббота, 21 ноября 2026, 20:00.",
+    "el": "Σάββατο 21 Νοεμβρίου 2026, 20:00."
+   },
+   "venue": {
+    "en": "Lemba Cultural Village",
+    "ru": "Культурная деревня Лембы",
+    "el": "Πολιτιστικό Χωριό Λέμπας"
+   },
+   "locality": "Paphos",
+   "street": "Eleftherias 5, Lemba",
+   "title": {
+    "en": "Soulful Groove Collective, jazz showcase pre-event",
+    "ru": "Soulful Groove Collective, разогрев джазового смотра",
+    "el": "Soulful Groove Collective, pre-event του jazz showcase"
+   },
+   "desc": {
+    "en": "A pre-event for the 13th Cyprus Jazz and World Music Showcase, organised by the Deputy Ministry of Culture’s Department of Contemporary Culture and Rialto Theatre. Soulful Groove Collective, who played last year’s showcase, perform. Rialto lists tickets at €8. The main showcase remains 4–6 December at Rialto.",
+    "ru": "Разогрев 13-го Cyprus Jazz & World Music Showcase. Его проводят отдел современной культуры замминистерства культуры и театр Риалто. Играет Soulful Groove Collective, участник прошлогоднего смотра. Риалто указывает билет €8. Основной смотр по-прежнему 4–6 декабря в Риалто.",
+    "el": "Pre-event για το 13ο Cyprus Jazz & World Music Showcase, από το Τμήμα Σύγχρονου Πολιτισμού του Υφυπουργείου Πολιτισμού και το Θέατρο Ριάλτο. Εμφανίζεται το Soulful Groove Collective, που έπαιξε στο περσινό showcase. Το Ριάλτο αναφέρει εισιτήριο €8. Το κυρίως showcase παραμένει 4–6 Δεκεμβρίου στο Ριάλτο."
+   },
+   "price": {
+    "en": "€8",
+    "ru": "€8",
+    "el": "€8"
+   },
+   "low": "8",
+   "high": "8",
+   "url": "https://www.rialto.com.cy/el/post/soulful-groove-collective-live-at-lemba-cultural-village-at-13th-cyprus-jazz-world-music-showcase-1",
+   "source": "Rialto Theatre"
   }
  ]
 }

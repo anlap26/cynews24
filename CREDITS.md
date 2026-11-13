@@ -19,6 +19,9 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `missing-mushroom-picker` | A trail in Cedar Valley, Cyprus | Gerda Arendt | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cedar_Valley,_Cyprus,_trail.jpg) |
 | `fencing-bronze` | A fencing bout at the 2013 World Championships; the athletes are not identifiable and this is not Aris Kiayias | Marie-Lan Nguyen | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Final_2013_Fencing_WCH_FMS-EQ_t194733.jpg) |
 | `nicosia-christmas-market` | Eleftheria Square, Nicosia | Iakovos Hatzistavrou, European Commission | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eleftherias_Square_5.jpg) |
+| `planning-enforcement` | Onasagorou Street, Nicosia; not the venue discussed in the audit | NicosiaEurope | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Onasagorou_street_Nicosia_Republic_of_Cyprus.jpg) |
+| `driver-hours` | A Mercedes-Benz Actros lorry on a rail transporter | JoachimKohler-HB | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Durch_statt_%C3%BCber_die_Alpen_-_Mercedes-Benz_Actros_1848_RoLa_(2014).jpg) |
+| `fintech-nicosia` | The financial avenue of Nicosia at night | NicosiaSkylines | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Downtown_Nicosia_by_night_Cyprus.JPG) |
 
 ## Event photographs
 

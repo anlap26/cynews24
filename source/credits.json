@@ -148,5 +148,35 @@
     "file": "nicosia-christmas-market.jpg",
     "focus": [0.5, 0.7],
     "depicts": "Eleftheria Square, Nicosia"
+  },
+  "planning-enforcement": {
+    "author": "NicosiaEurope",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Onasagorou_street_Nicosia_Republic_of_Cyprus.jpg",
+    "file": "planning-enforcement.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "Onasagorou Street, Nicosia; not the venue discussed in the audit"
+  },
+  "driver-hours": {
+    "author": "JoachimKohler-HB",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Durch_statt_%C3%BCber_die_Alpen_-_Mercedes-Benz_Actros_1848_RoLa_(2014).jpg",
+    "file": "driver-hours.jpg",
+    "focus": [0.48, 0.55],
+    "depicts": "A Mercedes-Benz Actros lorry on a rail transporter"
+  },
+  "fintech-nicosia": {
+    "author": "NicosiaSkylines",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Downtown_Nicosia_by_night_Cyprus.JPG",
+    "file": "fintech-nicosia.jpg",
+    "focus": [0.5, 0.38],
+    "depicts": "The financial avenue of Nicosia at night"
   }
 }

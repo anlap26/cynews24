@@ -4,8 +4,8 @@ from urllib.parse import urlparse
 from PIL import Image, ImageDraw, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import s1,s2,s3
-STORIES = s1.S + s2.S + s3.S
+import s1,s2,s3,s4
+STORIES = s1.S + s2.S + s3.S + s4.S
 with open(os.path.join(HERE,"events.json"),encoding="utf8") as _ef:
     _EV=json.load(_ef)
 EV_EVENTS=_EV["events"]
