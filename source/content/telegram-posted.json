@@ -1,0 +1,185 @@
+{
+  "note": "Slugs already handled for Telegram. ru is @cynews24 (link /ru/), en is @cynews24en (link /en/). A language entry means do not post again. Missing en means the English text was not posted yet.",
+  "posted": {
+    "cape-greco-monastery-legalisation": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "cyprus-video-game-industry": {
+      "en": {
+        "at": "2026-11-12T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-12T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "diabetes-undiagnosed-cyprus": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "driver-hours-campaign": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "eu-ai-summit-dublin": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "fintech-jobs-not-registrations": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "fitto-cyprus-talks": {
+      "en": {
+        "at": "2026-11-12T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-12T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "frozen-assets-51-million": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "governors-beach-caravan-eviction": {
+      "en": {
+        "at": "2026-11-11T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-11T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "homes-without-electricity-paphos": {
+      "en": {
+        "at": "2026-11-04T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-04T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "kiayias-youth-olympic-fencing-bronze": {
+      "en": {
+        "at": "2026-11-10T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-10T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "microsoft-outage-second-day": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "missing-mushroom-picker-paphos-forest": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "nicosia-christmas-market-2026": {
+      "en": {
+        "at": "2026-11-10T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-10T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "pedestrian-crossing-camera-fine": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "pension-reform-1-january": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "planning-enforcement-audit": {
+      "en": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-13T00:00:00Z",
+        "status": "seeded"
+      }
+    },
+    "property-sale-fines-100000": {
+      "en": {
+        "at": "2026-11-09T00:00:00Z",
+        "status": "seeded"
+      },
+      "ru": {
+        "at": "2026-11-09T00:00:00Z",
+        "status": "seeded"
+      }
+    }
+  }
+}
