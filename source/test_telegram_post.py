@@ -370,6 +370,8 @@ class ExecuteTests(unittest.TestCase):
         self.assertIn("no English translation yet", text)
         self.assertIn("would mark posted without sending", text)
         self.assertIn("Nothing was sent", text)
+        self.assertIn("TELEGRAM_BOT_TOKEN is configured (value not printed).", text)
+        self.assertNotIn("secret", text)
 
     def test_retries_until_the_page_and_image_are_live(self):
         story = article(image="pic")
@@ -543,6 +545,9 @@ class SeedAndWorkflowTests(unittest.TestCase):
         self.assertIn('name: Build site', build)
         self.assertIn('workflows: ["Build site"]', poster)
         self.assertIn("TELEGRAM_BOT_TOKEN", poster)
+        self.assertIn("value not printed", poster)
+        self.assertNotIn('echo "$TELEGRAM_BOT_TOKEN"', poster)
+        self.assertNotIn("echo $TELEGRAM_BOT_TOKEN", poster)
         self.assertIn("dry_run", poster)
         self.assertIn("cancel-in-progress: false", poster)
         self.assertIn("branches: [main]", poster)

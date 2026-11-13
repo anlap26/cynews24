@@ -61,6 +61,11 @@ jobs:
           PUSH_STATE: "1"
           BASE: https://cynews24.net
         run: |
+          if [ -n "$TELEGRAM_BOT_TOKEN" ]; then
+            echo "TELEGRAM_BOT_TOKEN is configured (value not printed)."
+          else
+            echo "TELEGRAM_BOT_TOKEN is not set (value not printed)."
+          fi
           if [ "$DRY_RUN" = "true" ]; then
             echo "Dry run: messages are printed below and nothing is sent."
           fi

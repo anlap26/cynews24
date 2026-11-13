@@ -596,6 +596,12 @@ def execute(
     save,
 ) -> int:
     actions = plan(articles, state, today)
+    # Report whether the Actions secret reached this process. Never print the value.
+    log(
+        "TELEGRAM_BOT_TOKEN is "
+        + ("configured" if token else "not set")
+        + " (value not printed)."
+    )
     if dry_run:
         if not actions:
             log("DRY RUN nothing new to post.")
