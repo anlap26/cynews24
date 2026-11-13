@@ -5,9 +5,46 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <meta name="robots" content="noindex,nofollow">
   <title>CyNews 24 — редакция</title>
+  <script>
+    // Mobile Chrome sometimes never fires success or error on indexedDB.open().
+    // Sveltia waits for that database (the file cache) before it leaves
+    // "Загрузка данных сайта…", and a rejection is the only failure it recovers
+    // from. If the open is still pending after 10s, report an error so the CMS
+    // loads the articles from GitHub instead of waiting forever.
+    (function () {
+      var proto = typeof IDBFactory === 'function' ? IDBFactory.prototype : null;
+      if (!proto || typeof proto.open !== 'function') return;
+      var open = proto.open;
+      var TIMEOUT_MS = 10000;
+      proto.open = function () {
+        var request = open.apply(this, arguments);
+        var settled = false;
+        var timer = setTimeout(function () {
+          if (settled || request.readyState !== 'pending') return;
+          settled = true;
+          try {
+            Object.defineProperty(request, 'error', {
+              configurable: true,
+              value: new DOMException('IndexedDB open timed out', 'TimeoutError'),
+            });
+          } catch (e) {}
+          try {
+            if (typeof request.onerror === 'function') request.onerror(new Event('error'));
+          } catch (e) {}
+        }, TIMEOUT_MS);
+        var finish = function () {
+          settled = true;
+          clearTimeout(timer);
+        };
+        request.addEventListener('success', finish);
+        request.addEventListener('error', finish);
+        return request;
+      };
+    })();
+  </script>
 </head>
 <body>
-  <!-- Sveltia CMS (free, open source). Settings: admin/config.yml -->
-  <script src="https://unpkg.com/@sveltia/cms/dist/sveltia-cms.js"></script>
+  <!-- Sveltia CMS 0.265.1 (pinned). Settings: admin/config.yml -->
+  <script src="https://unpkg.com/@sveltia/cms@0.265.1/dist/sveltia-cms.js"></script>
 </body>
 </html>
