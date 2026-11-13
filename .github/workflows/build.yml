@@ -3,9 +3,9 @@
 # Pushes made with GITHUB_TOKEN do not start workflows again, including the Pages
 # build. A normal push already starts Pages, so this workflow requests a build
 # only after its own commit, or on the daily/manual run. There is no loop.
-# source/content/telegram-posted.json and source/content/facebook-posted.json
-# are excluded so a state-file commit cannot rebuild the site even if a later
-# token does start workflows.
+# source/content/telegram-posted.json, source/content/telegram-digest.json and
+# source/content/facebook-posted.json are excluded so a state-file commit cannot
+# rebuild the site even if a later token does start workflows.
 name: Build site
 
 on:
@@ -14,12 +14,14 @@ on:
     paths:
       - "source/**"
       - "!source/content/telegram-posted.json"
+      - "!source/content/telegram-digest.json"
       - "!source/content/facebook-posted.json"
       - ".github/workflows/build.yml"
   pull_request:
     paths:
       - "source/**"
       - "!source/content/telegram-posted.json"
+      - "!source/content/telegram-digest.json"
       - "!source/content/facebook-posted.json"
       - "admin/**"
       - ".github/workflows/build.yml"

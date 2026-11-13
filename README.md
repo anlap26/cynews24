@@ -13,7 +13,7 @@ Article fields: `slug` (page address; empty = file name), `cat` (politics, econo
 
 ## Publishing
 
-A push to `main` that touches `source/` starts the **Build site** workflow (`.github/workflows/build.yml`). It runs `source/build.py` with `BASE=https://cynews24.net` and commits the generated pages to `main`. Pages keeps serving `main` / root, with the custom domain in `CNAME`. That push already starts a Pages build. A commit the workflow itself pushes does not, so the workflow requests a Pages build after its own commit, and also on the daily and manual runs. The workflow runs daily so the date in the header, the events of the week and the sitemaps stay current, and on pull requests as a check. A commit that only updates `source/content/telegram-posted.json` or `source/content/facebook-posted.json` does not start a rebuild.
+A push to `main` that touches `source/` starts the **Build site** workflow (`.github/workflows/build.yml`). It runs `source/build.py` with `BASE=https://cynews24.net` and commits the generated pages to `main`. Pages keeps serving `main` / root, with the custom domain in `CNAME`. That push already starts a Pages build. A commit the workflow itself pushes does not, so the workflow requests a Pages build after its own commit, and also on the daily and manual runs. The workflow runs daily so the date in the header, the events of the week and the sitemaps stay current, and on pull requests as a check. A commit that only updates `source/content/telegram-posted.json`, `source/content/telegram-digest.json` or `source/content/facebook-posted.json` does not start a rebuild.
 
 ## Telegram
 
@@ -27,6 +27,10 @@ The bot token is the repository secret `TELEGRAM_BOT_TOKEN` (`@Cynews24_poster_b
 Slugs already sent are stored in `source/content/telegram-posted.json` (Russian and English separately). Editing an article does not post it again. An article, or a late English translation, first seen more than 3 days after its publication date is recorded without posting. The poster waits until the article URL returns HTTP 200 and the live page contains that language's title, so Telegram can build the link preview from the deployed page.
 
 Run the workflow manually with **dry run** checked to print the messages. A dry run does not send anything.
+
+**Telegram evening digest** (`.github/workflows/telegram-digest.yml`) runs every day at 20:00 Asia/Nicosia, using the UTC cron `0 18 * * *` (Cyprus is UTC+2 in winter). It posts one message to [@cynews24](https://t.me/cynews24) in Russian and one to [@cynews24en](https://t.me/cynews24en) in English. Each message is that day's headlines, numbered and linked to the live article in that language, plus a closing line with the site link. Articles with no English translation are left out of the English digest. A day with no articles sends nothing.
+
+Dates already sent are stored in `source/content/telegram-digest.json`, separately for each channel, and the workflow commits that file back. A re-run does not post a digest that was already sent. The same `TELEGRAM_BOT_TOKEN` secret is used and is never printed. If the secret is missing, the job logs a notice and stays green, and it does not update the state file. Run the workflow manually with **dry run** checked to print the messages. An optional date input (`YYYY-MM-DD`) previews or sends another Asia/Nicosia day; leave it empty to use today.
 
 ## Facebook
 

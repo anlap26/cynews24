@@ -1,0 +1,77 @@
+# Posts one evening digest to @cynews24 (Russian, /ru/) and @cynews24en
+# (English, /en/). Headlines are the articles dated that day in Asia/Nicosia.
+# A day with no articles sends nothing.
+#
+# Dedup state lives in source/content/telegram-digest.json. This workflow commits
+# that file with GITHUB_TOKEN, which does not start other workflows. build.yml
+# also ignores that path, so a state commit cannot rebuild the site or post again.
+# A language is recorded only after that channel's message is sent, so a failed
+# channel can be retried without repeating the one that succeeded.
+#
+# Repository secret: TELEGRAM_BOT_TOKEN (bot @Cynews24_poster_bot). If it is
+# unset the job logs a notice, does not change the state file and exits green.
+# The value is never printed. The dry_run dispatch input prints the messages
+# and does not call Telegram.
+name: Telegram evening digest
+
+on:
+  schedule:
+    # 18:00 UTC is 20:00 Asia/Nicosia in winter (Cyprus is UTC+2).
+    - cron: "0 18 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: "Print the digest and do not send it"
+        required: false
+        type: boolean
+        default: false
+      date:
+        description: "Asia/Nicosia date YYYY-MM-DD (empty = today)"
+        required: false
+        type: string
+        default: ""
+
+permissions:
+  contents: write
+
+concurrency:
+  group: telegram-evening-digest
+  cancel-in-progress: false
+
+jobs:
+  digest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+          fetch-depth: 0
+
+      - name: Update main
+        run: git pull --ff-only origin main
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Post evening digest
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+          DRY_RUN: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.dry_run == 'true' }}
+          PUSH_STATE: "1"
+          BASE: https://cynews24.net
+          TODAY: ${{ github.event_name == 'workflow_dispatch' && github.event.inputs.date || '' }}
+        run: |
+          if [ -n "$TELEGRAM_BOT_TOKEN" ]; then
+            echo "TELEGRAM_BOT_TOKEN is configured (value not printed)."
+          else
+            echo "TELEGRAM_BOT_TOKEN is not set (value not printed)."
+          fi
+          if [ "$DRY_RUN" = "true" ]; then
+            echo "Dry run: the digest is printed below and nothing is sent."
+          fi
+          if [ -n "$TODAY" ]; then
+            echo "Digest date override: $TODAY"
+          fi
+          python source/telegram_digest.py
