@@ -50,6 +50,11 @@ figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6p
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}.tags li{border:1px solid var(--line);border-radius:20px;padding:3px 12px;font-size:13px;color:#33383f}
 .tgcta{margin:4px 0 28px}.tgcta a{display:flex;align-items:center;gap:12px;background:var(--dark);color:#fff;padding:14px 16px;font-weight:700;font-size:17px;line-height:1.35}
 .tgcta a:hover{background:var(--acc)}.tgcta span{min-width:0}.tgcta svg{flex:none}
+.sister{background:var(--soft);border-left:4px solid var(--acc);padding:14px 16px;margin:8px 0 18px}
+.sister h2{font-size:16px;margin:0 0 8px}.sister ul{margin:0;padding-left:18px}.sister li{margin:4px 0}
+.sister a,.sisterline a{color:#0b57b0;text-decoration:underline}
+.sisterline{margin:0 0 16px;font-size:15px}
+footer .projects{margin:12px 0 4px}footer .projects .plabel{font-weight:800;color:#fff;margin:0 0 2px}
 .rel h2{font-size:22px;border-top:4px solid var(--ink);padding-top:8px}
 .rel .grid{grid-template-columns:repeat(3,1fr)}
 .langsw{display:flex;gap:10px;font-size:14px;margin:0 0 6px;flex-wrap:wrap}.langsw a{text-decoration:underline}
