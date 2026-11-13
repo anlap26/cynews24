@@ -4,8 +4,12 @@ from urllib.parse import urlparse
 from PIL import Image, ImageDraw, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
-import s1,s2,s3,events
+import s1,s2,s3
 STORIES = s1.S + s2.S + s3.S
+with open(os.path.join(HERE,"events.json"),encoding="utf8") as _ef:
+    _EV=json.load(_ef)
+EV_EVENTS=_EV["events"]
+EV_PHOTOS=_EV["photos"]
 SITE = "CyNews 24"
 # Absolute origin, no trailing slash. Include the repo path for GitHub project pages:
 #   BASE=https://anlap26.github.io/cynews24 python3 build.py
@@ -173,7 +177,7 @@ def write_credits_md():
             continue
         lines.append(f'| `{s["img"]}` | {c.get("depicts","")} | {c["author"]} | [{c["license"]}]({c["license_url"]}) | [{c["source"]}]({c["page"]}) |')
     lines += ["","## Event photographs","","| Image | Author | Licence | Original |","|---|---|---|---|"]
-    for key,p in events.PHOTOS.items():
+    for key,p in EV_PHOTOS.items():
         lines.append(f'| `events/{key}` | {p["author"]} | [{p["license"]}]({p["license_url"]}) | [{p["source"]}]({p["page"]}) |')
     lines += ["","CC BY-SA files: the cropped, resized and watermarked images published with the site are adaptations and remain under the same CC BY-SA licence as the original.",""]
     text="\n".join(lines)+"\n"
@@ -299,6 +303,12 @@ button.send:hover{background:var(--acc)}
 .filters p{width:100%;margin:10px 0 0;font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--mut)}
 .filters button{font:inherit;font-weight:700;font-size:14px;border:1px solid var(--line);background:#fff;padding:7px 12px;cursor:pointer}
 .filters button.on{background:var(--dark);color:#fff;border-color:var(--dark)}
+.weekband{background:var(--soft);margin:0 0 22px;padding:12px 16px 16px}
+.weekband h2{font-size:22px;margin:0 0 10px;border-top:4px solid var(--acc);padding-top:8px}
+.weekband ul{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:1fr 1fr;gap:8px 20px}
+.weekband li a{font-weight:700}
+.weekband .meta{display:block;font-weight:400;color:var(--mut);font-size:13px}
+.evgroup h2.sec{margin-top:8px}
 .evlist{display:grid;gap:18px}
 .ev{display:grid;grid-template-columns:240px 1fr;gap:16px;padding-bottom:16px;border-bottom:1px solid var(--line)}
 .ev .pic{background:var(--soft);aspect-ratio:16/9;overflow:hidden}
@@ -311,7 +321,7 @@ button.send:hover{background:var(--acc)}
 .ev figcaption{font-size:12px}
 .ev a{color:#0b57b0;text-decoration:underline}
 @media(max-width:980px){.lead{grid-template-columns:1fr}.grid,.g3{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.rel .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}}
+@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}}
 """
 
 def alt_links(l, pathfn):
@@ -391,6 +401,7 @@ def page_home(l):
     h=head(l,HOME_T[l],HOME_D[l],kws,f"/{l}/",pathfn,"/assets/og-default.jpg",jsonld=ld)
     h+=header(l,pathfn,"home")
     h+=f'<main id="main" class="wrap"><p class="tagline">{u["tagline"]}</p><h1 class="sec">{u["home_h"]}</h1>'
+    h+=week_home(l)
     h+=f'<section class="lead" aria-label="{u["toplines"]}"><article class="card big"><a href="{href(f"/{l}/{lead["slug"]}/")}" class="img">{img_tag(lead,l,1200,False,True,"(max-width:980px) 100vw,760px")}</a><span class="cat" style="display:block;margin-top:12px">{CATN[l][lead["cat"]]}</span><a href="{href(f"/{l}/{lead["slug"]}/")}"><h2>{e(lead["title"][l])}</h2></a><p>{e(lead["lede"][l])}</p><div class="meta"><time datetime="{lead["date"]}">{fdate(lead["date"],l)}</time></div></article>'
     h+='<div class="side">'+"".join(card(s,l,"side",False) for s in side)+'</div></section>'
     h+=f'</main><div class="band"><div class="wrap"><h2 style="font-size:24px;border-top:4px solid var(--acc);padding-top:8px;margin:18px 0 16px"><a href="{href(f"/{l}/real-estate/")}">{u["realestate_h"]}</a></h2><div class="grid">'+"".join(card(s,l) for s in re_[:4])+'</div></div></div>'
@@ -589,23 +600,37 @@ def page_ad_thanks(l):
     return h
 
 EVL={
- "en":dict(title="Events",desc="Concerts, festivals, fairs, exhibitions, theatre and sport in Cyprus over the coming weeks. Dates and prices are taken from the linked sources and are not filled in where a source does not give them.",
+ "en":dict(title="Events",week="This week",upcoming="Coming months",later="Later",see="All events",
+  desc="Concerts, festivals, fairs, exhibitions, theatre, family shows and sport in Cyprus. Dates and prices come from the linked sources and are left out where a source does not give them.",
   city="City",kind="Type",all="All",source="Source",empty="No events match these filters.",
   cities=dict(nicosia="Nicosia",limassol="Limassol",larnaca="Larnaca",paphos="Paphos",**{"ayia-napa":"Ayia Napa & Protaras"},other="Towns & villages"),
-  types=dict(concert="Concerts",festival="Festivals",fair="Fairs & markets",exhibition="Exhibitions",theatre="Theatre",sport="Sport")),
- "ru":dict(title="Мероприятия",desc="Концерты, фестивали, ярмарки, выставки, театр и спорт на Кипре в ближайшие недели. Даты и цены взяты из указанных источников и не дополняются, если источник их не называет.",
+  types=dict(concert="Concerts",festival="Festivals",fair="Fairs & markets",exhibition="Exhibitions",theatre="Theatre",kids="For children",sport="Sport")),
+ "ru":dict(title="Мероприятия",week="На этой неделе",upcoming="В ближайшие месяцы",later="Позже",see="Все события",
+  desc="Концерты, фестивали, ярмарки, выставки, театр, семейные спектакли и спорт на Кипре. Даты и цены взяты из указанных источников и не дополняются, если источник их не называет.",
   city="Город",kind="Тип",all="Все",source="Источник",empty="Нет событий с таким фильтром.",
   cities=dict(nicosia="Никосия",limassol="Лимассол",larnaca="Ларнака",paphos="Пафос",**{"ayia-napa":"Айя-Напа и Протарас"},other="Города и деревни"),
-  types=dict(concert="Концерты",festival="Фестивали",fair="Ярмарки",exhibition="Выставки",theatre="Театр",sport="Спорт")),
- "el":dict(title="Εκδηλώσεις",desc="Συναυλίες, φεστιβάλ, αγορές, εκθέσεις, θέατρο και αθλητισμός στην Κύπρο τις επόμενες εβδομάδες. Ημερομηνίες και τιμές προέρχονται από τις πηγές και δεν συμπληρώνονται όταν η πηγή δεν τις δίνει.",
+  types=dict(concert="Концерты",festival="Фестивали",fair="Ярмарки",exhibition="Выставки",theatre="Театр",kids="Для детей",sport="Спорт")),
+ "el":dict(title="Εκδηλώσεις",week="Αυτή την εβδομάδα",upcoming="Τους επόμενους μήνες",later="Αργότερα",see="Όλες οι εκδηλώσεις",
+  desc="Συναυλίες, φεστιβάλ, αγορές, εκθέσεις, θέατρο, οικογενειακές παραστάσεις και αθλητισμός στην Κύπρο. Ημερομηνίες και τιμές προέρχονται από τις πηγές και δεν συμπληρώνονται όταν η πηγή δεν τις δίνει.",
   city="Πόλη",kind="Είδος",all="Όλα",source="Πηγή",empty="Καμία εκδήλωση με αυτά τα φίλτρα.",
   cities=dict(nicosia="Λευκωσία",limassol="Λεμεσός",larnaca="Λάρνακα",paphos="Πάφος",**{"ayia-napa":"Αγία Νάπα & Πρωταράς"},other="Πόλεις και χωριά"),
-  types=dict(concert="Συναυλίες",festival="Φεστιβάλ",fair="Αγορές",exhibition="Εκθέσεις",theatre="Θέατρο",sport="Αθλητισμός")),
+  types=dict(concert="Συναυλίες",festival="Φεστιβάλ",fair="Αγορές",exhibition="Εκθέσεις",theatre="Θέατρο",kids="Για παιδιά",sport="Αθλητισμός")),
 }
-def upcoming_events():
-    rows=[ev for ev in events.EVENTS if (ev.get("end") or ev["start"])[:10] >= TODAY]
-    rows.sort(key=lambda ev: ev["start"])
-    return rows
+def event_buckets():
+    today=datetime.date.fromisoformat(TODAY)
+    week_end=today+datetime.timedelta(days=6)
+    later_from=datetime.date(2027,3,1)
+    buckets={"week":[],"upcoming":[],"later":[]}
+    for ev in EV_EVENTS:
+        start=datetime.date.fromisoformat(ev["start"][:10])
+        end=datetime.date.fromisoformat((ev.get("end") or ev["start"])[:10])
+        if end<today: continue
+        if start<=week_end: buckets["week"].append(ev)
+        elif start<later_from: buckets["upcoming"].append(ev)
+        else: buckets["later"].append(ev)
+    for rows in buckets.values():
+        rows.sort(key=lambda ev: ev["start"])
+    return buckets
 def ev_icon(kind):
     paths={
      "concert":'<path d="M22 46V16l16-4v28" fill="none" stroke="#fff" stroke-width="2"/><circle cx="18" cy="46" r="5" fill="#c4571a"/><circle cx="34" cy="40" r="5" fill="#c4571a"/>',
@@ -614,6 +639,7 @@ def ev_icon(kind):
      "exhibition":'<path d="M18 14h20a4 4 0 0 1 4 4v32H18z" fill="none" stroke="#fff" stroke-width="2"/><path d="M18 18H14v32h4" stroke="#c4571a" stroke-width="2"/>',
      "theatre":'<path d="M16 20c6 8 26 8 32 0v22c-6-6-26-6-32 0z" fill="none" stroke="#fff" stroke-width="2"/><path d="M32 20v22" stroke="#c4571a" stroke-width="2"/>',
      "sport":'<circle cx="32" cy="32" r="14" fill="none" stroke="#fff" stroke-width="2"/><path d="M32 18v28M18 32h28" stroke="#c4571a" stroke-width="2"/>',
+     "kids":'<circle cx="32" cy="24" r="8" fill="none" stroke="#fff" stroke-width="2"/><path d="M18 48c2-8 8-12 14-12s12 4 14 12" fill="none" stroke="#c4571a" stroke-width="2"/>',
     }
     return f'<svg viewBox="0 0 64 64" width="64" height="64" aria-hidden="true">{paths.get(kind, paths["festival"])}</svg>'
 def ev_caption(photo,l):
@@ -634,39 +660,53 @@ def event_ld(ev,l):
     if ev.get("photo"):
         obj["image"]=abs_(f"/assets/img/events/{ev['photo']}-1200.webp")
     return obj
+def ev_card(ev,l,u):
+    if ev.get("photo"):
+        ph=EV_PHOTOS[ev["photo"]]
+        media=(f'<figure class="pic"><img src="{href(f"/assets/img/events/{ev["photo"]}-600.webp")}" '
+               f'srcset="{href(f"/assets/img/events/{ev["photo"]}-600.webp")} 600w, {href(f"/assets/img/events/{ev["photo"]}-1200.webp")} 1200w" '
+               f'sizes="(max-width:600px) 100vw, 240px" width="600" height="338" alt="{e(ph["alt"][l])}" loading="lazy">'
+               f'<figcaption>{ev_caption(ph,l)}</figcaption></figure>')
+    else:
+        media=f'<div class="ico" aria-hidden="true">{ev_icon(ev["type"])}</div>'
+    price=f' · {e(ev["price"][l])}' if ev.get("price") else ""
+    return (f'<article class="ev" id="ev-{ev["id"]}" data-ev data-city="{ev["city"]}" data-type="{ev["type"]}">'
+            f'{media}<div><p class="cat">{e(u["types"][ev["type"]])}</p><h2>{e(ev["title"][l])}</h2>'
+            f'<p class="when">{e(ev["when"][l])}</p>'
+            f'<p class="meta">{e(ev["venue"][l])}{price}</p>'
+            f'<p>{e(ev["desc"][l])}</p>'
+            f'<p><a href="{e(ev["url"])}">{e(u["source"])}: {e(ev["source"])}</a></p></div></article>')
+def week_home(l):
+    u=EVL[l]; rows=event_buckets()["week"]
+    if not rows: return ""
+    items="".join(f'<li><a href="{href(f"/{l}/events/#ev-{ev["id"]}")}">{e(ev["title"][l])}</a><span class="meta">{e(ev["when"][l])}</span></li>' for ev in rows)
+    return (f'<section class="weekband" aria-label="{e(u["week"])}"><h2><a href="{href(f"/{l}/events/")}">{e(u["week"])}</a></h2>'
+            f'<ul>{items}</ul></section>')
 def page_events(l):
     u=EVL[l]; pathfn=lambda x:f"/{x}/events/"
-    rows=upcoming_events()
+    buckets=event_buckets()
+    rows=buckets["week"]+buckets["upcoming"]+buckets["later"]
     graph={"@context":"https://schema.org","@graph":[event_ld(ev,l) for ev in rows]}
     cities="".join(f'<button type="button" data-city-btn="{c}"{" class=on" if c=="" else ""}>{e(u["all"] if c=="" else u["cities"][c])}</button>' for c in [""]+list(u["cities"]))
     kinds="".join(f'<button type="button" data-type-btn="{t}"{" class=on" if t=="" else ""}>{e(u["all"] if t=="" else u["types"][t])}</button>' for t in [""]+list(u["types"]))
-    cards=[]
-    for ev in rows:
-        if ev.get("photo"):
-            ph=events.PHOTOS[ev["photo"]]
-            media=(f'<figure class="pic"><img src="{href(f"/assets/img/events/{ev["photo"]}-600.webp")}" '
-                   f'srcset="{href(f"/assets/img/events/{ev["photo"]}-600.webp")} 600w, {href(f"/assets/img/events/{ev["photo"]}-1200.webp")} 1200w" '
-                   f'sizes="(max-width:600px) 100vw, 240px" width="600" height="338" alt="{e(ph["alt"][l])}" loading="lazy">'
-                   f'<figcaption>{ev_caption(ph,l)}</figcaption></figure>')
-        else:
-            media=f'<div class="ico" aria-hidden="true">{ev_icon(ev["type"])}</div>'
-        price=f' · {e(ev["price"][l])}' if ev.get("price") else ""
-        cards.append(
-         f'<article class="ev" data-ev data-city="{ev["city"]}" data-type="{ev["type"]}">'
-         f'{media}<div><p class="cat">{e(u["types"][ev["type"]])}</p><h2>{e(ev["title"][l])}</h2>'
-         f'<p class="when">{e(ev["when"][l])}</p>'
-         f'<p class="meta">{e(ev["venue"][l])}{price}</p>'
-         f'<p>{e(ev["desc"][l])}</p>'
-         f'<p><a href="{e(ev["url"])}">{e(u["source"])}: {e(ev["source"])}</a></p></div></article>')
+    groups=""
+    for key in ("week","upcoming","later"):
+        if not buckets[key]: continue
+        cards="".join(ev_card(ev,l,u) for ev in buckets[key])
+        groups+=f'<section class="evgroup" data-evgroup><h2 class="sec">{e(u[key])}</h2><div class="evlist">{cards}</div></section>'
     script='''<script>
 (function(){
-  var list=document.querySelector("[data-evlist]"); if(!list) return;
   var city="", type="";
   function apply(){
     var n=0;
-    list.querySelectorAll("[data-ev]").forEach(function(el){
+    document.querySelectorAll("[data-ev]").forEach(function(el){
       var ok=(!city||el.getAttribute("data-city")===city)&&(!type||el.getAttribute("data-type")===type);
       el.hidden=!ok; if(ok) n++;
+    });
+    document.querySelectorAll("[data-evgroup]").forEach(function(g){
+      var vis=false;
+      g.querySelectorAll("[data-ev]").forEach(function(el){ if(!el.hidden) vis=true; });
+      g.hidden=!vis;
     });
     var empty=document.querySelector("[data-evempty]");
     if(empty) empty.hidden=n!==0;
@@ -685,12 +725,12 @@ def page_events(l):
     h+=header(l,pathfn,"events")
     h+=f'<main id="main" class="wrap"><h1 class="sec">{e(u["title"])}</h1><p class="leadin" style="max-width:760px">{e(u["desc"])}</p>'
     h+=f'<div class="filters"><p>{e(u["city"])}</p>{cities}<p>{e(u["kind"])}</p>{kinds}</div>'
-    h+=f'<p data-evempty hidden>{e(u["empty"])}</p><div class="evlist" data-evlist>{"".join(cards)}</div></main>'
+    h+=f'<p data-evempty hidden>{e(u["empty"])}</p>{groups}</main>'
     h+=script+footer(l)
     return h
 def build_event_photos():
     d=OUT+"/assets/img/events"; os.makedirs(d,exist_ok=True)
-    for key,p in events.PHOTOS.items():
+    for key,p in EV_PHOTOS.items():
         im=Image.open(os.path.join(HERE,"photos",p["file"]))
         plain=cover_crop(im,1200,675,tuple(p.get("focus",(0.5,0.5))))
         watermark(plain).save(f"{d}/{key}-1200.webp","WEBP",quality=78,method=6)

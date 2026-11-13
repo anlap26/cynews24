@@ -1,0 +1,1546 @@
+{
+ "photos": {
+  "eleftheria": {
+   "file": "nicosia-christmas-market.jpg",
+   "author": "Iakovos Hatzistavrou, European Commission",
+   "source": "Wikimedia Commons",
+   "license": "CC BY 4.0",
+   "license_url": "https://creativecommons.org/licenses/by/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Eleftherias_Square_5.jpg",
+   "focus": [
+    0.5,
+    0.7
+   ],
+   "alt": {
+    "en": "Eleftheria Square in Nicosia, seen from above",
+    "ru": "Площадь Элефтерия в Никосии, вид сверху",
+    "el": "Η πλατεία Ελευθερίας στη Λευκωσία, από ψηλά"
+   }
+  },
+  "finikoudes": {
+   "file": "ev-finikoudes.jpg",
+   "author": "An. Antoniou",
+   "source": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:A@a._Larnaca%22finikoudes%22_-_panoramio.jpg",
+   "focus": [
+    0.5,
+    0.45
+   ],
+   "alt": {
+    "en": "The palm promenade at Finikoudes, Larnaca",
+    "ru": "Пальмовая набережная Финикудес в Ларнаке",
+    "el": "Ο φοινικόφυτος παραλιακός στα Φοινικούδες, Λάρνακα"
+   }
+  },
+  "spilia": {
+   "file": "ev-spilia.jpg",
+   "author": "Mboesch",
+   "source": "Wikimedia Commons",
+   "license": "CC BY-SA 4.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Spilia-village.jpg",
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "alt": {
+    "en": "The village of Spilia on a wooded hillside",
+    "ru": "Деревня Спилия на лесистом склоне",
+    "el": "Το χωριό Σπηλιά σε δασωμένη πλαγιά"
+   }
+  },
+  "kakopetria": {
+   "file": "ev-kakopetria.jpg",
+   "author": "Petros3",
+   "source": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Kakopetria_village_and_Troodos_Mountains_in_the_background_Republic_of_Cyprus.jpg",
+   "focus": [
+    0.5,
+    0.55
+   ],
+   "alt": {
+    "en": "Kakopetria with the Troodos mountains behind it",
+    "ru": "Какопетрия на фоне гор Троодос",
+    "el": "Η Κακοπετριά με το Τρόοδος στο βάθος"
+   }
+  },
+  "lefkara": {
+   "file": "ev-lefkara.jpg",
+   "author": "Qasinka",
+   "source": "Wikimedia Commons",
+   "license": "CC0 1.0",
+   "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+   "page": "https://commons.wikimedia.org/wiki/File:2022_03_Pano_Lefkara_1.jpg",
+   "focus": [
+    0.5,
+    0.42
+   ],
+   "alt": {
+    "en": "A lane of stone houses in Pano Lefkara",
+    "ru": "Улочка каменных домов в Пано Лефкаре",
+    "el": "Σοκάκι με πέτρινα σπίτια στα Πάνω Λεύκαρα"
+   }
+  },
+  "ayia-napa": {
+   "file": "ev-ayia-napa.jpg",
+   "author": "Wojciech Biegun",
+   "source": "Wikimedia Commons",
+   "license": "CC BY-SA 3.0",
+   "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+   "page": "https://commons.wikimedia.org/wiki/File:Ayia_Napa_harbour,_Cyprus_-_panoramio.jpg",
+   "focus": [
+    0.55,
+    0.5
+   ],
+   "alt": {
+    "en": "Fishing boats in Ayia Napa harbour",
+    "ru": "Рыбацкие лодки в гавани Айя-Напы",
+    "el": "Ψαροκάικα στο λιμάνι της Αγίας Νάπας"
+   }
+  }
+ },
+ "events": [
+  {
+   "id": "mbs-wellbeing",
+   "type": "festival",
+   "city": "limassol",
+   "start": "2026-11-14T10:30:00+02:00",
+   "end": "2026-11-15T20:00:00+02:00",
+   "when": {
+    "en": "14–15 November 2026. Saturday 10:30–20:00, Sunday 09:45–20:00.",
+    "ru": "14–15 ноября 2026. Суббота 10:30–20:00, воскресенье 09:45–20:00.",
+    "el": "14–15 Νοεμβρίου 2026. Σάββατο 10:30–20:00, Κυριακή 09:45–20:00."
+   },
+   "venue": {
+    "en": "St Raphael Resort & Marina",
+    "ru": "St Raphael Resort & Marina",
+    "el": "St Raphael Resort & Marina"
+   },
+   "locality": "Limassol",
+   "street": "502 Leoforos Amathountos, Pyrgos",
+   "title": {
+    "en": "Mind, Body & Spirit Wellbeing Festival",
+    "ru": "Фестиваль Mind, Body & Spirit",
+    "el": "Φεστιβάλ Mind, Body & Spirit"
+   },
+   "desc": {
+    "en": "The 25th MBS festival at St Raphael in Limassol brings workshops, yoga and an exhibition of wellness makers. The organiser lists day tickets at €18–€20 and a weekend ticket at €30–€35; the exhibition alone is €5 at the door.",
+    "ru": "25-й фестиваль MBS в отеле St Raphael в Лимассоле: занятия, йога и выставка. У организатора дневной билет €18–€20, на оба дня €30–€35; только выставка — €5 на входе.",
+    "el": "Το 25ο φεστιβάλ MBS στο St Raphael στη Λεμεσό έχει εργαστήρια, γιόγκα και έκθεση. Η διοργάνωση αναφέρει εισιτήριο ημέρας €18–€20 και Σαββατοκύριακου €30–€35· μόνο η έκθεση €5 στην πόρτα."
+   },
+   "price": {
+    "en": "€5–€35",
+    "ru": "€5–€35",
+    "el": "€5–€35"
+   },
+   "low": "5",
+   "high": "35",
+   "url": "https://mbscyprus.com/the-mind-body-spirit-wellbeing-festival/",
+   "source": "MBS Cyprus"
+  },
+  {
+   "id": "nicosia-alt-book",
+   "type": "exhibition",
+   "city": "nicosia",
+   "start": "2026-11-14",
+   "end": "2026-11-15",
+   "when": {
+    "en": "14–15 November 2026.",
+    "ru": "14–15 ноября 2026.",
+    "el": "14–15 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "YALLA Collective Space & Café",
+    "ru": "YALLA Collective Space & Café",
+    "el": "YALLA Collective Space & Café"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Nicosia Alternative Book Festival",
+    "ru": "Альтернативный книжный фестиваль Никосии",
+    "el": "Εναλλακτικό φεστιβάλ βιβλίου Λευκωσίας"
+   },
+   "desc": {
+    "en": "A two-day festival in central Nicosia with talks, zines and presentations, listed by the Cyprus Mail.",
+    "ru": "Двухдневный фестиваль в центре Никосии: беседы, зины и презентации. Даты и место указаны в Cyprus Mail.",
+    "el": "Διήμερο φεστιβάλ στο κέντρο της Λευκωσίας με ομιλίες, zines και παρουσιάσεις, σύμφωνα με την Cyprus Mail."
+   },
+   "url": "https://cyprus-mail.com/2026/11/08/from-zivania-to-mushrooms-november-festivals-in-cyprus",
+   "source": "Cyprus Mail"
+  },
+  {
+   "id": "larnaka-marathon",
+   "type": "sport",
+   "city": "larnaca",
+   "start": "2026-11-15T07:00:00+02:00",
+   "end": "2026-11-15T13:00:00+02:00",
+   "when": {
+    "en": "15 November 2026, from 07:00.",
+    "ru": "15 ноября 2026, с 07:00.",
+    "el": "15 Νοεμβρίου 2026, από τις 07:00."
+   },
+   "venue": {
+    "en": "Finikoudes promenade",
+    "ru": "Набережная Финикудес",
+    "el": "Παραλία Φοινικούδες"
+   },
+   "locality": "Larnaca",
+   "street": "Athinon Avenue",
+   "title": {
+    "en": "Radisson Blu Larnaka International Marathon",
+    "ru": "Международный марафон Ларнаки Radisson Blu",
+    "el": "Διεθνής Μαραθώνιος Λάρνακας Radisson Blu"
+   },
+   "desc": {
+    "en": "The city’s official road races start on the Finikoudes promenade: marathon, half marathon, 10 km, 5 km and a short family race. Visit Cyprus lists entry from €20 to €70.",
+    "ru": "Городские забеги стартуют на набережной Финикудес: марафон, полумарафон, 10 км, 5 км и короткая семейная дистанция. Visit Cyprus указывает взнос от €20 до €70.",
+    "el": "Οι αγώνες της πόλης ξεκινούν στα Φοινικούδες: μαραθώνιος, ημιμαραθώνιος, 10 χλμ., 5 χλμ. και σύντομος οικογενειακός. Το Visit Cyprus αναφέρει κόστος €20–€70."
+   },
+   "price": {
+    "en": "€20–€70",
+    "ru": "€20–€70",
+    "el": "€20–€70"
+   },
+   "low": "20",
+   "high": "70",
+   "url": "https://www.visitcyprus.com/event/radisson-blu-larnaka-international-marathon-15-11-2026/",
+   "source": "Visit Cyprus",
+   "photo": "finikoudes"
+  },
+  {
+   "id": "farmers-fest",
+   "type": "festival",
+   "city": "other",
+   "start": "2026-11-15T11:00:00+02:00",
+   "end": "2026-11-15T18:00:00+02:00",
+   "when": {
+    "en": "15 November 2026, 11:00–18:00.",
+    "ru": "15 ноября 2026, 11:00–18:00.",
+    "el": "15 Νοεμβρίου 2026, 11:00–18:00."
+   },
+   "venue": {
+    "en": "Lexeko Estate, Lythrodontas",
+    "ru": "Поместье Lexeko, Литродонтас",
+    "el": "Κτήμα Lexeko, Λυθροδόντας"
+   },
+   "locality": "Lythrodontas",
+   "title": {
+    "en": "Farmers Fest",
+    "ru": "Farmers Fest",
+    "el": "Farmers Fest"
+   },
+   "desc": {
+    "en": "A Sunday gathering at Lexeko Estate with a vintage market, workshops and activities. The Cyprus Mail lists tickets at €10 for adults and €5 for children.",
+    "ru": "Воскресная встреча в поместье Lexeko: винтажный рынок, мастер-классы и занятия. Cyprus Mail указывает билеты €10 для взрослых и €5 для детей.",
+    "el": "Κυριακάτικη συνάντηση στο κτήμα Lexeko με vintage αγορά, εργαστήρια και δραστηριότητες. Η Cyprus Mail αναφέρει €10 για ενήλικες και €5 για παιδιά."
+   },
+   "price": {
+    "en": "€5–€10",
+    "ru": "€5–€10",
+    "el": "€5–€10"
+   },
+   "low": "5",
+   "high": "10",
+   "url": "https://cyprus-mail.com/2026/11/08/from-zivania-to-mushrooms-november-festivals-in-cyprus",
+   "source": "Cyprus Mail"
+  },
+  {
+   "id": "lefkara-classic",
+   "type": "sport",
+   "city": "other",
+   "start": "2026-11-12T16:00:00+02:00",
+   "end": "2026-11-15T17:00:00+02:00",
+   "when": {
+    "en": "12–15 November 2026.",
+    "ru": "12–15 ноября 2026.",
+    "el": "12–15 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "The Agora Hotel and Pano Lefkara square",
+    "ru": "The Agora Hotel и площадь Пано Лефкары",
+    "el": "The Agora Hotel και η πλατεία Πάνω Λευκάρων"
+   },
+   "locality": "Pano Lefkara",
+   "street": "25 Martiou",
+   "title": {
+    "en": "Lefkara Classic",
+    "ru": "Lefkara Classic",
+    "el": "Lefkara Classic"
+   },
+   "desc": {
+    "en": "A four-day cycling week in Pano Lefkara, with the endurance rides still running through 15 November. Visit Cyprus describes social rides and talks around the main event.",
+    "ru": "Четырёхдневная велогонка в Пано Лефкаре; заезды идут до 15 ноября. Visit Cyprus описывает совместные заезды и встречи вокруг основной гонки.",
+    "el": "Τετραήμερη ποδηλατική εβδομάδα στα Πάνω Λεύκαρα, με αγώνες ως τις 15 Νοεμβρίου. Το Visit Cyprus αναφέρει βόλτες και συναντήσεις γύρω από τον κύριο αγώνα."
+   },
+   "url": "https://www.visitcyprus.com/events/",
+   "source": "Visit Cyprus",
+   "photo": "lefkara"
+  },
+  {
+   "id": "pissouri-swim",
+   "type": "sport",
+   "city": "limassol",
+   "start": "2026-11-13T08:00:00+02:00",
+   "end": "2026-11-15T15:00:00+02:00",
+   "when": {
+    "en": "13–15 November 2026.",
+    "ru": "13–15 ноября 2026.",
+    "el": "13–15 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "Pissouri Beach",
+    "ru": "Пляж Писсури",
+    "el": "Παραλία Πισσουρίου"
+   },
+   "locality": "Pissouri",
+   "title": {
+    "en": "Cyprus Swim Series, Pissouri",
+    "ru": "Cyprus Swim Series, Писсури",
+    "el": "Cyprus Swim Series, Πισσούρι"
+   },
+   "desc": {
+    "en": "Open-water races on Pissouri Beach, including an 8 km individual swim and an 8 km relay. Visit Cyprus lists this as the third edition, running until 15 November.",
+    "ru": "Заплывы на открытой воде у пляжа Писсури, в том числе 8 км индивидуально и эстафета 8 км. Visit Cyprus указывает третий выпуск серии, он идёт до 15 ноября.",
+    "el": "Αγώνες ανοιχτής θάλασσας στην παραλία Πισσουρίου, με 8 χλμ. ατομικά και σκυταλοδρομία 8 χλμ. Το Visit Cyprus το αναφέρει ως 3η διοργάνωση, έως τις 15 Νοεμβρίου."
+   },
+   "url": "https://www.visitcyprus.com/events/",
+   "source": "Visit Cyprus"
+  },
+  {
+   "id": "starlight-nicosia",
+   "type": "concert",
+   "city": "nicosia",
+   "start": "2026-11-19T20:30:00+02:00",
+   "end": "2026-11-19T20:30:00+02:00",
+   "when": {
+    "en": "19 November 2026, 20:30.",
+    "ru": "19 ноября 2026, 20:30.",
+    "el": "19 Νοεμβρίου 2026, 20:30."
+   },
+   "venue": {
+    "en": "Strovolos Municipal Theatre",
+    "ru": "Муниципальный театр Строволоса",
+    "el": "Δημοτικό Θέατρο Στροβόλου"
+   },
+   "locality": "Strovolos",
+   "street": "100 Strovolos Avenue",
+   "title": {
+    "en": "Cyprus Symphony Orchestra: Starlight 2",
+    "ru": "Симфонический оркестр Кипра: Starlight 2",
+    "el": "Συμφωνική Ορχήστρα Κύπρου: Starlight 2"
+   },
+   "desc": {
+    "en": "Barber’s Adagio and Violin Concerto, with Diana Tishchenko, and Tchaikovsky’s Fifth Symphony, conducted by Myron Michailidis. The orchestra lists tickets from €12 to €25, with concessions and some free seats.",
+    "ru": "Adagio и скрипичный концерт Барбера с Дианой Тищенко и Пятая симфония Чайковского, дирижёр Мирон Михаилидис. Оркестр указывает билеты от €12 до €25, есть льготы и часть бесплатных мест.",
+    "el": "Adagio και Κοντσέρτο για βιολί του Barber με τη Diana Tishchenko και η 5η συμφωνία του Τσαϊκόφσκι, με μαέστρο τον Μύρωνα Μιχαηλίδη. Η ορχήστρα αναφέρει εισιτήρια €12–€25, με μειωμένα και κάποια δωρεάν."
+   },
+   "price": {
+    "en": "€12–€25",
+    "ru": "€12–€25",
+    "el": "€12–€25"
+   },
+   "low": "12",
+   "high": "25",
+   "url": "https://www.cyso.org.cy/?p=14549",
+   "source": "Cyprus Symphony Orchestra"
+  },
+  {
+   "id": "nazari-recital",
+   "type": "concert",
+   "city": "nicosia",
+   "start": "2026-11-19T20:30:00+02:00",
+   "end": "2026-11-19T20:30:00+02:00",
+   "when": {
+    "en": "19 November 2026, 20:30.",
+    "ru": "19 ноября 2026, 20:30.",
+    "el": "19 Νοεμβρίου 2026, 20:30."
+   },
+   "venue": {
+    "en": "The Shoe Factory",
+    "ru": "The Shoe Factory",
+    "el": "The Shoe Factory"
+   },
+   "locality": "Nicosia",
+   "street": "304 Ermou",
+   "title": {
+    "en": "Baroque Labyrinth: Nazari and Morinière",
+    "ru": "Baroque Labyrinth: Назари и Мориньер",
+    "el": "Baroque Labyrinth: Nazari και Morinière"
+   },
+   "desc": {
+    "en": "Mezzo-soprano Anousha Nazari and guitarist Antoine Morinière pair European early music with Persian tradition. Visit Cyprus lists the recital at The Shoe Factory.",
+    "ru": "Меццо-сопрано Ануша Назари и гитарист Антуан Мориньер соединяют европейскую старинную музыку с персидской традицией. Visit Cyprus указывает концерт в The Shoe Factory.",
+    "el": "Η μεσόφωνος Anousha Nazari και ο κιθαρίστας Antoine Morinière ενώνουν πρώιμη ευρωπαϊκή μουσική με την περσική παράδοση. Το Visit Cyprus το αναφέρει στο Shoe Factory."
+   },
+   "url": "https://www.visitcyprus.com/event/recital-anousha-nazari-mezzo-soprano-antoine-moriniere-guitar-19-11-2026/",
+   "source": "Visit Cyprus",
+   "price": {
+    "en": "€20–€25",
+    "ru": "€20–€25",
+    "el": "€20–€25"
+   },
+   "low": "20",
+   "high": "25"
+  },
+  {
+   "id": "starlight-limassol",
+   "type": "concert",
+   "city": "limassol",
+   "start": "2026-11-20T20:30:00+02:00",
+   "end": "2026-11-20T20:30:00+02:00",
+   "when": {
+    "en": "20 November 2026, 20:30.",
+    "ru": "20 ноября 2026, 20:30.",
+    "el": "20 Νοεμβρίου 2026, 20:30."
+   },
+   "venue": {
+    "en": "Pattihio Municipal Theatre",
+    "ru": "Муниципальный театр Паттихио",
+    "el": "Παττίχειο Δημοτικό Θέατρο"
+   },
+   "locality": "Limassol",
+   "street": "Agias Zonis 4",
+   "title": {
+    "en": "Cyprus Symphony Orchestra: Starlight 2",
+    "ru": "Симфонический оркестр Кипра: Starlight 2",
+    "el": "Συμφωνική Ορχήστρα Κύπρου: Starlight 2"
+   },
+   "desc": {
+    "en": "The Limassol night of the same Barber and Tchaikovsky programme, again with Diana Tishchenko and Myron Michailidis. Ticket prices match the Nicosia concert, €12–€25.",
+    "ru": "Лимассольский вечер той же программы Барбера и Чайковского, снова с Дианой Тищенко и Мироном Михаилидисом. Цены как в Никосии: €12–€25.",
+    "el": "Η βραδιά της Λεμεσού με το ίδιο πρόγραμμα Barber και Τσαϊκόφσκι, πάλι με τη Diana Tishchenko και τον Μύρωνα Μιχαηλίδη. Οι τιμές είναι όπως στη Λευκωσία, €12–€25."
+   },
+   "price": {
+    "en": "€12–€25",
+    "ru": "€12–€25",
+    "el": "€12–€25"
+   },
+   "low": "12",
+   "high": "25",
+   "url": "https://www.cyso.org.cy/?p=14549",
+   "source": "Cyprus Symphony Orchestra"
+  },
+  {
+   "id": "limassol-book-fair",
+   "type": "exhibition",
+   "city": "limassol",
+   "start": "2026-11-20T10:00:00+02:00",
+   "end": "2026-11-22",
+   "when": {
+    "en": "20–22 November 2026. Friday 10:00–20:00.",
+    "ru": "20–22 ноября 2026. В пятницу 10:00–20:00.",
+    "el": "20–22 Νοεμβρίου 2026. Παρασκευή 10:00–20:00."
+   },
+   "venue": {
+    "en": "Lanitis Carob Mills",
+    "ru": "Lanitis Carob Mills",
+    "el": "Lanitis Carob Mills"
+   },
+   "locality": "Limassol",
+   "title": {
+    "en": "Limassol International Book Fair",
+    "ru": "Международная книжная ярмарка Лимассола",
+    "el": "Διεθνής Έκθεση Βιβλίου Λεμεσού"
+   },
+   "desc": {
+    "en": "The fifth fair at the Carob Mills, with the organisers expecting more than 120 exhibitors. Friday is listed as 10:00–20:00; later hours are on the fair’s own programme.",
+    "ru": "Пятая ярмарка на Carob Mills: организаторы ждут больше 120 участников. Пятница указана как 10:00–20:00; часы субботы и воскресенья — в программе ярмарки.",
+    "el": "Η 5η έκθεση στα Carob Mills, με τους διοργανωτές να περιμένουν πάνω από 120 εκθέτες. Η Παρασκευή αναφέρεται 10:00–20:00· οι υπόλοιπες ώρες είναι στο πρόγραμμα της έκθεσης."
+   },
+   "url": "https://limassolbookfair.com/en/about/",
+   "source": "Limassol International Book Fair"
+  },
+  {
+   "id": "spilia-mushroom",
+   "type": "festival",
+   "city": "other",
+   "start": "2026-11-21T11:00:00+02:00",
+   "end": "2026-11-22T19:00:00+02:00",
+   "when": {
+    "en": "21–22 November 2026, 11:00–19:00.",
+    "ru": "21–22 ноября 2026, 11:00–19:00.",
+    "el": "21–22 Νοεμβρίου 2026, 11:00–19:00."
+   },
+   "venue": {
+    "en": "Spilia village",
+    "ru": "Деревня Спилия",
+    "el": "Χωριό Σπηλιά"
+   },
+   "locality": "Spilia",
+   "title": {
+    "en": "Spilia Mushroom Festival",
+    "ru": "Грибной фестиваль в Спилии",
+    "el": "Φεστιβάλ μανιταριών στη Σπηλιά"
+   },
+   "desc": {
+    "en": "The eighth festival in Spilia, with mushroom dishes, a village market and music. The Cyprus Mail gives the hours; Visit Cyprus confirms the dates and the place.",
+    "ru": "Восьмой фестиваль в Спилии: грибные блюда, деревенский рынок и музыка. Часы даёт Cyprus Mail, даты и место подтверждает Visit Cyprus.",
+    "el": "Το 8ο φεστιβάλ στη Σπηλιά, με πιάτα από μανιτάρια, αγορά και μουσική. Το ωράριο το δίνει η Cyprus Mail· τις ημερομηνίες και τον τόπο το Visit Cyprus."
+   },
+   "url": "https://www.mytroodos.com",
+   "source": "Visit Cyprus / mytroodos.com",
+   "photo": "spilia"
+  },
+  {
+   "id": "christmas-villages",
+   "type": "fair",
+   "city": "other",
+   "start": "2026-11-21",
+   "end": "2027-01-06",
+   "when": {
+    "en": "21 November 2026 – 6 January 2027.",
+    "ru": "21 ноября 2026 – 6 января 2027.",
+    "el": "21 Νοεμβρίου 2026 – 6 Ιανουαρίου 2027."
+   },
+   "venue": {
+    "en": "Lefkara, Kyperounta, Agros, Fikardou, Statos-Agios Fotios, Kakopetria, Kalopanayiotis, Lofou and Deryneia",
+    "ru": "Лефкара, Киперунда, Агрос, Фикарду, Статос-Айос-Фотиос, Какопетрия, Калопанайотис, Лофу и Дериния",
+    "el": "Λεύκαρα, Κυπερούντα, Αγρός, Φικάρδου, Στατός-Άγιος Φώτιος, Κακοπετριά, Καλοπαναγιώτης, Λόφου και Δερύνεια"
+   },
+   "locality": "Cyprus",
+   "title": {
+    "en": "Christmas Villages",
+    "ru": "Рождественские деревни",
+    "el": "Χριστουγεννιάτικα χωριά"
+   },
+   "desc": {
+    "en": "Nine villages and Deryneia dress for Christmas, with local products, workshops and village events. The Deputy Ministry of Tourism says the programme runs through 6 January.",
+    "ru": "Девять деревень и Дериния оформляются к Рождеству: местные продукты, мастерские и деревенские события. Замминистерство туризма указывает срок до 6 января.",
+    "el": "Εννέα χωριά και η Δερύνεια στολίζονται για τα Χριστούγεννα, με τοπικά προϊόντα, εργαστήρια και εκδηλώσεις. Το Υφυπουργείο Τουρισμού λέει ότι το πρόγραμμα κρατά ως τις 6 Ιανουαρίου."
+   },
+   "url": "https://www.visitcyprus.com/christmas-villages/",
+   "source": "Visit Cyprus",
+   "photo": "kakopetria"
+  },
+  {
+   "id": "chamber-paphos",
+   "type": "concert",
+   "city": "paphos",
+   "start": "2026-11-25T20:00:00+02:00",
+   "end": "2026-11-25T20:00:00+02:00",
+   "when": {
+    "en": "25 November 2026, 20:00.",
+    "ru": "25 ноября 2026, 20:00.",
+    "el": "25 Νοεμβρίου 2026, 20:00."
+   },
+   "venue": {
+    "en": "Markideio Municipal Theatre",
+    "ru": "Муниципальный театр Маркидио",
+    "el": "Μαρκίδειο Δημοτικό Θέατρο"
+   },
+   "locality": "Paphos",
+   "street": "18 Andrea Geroudi",
+   "title": {
+    "en": "Chamber Music 1: Violin Trio",
+    "ru": "Камерная музыка 1: скрипичное трио",
+    "el": "Μουσική δωματίου 1: τρίο βιολιών"
+   },
+   "desc": {
+    "en": "Three Cyprus Symphony violinists play works by Mikuli, Hermann and Spies. Tickets are €12, or €7 concession.",
+    "ru": "Три скрипачки Симфонического оркестра Кипра играют Микули, Германа и Шписа. Билеты €12 или €7 льготный.",
+    "el": "Τρεις βιολίστριες της Συμφωνικής Κύπρου παίζουν έργα των Mikuli, Hermann και Spies. Εισιτήρια €12 ή €7 μειωμένο."
+   },
+   "price": {
+    "en": "€7–€12",
+    "ru": "€7–€12",
+    "el": "€7–€12"
+   },
+   "low": "7",
+   "high": "12",
+   "url": "https://www.cyso.org.cy/?p=14563",
+   "source": "Cyprus Symphony Orchestra"
+  },
+  {
+   "id": "chamber-nicosia",
+   "type": "concert",
+   "city": "nicosia",
+   "start": "2026-11-26T20:00:00+02:00",
+   "end": "2026-11-26T20:00:00+02:00",
+   "when": {
+    "en": "26 November 2026, 20:00.",
+    "ru": "26 ноября 2026, 20:00.",
+    "el": "26 Νοεμβρίου 2026, 20:00."
+   },
+   "venue": {
+    "en": "Pallas Theatre, Pafos Gate",
+    "ru": "Театр Pallas у ворот Пафоса",
+    "el": "Θέατρο Παλλάς, Πύλη Πάφου"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Chamber Music 1: Violin Trio",
+    "ru": "Камерная музыка 1: скрипичное трио",
+    "el": "Μουσική δωματίου 1: τρίο βιολιών"
+   },
+   "desc": {
+    "en": "The same violin-trio programme moves to Pallas Theatre the next evening. The orchestra lists the same €7–€12 tickets.",
+    "ru": "Та же программа скрипичного трио на следующий вечер в театре Pallas. Оркестр указывает те же билеты €7–€12.",
+    "el": "Το ίδιο πρόγραμμα τριών βιολιών μεταφέρεται το επόμενο βράδυ στο θέατρο Παλλάς. Η ορχήστρα αναφέρει τα ίδια εισιτήρια €7–€12."
+   },
+   "price": {
+    "en": "€7–€12",
+    "ru": "€7–€12",
+    "el": "€7–€12"
+   },
+   "low": "7",
+   "high": "12",
+   "url": "https://www.cyso.org.cy/?p=14563",
+   "source": "Cyprus Symphony Orchestra"
+  },
+  {
+   "id": "cyprus-challenge",
+   "type": "sport",
+   "city": "paphos",
+   "start": "2026-11-26",
+   "end": "2026-11-29",
+   "when": {
+    "en": "26–29 November 2026.",
+    "ru": "26–29 ноября 2026.",
+    "el": "26–29 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "Paphos and the Akamas",
+    "ru": "Пафос и Акамас",
+    "el": "Πάφος και Ακάμας"
+   },
+   "locality": "Paphos",
+   "title": {
+    "en": "Leptos Cyprus International 4-Day Challenge",
+    "ru": "Leptos Cyprus International 4-Day Challenge",
+    "el": "Leptos Cyprus International 4-Day Challenge"
+   },
+   "desc": {
+    "en": "Four running days around Paphos and Akamas: a 6 km time trial from Coral Beach, an 11 km trail, a half-marathon distance and a 10 km city run from the medieval castle. Visit Cyprus lists the entry fee at €10.",
+    "ru": "Четыре беговых дня вокруг Пафоса и Акамаса: контрольная 6 км от Coral Beach, трейл 11 км, дистанция около полумарафона и городские 10 км от средневекового замка. Visit Cyprus указывает взнос €10.",
+    "el": "Τέσσερις μέρες τρεξίματος γύρω από την Πάφο και τον Ακάμα: χρονόμετρο 6 χλμ. από το Coral Beach, ορεινό 11 χλμ., απόσταση ημιμαραθωνίου και 10 χλμ. στην πόλη από το μεσαιωνικό κάστρο. Το Visit Cyprus αναφέρει συμμετοχή €10."
+   },
+   "url": "https://www.visitcyprus.com/event/leptos-cyprus-international-4-day-challenge-26-29-11-2026/",
+   "source": "Visit Cyprus",
+   "price": {
+    "en": "€10",
+    "ru": "€10",
+    "el": "€10"
+   },
+   "low": "10",
+   "high": "10"
+  },
+  {
+   "id": "atlantic-bowls",
+   "type": "sport",
+   "city": "paphos",
+   "start": "2026-11-30",
+   "end": "2026-12-12",
+   "when": {
+    "en": "30 November – 12 December 2026.",
+    "ru": "30 ноября – 12 декабря 2026.",
+    "el": "30 Νοεμβρίου – 12 Δεκεμβρίου 2026."
+   },
+   "venue": {
+    "en": "Athena Hotel",
+    "ru": "Отель Athena",
+    "el": "Ξενοδοχείο Athena"
+   },
+   "locality": "Paphos",
+   "title": {
+    "en": "Atlantic Senior Fours",
+    "ru": "Atlantic Senior Fours",
+    "el": "Atlantic Senior Fours"
+   },
+   "desc": {
+    "en": "An international lawn-bowls competition for players from abroad, held at the Athena Hotel in Paphos. Dates and venue are in the Deputy Ministry of Tourism’s events list.",
+    "ru": "Международный турнир по боулзу для игроков из разных стран, в отеле Athena в Пафосе. Даты и место — в списке замминистерства туризма.",
+    "el": "Διεθνής διοργάνωση lawn bowls για παίκτες από το εξωτερικό, στο ξενοδοχείο Athena στην Πάφο. Ημερομηνίες και τόπος είναι στον κατάλογο του Υφυπουργείου Τουρισμού."
+   },
+   "url": "https://www.atlantic-senior-fours.com/",
+   "source": "Visit Cyprus"
+  },
+  {
+   "id": "nicosia-christmas-market",
+   "type": "fair",
+   "city": "nicosia",
+   "start": "2026-11-28T11:00:00+02:00",
+   "end": "2026-12-27T20:00:00+02:00",
+   "when": {
+    "en": "Selected days, 28 November – 27 December 2026. Weekends 28–29 Nov, 12–13 Dec and 19–20 Dec, 11:00–20:00; 21–23 Dec, 17:00–21:00; 24 and 27 Dec, 11:00–20:00.",
+    "ru": "Отдельные дни с 28 ноября по 27 декабря 2026. Выходные 28–29 ноя, 12–13 и 19–20 дек, 11:00–20:00; 21–23 дек, 17:00–21:00; 24 и 27 дек, 11:00–20:00.",
+    "el": "Επιλεγμένες ημέρες, 28 Νοεμβρίου – 27 Δεκεμβρίου 2026. Σαββατοκύριακα 28–29 Νοε, 12–13 και 19–20 Δεκ, 11:00–20:00· 21–23 Δεκ, 17:00–21:00· 24 και 27 Δεκ, 11:00–20:00."
+   },
+   "venue": {
+    "en": "Eleftheria Square",
+    "ru": "Площадь Элефтерия",
+    "el": "Πλατεία Ελευθερίας"
+   },
+   "locality": "Nicosia",
+   "street": "Eleftheria Square",
+   "title": {
+    "en": "Nicosia Christmas Market",
+    "ru": "Рождественская ярмарка Никосии",
+    "el": "Χριστουγεννιάτικη αγορά Λευκωσίας"
+   },
+   "desc": {
+    "en": "Handmade in Cyprus and the municipality turn the covered lower level of Eleftheria Square into a Christmas market on the days above, with local makers, food and a children’s craft corner. It is not open every day of the season.",
+    "ru": "Handmade in Cyprus и муниципалитет устраивают рождественский рынок на крытом нижнем уровне площади Элефтерия в дни выше: местные мастера, еда и детский уголок. Рынок работает не каждый день сезона.",
+    "el": "Το Handmade in Cyprus και ο δήμος στήνουν χριστουγεννιάτικη αγορά στο στεγασμένο κάτω επίπεδο της πλατείας Ελευθερίας τις ημέρες παραπάνω, με δημιουργούς, φαγητό και γωνιά για παιδιά. Δεν είναι ανοιχτή κάθε μέρα."
+   },
+   "url": "https://www.nicosia.org.cy/el-GR/news/events/list/2026/11/22884/",
+   "source": "Nicosia Municipality",
+   "photo": "eleftheria"
+  },
+  {
+   "id": "jazz-showcase",
+   "type": "concert",
+   "city": "limassol",
+   "start": "2026-12-04",
+   "end": "2026-12-06",
+   "when": {
+    "en": "4–6 December 2026.",
+    "ru": "4–6 декабря 2026.",
+    "el": "4–6 Δεκεμβρίου 2026."
+   },
+   "venue": {
+    "en": "Rialto Theatre",
+    "ru": "Театр Риалто",
+    "el": "Θέατρο Ριάλτο"
+   },
+   "locality": "Limassol",
+   "title": {
+    "en": "Cyprus Jazz & World Music Showcase",
+    "ru": "Кипрский смотр джаза и world music",
+    "el": "Κυπριακό Jazz & World Music Showcase"
+   },
+   "desc": {
+    "en": "The 13th showcase of Cypriot jazz and world music, organised by Rialto Theatre with the Deputy Ministry of Culture. The theatre’s own notice gives 4–6 December.",
+    "ru": "13-й смотр кипрского джаза и world music. Его проводят театр Риалто и замминистерство культуры. На сайте театра указаны 4–6 декабря.",
+    "el": "Το 13ο showcase κυπριακής τζαζ και world music, από το Ριάλτο και το Υφυπουργείο Πολιτισμού. Η ανακοίνωση του θεάτρου δίνει 4–6 Δεκεμβρίου."
+   },
+   "url": "https://www.rialto.com.cy/",
+   "source": "Rialto Theatre"
+  },
+  {
+   "id": "la-traviata",
+   "type": "theatre",
+   "city": "nicosia",
+   "start": "2026-12-09T19:30:00+02:00",
+   "end": "2026-12-10T19:30:00+02:00",
+   "when": {
+    "en": "9 and 10 December 2026, 19:30.",
+    "ru": "9 и 10 декабря 2026, 19:30.",
+    "el": "9 και 10 Δεκεμβρίου 2026, 19:30."
+   },
+   "venue": {
+    "en": "Nicosia Municipal Theatre",
+    "ru": "Муниципальный театр Никосии",
+    "el": "Δημοτικό Θέατρο Λευκωσίας"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "La Traviata, Cyprus Youth Symphony Orchestra",
+    "ru": "«Травиата», Молодёжный симфонический оркестр Кипра",
+    "el": "Λα Τραβιάτα, Συμφωνική Ορχήστρα Νέων Κύπρου"
+   },
+   "desc": {
+    "en": "A staged production of Verdi’s La Traviata on two evenings, with the youth orchestra, choir and Nicosia Youth Ballet. The foundation lists tickets at €25 and €35.",
+    "ru": "Постановку «Травиаты» Верди дают два вечера: молодёжный оркестр, хор и балет Никосии. Фонд указывает билеты €25 и €35.",
+    "el": "Σκηνική παραγωγή της Τραβιάτα του Verdi σε δύο βραδιές, με την ορχήστρα νέων, χορωδία και το Youth Ballet Λευκωσίας. Το ίδρυμα αναφέρει εισιτήρια €25 και €35."
+   },
+   "price": {
+    "en": "€25–€35",
+    "ru": "€25–€35",
+    "el": "€25–€35"
+   },
+   "low": "25",
+   "high": "35",
+   "url": "https://www.cyso.org.cy/?p=14565",
+   "source": "Cyprus Symphony Orchestra"
+  },
+  {
+   "id": "ayia-napa-half",
+   "type": "sport",
+   "city": "ayia-napa",
+   "start": "2026-12-20T08:00:00+02:00",
+   "end": "2026-12-20T11:00:00+02:00",
+   "when": {
+    "en": "20 December 2026. Half marathon 08:00, 10 km 08:10, 5 km 08:15.",
+    "ru": "20 декабря 2026. Полумарафон 08:00, 10 км 08:10, 5 км 08:15.",
+    "el": "20 Δεκεμβρίου 2026. Ημιμαραθώνιος 08:00, 10 χλμ. 08:10, 5 χλμ. 08:15."
+   },
+   "venue": {
+    "en": "Nissi Beach Resort",
+    "ru": "Nissi Beach Resort",
+    "el": "Nissi Beach Resort"
+   },
+   "locality": "Ayia Napa",
+   "title": {
+    "en": "Ayia Napa Half Marathon",
+    "ru": "Полумарафон Айя-Напы",
+    "el": "Ημιμαραθώνιος Αγίας Νάπας"
+   },
+   "desc": {
+    "en": "Road races from Nissi Beach: half marathon, a three-person relay, 10 km and 5 km. The organiser’s timetable puts the awards at 11:00. Entry is €25–€35 for the individual races and €60 for the relay.",
+    "ru": "Забеги от Nissi Beach: полумарафон, эстафета на троих, 10 км и 5 км. В расписании организатора награждение в 11:00. Взнос €25–€35 на отдельные дистанции и €60 на эстафету.",
+    "el": "Αγώνες δρόμου από το Nissi Beach: ημιμαραθώνιος, σκυταλοδρομία τριών, 10 χλμ. και 5 χλμ. Το πρόγραμμα της διοργάνωσης βάζει την απονομή στις 11:00. Συμμετοχή €25–€35 στους ατομικούς και €60 στη σκυταλοδρομία."
+   },
+   "price": {
+    "en": "€25–€60",
+    "ru": "€25–€60",
+    "el": "€25–€60"
+   },
+   "low": "25",
+   "high": "60",
+   "url": "https://nireastriathlon.com/ayia-napa-half-marathon/",
+   "source": "Ayia Napa Half Marathon",
+   "photo": "ayia-napa"
+  },
+  {
+   "id": "roc-optimist",
+   "type": "sport",
+   "city": "limassol",
+   "start": "2026-11-08",
+   "end": "2026-11-15",
+   "when": {
+    "en": "8–15 November 2026.",
+    "ru": "8–15 ноября 2026.",
+    "el": "8–15 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "Famagusta Nautical Club",
+    "ru": "Морской клуб Фамагусты",
+    "el": "Ναυτικός Όμιλος Αμμοχώστου"
+   },
+   "locality": "Limassol",
+   "street": "Promachon Eleftherias 1",
+   "title": {
+    "en": "Regatta of Champions, Optimist",
+    "ru": "Regatta of Champions, класс Optimist",
+    "el": "Regatta of Champions, Optimist"
+   },
+   "desc": {
+    "en": "The Optimist fleet of this invitational sailing championship is in Limassol through 15 November. Visit Cyprus lists spectator admission as free.",
+    "ru": "Флот класса Optimist этого пригласительного парусного чемпионата в Лимассоле до 15 ноября. Visit Cyprus указывает свободный вход для зрителей.",
+    "el": "Ο στόλος Optimist αυτού του προσκλητήριου ιστιοπλοϊκού πρωταθλήματος είναι στη Λεμεσό έως τις 15 Νοεμβρίου. Το Visit Cyprus αναφέρει ελεύθερη είσοδο θεατών."
+   },
+   "price": {
+    "en": "Free",
+    "ru": "Бесплатно",
+    "el": "Δωρεάν"
+   },
+   "low": "0",
+   "high": "0",
+   "url": "https://www.visitcyprus.com/event/regatta-of-champions-the-r-o-c-optimist-ilca4-8-15-11-2026-22-29-11-2026/",
+   "source": "Visit Cyprus"
+  },
+  {
+   "id": "roc-ilca4",
+   "type": "sport",
+   "city": "limassol",
+   "start": "2026-11-22",
+   "end": "2026-11-29",
+   "when": {
+    "en": "22–29 November 2026.",
+    "ru": "22–29 ноября 2026.",
+    "el": "22–29 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "Famagusta Nautical Club",
+    "ru": "Морской клуб Фамагусты",
+    "el": "Ναυτικός Όμιλος Αμμοχώστου"
+   },
+   "locality": "Limassol",
+   "street": "Promachon Eleftherias 1",
+   "title": {
+    "en": "Regatta of Champions, ILCA 4",
+    "ru": "Regatta of Champions, класс ILCA 4",
+    "el": "Regatta of Champions, ILCA 4"
+   },
+   "desc": {
+    "en": "The first ILCA 4 edition of the same Limassol championship, following the Optimist week. Visit Cyprus lists it as free to attend.",
+    "ru": "Первый выпуск того же лимассольского чемпионата в классе ILCA 4, после недели Optimist. Visit Cyprus указывает свободный вход.",
+    "el": "Η πρώτη διοργάνωση του ίδιου πρωταθλήματος στη Λεμεσό για ILCA 4, μετά την εβδομάδα Optimist. Το Visit Cyprus την αναφέρει δωρεάν για το κοινό."
+   },
+   "price": {
+    "en": "Free",
+    "ru": "Бесплатно",
+    "el": "Δωρεάν"
+   },
+   "low": "0",
+   "high": "0",
+   "url": "https://www.visitcyprus.com/event/regatta-of-champions-the-r-o-c-optimist-ilca4-8-15-11-2026-22-29-11-2026/",
+   "source": "Visit Cyprus"
+  },
+  {
+   "id": "teu16",
+   "type": "sport",
+   "city": "limassol",
+   "start": "2026-11-23",
+   "end": "2026-11-29",
+   "when": {
+    "en": "23–29 November 2026.",
+    "ru": "23–29 ноября 2026.",
+    "el": "23–29 Νοεμβρίου 2026."
+   },
+   "venue": {
+    "en": "Famagusta Tennis Club",
+    "ru": "Теннисный клуб Фамагусты",
+    "el": "Όμιλος Αντισφαίρισης Αμμοχώστου"
+   },
+   "locality": "Limassol",
+   "street": "3 Mesaorias Street",
+   "title": {
+    "en": "Tennis Europe U16",
+    "ru": "Tennis Europe U16",
+    "el": "Tennis Europe U16"
+   },
+   "desc": {
+    "en": "A Tennis Europe under-16 tournament at Famagusta Tennis Club in Limassol. Visit Cyprus lists entry for spectators as free.",
+    "ru": "Турнир Tennis Europe до 16 лет в теннисном клубе Фамагусты в Лимассоле. Visit Cyprus указывает свободный вход для зрителей.",
+    "el": "Τουρνουά Tennis Europe κάτω των 16 στον Όμιλο Αντισφαίρισης Αμμοχώστου στη Λεμεσό. Το Visit Cyprus αναφέρει ελεύθερη είσοδο θεατών."
+   },
+   "price": {
+    "en": "Free",
+    "ru": "Бесплатно",
+    "el": "Δωρεάν"
+   },
+   "low": "0",
+   "high": "0",
+   "url": "https://www.visitcyprus.com/event/teu16-tennis-europe-u16-23-29-11-2026/",
+   "source": "Visit Cyprus"
+  },
+  {
+   "id": "shore-angling",
+   "type": "sport",
+   "city": "limassol",
+   "start": "2026-12-07T10:00:00+02:00",
+   "end": "2026-12-11T14:00:00+02:00",
+   "when": {
+    "en": "7–11 December 2026. The same page also describes the championship as being in Cyprus from 5 to 12 December.",
+    "ru": "7–11 декабря 2026. На той же странице чемпионат в целом указан на Кипре с 5 по 12 декабря.",
+    "el": "7–11 Δεκεμβρίου 2026. Η ίδια σελίδα περιγράφει το πρωτάθλημα στην Κύπρο από 5 έως 12 Δεκεμβρίου."
+   },
+   "venue": {
+    "en": "Lady’s Mile Beach",
+    "ru": "Пляж Lady’s Mile",
+    "el": "Παραλία Lady’s Mile"
+   },
+   "locality": "Limassol",
+   "title": {
+    "en": "Shore Angling World Championship for Clubs",
+    "ru": "Чемпионат мира по береговой ловле среди клубов",
+    "el": "Παγκόσμιο πρωτάθλημα συλλόγων ψαρέματος από την ακτή"
+   },
+   "desc": {
+    "en": "The 33rd club shore-angling championship, with competition sessions at Lady’s Mile listed by Visit Cyprus as 7–11 December and free to follow.",
+    "ru": "33-й клубный чемпионат по береговой ловле. Visit Cyprus указывает соревновательные дни 7–11 декабря на Lady’s Mile и свободный вход.",
+    "el": "Το 33ο πρωτάθλημα συλλόγων ψαρέματος από την ακτή. Το Visit Cyprus δίνει αγωνιστικές μέρες 7–11 Δεκεμβρίου στο Lady’s Mile και ελεύθερη παρακολούθηση."
+   },
+   "price": {
+    "en": "Free",
+    "ru": "Бесплатно",
+    "el": "Δωρεάν"
+   },
+   "low": "0",
+   "high": "0",
+   "url": "https://www.visitcyprus.com/event/33rd-shore-angling-world-championship-for-clubs-7-11-12-2026/",
+   "source": "Visit Cyprus"
+  },
+  {
+   "id": "cracks",
+   "type": "concert",
+   "city": "paphos",
+   "start": "2026-11-19T20:00:00+02:00",
+   "end": "2026-11-19T21:00:00+02:00",
+   "when": {
+    "en": "19 November 2026, 20:00–21:00.",
+    "ru": "19 ноября 2026, 20:00–21:00.",
+    "el": "19 Νοεμβρίου 2026, 20:00–21:00."
+   },
+   "venue": {
+    "en": "Technopolis 20",
+    "ru": "Technopolis 20",
+    "el": "Technopolis 20"
+   },
+   "locality": "Paphos",
+   "street": "18 Nikolaou I. Nikolaidi Avenue",
+   "title": {
+    "en": "CRACKS, Pythia Trio",
+    "ru": "CRACKS, трио Pythia",
+    "el": "CRACKS, Pythia Trio"
+   },
+   "desc": {
+    "en": "A six-hands-on-one-piano music-theatre piece by the Pythia Trio at Technopolis 20.",
+    "ru": "Музыкально-театральная работа трио Pythia: шесть рук на одном рояле, в Technopolis 20.",
+    "el": "Μουσικό θέατρο του Pythia Trio, έξι χέρια σε ένα πιάνο, στο Technopolis 20."
+   },
+   "url": "https://www.technopolis20.com/upcoming-events",
+   "source": "Technopolis 20"
+  },
+  {
+   "id": "falla-guitar",
+   "type": "concert",
+   "city": "paphos",
+   "start": "2026-11-22T19:00:00+02:00",
+   "end": "2026-11-22T20:20:00+02:00",
+   "when": {
+    "en": "22 November 2026, 19:00–20:20.",
+    "ru": "22 ноября 2026, 19:00–20:20.",
+    "el": "22 Νοεμβρίου 2026, 19:00–20:20."
+   },
+   "venue": {
+    "en": "Technopolis 20",
+    "ru": "Technopolis 20",
+    "el": "Technopolis 20"
+   },
+   "locality": "Paphos",
+   "street": "18 Nikolaou I. Nikolaidi Avenue",
+   "title": {
+    "en": "En torno a Falla, guitar recital",
+    "ru": "En torno a Falla, гитарный концерт",
+    "el": "En torno a Falla, ρεσιτάλ κιθάρας"
+   },
+   "desc": {
+    "en": "Guitarist Timotheos Stylianides plays a recital for the 150th anniversary of Manuel de Falla’s birth.",
+    "ru": "Гитарист Тимофеос Стилианидис играет концерт к 150-летию Мануэля де Фальи.",
+    "el": "Ο κιθαρίστας Τιμόθεος Στυλιανίδης δίνει ρεσιτάλ για τα 150 χρόνια από τη γέννηση του Manuel de Falla."
+   },
+   "url": "https://www.technopolis20.com/upcoming-events",
+   "source": "Technopolis 20"
+  },
+  {
+   "id": "technopolis-market",
+   "type": "fair",
+   "city": "paphos",
+   "start": "2026-12-06T10:00:00+02:00",
+   "end": "2026-12-06T17:00:00+02:00",
+   "when": {
+    "en": "6 December 2026, 10:00–17:00.",
+    "ru": "6 декабря 2026, 10:00–17:00.",
+    "el": "6 Δεκεμβρίου 2026, 10:00–17:00."
+   },
+   "venue": {
+    "en": "Technopolis 20",
+    "ru": "Technopolis 20",
+    "el": "Technopolis 20"
+   },
+   "locality": "Paphos",
+   "street": "18 Nikolaou I. Nikolaidi Avenue",
+   "title": {
+    "en": "Technopolis 20 Christmas Art Market",
+    "ru": "Рождественский арт-рынок Technopolis 20",
+    "el": "Χριστουγεννιάτικη αγορά τέχνης Technopolis 20"
+   },
+   "desc": {
+    "en": "The 12th Christmas art market at Technopolis 20, one day of stalls at the Paphos venue.",
+    "ru": "12-й рождественский арт-рынок Technopolis 20: один день ярмарки в Пафосе.",
+    "el": "Η 12η χριστουγεννιάτικη αγορά τέχνης του Technopolis 20, μία μέρα πάγκων στην Πάφο."
+   },
+   "url": "https://www.technopolis20.com/upcoming-events",
+   "source": "Technopolis 20"
+  },
+  {
+   "id": "frost-nixon",
+   "type": "theatre",
+   "city": "nicosia",
+   "start": "2026-11-07",
+   "end": "2026-12-18",
+   "when": {
+    "en": "Nicosia: Wednesdays, Fridays and Saturdays at 20:00 and Sundays at 18:00, through 6 December 2026. Then Sotira 9 Dec 20:30, Larnaca 11 Dec 20:30, Rialto Limassol 17 Dec 20:30, Markideio Paphos 18 Dec 20:30.",
+    "ru": "Никосия: среда, пятница и суббота в 20:00, воскресенье в 18:00, до 6 декабря 2026. Затем Сотира 9 дек 20:30, Ларнака 11 дек 20:30, Риалто в Лимассоле 17 дек 20:30, Маркидио в Пафосе 18 дек 20:30.",
+    "el": "Λευκωσία: Τετάρτη, Παρασκευή και Σάββατο 20:00, Κυριακή 18:00, έως 6 Δεκεμβρίου 2026. Έπειτα Σωτήρα 9 Δεκ 20:30, Λάρνακα 11 Δεκ 20:30, Ριάλτο Λεμεσού 17 Δεκ 20:30, Μαρκίδειο Πάφου 18 Δεκ 20:30."
+   },
+   "venue": {
+    "en": "THOC New Stage, then a short tour",
+    "ru": "Новая сцена THOC, затем короткий тур",
+    "el": "Νέα Σκηνή ΘΟΚ και σύντομη περιοδεία"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Frost/Nixon",
+    "ru": "Frost/Nixon",
+    "el": "Frost/Nixon"
+   },
+   "desc": {
+    "en": "THOC stages Peter Morgan’s play about the Frost–Nixon interviews, in Greek, about 2 hours 15 minutes. English and Turkish surtitles are listed for 20 November and for the Limassol date.",
+    "ru": "THOC ставит пьесу Питера Моргана об интервью Фроста и Никсона, на греческом, около 2 часов 15 минут. Английские и турецкие субтитры указаны на 20 ноября и на лимассольский показ.",
+    "el": "Ο ΘΟΚ ανεβάζει το έργο του Peter Morgan για τις συνεντεύξεις Frost–Nixon, στα ελληνικά, περίπου 2 ώρες και 15 λεπτά. Αγγλικοί και τουρκικοί υπέρτιτλοι αναφέρονται στις 20 Νοεμβρίου και στη Λεμεσό."
+   },
+   "url": "https://www.thoc.org.cy/en/events/frostnixon",
+   "source": "Cyprus Theatre Organisation"
+  },
+  {
+   "id": "little-red",
+   "type": "kids",
+   "city": "nicosia",
+   "start": "2026-10-18",
+   "end": "2026-12-13",
+   "when": {
+    "en": "Still in the Nicosia season that opened on 18 October. Confirmed visits: Larnaca Municipal Theatre 14 November 15:00; Pattihio, Limassol 21 November 15:00. THOC lists surtitles on 21 November, 6 December and 13 December.",
+    "ru": "Сезон в Никосии открылся 18 октября и продолжается. Подтверждённые выезды: муниципальный театр Ларнаки 14 ноября в 15:00; Паттихио, Лимассол, 21 ноября в 15:00. Субтитры у THOC указаны на 21 ноября, 6 и 13 декабря.",
+    "el": "Η σεζόν στη Λευκωσία άνοιξε στις 18 Οκτωβρίου και συνεχίζεται. Επιβεβαιωμένες έξοδοι: Δημοτικό Θέατρο Λάρνακας 14 Νοεμβρίου 15:00· Παττίχειο, Λεμεσός, 21 Νοεμβρίου 15:00. Υπέρτιτλοι αναφέρονται στις 21 Νοεμβρίου, 6 και 13 Δεκεμβρίου."
+   },
+   "venue": {
+    "en": "THOC, Evis Gabrielides Auditorium",
+    "ru": "THOC, зал Эвис Гавриилидис",
+    "el": "ΘΟΚ, Αίθουσα Εύης Γαβριηλίδης"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Little Red Riding Hood",
+    "ru": "Красная Шапочка",
+    "el": "Η Κοκκινοσκουφίτσα"
+   },
+   "desc": {
+    "en": "THOC’s family show, adapted by Andri Theodotou and directed by Fotis Nikolaou, runs about 65 minutes in Greek.",
+    "ru": "Семейный спектакль THOC в адаптации Андри Теодоту и постановке Фотиса Николау, около 65 минут, на греческом.",
+    "el": "Οικογενειακή παράσταση του ΘΟΚ, διασκευή Άνδρης Θεοδότου και σκηνοθεσία Φώτη Νικολάου, περίπου 65 λεπτά, στα ελληνικά."
+   },
+   "url": "https://www.thoc.org.cy/en/events/littleredridinghood",
+   "source": "Cyprus Theatre Organisation"
+  },
+  {
+   "id": "orient-express",
+   "type": "theatre",
+   "city": "nicosia",
+   "start": "2026-10-03",
+   "end": "2026-12-31",
+   "when": {
+    "en": "A new run listed for October–December 2026. Remaining nights are on THOC’s calendar.",
+    "ru": "Новый цикл указан на октябрь–декабрь 2026. Оставшиеся вечера — в календаре THOC.",
+    "el": "Νέος κύκλος για Οκτώβριο–Δεκέμβριο 2026. Οι υπόλοιπες βραδιές είναι στο ημερολόγιο του ΘΟΚ."
+   },
+   "venue": {
+    "en": "THOC Main Stage",
+    "ru": "Главная сцена THOC",
+    "el": "Κεντρική Σκηνή ΘΟΚ"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Murder on the Orient Express",
+    "ru": "Убийство в «Восточном экспрессе»",
+    "el": "Έγκλημα στο Όριεντ Εξπρές"
+   },
+   "desc": {
+    "en": "Agatha Christie’s story in Ken Ludwig’s adaptation, directed by Takis Tzamargias. THOC’s 2026–27 repertory lists this new run on the Main Stage through December.",
+    "ru": "История Агаты Кристи в адаптации Кена Людвига, режиссёр Такис Дзамаргиас. В репертуаре THOC на 2026–27 этот новый цикл идёт на главной сцене до декабря.",
+    "el": "Η ιστορία της Άγκαθα Κρίστι σε διασκευή Ken Ludwig, σκηνοθεσία Τάκη Τζαμαργιά. Το ρεπερτόριο 2026–27 του ΘΟΚ αναφέρει τον νέο κύκλο στην Κεντρική Σκηνή έως τον Δεκέμβριο."
+   },
+   "url": "https://www.thoc.org.cy/en/news/?nid=38782",
+   "source": "Cyprus Theatre Organisation"
+  },
+  {
+   "id": "thousand-hands",
+   "type": "theatre",
+   "city": "nicosia",
+   "start": "2026-12-01",
+   "end": "2027-02-28",
+   "when": {
+    "en": "December 2026 – February 2027. Individual nights are on THOC’s calendar.",
+    "ru": "Декабрь 2026 – февраль 2027. Отдельные вечера — в календаре THOC.",
+    "el": "Δεκέμβριος 2026 – Φεβρουάριος 2027. Οι επιμέρους βραδιές είναι στο ημερολόγιο του ΘΟΚ."
+   },
+   "venue": {
+    "en": "THOC Experimental Stage",
+    "ru": "Экспериментальная сцена THOC",
+    "el": "Πειραματική Σκηνή ΘΟΚ"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "A Thousand Hands",
+    "ru": "Тысяча рук",
+    "el": "Χίλια χέρια"
+   },
+   "desc": {
+    "en": "Stella Voskaridou’s play, directed by Fotis Nikolaou. THOC lists a new run from December 2026 to February 2027.",
+    "ru": "Пьеса Стеллы Воскариду, режиссёр Фотис Николау. THOC указывает новый цикл с декабря 2026 по февраль 2027.",
+    "el": "Το έργο της Στέλλας Βοσκαρίδου, σκηνοθεσία Φώτη Νικολάου. Ο ΘΟΚ αναφέρει νέο κύκλο από Δεκέμβριο 2026 έως Φεβρουάριο 2027."
+   },
+   "url": "https://www.thoc.org.cy/en/news/?nid=38782",
+   "source": "Cyprus Theatre Organisation"
+  },
+  {
+   "id": "wuthering",
+   "type": "theatre",
+   "city": "nicosia",
+   "start": "2027-01-01",
+   "end": "2027-03-31",
+   "when": {
+    "en": "January–March 2027.",
+    "ru": "Январь–март 2027.",
+    "el": "Ιανουάριος–Μάρτιος 2027."
+   },
+   "venue": {
+    "en": "THOC Main Stage",
+    "ru": "Главная сцена THOC",
+    "el": "Κεντρική Σκηνή ΘΟΚ"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Wuthering Heights",
+    "ru": "Грозовой перевал",
+    "el": "Ανεμοδαρμένα ύψη"
+   },
+   "desc": {
+    "en": "Emily Brontë’s novel adapted by Yiannis Kalavrianos and directed by Achilleas Grammatikopoulos. THOC has announced the run for January–March 2027; single dates are not published yet.",
+    "ru": "Роман Эмили Бронте в адаптации Янниса Калаврианоса, режиссёр Ахиллеас Грамматикопулос. THOC объявил цикл на январь–март 2027; отдельных дат пока нет.",
+    "el": "Το μυθιστόρημα της Emily Brontë σε διασκευή Γιάννη Καλαβριανού και σκηνοθεσία Αχιλλέα Γραμματικόπουλου. Ο ΘΟΚ ανακοίνωσε κύκλο Ιανουαρίου–Μαρτίου 2027· μεμονωμένες ημερομηνίες δεν έχουν δημοσιευτεί ακόμη."
+   },
+   "url": "https://www.thoc.org.cy/en/news/?nid=38782",
+   "source": "Cyprus Theatre Organisation"
+  },
+  {
+   "id": "seagull",
+   "type": "theatre",
+   "city": "nicosia",
+   "start": "2027-03-01",
+   "end": "2027-04-30",
+   "when": {
+    "en": "March–April 2027.",
+    "ru": "Март–апрель 2027.",
+    "el": "Μάρτιος–Απρίλιος 2027."
+   },
+   "venue": {
+    "en": "THOC New Stage",
+    "ru": "Новая сцена THOC",
+    "el": "Νέα Σκηνή ΘΟΚ"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "The Seagull",
+    "ru": "Чайка",
+    "el": "Ο γλάρος"
+   },
+   "desc": {
+    "en": "Chekhov’s play, directed by Athina Kassiou. THOC places it on the New Stage for March–April 2027, without single dates yet.",
+    "ru": "Пьеса Чехова, режиссёр Афина Кассиу. THOC ставит её на Новой сцене в марте–апреле 2027, отдельных дат пока нет.",
+    "el": "Το έργο του Τσέχοφ, σκηνοθεσία Αθηνάς Κάσιου. Ο ΘΟΚ το τοποθετεί στη Νέα Σκηνή Μάρτιο–Απρίλιο 2027, χωρίς ακόμη μεμονωμένες ημερομηνίες."
+   },
+   "url": "https://www.thoc.org.cy/en/news/?nid=38782",
+   "source": "Cyprus Theatre Organisation"
+  },
+  {
+   "id": "strauss-limassol",
+   "type": "concert",
+   "city": "limassol",
+   "start": "2026-12-22T20:30:00+02:00",
+   "end": "2026-12-22T20:30:00+02:00",
+   "when": {
+    "en": "22 December 2026, 20:30.",
+    "ru": "22 декабря 2026, 20:30.",
+    "el": "22 Δεκεμβρίου 2026, 20:30."
+   },
+   "venue": {
+    "en": "Rialto Theatre",
+    "ru": "Театр Риалто",
+    "el": "Θέατρο Ριάλτο"
+   },
+   "locality": "Limassol",
+   "street": "Andrea Drousioti 19, Heroes Square",
+   "title": {
+    "en": "Christmas concert: Strauss and Robert Stolz",
+    "ru": "Рождественский концерт: Штраус и Роберт Штольц",
+    "el": "Χριστουγεννιάτικη συναυλία: Strauss και Robert Stolz"
+   },
+   "desc": {
+    "en": "Waltzes, polkas and songs with soprano Mariza Anastasiades and tenor Dario Di Vietri, conducted by Myron Michailidis. Tickets are €25–€30, with concessions.",
+    "ru": "Вальсы, польки и песни, сопрано Марица Анастасиадис и тенор Дарио Ди Вьетри, дирижёр Мирон Михаилидис. Билеты €25–€30, есть льготы.",
+    "el": "Βαλς, πόλκες και τραγούδια, με τη σοπράνο Μαρίζα Αναστασιάδη και τον τενόρο Dario Di Vietri, μαέστρος ο Μύρων Μιχαηλίδης. Εισιτήρια €25–€30, με μειωμένα."
+   },
+   "price": {
+    "en": "€25–€30",
+    "ru": "€25–€30",
+    "el": "€25–€30"
+   },
+   "low": "25",
+   "high": "30",
+   "url": "https://www.cyso.org.cy/?p=14573",
+   "source": "Cyprus Symphony Orchestra"
+  },
+  {
+   "id": "strauss-nicosia",
+   "type": "concert",
+   "city": "nicosia",
+   "start": "2026-12-23T20:30:00+02:00",
+   "end": "2026-12-23T20:30:00+02:00",
+   "when": {
+    "en": "23 December 2026, 20:30.",
+    "ru": "23 декабря 2026, 20:30.",
+    "el": "23 Δεκεμβρίου 2026, 20:30."
+   },
+   "venue": {
+    "en": "Strovolos Municipal Theatre",
+    "ru": "Муниципальный театр Строволоса",
+    "el": "Δημοτικό Θέατρο Στροβόλου"
+   },
+   "locality": "Strovolos",
+   "street": "100 Strovolos Avenue",
+   "title": {
+    "en": "Christmas concert: Strauss and Robert Stolz",
+    "ru": "Рождественский концерт: Штраус и Роберт Штольц",
+    "el": "Χριστουγεννιάτικη συναυλία: Strauss και Robert Stolz"
+   },
+   "desc": {
+    "en": "The Nicosia night of the same Viennese programme, the evening after Limassol. The orchestra lists the same €25–€30 tickets.",
+    "ru": "Никосийский вечер той же венской программы, на следующий день после Лимассола. Оркестр указывает те же билеты €25–€30.",
+    "el": "Η βραδιά της Λευκωσίας με το ίδιο βιεννέζικο πρόγραμμα, το βράδυ μετά τη Λεμεσό. Η ορχήστρα αναφέρει τα ίδια εισιτήρια €25–€30."
+   },
+   "price": {
+    "en": "€25–€30",
+    "ru": "€25–€30",
+    "el": "€25–€30"
+   },
+   "low": "25",
+   "high": "30",
+   "url": "https://www.cyso.org.cy/?p=14573",
+   "source": "Cyprus Symphony Orchestra"
+  },
+  {
+   "id": "paralimni-christmas",
+   "type": "fair",
+   "city": "ayia-napa",
+   "start": "2026-11-22T17:00:00+02:00",
+   "end": "2026-12-19T21:00:00+02:00",
+   "when": {
+    "en": "22 November, tree lighting at Agios Georgios Square from 17:05. Further listed afternoons: 5, 12 and 19 December.",
+    "ru": "22 ноября, зажжение ёлки на площади Айос-Георгиос с 17:05. Дальше в программе указаны дни 5, 12 и 19 декабря.",
+    "el": "22 Νοεμβρίου, φωταγώγηση στην πλατεία Αγίου Γεωργίου από τις 17:05. Ακολουθούν στην ανακοίνωση τα απογεύματα 5, 12 και 19 Δεκεμβρίου."
+   },
+   "venue": {
+    "en": "Agios Georgios Square and the town hall, Paralimni",
+    "ru": "Площадь Айос-Георгиос и ратуша, Паралимни",
+    "el": "Πλατεία Αγίου Γεωργίου και δημαρχείο, Παραλίμνι"
+   },
+   "locality": "Paralimni",
+   "title": {
+    "en": "Paralimni Christmas programme",
+    "ru": "Рождественская программа Паралимни",
+    "el": "Χριστουγεννιάτικο πρόγραμμα Παραλιμνίου"
+   },
+   "desc": {
+    "en": "The municipality’s published afternoons include choirs, dance schools, a puppet show, a magic show and a Christmas concert. The page lists these dates; it does not give a ticket price.",
+    "ru": "В опубликованной муниципалитетом программе — хоры, школы танца, кукольный спектакль, фокусы и рождественский концерт. Цену билета страница не называет.",
+    "el": "Στο πρόγραμμα του δήμου υπάρχουν χορωδίες, σχολές χορού, κουκλοθέατρο, μαγεία και χριστουγεννιάτικη συναυλία. Η σελίδα δεν δίνει τιμή εισιτηρίου."
+   },
+   "url": "https://pdm.org.cy/en/christmas2026paralimni/",
+   "source": "Paralimni–Deryneia Municipality"
+  },
+  {
+   "id": "pinocchio-park",
+   "type": "kids",
+   "city": "ayia-napa",
+   "start": "2026-11-21",
+   "end": "2027-01-31",
+   "when": {
+    "en": "21 November 2026 – 31 January 2027. Hours and prices are still to be announced.",
+    "ru": "21 ноября 2026 – 31 января 2027. Часы и цены муниципалитет обещает объявить позже.",
+    "el": "21 Νοεμβρίου 2026 – 31 Ιανουαρίου 2027. Το ωράριο και οι τιμές θα ανακοινωθούν αργότερα."
+   },
+   "venue": {
+    "en": "Paralimni and Deryneia",
+    "ru": "Паралимни и Дериния",
+    "el": "Παραλίμνι και Δερύνεια"
+   },
+   "locality": "Paralimni",
+   "title": {
+    "en": "Pinocchio theme park",
+    "ru": "Парк «Пиноккио»",
+    "el": "Θεματικό πάρκο Πινόκιο"
+   },
+   "desc": {
+    "en": "The municipality is bringing a Pinocchio park for the 200th anniversary of Carlo Collodi’s birth. It has said opening hours and ticket prices will be announced later, so those are not listed here.",
+    "ru": "Муниципалитет привозит парк «Пиноккио» к 200-летию Карло Коллоди. Часы работы и цены билетов, по его словам, объявят позже, поэтому здесь их нет.",
+    "el": "Ο δήμος φέρνει πάρκο Πινόκιο για τα 200 χρόνια από τη γέννηση του Carlo Collodi. Έχει πει ότι ωράριο και τιμές θα ανακοινωθούν αργότερα, γι’ αυτό δεν γράφονται εδώ."
+   },
+   "url": "https://pdm.org.cy/en/christmas2026paralimni/",
+   "source": "Paralimni–Deryneia Municipality"
+  },
+  {
+   "id": "samael",
+   "type": "concert",
+   "city": "nicosia",
+   "start": "2026-11-13T20:00:00+02:00",
+   "end": "2026-11-13T23:59:00+02:00",
+   "when": {
+    "en": "13 November 2026, doors 20:00.",
+    "ru": "13 ноября 2026, двери в 20:00.",
+    "el": "13 Νοεμβρίου 2026, πόρτες 20:00."
+   },
+   "venue": {
+    "en": "DownTown Live",
+    "ru": "DownTown Live",
+    "el": "DownTown Live"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Samael, with Godblood and Temple of Evil",
+    "ru": "Samael, с Godblood и Temple of Evil",
+    "el": "Samael, με Godblood και Temple of Evil"
+   },
+   "desc": {
+    "en": "The Swiss band’s first Cyprus show, with two Nicosia metal bands. RockCyprus lists tickets at €35 in advance and €40 on the door, plus a €12 venue charge redeemable on food and drink. The band’s own site confirms the date.",
+    "ru": "Первый концерт швейцарской группы на Кипре, с двумя никосийскими метал-группами. RockCyprus указывает €35 заранее и €40 в день концерта, плюс сбор площадки €12, который можно потратить на еду и напитки. Дата подтверждена сайтом группы.",
+    "el": "Η πρώτη συναυλία του ελβετικού συγκροτήματος στην Κύπρο, με δύο νικοσιακά metal group. Το RockCyprus αναφέρει €35 προπώληση και €40 στην πόρτα, συν χρέωση χώρου €12 που εξαργυρώνεται σε φαγητό και ποτό. Την ημερομηνία την επιβεβαιώνει η σελίδα του συγκροτήματος."
+   },
+   "price": {
+    "en": "€35–€40",
+    "ru": "€35–€40",
+    "el": "€35–€40"
+   },
+   "low": "35",
+   "high": "40",
+   "url": "https://www.samael.info/last-show-for-2026-and-first-time-in-cyprus/",
+   "source": "Samael / RockCyprus"
+  },
+  {
+   "id": "dylan-moran",
+   "type": "theatre",
+   "city": "nicosia",
+   "start": "2027-03-17T20:00:00+02:00",
+   "end": "2027-03-17T20:00:00+02:00",
+   "when": {
+    "en": "17 March 2027, 20:00.",
+    "ru": "17 марта 2027, 20:00.",
+    "el": "17 Μαρτίου 2027, 20:00."
+   },
+   "venue": {
+    "en": "Nicosia Municipal Theatre",
+    "ru": "Муниципальный театр Никосии",
+    "el": "Δημοτικό Θέατρο Λευκωσίας"
+   },
+   "locality": "Nicosia",
+   "street": "6 Mouseiou Street",
+   "title": {
+    "en": "Dylan Moran: Looking for Trouble",
+    "ru": "Дилан Моран: Looking for Trouble",
+    "el": "Dylan Moran: Looking for Trouble"
+   },
+   "desc": {
+    "en": "The Irish comedian’s 2027 European tour stops at Nicosia Municipal Theatre. His tour page and More.com both list 17 March at 20:00. More.com shows tickets at €52.",
+    "ru": "Европейский тур 2027 ирландского комика заезжает в муниципальный театр Никосии. Страница тура и More.com указывают 17 марта в 20:00. На More.com билеты €52.",
+    "el": "Η ευρωπαϊκή περιοδεία 2027 του Ιρλανδού κωμικού σταματά στο Δημοτικό Θέατρο Λευκωσίας. Η σελίδα της περιοδείας και το More.com δίνουν 17 Μαρτίου στις 20:00. Το More.com δείχνει εισιτήρια €52."
+   },
+   "price": {
+    "en": "€52",
+    "ru": "€52",
+    "el": "€52"
+   },
+   "low": "52",
+   "high": "52",
+   "url": "https://www.more.com/cy-en/tickets/standupcomedy/dylan-moran-live-in-nicosia-1/",
+   "source": "More.com / dylanmoran.com"
+  },
+  {
+   "id": "nicosia-marathon-2027",
+   "type": "sport",
+   "city": "nicosia",
+   "start": "2027-01-24T06:45:00+02:00",
+   "end": "2027-01-24T13:00:00+02:00",
+   "when": {
+    "en": "24 January 2027, 06:45–13:00.",
+    "ru": "24 января 2027, 06:45–13:00.",
+    "el": "24 Ιανουαρίου 2027, 06:45–13:00."
+   },
+   "venue": {
+    "en": "Eleftheria Square",
+    "ru": "Площадь Элефтерия",
+    "el": "Πλατεία Ελευθερίας"
+   },
+   "locality": "Nicosia",
+   "title": {
+    "en": "Bank of Cyprus Nicosia Marathon",
+    "ru": "Марафон Никосии Bank of Cyprus",
+    "el": "Μαραθώνιος Λευκωσίας Bank of Cyprus"
+   },
+   "desc": {
+    "en": "The capital’s road races start and finish at Eleftheria Square. Visit Cyprus lists six categories and entry from €17.50 to €65.",
+    "ru": "Городские забеги столицы стартуют и финишируют на площади Элефтерия. Visit Cyprus указывает шесть дистанций и взнос от €17,50 до €65.",
+    "el": "Οι αγώνες της πρωτεύουσας ξεκινούν και τελειώνουν στην πλατεία Ελευθερίας. Το Visit Cyprus αναφέρει έξι κατηγορίες και συμμετοχή €17,50–€65."
+   },
+   "price": {
+    "en": "€17.50–€65",
+    "ru": "€17,50–€65",
+    "el": "€17,50–€65"
+   },
+   "low": "17.5",
+   "high": "65",
+   "url": "https://www.visitcyprus.com/event/bank-of-cyprus-nicosia-marathon-24-1-2027/",
+   "source": "Visit Cyprus",
+   "photo": "eleftheria"
+  },
+  {
+   "id": "tui-marathon",
+   "type": "sport",
+   "city": "paphos",
+   "start": "2027-02-27",
+   "end": "2027-02-28",
+   "when": {
+    "en": "27–28 February 2027.",
+    "ru": "27–28 февраля 2027.",
+    "el": "27–28 Φεβρουαρίου 2027."
+   },
+   "venue": {
+    "en": "Paphos, from Petra tou Romiou",
+    "ru": "Пафос, от Петры ту Ромиу",
+    "el": "Πάφος, από την Πέτρα του Ρωμιού"
+   },
+   "locality": "Paphos",
+   "title": {
+    "en": "TUI Cyprus Marathon",
+    "ru": "Марафон TUI Cyprus",
+    "el": "Μαραθώνιος TUI Cyprus"
+   },
+   "desc": {
+    "en": "The coastal marathon from near Petra tou Romiou through to Paphos harbour. Visit Cyprus lists the 2027 dates and free entry, with a race expo at En Plo by the castle.",
+    "ru": "Прибрежный марафон от Петры ту Ромиу до гавани Пафоса. Visit Cyprus указывает даты 2027 года и бесплатное участие, экспо гонки — в En Plo у замка.",
+    "el": "Παράκτιος μαραθώνιος από την Πέτρα του Ρωμιού ως το λιμάνι της Πάφου. Το Visit Cyprus δίνει τις ημερομηνίες του 2027 και δωρεάν συμμετοχή, με expo στο Εν Πλω δίπλα στο κάστρο."
+   },
+   "price": {
+    "en": "Free",
+    "ru": "Бесплатно",
+    "el": "Δωρεάν"
+   },
+   "low": "0",
+   "high": "0",
+   "url": "https://www.visitcyprus.com/event/tui-cyprus-marathon-27-28-2-2026/",
+   "source": "Visit Cyprus"
+  },
+  {
+   "id": "limassol-marathon-2027",
+   "type": "sport",
+   "city": "limassol",
+   "start": "2027-04-03T07:15:00+02:00",
+   "end": "2027-04-04T13:15:00+02:00",
+   "when": {
+    "en": "3–4 April 2027, from 07:15.",
+    "ru": "3–4 апреля 2027, с 07:15.",
+    "el": "3–4 Απριλίου 2027, από τις 07:15."
+   },
+   "venue": {
+    "en": "Molos seafront",
+    "ru": "Набережная Молос",
+    "el": "Παραλία Μόλος"
+   },
+   "locality": "Limassol",
+   "title": {
+    "en": "XM Limassol Marathon",
+    "ru": "Марафон Лимассола XM",
+    "el": "Μαραθώνιος Λεμεσού XM"
+   },
+   "desc": {
+    "en": "The city’s main road-running weekend along the Molos, marina and coast. Visit Cyprus lists six race categories and entry from €20 to €70.",
+    "ru": "Главный беговой уикенд города вдоль Молоса, марины и берега. Visit Cyprus указывает шесть дистанций и взнос от €20 до €70.",
+    "el": "Το κύριο Σαββατοκύριακο δρόμου της πόλης κατά μήκος του Μόλου, της μαρίνας και της ακτής. Το Visit Cyprus αναφέρει έξι κατηγορίες και συμμετοχή €20–€70."
+   },
+   "price": {
+    "en": "€20–€70",
+    "ru": "€20–€70",
+    "el": "€20–€70"
+   },
+   "low": "20",
+   "high": "70",
+   "url": "https://www.visitcyprus.com/event/xm-limassol-marathon-3-4-4-2027/",
+   "source": "Visit Cyprus"
+  }
+ ]
+}
