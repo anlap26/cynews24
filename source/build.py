@@ -12,8 +12,8 @@ EV_EVENTS=_EV["events"]
 EV_PHOTOS=_EV["photos"]
 SITE = "CyNews 24"
 # Absolute origin, no trailing slash. Include the repo path for GitHub project pages:
-#   BASE=https://anlap26.github.io/cynews24 python3 build.py
-BASE = os.environ.get("BASE","https://cynews24.example").rstrip("/")
+#   BASE=https://cynews24.net python3 build.py
+BASE = os.environ.get("BASE","https://cynews24.net").rstrip("/")
 # Root-relative prefix so CSS, images and internal links work when the site is not at
 # the domain root. Taken from BASE (https://host/cynews24 → /cynews24) unless PREFIX is set.
 # PREFIX= (empty) keeps domain-root links.
@@ -475,7 +475,7 @@ def footer(l):
     langs=" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)
     return (f'<footer><div class="wrap"><div class="logo"><b>CyNews</b><i>24</i></div><p>{u["footer"]}</p>'
       f'<nav class="flinks" aria-label="footer">{fl}</nav>{footer_social(l)}'
-      f'<p><a href="https://anlap26.github.io/mycytax/">{e(u["mycytax"])}</a></p>'
+      f'<p><a href="https://mycytax.com/">{e(u["mycytax"])}</a></p>'
       f'<p>{langs}</p><p>© 2026 {SITE}. {u["copy"]}</p></div></footer></body></html>')
 
 def S_(s,key,l): return s[key][l]
@@ -959,6 +959,8 @@ def main():
     open(os.path.join(OUT,".nojekyll"),"w").close()
     # Google Search Console verification. Rewritten on every build so a rebuild cannot drop it.
     w("/google62249645dc64d12b.html","google-site-verification: google62249645dc64d12b.html\n")
+    # GitHub Pages custom domain. Rewritten on every build so a rebuild cannot drop it.
+    w("/CNAME","cynews24.net\n")
     write_credits_md()
     print("built",len(STORIES),"stories; BASE=",BASE,"; PREFIX=",PREFIX or "(root)","; OUT=",OUT,"; photos",sum(1 for s in STORIES if s["img"] in CREDITS))
 main()

@@ -1,5 +1,5 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://anlap26.github.io/cynews24/sitemap.xml
-Sitemap: https://anlap26.github.io/cynews24/news-sitemap.xml
+Sitemap: https://cynews24.net/sitemap.xml
+Sitemap: https://cynews24.net/news-sitemap.xml
