@@ -46,25 +46,31 @@ def fdate(d,l,wd=False):
 TODAY="2026-11-13"
 UI = {
  "en":dict(home="Home",latest="Latest",more="More news",sources="Sources",related="Related stories",toplines="Top stories",
-  byline="By the CyNews 24 newsroom",illus="Illustration created for CyNews 24 (AI-generated, not a photograph)",
+  byline="CyNews 24 Editorial Team",illus="Illustration created for CyNews 24 (AI-generated, not a photograph)",
   sources_note="This article is an original rewrite of facts reported by the outlets below; read the originals for full detail.",
   read="Read more",tags="Topics",lang="Language",about="About us",ads="Advertise & Contact",events="Events",menu="Sections",skip="Skip to content",
+  policy="Editorial policy",privacy="Privacy policy",published="Published",team="CyNews 24 Editorial Team",
+  tg_ru="Telegram (RU)",tg_en="Telegram (EN)",
   tagline="Cyprus news in three languages",
   footer="CyNews 24 summarises public reporting from Cypriot and international media in Russian, English and Greek. Articles are rewritten in our own words and link to their sources; photographs are used under open licences and credited. CyNews 24 is not affiliated with the outlets cited.",
   copy="All rights reserved.",updated="Updated",home_h="Top stories from Cyprus",realestate_h="Real estate & planning",allnews="All news",
   cat_h="{c} — news from Cyprus", crumb_home="Home"),
  "ru":dict(home="Главная",latest="Последние новости",more="Ещё новости",sources="Источники",related="Читайте также",toplines="Главное",
-  byline="Редакция CyNews 24",illus="Иллюстрация создана для CyNews 24 (сгенерирована ИИ, не фотография)",
+  byline="Редакционная группа CyNews 24",illus="Иллюстрация создана для CyNews 24 (сгенерирована ИИ, не фотография)",
   sources_note="Материал — авторский пересказ фактов, опубликованных изданиями ниже; полные подробности — в оригиналах.",
   read="Читать далее",tags="Темы",lang="Язык",about="О проекте",ads="Реклама и контакты",events="Мероприятия",menu="Разделы",skip="Перейти к содержанию",
+  policy="Редакционная политика",privacy="Политика конфиденциальности",published="Опубликовано",team="Редакционная группа CyNews 24",
+  tg_ru="Telegram (RU)",tg_en="Telegram (EN)",
   tagline="Новости Кипра на трёх языках",
   footer="CyNews 24 обобщает публикации кипрских и международных СМИ на русском, английском и греческом языках. Тексты написаны своими словами и содержат ссылки на источники; фотографии используются по открытым лицензиям с указанием автора. CyNews 24 не связан с упомянутыми изданиями.",
   copy="Все права защищены.",updated="Обновлено",home_h="Главные новости Кипра",realestate_h="Недвижимость и градостроительство",allnews="Все новости",
   cat_h="{c} — новости Кипра", crumb_home="Главная"),
  "el":dict(home="Αρχική",latest="Τελευταία νέα",more="Περισσότερες ειδήσεις",sources="Πηγές",related="Σχετικά θέματα",toplines="Κορυφαία θέματα",
-  byline="Η συντακτική ομάδα του CyNews 24",illus="Εικονογράφηση για το CyNews 24 (δημιουργήθηκε με ΤΝ, όχι φωτογραφία)",
+  byline="Συντακτική ομάδα CyNews 24",illus="Εικονογράφηση για το CyNews 24 (δημιουργήθηκε με ΤΝ, όχι φωτογραφία)",
   sources_note="Το κείμενο είναι πρωτότυπη αναδιατύπωση γεγονότων που δημοσίευσαν τα παρακάτω μέσα· για πλήρεις λεπτομέρειες δείτε τα πρωτότυπα.",
   read="Διαβάστε περισσότερα",tags="Θέματα",lang="Γλώσσα",about="Σχετικά με εμάς",ads="Διαφήμιση & Επικοινωνία",events="Εκδηλώσεις",menu="Ενότητες",skip="Μετάβαση στο περιεχόμενο",
+  policy="Συντακτική πολιτική",privacy="Πολιτική απορρήτου",published="Δημοσιεύτηκε",team="Συντακτική ομάδα CyNews 24",
+  tg_ru="Telegram (RU)",tg_en="Telegram (EN)",
   tagline="Ειδήσεις Κύπρου σε τρεις γλώσσες",
   footer="Το CyNews 24 συνοψίζει δημοσιεύματα κυπριακών και διεθνών μέσων στα ρωσικά, αγγλικά και ελληνικά. Τα κείμενα γράφονται με δικά μας λόγια και παραπέμπουν στις πηγές τους· οι φωτογραφίες χρησιμοποιούνται με ανοιχτές άδειες και αναφέρουν τον δημιουργό. Το CyNews 24 δεν συνδέεται με τα μέσα που αναφέρονται.",
   copy="Με επιφύλαξη παντός δικαιώματος.",updated="Ενημερώθηκε",home_h="Κορυφαίες ειδήσεις από την Κύπρο",realestate_h="Ακίνητα και πολεοδομία",allnews="Όλες οι ειδήσεις",
@@ -83,22 +89,83 @@ CAT_D = {
  "en":{"politics":"Cyprus politics news: Cyprus problem, government, parliament and EU affairs.","economy":"Cyprus economy news: business, pensions, technology and finance.","real-estate":"Cyprus real estate news: property law, planning, new builds and housing market stories.","society":"Cyprus society news: courts, police, health and everyday life.","tourism":"Cyprus tourism and events news: what's on, festive markets and travel.","sport":"Cyprus sport news: results, athletes and major events.","world":"World news with a Cyprus angle: EU, technology and global events."},
  "ru":{"politics":"Политические новости Кипра: кипрская проблема, правительство, парламент и дела ЕС.","economy":"Экономические новости Кипра: бизнес, пенсии, технологии и финансы.","real-estate":"Новости недвижимости Кипра: законы, градостроительство, новостройки и рынок жилья.","society":"Общественные новости Кипра: суды, полиция, здоровье и повседневная жизнь.","tourism":"Новости туризма и событий Кипра: афиша, праздничные рынки и путешествия.","sport":"Спортивные новости Кипра: результаты, спортсмены и крупные события.","world":"Мировые новости с кипрским акцентом: ЕС, технологии и глобальные события."},
  "el":{"politics":"Πολιτικές ειδήσεις Κύπρου: Κυπριακό, κυβέρνηση, Βουλή και ευρωπαϊκά θέματα.","economy":"Οικονομικές ειδήσεις Κύπρου: επιχειρήσεις, συντάξεις, τεχνολογία και χρηματοοικονομικά.","real-estate":"Ειδήσεις ακινήτων Κύπρου: νομοθεσία, πολεοδομία, νεόδμητα και αγορά κατοικίας.","society":"Κοινωνικές ειδήσεις Κύπρου: δικαστήρια, αστυνομία, υγεία και καθημερινότητα.","tourism":"Ειδήσεις τουρισμού και εκδηλώσεων Κύπρου: προγράμματα, εορταστικές αγορές και ταξίδια.","sport":"Αθλητικές ειδήσεις Κύπρου: αποτελέσματα, αθλητές και μεγάλες διοργανώσεις.","world":"Παγκόσμιες ειδήσεις με κυπριακό ενδιαφέρον: ΕΕ, τεχνολογία και διεθνή γεγονότα."}}
+AD_EMAIL="cynews24@gmail.com"
+PUBLISHER="Anna"
+# Real profile URLs only. An empty string is not rendered, so Facebook stays hidden until a URL is set.
+SOCIAL={"facebook":"","instagram":""}
+TELEGRAM={"ru":"https://t.me/cynews24","en":"https://t.me/cynews24en"}
 ABOUT = {
- "en":dict(t="About CyNews 24",d="How CyNews 24 works: a trilingual Cyprus news site that rewrites public reporting in its own words, links to sources and credits openly licensed photographs.",
-  p=["CyNews 24 is a news site about Cyprus published in Russian, English and Greek. Every story exists in all three languages.",
-   "We follow reporting from Cypriot and international outlets, check that the same story is not covered twice, and write each article in our own words. We add facts only from the cited sources — no invented numbers or quotes — and every article lists the original reports it is based on.",
-   "Photographs on this site are real pictures published under open licences that allow commercial use and adaptation — CC0, CC BY or CC BY-SA, from Wikimedia Commons. Each picture is credited with its author, source and licence and links to the original file. Where the licence is CC BY-SA, the cropped and watermarked version stays under that same licence. A picture shows the place or subject of a story; it is not a photograph of a person named in the article unless the credit says so.",
-   "CyNews 24 is an independent project and is not affiliated with the media outlets it cites. For breaking developments, always check the linked original sources."]),
- "ru":dict(t="О проекте CyNews 24",d="Как устроен CyNews 24: трёхъязычный сайт новостей Кипра, который пересказывает открытые публикации своими словами, указывает источники и подписывает фотографии с открытой лицензией.",
-  p=["CyNews 24 — новостной сайт о Кипре на русском, английском и греческом языках. Каждый материал доступен на всех трёх языках.",
-   "Мы следим за публикациями кипрских и международных изданий, не дублируем одну и ту же историю и пишем каждый материал своими словами. Мы добавляем только факты из указанных источников — без выдуманных цифр и цитат — и в каждом материале перечисляем оригинальные публикации, на которых он основан.",
-   "Фотографии на сайте — настоящие снимки по открытым лицензиям, которые разрешают коммерческое использование и переработку: CC0, CC BY или CC BY-SA, с Wikimedia Commons. У каждого снимка указаны автор, источник и лицензия и есть ссылка на оригинал. Если лицензия CC BY-SA, кадрированная версия с водяным знаком остаётся под той же лицензией. Снимок показывает место или тему материала и не является фотографией человека, названного в тексте, если это прямо не сказано в подписи.",
-   "CyNews 24 — независимый проект, не связанный с упомянутыми изданиями. По оперативным новостям всегда сверяйтесь с оригинальными источниками по ссылкам."]),
- "el":dict(t="Σχετικά με το CyNews 24",d="Πώς λειτουργεί το CyNews 24: τρίγλωσσος ιστότοπος ειδήσεων Κύπρου που αναδιατυπώνει δημόσιο ρεπορτάζ με δικά του λόγια, παραπέμπει σε πηγές και αναφέρει φωτογραφίες με ανοιχτή άδεια.",
-  p=["Το CyNews 24 είναι ιστότοπος ειδήσεων για την Κύπρο στα ρωσικά, αγγλικά και ελληνικά. Κάθε είδηση υπάρχει και στις τρεις γλώσσες.",
-   "Παρακολουθούμε ρεπορτάζ κυπριακών και διεθνών μέσων, φροντίζουμε να μην καλύπτουμε δύο φορές το ίδιο θέμα και γράφουμε κάθε άρθρο με δικά μας λόγια. Προσθέτουμε μόνο γεγονότα από τις αναφερόμενες πηγές — χωρίς επινοημένους αριθμούς ή δηλώσεις — και κάθε άρθρο παραθέτει τα πρωτότυπα δημοσιεύματα στα οποία βασίζεται.",
-   "Οι φωτογραφίες του ιστότοπου είναι πραγματικές εικόνες με ανοιχτές άδειες που επιτρέπουν εμπορική χρήση και διασκευή — CC0, CC BY ή CC BY-SA, από τα Wikimedia Commons. Κάθε εικόνα αναφέρει τον δημιουργό, την πηγή και την άδεια και συνδέεται με το πρωτότυπο αρχείο. Όταν η άδεια είναι CC BY-SA, η περικομμένη εκδοχή με το υδατογράφημα παραμένει στην ίδια άδεια. Η εικόνα δείχνει τον τόπο ή το θέμα του άρθρου και δεν είναι φωτογραφία προσώπου που κατονομάζεται στο κείμενο, εκτός αν αυτό αναφέρεται στη λεζάντα.",
-   "Το CyNews 24 είναι ανεξάρτητο εγχείρημα και δεν συνδέεται με τα μέσα που αναφέρει. Για εξελισσόμενα γεγονότα, ελέγχετε πάντα τις πρωτότυπες πηγές."])}
+ "en":dict(t="About CyNews 24",d="CyNews 24 is an independent trilingual Cyprus news aggregator and digest, published in Russian, English and Greek and based in Cyprus.",
+  sections=[
+   ("Who we are",["CyNews 24 is an independent trilingual Cyprus news aggregator and digest. It is published in Russian, English and Greek, and every story is available in all three languages. The site is based in Cyprus. The publisher is Anna. CyNews 24 is not affiliated with the outlets it cites."]),
+   ("Mission",["Our mission is to give readers a clear, sourced briefing of what is happening in Cyprus, in the language they read. We select distinct, newsworthy reports and rewrite them so the same facts can be read in Russian, English and Greek."]),
+   ("Coverage",["We cover Cyprus politics, the economy, real estate and planning, society, tourism, sport, and world news with a Cyprus connection. A separate Events section lists confirmed upcoming events. We do not publish every brief: a story has to be distinct and newsworthy."]),
+   ("CyNews 24 Editorial Team",["Stories carry the byline CyNews 24 Editorial Team. We do not use individual reporter bylines, and this page does not name members of staff. For editorial questions, corrections or tips, email cynews24@gmail.com."]),
+   ("How stories are produced",["We follow reporting from Cypriot and international outlets and write each article as an original rewritten summary. Facts come only from the cited sources. We do not invent numbers, quotes or events. Every article ends with a Sources box that links to the originals.","Photographs are real pictures under open licences that allow commercial use and adaptation — CC0, CC BY or CC BY-SA, from Wikimedia Commons, Unsplash or Pexels. They are never taken from news sites. Each picture is credited with its author, source and licence and links to the original file. Where the licence is CC BY-SA, the cropped and watermarked version stays under that same licence. A picture shows the place or subject of a story; it is not a photograph of a person named in the article unless the credit says so."]),
+   ("Contact",["Publisher: Anna.","Based in Cyprus.","Email: cynews24@gmail.com.","Advertising and other enquiries use the advertising and contact page. Editorial standards are set out in the editorial policy, and the privacy policy explains the contact form."])]),
+ "ru":dict(t="О проекте CyNews 24",d="CyNews 24 — независимый трёхъязычный агрегатор и дайджест новостей Кипра на русском, английском и греческом. Сайт базируется на Кипре.",
+  sections=[
+   ("Кто мы",["CyNews 24 — независимый трёхъязычный агрегатор и дайджест новостей Кипра. Сайт выходит на русском, английском и греческом языках, и каждый материал доступен на всех трёх. Сайт базируется на Кипре. Издатель — Анна. CyNews 24 не связан с изданиями, на которые ссылается."]),
+   ("Задача",["Наша задача — давать читателю ясный пересказ того, что происходит на Кипре, со ссылками на источники и на том языке, на котором он читает. Мы отбираем отдельные стоящие новости и переписываем их так, чтобы одни и те же факты можно было прочитать по-русски, по-английски и по-гречески."]),
+   ("О чём мы пишем",["Мы освещаем политику Кипра, экономику, недвижимость и градостроительство, общество, туризм, спорт и мировые новости, связанные с Кипром. Отдельный раздел «Мероприятия» собирает подтверждённые предстоящие события. Мы публикуем не каждую заметку: материал должен быть отдельной и значимой новостью."]),
+   ("Редакционная группа CyNews 24",["Материалы выходят с подписью «Редакционная группа CyNews 24». Мы не ставим подписи отдельных корреспондентов, и на этой странице нет имён сотрудников. Вопросы редакции, поправки и сообщения присылайте на cynews24@gmail.com."]),
+   ("Как готовятся материалы",["Мы следим за публикациями кипрских и международных изданий и пишем каждый материал как оригинальный пересказ. Факты берутся только из указанных источников. Мы не выдумываем цифры, цитаты и события. В конце каждого материала — блок «Источники» со ссылками на оригиналы.","Фотографии — настоящие снимки по открытым лицензиям, которые разрешают коммерческое использование и переработку: CC0, CC BY или CC BY-SA, с Wikimedia Commons, Unsplash или Pexels. Мы не берём фотографии с новостных сайтов. У каждого снимка указаны автор, источник и лицензия и есть ссылка на оригинал. Если лицензия CC BY-SA, кадрированная версия с водяным знаком остаётся под той же лицензией. Снимок показывает место или тему материала и не является фотографией человека, названного в тексте, если это прямо не сказано в подписи."]),
+   ("Контакты",["Издатель: Анна.","Базируется на Кипре.","Эл. почта: cynews24@gmail.com.","Реклама и прочие обращения — на странице рекламы и контактов. Редакционные правила изложены в редакционной политике, а политика конфиденциальности объясняет контактную форму."])]),
+ "el":dict(t="Σχετικά με το CyNews 24",d="Το CyNews 24 είναι ανεξάρτητος τρίγλωσσος συναθροιστής και σύνοψη ειδήσεων Κύπρου, στα ρωσικά, αγγλικά και ελληνικά, με έδρα την Κύπρο.",
+  sections=[
+   ("Ποιοι είμαστε",["Το CyNews 24 είναι ανεξάρτητος τρίγλωσσος συναθροιστής και σύνοψη ειδήσεων Κύπρου. Δημοσιεύεται στα ρωσικά, αγγλικά και ελληνικά, και κάθε θέμα υπάρχει και στις τρεις γλώσσες. Ο ιστότοπος έχει έδρα την Κύπρο. Εκδότρια είναι η Άννα. Το CyNews 24 δεν συνδέεται με τα μέσα στα οποία παραπέμπει."]),
+   ("Αποστολή",["Αποστολή μας είναι να δίνουμε στους αναγνώστες μια σαφή, τεκμηριωμένη σύνοψη όσων συμβαίνουν στην Κύπρο, στη γλώσσα που διαβάζουν. Επιλέγουμε διακριτά, άξια λόγου ρεπορτάζ και τα αναδιατυπώνουμε ώστε τα ίδια γεγονότα να διαβάζονται στα ρωσικά, αγγλικά και ελληνικά."]),
+   ("Κάλυψη",["Καλύπτουμε την πολιτική της Κύπρου, την οικονομία, τα ακίνητα και την πολεοδομία, την κοινωνία, τον τουρισμό, τον αθλητισμό και διεθνή θέματα με κυπριακή σύνδεση. Ξεχωριστή ενότητα Εκδηλώσεων συγκεντρώνει επιβεβαιωμένες προσεχείς εκδηλώσεις. Δεν δημοσιεύουμε κάθε ανακοίνωση: ένα θέμα πρέπει να είναι διακριτό και άξιο είδησης."]),
+   ("Συντακτική ομάδα CyNews 24",["Τα άρθρα φέρουν την υπογραφή Συντακτική ομάδα CyNews 24. Δεν χρησιμοποιούμε ατομικές υπογραφές ρεπόρτερ και αυτή η σελίδα δεν κατονομάζει μέλη της ομάδας. Για συντακτικά ερωτήματα, διορθώσεις ή πληροφορίες, στείλτε email στο cynews24@gmail.com."]),
+   ("Πώς παράγονται τα άρθρα",["Παρακολουθούμε ρεπορτάζ κυπριακών και διεθνών μέσων και γράφουμε κάθε άρθρο ως πρωτότυπη αναδιατυπωμένη σύνοψη. Τα γεγονότα προέρχονται μόνο από τις αναφερόμενες πηγές. Δεν επινοούμε αριθμούς, δηλώσεις ή γεγονότα. Κάθε άρθρο κλείνει με πλαίσιο Πηγών που συνδέεται με τα πρωτότυπα.","Οι φωτογραφίες είναι πραγματικές εικόνες με ανοιχτές άδειες που επιτρέπουν εμπορική χρήση και διασκευή — CC0, CC BY ή CC BY-SA, από τα Wikimedia Commons, το Unsplash ή το Pexels. Δεν τις παίρνουμε από ειδησεογραφικούς ιστότοπους. Κάθε εικόνα αναφέρει τον δημιουργό, την πηγή και την άδεια και συνδέεται με το πρωτότυπο αρχείο. Όταν η άδεια είναι CC BY-SA, η περικομμένη εκδοχή με το υδατογράφημα παραμένει στην ίδια άδεια. Η εικόνα δείχνει τον τόπο ή το θέμα του άρθρου και δεν είναι φωτογραφία προσώπου που κατονομάζεται στο κείμενο, εκτός αν αυτό αναφέρεται στη λεζάντα."]),
+   ("Επικοινωνία",["Εκδότρια: Άννα.","Έδρα: Κύπρος.","Email: cynews24@gmail.com.","Η διαφήμιση και τα λοιπά αιτήματα γίνονται από τη σελίδα διαφήμισης και επικοινωνίας. Οι συντακτικοί κανόνες περιγράφονται στη συντακτική πολιτική και η πολιτική απορρήτου εξηγεί τη φόρμα επικοινωνίας."])])}
+POLICY = {
+ "en":dict(t="Editorial policy and corrections",d="How CyNews 24 checks facts, cites sources, separates advertising from news, and handles corrections.",
+  sections=[
+   ("Accuracy",["We publish facts that appear in the sources we cite. We do not invent quotes, statistics or events. If sources disagree, we say so or we do not treat the point as settled."]),
+   ("Sourcing",["Each news article lists its sources and links to them. The article is a rewritten summary, not a copy of those reports. Readers should open the links for the full original. Citing an outlet is not an endorsement, and it does not mean that outlet wrote our text."]),
+   ("Corrections",["If you believe a story is wrong, email cynews24@gmail.com with the article URL, the passage and the correction. We review the request. When a correction is needed, we change the article and its updated time. A correction is not removed because it is inconvenient."]),
+   ("Advertising is separate from news",["Sponsored or paid material is labelled and kept separate from newsroom reporting. Advertising enquiries go through the advertising and contact page and are not handled as news. Rates are available on request."]),
+   ("Contact the newsroom",["Editorial questions and correction requests: cynews24@gmail.com. The publisher is Anna, and the site is based in Cyprus."])]),
+ "ru":dict(t="Редакционная политика и поправки",d="Как CyNews 24 проверяет факты, указывает источники, отделяет рекламу от новостей и исправляет ошибки.",
+  sections=[
+   ("Точность",["Мы публикуем факты, которые есть в указанных источниках. Мы не выдумываем цитаты, статистику и события. Если источники расходятся, мы так и пишем или не подаём спорное как установленное."]),
+   ("Источники",["У каждого новостного материала есть список источников и ссылки на них. Текст — пересказ, а не копия этих публикаций. Полный оригинал — по ссылке. Ссылка на издание не означает поддержки и не означает, что текст написало это издание."]),
+   ("Поправки",["Если вы считаете, что в материале ошибка, напишите на cynews24@gmail.com: укажите адрес страницы, фрагмент и поправку. Мы рассматриваем обращение. Если поправка нужна, мы меняем материал и время его обновления. Поправку не снимают из-за того, что она неудобна."]),
+   ("Реклама отделена от новостей",["Спонсорские и оплаченные материалы помечаются и отделены от редакционных новостей. Запросы о рекламе идут через страницу рекламы и контактов и не оформляются как новости. Стоимость — по запросу."]),
+   ("Связь с редакцией",["Вопросы редакции и просьбы об исправлении: cynews24@gmail.com. Издатель — Анна, сайт базируется на Кипре."])]),
+ "el":dict(t="Συντακτική πολιτική και διορθώσεις",d="Πώς το CyNews 24 ελέγχει τα γεγονότα, αναφέρει πηγές, διαχωρίζει τη διαφήμιση από τις ειδήσεις και χειρίζεται διορθώσεις.",
+  sections=[
+   ("Ακρίβεια",["Δημοσιεύουμε γεγονότα που εμφανίζονται στις πηγές που αναφέρουμε. Δεν επινοούμε δηλώσεις, στατιστικά ή γεγονότα. Αν οι πηγές διαφωνούν, το λέμε ή δεν παρουσιάζουμε το σημείο ως δεδομένο."]),
+   ("Πηγές",["Κάθε ειδησεογραφικό άρθρο παραθέτει τις πηγές του και συνδέεται με αυτές. Το άρθρο είναι αναδιατυπωμένη σύνοψη, όχι αντίγραφο εκείνων των ρεπορτάζ. Οι αναγνώστες ανοίγουν τους συνδέσμους για το πλήρες πρωτότυπο. Η παραπομπή σε ένα μέσο δεν είναι εύνοια και δεν σημαίνει ότι εκείνο έγραψε το κείμενό μας."]),
+   ("Διορθώσεις",["Αν πιστεύετε ότι ένα άρθρο έχει λάθος, στείλτε email στο cynews24@gmail.com με τη διεύθυνση του άρθρου, το απόσπασμα και τη διόρθωση. Εξετάζουμε το αίτημα. Όταν χρειάζεται διόρθωση, αλλάζουμε το άρθρο και την ώρα ενημέρωσής του. Μια διόρθωση δεν αποσύρεται επειδή είναι άβολη."]),
+   ("Η διαφήμιση είναι χωριστά από τις ειδήσεις",["Το χορηγούμενο ή πληρωμένο υλικό επισημαίνεται και μένει χωριστά από το ρεπορτάζ. Τα διαφημιστικά αιτήματα περνούν από τη σελίδα διαφήμισης και επικοινωνίας και δεν αντιμετωπίζονται ως ειδήσεις. Οι τιμές δίνονται κατόπιν αιτήματος."]),
+   ("Επικοινωνία με τη σύνταξη",["Συντακτικά ερωτήματα και αιτήματα διόρθωσης: cynews24@gmail.com. Εκδότρια είναι η Άννα και ο ιστότοπος έχει έδρα την Κύπρο."])])}
+PRIVACY = {
+ "en":dict(t="Privacy policy",d="How CyNews 24 handles the advertising contact form, analytics and cookies.",
+  sections=[
+   ("Who we are",["This policy covers the CyNews 24 website. The publisher is Anna. The site is based in Cyprus. Email: cynews24@gmail.com."]),
+   ("Advertising contact form",["The Advertise & Contact page has a form that sends your message through FormSubmit (formsubmit.co) to cynews24@gmail.com. The fields are your name, company, email, phone if you provide one, the formats you select, an optional budget range, your message and your consent. We use those details only to reply to that enquiry. FormSubmit processes the submission in order to deliver the email. We do not sell the details and we do not add them to a marketing list."]),
+   ("Analytics",["The site does not use Google Analytics or any other analytics service. It does not embed third-party tracking scripts."]),
+   ("Cookies",["CyNews 24 does not set its own cookies and does not use advertising cookies. The language chooser on the front page reads the browser language and may redirect once; it does not store a cookie. If you follow a link to another site, that site has its own policy."]),
+   ("Email",["If you email cynews24@gmail.com, we use the message to answer you or to correct a story. We keep it for as long as that purpose requires."]),
+   ("Changes",["If this policy changes, the new text replaces this page."])]),
+ "ru":dict(t="Политика конфиденциальности",d="Как CyNews 24 обрабатывает форму рекламного обращения, аналитику и файлы cookie.",
+  sections=[
+   ("Кто мы",["Эта политика относится к сайту CyNews 24. Издатель — Анна. Сайт базируется на Кипре. Эл. почта: cynews24@gmail.com."]),
+   ("Форма рекламного обращения",["На странице «Реклама и контакты» есть форма. Она отправляет сообщение через FormSubmit (formsubmit.co) на cynews24@gmail.com. Поля: имя, компания, эл. почта, телефон, если вы его указали, выбранные форматы, необязательный диапазон бюджета, сообщение и согласие. Мы используем эти сведения только чтобы ответить на это обращение. FormSubmit обрабатывает отправку, чтобы доставить письмо. Мы не продаём эти сведения и не добавляем их в маркетинговый список."]),
+   ("Аналитика",["Сайт не использует Google Analytics и никакой другой сервис аналитики. Сторонние скрипты слежения не подключаются."]),
+   ("Файлы cookie",["CyNews 24 не ставит собственные cookie и не использует рекламные cookie. Выбор языка на первой странице читает язык браузера и может один раз перенаправить; cookie при этом не сохраняется. Если вы переходите по ссылке на другой сайт, у того сайта своя политика."]),
+   ("Почта",["Если вы пишете на cynews24@gmail.com, мы используем письмо, чтобы ответить или исправить материал. Мы храним его, пока это нужно для этой цели."]),
+   ("Изменения",["Если политика изменится, новый текст заменит эту страницу."])]),
+ "el":dict(t="Πολιτική απορρήτου",d="Πώς το CyNews 24 χειρίζεται τη φόρμα διαφημιστικής επικοινωνίας, τα αναλυτικά και τα cookies.",
+  sections=[
+   ("Ποιοι είμαστε",["Αυτή η πολιτική καλύπτει τον ιστότοπο CyNews 24. Εκδότρια είναι η Άννα. Ο ιστότοπος έχει έδρα την Κύπρο. Email: cynews24@gmail.com."]),
+   ("Φόρμα διαφημιστικής επικοινωνίας",["Η σελίδα Διαφήμιση & Επικοινωνία έχει φόρμα που στέλνει το μήνυμά σας μέσω του FormSubmit (formsubmit.co) στο cynews24@gmail.com. Τα πεδία είναι το όνομα, η εταιρεία, το email, το τηλέφωνο αν το δώσετε, οι μορφές που επιλέγετε, ένα προαιρετικό εύρος προϋπολογισμού, το μήνυμα και η συγκατάθεσή σας. Χρησιμοποιούμε αυτά τα στοιχεία μόνο για να απαντήσουμε σε εκείνο το αίτημα. Το FormSubmit επεξεργάζεται την υποβολή για να παραδώσει το email. Δεν πουλάμε τα στοιχεία και δεν τα προσθέτουμε σε λίστα μάρκετινγκ."]),
+   ("Αναλυτικά",["Ο ιστότοπος δεν χρησιμοποιεί Google Analytics ούτε άλλη υπηρεσία αναλυτικών. Δεν ενσωματώνει σενάρια παρακολούθησης τρίτων."]),
+   ("Cookies",["Το CyNews 24 δεν τοποθετεί δικά του cookies και δεν χρησιμοποιεί διαφημιστικά cookies. Η επιλογή γλώσσας στην πρώτη σελίδα διαβάζει τη γλώσσα του προγράμματος περιήγησης και μπορεί να ανακατευθύνει μία φορά· δεν αποθηκεύει cookie. Αν ακολουθήσετε σύνδεσμο προς άλλον ιστότοπο, εκείνος έχει τη δική του πολιτική."]),
+   ("Email",["Αν στείλετε email στο cynews24@gmail.com, χρησιμοποιούμε το μήνυμα για να απαντήσουμε ή για να διορθώσουμε ένα άρθρο. Το κρατάμε για όσο χρειάζεται αυτός ο σκοπός."]),
+   ("Αλλαγές",["Αν η πολιτική αλλάξει, το νέο κείμενο αντικαθιστά αυτή τη σελίδα."])])}
 e=html.escape
 def href(path):
     """Site path (/en/) → path under the project subpath (/cynews24/en/)."""
@@ -260,7 +327,10 @@ ol.latest{list-style:none;margin:0;padding:0}ol.latest li{padding:12px 0;border-
 article.a{max-width:760px;margin:0 auto}
 article.a h1{font-size:40px;line-height:1.1;letter-spacing:-.8px;margin:6px 0 12px}
 .dek{font-size:20px;line-height:1.4;font-weight:600;color:#23272d;margin:0 0 14px}
-.by{font-size:14px;color:var(--mut);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:18px;display:flex;justify-content:space-between;gap:8px;flex-wrap:wrap}
+.by{font-size:14px;color:var(--mut);border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:10px 0;margin-bottom:18px;display:flex;justify-content:space-between;gap:12px;flex-wrap:wrap}
+.by .who{font-weight:700;color:var(--ink)}
+.by .when{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right}
+.by time{display:block}
 figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6px}figcaption a{color:#0b57b0;text-decoration:underline}
 .body p{font-size:18px;line-height:1.65;margin:0 0 18px}
 .src{background:var(--soft);border-left:4px solid var(--acc);padding:14px 16px;margin:28px 0;font-size:15px}.src h2{font-size:15px;margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}.src p{margin:0 0 8px;color:var(--mut)}.src ul{margin:0;padding-left:18px}.src a{text-decoration:underline;color:#0b57b0}
@@ -268,8 +338,11 @@ figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6p
 .rel h2{font-size:22px;border-top:4px solid var(--ink);padding-top:8px}
 .rel .grid{grid-template-columns:repeat(3,1fr)}
 .langsw{display:flex;gap:10px;font-size:14px;margin:0 0 6px;flex-wrap:wrap}.langsw a{text-decoration:underline}
-footer{background:var(--dark);color:#c8cdd5;margin-top:48px;padding:28px 0;font-size:14px}footer .logo{font-size:22px;margin-bottom:10px}footer a{text-decoration:underline}
+footer{background:var(--dark);color:#c8cdd5;margin-top:48px;padding:28px 0;font-size:14px}footer .logo{font-size:22px;margin-bottom:10px}footer a{text-decoration:underline;color:#fff}
 footer p{max-width:820px;margin:8px 0}
+footer .flinks{display:flex;flex-wrap:wrap;gap:6px 14px;margin:12px 0}
+footer .social{display:flex;flex-wrap:wrap;gap:10px;margin:8px 0 4px}
+footer .social a{display:inline-flex;align-items:center;gap:8px;border:1px solid #3a4250;padding:6px 10px;text-decoration:none;font-weight:700}
 .choose{min-height:100vh;display:flex;align-items:center;justify-content:center;background:var(--dark);color:#fff;text-align:center;padding:24px}
 .choose .logo{font-size:44px;justify-content:center;margin-bottom:12px}.choose p{color:#c8cdd5;margin:6px 0 24px}
 .choose .btns{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}.choose .btns a{background:#fff;color:var(--dark);font-weight:800;padding:14px 26px;font-size:18px}.choose .btns a:hover{background:var(--acc);color:#fff}
@@ -321,7 +394,7 @@ button.send:hover{background:var(--acc)}
 .ev figcaption{font-size:12px}
 .ev a{color:#0b57b0;text-decoration:underline}
 @media(max-width:980px){.lead{grid-template-columns:1fr}.grid,.g3{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.rel .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}}
+@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}}
 """
 
 def alt_links(l, pathfn):
@@ -331,7 +404,7 @@ def alt_links(l, pathfn):
     out.append(f'<link rel="alternate" hreflang="x-default" href="{abs_("/")}">')
     return "\n".join(out)
 
-def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None, robots="index,follow,max-image-preview:large,max-snippet:-1"):
+def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None, mod=None, robots="index,follow,max-image-preview:large,max-snippet:-1"):
     h=[f'<!doctype html><html lang="{l}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
     f'<title>{e(title)}</title><meta name="description" content="{e(desc)}">',
     f'<meta name="keywords" content="{e(", ".join(kws))}">',
@@ -341,7 +414,8 @@ def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jso
     f'<meta property="og:site_name" content="{SITE}"><meta property="og:type" content="{typ}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{abs_(path)}"><meta property="og:image" content="{abs_(og_img)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="{LOCALE[l]}">']
     for x in LANGS:
         if x!=l: h.append(f'<meta property="og:locale:alternate" content="{LOCALE[x]}">')
-    if pub: h.append(f'<meta property="article:published_time" content="{pub}"><meta property="article:modified_time" content="{pub}"><meta property="article:publisher" content="{SITE}">')
+    if pub:
+        h.append(f'<meta property="article:published_time" content="{pub}"><meta property="article:modified_time" content="{mod or pub}"><meta property="article:publisher" content="{SITE}">')
     h.append(f'<meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="{e(title)}"><meta name="twitter:description" content="{e(desc)}"><meta name="twitter:image" content="{abs_(og_img)}">')
     h.append(f'<link rel="icon" href="{href("/favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="{href("/apple-touch-icon.png")}"><meta name="theme-color" content="#111827">')
     h.append(f'<link rel="stylesheet" href="{href("/assets/css/style.css")}">')
@@ -362,10 +436,46 @@ def header(l, pathfn, active=None):
       f'<div class="tr"><span class="date">{fdate(TODAY,l,True)}</span><nav class="lang" aria-label="{u["lang"]}">{sw}</nav></div></div></header>'
       f'<nav class="cats" aria-label="{u["menu"]}"><div class="wrap"><ul>{nav}</ul></div></nav>')
 
+def social_items():
+    """Renderable social profiles. Empty URLs, including Facebook until one is set, stay hidden."""
+    icons=_icons(); items=[]
+    if TELEGRAM.get("ru"): items.append((TELEGRAM["ru"], "tg_ru", "telegram"))
+    if TELEGRAM.get("en"): items.append((TELEGRAM["en"], "tg_en", "telegram"))
+    for key,label in (("facebook","Facebook"),("instagram","Instagram")):
+        url=(SOCIAL.get(key) or "").strip()
+        if url: items.append((url, label, key))
+    return icons, items
+def footer_social(l):
+    u=UI[l]; icons, items=social_items()
+    if not items: return ""
+    bits=[]
+    for url,label,key in items:
+        name=u[label] if label in u else label
+        bits.append(f'<a href="{e(url)}" rel="noopener noreferrer">{icons[key]}{e(name)}</a>')
+    return f'<div class="social">{"".join(bits)}</div>'
+def same_as():
+    return [url for url,_label,_key in social_items()[1]]
+def org_ld(l):
+    return {"@type":"NewsMediaOrganization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),
+            "email":AD_EMAIL,"description":HOME_D[l],
+            "logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512},
+            "address":{"@type":"PostalAddress","addressCountry":"CY"},
+            "sameAs":same_as(),
+            "publishingPrinciples":abs_(f"/{l}/editorial-policy/"),
+            "correctionsPolicy":abs_(f"/{l}/editorial-policy/"),
+            "actionableFeedbackPolicy":abs_(f"/{l}/editorial-policy/"),
+            "ethicsPolicy":abs_(f"/{l}/editorial-policy/"),
+            "masthead":abs_(f"/{l}/about/"),
+            "contactPoint":[{"@type":"ContactPoint","contactType":"editorial","email":AD_EMAIL,"areaServed":"CY","availableLanguage":["Russian","English","Greek"]},
+                            {"@type":"ContactPoint","contactType":"advertising","email":AD_EMAIL,"availableLanguage":["Russian","English","Greek"],"url":abs_(f"/{l}/advertising/")}]}
 def footer(l):
     u=UI[l]
+    links=[(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/advertising/",u["ads"])]
+    fl="".join(f'<a href="{href(p)}">{e(n)}</a>' for p,n in links)
+    langs=" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)
     return (f'<footer><div class="wrap"><div class="logo"><b>CyNews</b><i>24</i></div><p>{u["footer"]}</p>'
-      f'<p><a href="{href(f"/{l}/about/")}">{u["about"]}</a> · <a href="{href(f"/{l}/advertising/")}">{u["ads"]}</a> · '+" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)+f'</p><p>© 2026 {SITE}. {u["copy"]}</p></div></footer></body></html>')
+      f'<nav class="flinks" aria-label="footer">{fl}</nav>{footer_social(l)}'
+      f'<p>{langs}</p><p>© 2026 {SITE}. {u["copy"]}</p></div></footer></body></html>')
 
 def S_(s,key,l): return s[key][l]
 def img_tag(s,l,w,lazy=True,prio=False,sizes="100%"):
@@ -395,8 +505,9 @@ def page_home(l):
     rest=[s for s in sorted_all() if s["slug"] not in used]
     latest=sorted_all()[:8]
     kws=GKW[l]
+    org=org_ld(l)
     ld=[{"@context":"https://schema.org","@type":"WebSite","name":SITE,"url":abs_(f"/{l}/"),"inLanguage":l,"description":HOME_D[l],"publisher":{"@id":abs_("/")+"#org"}},
-        {"@context":"https://schema.org","@type":"NewsMediaOrganization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),"email":AD_EMAIL,"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512},"description":HOME_D[l],"contactPoint":{"@type":"ContactPoint","contactType":"advertising","email":AD_EMAIL,"availableLanguage":["Russian","English","Greek"],"url":abs_(f"/{l}/advertising/")}},
+        {"@context":"https://schema.org",**org},
         {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":abs_(f"/{l}/{s['slug']}/"),"name":s["title"][l]} for i,s in enumerate(sorted_all())]}]
     h=head(l,HOME_T[l],HOME_D[l],kws,f"/{l}/",pathfn,"/assets/og-default.jpg",jsonld=ld)
     h+=header(l,pathfn,"home")
@@ -426,23 +537,32 @@ def page_cat(l,c):
     h+=f'<main id="main" class="wrap"><h1 class="sec">{CATN[l][c]}</h1><p class="meta" style="margin-top:-6px">{e(desc)}</p><div class="grid g3" style="margin-top:18px">'+"".join(card(s,l,lazy=(i>2)) for i,s in enumerate(items))+'</div></main>'+footer(l)
     return h
 
+def article_times(s):
+    """Stable published time. Updated time stays equal unless the story records a later update."""
+    pub=f'{s["date"]}T09:00:00+02:00'
+    mod=s.get("updated") or pub
+    return pub, mod
+def fdt(iso,l):
+    dt=datetime.datetime.fromisoformat(iso)
+    return f'{fdate(dt.date().isoformat(),l)}, {dt.strftime("%H:%M")} (EET)'
 def page_article(l,s):
     u=UI[l]; path=f"/{l}/{s['slug']}/"; pathfn=lambda x:f"/{x}/{s['slug']}/"
-    title=f'{s["title"][l]} | {SITE}'
+    title=s["title"][l]
     desc=trunc(s["lede"][l],158)
     kws=s["kw"][l]+GKW[l][:4]
-    pub=f'{s["date"]}T09:00:00+02:00'; mod=f'{TODAY}T10:00:00+02:00'
+    pub,mod=article_times(s)
     og=f'/assets/img/{s["img"]}-og.jpg'
-    ld=[{"@context":"https://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":s["title"][l][:110],"description":s["lede"][l],"image":image_ld(s),"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
-        "author":{"@type":"Organization","name":SITE,"url":abs_("/")},"publisher":{"@type":"NewsMediaOrganization","name":SITE,"url":abs_("/"),"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512}},
+    publisher={"@type":"NewsMediaOrganization","name":SITE,"url":abs_("/"),"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512}}
+    ld=[{"@context":"https://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":title,"description":s["lede"][l],"image":image_ld(s),"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
+        "author":{"@type":"Organization","name":u["byline"],"url":abs_(f"/{l}/about/")},"publisher":publisher,
         "isBasedOn":[x[1] for x in s["sources"]],"citation":[{"@type":"CreativeWork","name":x[0],"url":x[1]} for x in s["sources"]],"articleBody":" ".join(s["body"][l]),"url":abs_(path),
         "locationCreated":{"@type":"Place","name":"Cyprus"},"about":{"@type":"Place","name":"Cyprus"}},
-      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":u["crumb_home"],"item":abs_(f"/{l}/")},{"@type":"ListItem","position":2,"name":CATN[l][s["cat"]],"item":abs_(f"/{l}/{s['cat']}/")},{"@type":"ListItem","position":3,"name":s["title"][l],"item":abs_(path)}]}]
+      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":u["crumb_home"],"item":abs_(f"/{l}/")},{"@type":"ListItem","position":2,"name":CATN[l][s["cat"]],"item":abs_(f"/{l}/{s['cat']}/")},{"@type":"ListItem","position":3,"name":title,"item":abs_(path)}]}]
     preload=f'<link rel="preload" as="image" href="{href(f"/assets/img/{s["img"]}-1200.webp")}" imagesrcset="{href(f"/assets/img/{s["img"]}-600.webp")} 600w, {href(f"/assets/img/{s["img"]}-1200.webp")} 1200w" imagesizes="(max-width:800px) 100vw,760px">'
-    h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub)+header(l,pathfn,s["cat"])
+    h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod)+header(l,pathfn,s["cat"])
     h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{u["crumb_home"]}</a> › <a href="{href(f"/{l}/{s["cat"]}/")}">{CATN[l][s["cat"]]}</a></nav>'
-    h+=f'<article class="a"><span class="cat">{CATN[l][s["cat"]]}</span><h1>{e(s["title"][l])}</h1><p class="dek">{e(s["lede"][l])}</p>'
-    h+=f'<div class="by"><span>{u["byline"]}</span><span><time datetime="{pub}">{fdate(s["date"],l)}</time></span></div>'
+    h+=f'<article class="a"><span class="cat">{CATN[l][s["cat"]]}</span><h1>{e(title)}</h1><p class="dek">{e(s["lede"][l])}</p>'
+    h+=f'<div class="by"><span class="who">{e(u["byline"])}</span><span class="when"><time datetime="{pub}">{e(u["published"])}: {fdt(pub,l)}</time><time datetime="{mod}">{e(u["updated"])}: {fdt(mod,l)}</time></span></div>'
     h+=f'<figure>{img_tag(s,l,1200,False,True,"(max-width:800px) 100vw,760px")}<figcaption>{photo_caption(s,l)}</figcaption></figure>'
     h+='<div class="body">'+"".join(f'<p>{e(p)}</p>' for p in s["body"][l])+'</div>'
     h+=f'<section class="src" aria-label="{u["sources"]}"><h2>{u["sources"]}</h2><p>{u["sources_note"]}</p><ul>'+"".join(f'<li><a href="{e(x[1])}" target="_blank" rel="noopener nofollow">{e(x[0])}</a></li>' for x in s["sources"])+'</ul></section>'
@@ -453,16 +573,29 @@ def page_article(l,s):
     h+=f'<section class="rel"><h2>{u["related"]}</h2><div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
     return h
 
-def page_about(l):
-    a=ABOUT[l]; u=UI[l]; pathfn=lambda x:f"/{x}/about/"
-    ld=[{"@context":"https://schema.org","@type":"AboutPage","name":a["t"],"url":abs_(f"/{l}/about/"),"inLanguage":l}]
-    h=head(l,f'{a["t"]} | {SITE}',a["d"],GKW[l][:5]+[SITE],f"/{l}/about/",pathfn,"/assets/og-default.jpg",jsonld=ld)+header(l,pathfn)
-    h+=f'<main id="main" class="wrap"><article class="a"><h1 style="margin-top:24px">{e(a["t"])}</h1><div class="body">'+"".join(f"<p>{e(p)}</p>" for p in a["p"])+'</div></article></main>'+footer(l)
+def info_body(l, page, kind):
+    """Static info page. The contact section of About links to advertising, policy and privacy."""
+    u=UI[l]
+    parts=[]
+    for i,(h2,paras) in enumerate(page["sections"]):
+        parts.append(f'<h2>{e(h2)}</h2>')
+        parts.append("".join(f"<p>{e(p)}</p>" for p in paras))
+        if kind=="about" and i==len(page["sections"])-1:
+            parts.append(f'<p><a href="{href(f"/{l}/advertising/")}">{e(u["ads"])}</a> · <a href="{href(f"/{l}/editorial-policy/")}">{e(u["policy"])}</a> · <a href="{href(f"/{l}/privacy/")}">{e(u["privacy"])}</a></p>')
+        if kind=="policy" and i==len(page["sections"])-1:
+            parts.append(f'<p><a class="mail" href="mailto:{AD_EMAIL}">{AD_EMAIL}</a> · <a href="{href(f"/{l}/advertising/")}">{e(u["ads"])}</a></p>')
+    return "".join(parts)
+def page_info(l, slug, page, schema_type):
+    u=UI[l]; pathfn=lambda x,slug=slug:f"/{x}/{slug}/"
+    ld=[{"@context":"https://schema.org","@type":schema_type,"name":page["t"],"url":abs_(f"/{l}/{slug}/"),"inLanguage":l,"description":page["d"],
+         "publisher":{"@id":abs_("/")+"#org"},"about":{"@id":abs_("/")+"#org"}}]
+    h=head(l,f'{page["t"]} | {SITE}',page["d"],[page["t"],SITE],f"/{l}/{slug}/",pathfn,"/assets/og-default.jpg",jsonld=ld)+header(l,pathfn)
+    kind={"about":"about","editorial-policy":"policy","privacy":"privacy"}[slug]
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(page["t"])}</h1><div class="body">{info_body(l,page,kind)}</div></article></main>'+footer(l)
     return h
+def page_about(l):
+    return page_info(l,"about",ABOUT[l],"AboutPage")
 
-AD_EMAIL="cynews24@gmail.com"
-# Real profile URLs only. An empty string is not rendered, so unfinished accounts stay hidden.
-SOCIAL={"facebook":"","instagram":"","telegram":""}
 AD={
  "en":dict(
   title="Advertise & Contact",
@@ -550,14 +683,9 @@ def _icons():
      "telegram":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M21 4 2.8 11.2c-1.2.5-1.2 1.2-.2 1.5l4.7 1.5 1.8 5.5c.2.6.1.9.8.9.4 0 .6-.2.8-.4l2.6-2.5 5.4 4c.6.4 1.2.2 1.3-.6L22.2 5c.2-1-.4-1.4-1.2-1zM8.7 14.3l9.2-5.8c.4-.3.8 0 .5.3l-7.6 6.9-.3 3.3z"/></svg>',
     }
 def social_block(l):
-    a=AD[l]; icons=_icons(); names={"facebook":"Facebook","instagram":"Instagram","telegram":"Telegram"}
-    bits=[]
-    for key in ("facebook","instagram","telegram"):
-        url=(SOCIAL.get(key) or "").strip()
-        if not url: continue
-        bits.append(f'<a href="{e(url)}" rel="noopener noreferrer">{icons[key]}{e(names[key])}</a>')
-    if not bits: return ""
-    return f'<h2>{e(a["follow"])}</h2><div class="social">{"".join(bits)}</div>'
+    a=AD[l]; block=footer_social(l)
+    if not block: return ""
+    return f'<h2>{e(a["follow"])}</h2>{block}'
 def contact_point(l):
     return {"@type":"ContactPoint","contactType":"advertising","email":AD_EMAIL,"availableLanguage":["Russian","English","Greek"],"url":abs_(f"/{l}/advertising/")}
 def ad_form(l):
@@ -778,9 +906,27 @@ def sitemap():
     for c in CATS: x.append(entry(lambda l,c=c:f"/{l}/{c}/",TODAY,"0.7"))
     for s in STORIES: x.append(entry(lambda l,s=s:f"/{l}/{s['slug']}/",TODAY,"0.8"))
     x.append(entry(lambda l:f"/{l}/about/",TODAY,"0.3"))
+    x.append(entry(lambda l:f"/{l}/editorial-policy/",TODAY,"0.3"))
+    x.append(entry(lambda l:f"/{l}/privacy/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/advertising/",TODAY,"0.4"))
     x.append(entry(lambda l:f"/{l}/events/",TODAY,"0.6"))
     x.append('</urlset>'); return "".join(x)
+
+def news_sitemap():
+    """Google News sitemap: articles whose publication time is within the last 48 hours."""
+    now=datetime.datetime.now(datetime.timezone(datetime.timedelta(hours=2)))
+    cutoff=now-datetime.timedelta(hours=48)
+    x=['<?xml version="1.0" encoding="UTF-8"?>',
+       '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">']
+    for s in sorted_all():
+        pub,_mod=article_times(s)
+        published=datetime.datetime.fromisoformat(pub)
+        if published < cutoff: continue
+        for l in LANGS:
+            loc=abs_(f"/{l}/{s['slug']}/")
+            x.append("<url><loc>"+e(loc)+"</loc><news:news><news:publication><news:name>CyNews 24</news:name><news:language>"+l+"</news:language></news:publication><news:publication_date>"+e(pub)+"</news:publication_date><news:title>"+e(s["title"][l])+"</news:title></news:news></url>")
+    x.append("</urlset>")
+    return "".join(x)
 
 def w(path,content):
     p=OUT+path; os.makedirs(os.path.dirname(p),exist_ok=True); open(p,"w",encoding="utf8").write(content)
@@ -798,12 +944,15 @@ def main():
         for c in CATS: w(f"/{l}/{c}/index.html",page_cat(l,c))
         for s in STORIES: w(f"/{l}/{s['slug']}/index.html",page_article(l,s))
         w(f"/{l}/about/index.html",page_about(l))
+        w(f"/{l}/editorial-policy/index.html",page_info(l,"editorial-policy",POLICY[l],"WebPage"))
+        w(f"/{l}/privacy/index.html",page_info(l,"privacy",PRIVACY[l],"WebPage"))
         w(f"/{l}/events/index.html",page_events(l))
         w(f"/{l}/advertising/index.html",page_advertising(l))
         w(f"/{l}/advertising/thanks/index.html",page_ad_thanks(l))
         w(f"/{l}/feed.xml",rss(l))
     w("/sitemap.xml",sitemap())
-    w("/robots.txt",f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\n")
+    w("/news-sitemap.xml",news_sitemap())
+    w("/robots.txt",f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/news-sitemap.xml\n")
     w("/404.html",f'<!doctype html><meta charset="utf-8"><title>404 — {SITE}</title><meta name="robots" content="noindex"><link rel="stylesheet" href="{href("/assets/css/style.css")}"><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p><div class="btns"><a href="{href("/ru/")}">RU</a><a href="{href("/en/")}">EN</a><a href="{href("/el/")}">EL</a></div></div></main>')
     w("/_headers","/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n")
     open(os.path.join(OUT,".nojekyll"),"w").close()

@@ -2,3 +2,4 @@ User-agent: *
 Allow: /
 
 Sitemap: https://anlap26.github.io/cynews24/sitemap.xml
+Sitemap: https://anlap26.github.io/cynews24/news-sitemap.xml
