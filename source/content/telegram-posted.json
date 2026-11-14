@@ -190,6 +190,12 @@
         "at": "2026-11-09T00:00:00Z",
         "status": "seeded"
       }
+    },
+    "tax-return-deadline-30-november": {
+      "ru": {
+        "at": "2026-11-14T11:55:33Z",
+        "status": "sent"
+      }
     }
   }
 }
