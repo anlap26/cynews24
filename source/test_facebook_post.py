@@ -607,8 +607,17 @@ class SeedAndWorkflowTests(unittest.TestCase):
             self.assertEqual(entry["status"], "seeded")
             self.assertEqual(entry["lang"], "en")
         articles = fb.load_articles(ARTICLES)
-        self.assertEqual(fb.plan(articles, state, datetime.date(2026, 11, 13), "en"), [])
-        self.assertEqual(fb.plan(articles, state, datetime.date(2030, 1, 1), "en"), [])
+        # The seed covers the original catalogue. Stories added afterwards do
+        # not need a state entry: while they are fresh the plan sends them, and
+        # once they are older than three days it marks them stale.
+        fresh = fb.plan(articles, state, datetime.date(2026, 11, 13), "en")
+        for action in fresh:
+            self.assertNotIn(action.article.slug, ORIGINAL)
+            self.assertEqual(action.kind, "send")
+        later = fb.plan(articles, state, datetime.date(2030, 1, 1), "en")
+        for action in later:
+            self.assertNotIn(action.article.slug, ORIGINAL)
+            self.assertEqual(action.kind, "stale")
 
     def test_built_english_articles_have_open_graph_tags(self):
         build_py = os.path.join(HERE, "build.py")
