@@ -22,6 +22,9 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `planning-enforcement` | Onasagorou Street, Nicosia; not the venue discussed in the audit | NicosiaEurope | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Onasagorou_street_Nicosia_Republic_of_Cyprus.jpg) |
 | `driver-hours` | A Mercedes-Benz Actros lorry on a rail transporter | JoachimKohler-HB | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Durch_statt_%C3%BCber_die_Alpen_-_Mercedes-Benz_Actros_1848_RoLa_(2014).jpg) |
 | `fintech-nicosia` | The financial avenue of Nicosia at night | NicosiaSkylines | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Downtown_Nicosia_by_night_Cyprus.JPG) |
+| `weekend-events` | The dining and shopping area at Limassol Marina | Tech bro | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Limassol_Marina_07.jpg) |
+| `tax-deadline` | A calculator used to work out a tax figure | Joe lope | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tax_calculator.jpg) |
+| `interconnector-2031` | A large electricity pylon in Cyprus | kaartcam | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Large_one-level_pylon.png) |
 
 ## Event photographs
 
