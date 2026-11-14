@@ -91,6 +91,12 @@
         "status": "seeded"
       }
     },
+    "greece-cyprus-interconnector-2031": {
+      "ru": {
+        "at": "2026-11-14T11:55:33Z",
+        "status": "sent"
+      }
+    },
     "homes-without-electricity-paphos": {
       "en": {
         "at": "2026-11-04T00:00:00Z",
