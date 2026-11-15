@@ -11,6 +11,7 @@ EV_EVENTS=_EV["events"]
 EV_PHOTOS=_EV["photos"]
 SITE = "CyNews 24"
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1547877294743851" crossorigin="anonymous"></script>'
+YANDEX_VERIFICATION = '<meta name="yandex-verification" content="4db90fdda985d0e0" />'
 ADS_TXT = "google.com, pub-1547877294743851, DIRECT, f08c47fec0942fa0\n"
 # Absolute origin, no trailing slash. Include the repo path for GitHub project pages:
 #   BASE=https://cynews24.net python3 build.py
@@ -537,6 +538,7 @@ def alt_links(l, pathfn):
 
 def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None, mod=None, robots="index,follow,max-image-preview:large,max-snippet:-1"):
     h=[f'<!doctype html><html lang="{l}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
+    YANDEX_VERIFICATION,
     f'<title>{e(title)}</title><meta name="description" content="{e(desc)}">',
     f'<meta name="keywords" content="{e(", ".join(kws))}">',
     f'<meta name="robots" content="{e(robots)}">',
@@ -1044,6 +1046,7 @@ def page_root():
     alts="\n".join(f'<link rel="alternate" hreflang="{x}" href="{abs_(f"/{x}/")}">' for x in LANGS)+f'\n<link rel="alternate" hreflang="x-default" href="{abs_("/")}">'
     ld={"@context":"https://schema.org","@type":"WebSite","name":SITE,"url":abs_("/"),"inLanguage":LANGS}
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+{YANDEX_VERIFICATION}
 <title>CyNews 24 – Cyprus News · Новости Кипра · Ειδήσεις Κύπρου</title>
 <meta name="description" content="CyNews 24: Cyprus news in English, Russian and Greek. Новости Кипра на русском, английском и греческом. Ειδήσεις Κύπρου στα ελληνικά, αγγλικά και ρωσικά.">
 <meta name="keywords" content="Cyprus news, Кипр новости, Κύπρος ειδήσεις, CyNews 24">
@@ -1133,7 +1136,7 @@ def main():
     w("/sitemap.xml",sitemap())
     w("/news-sitemap.xml",news_sitemap())
     w("/robots.txt",f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/news-sitemap.xml\n")
-    w("/404.html",f'<!doctype html><html lang="en"><head><meta charset="utf-8"><title>404 — {SITE}</title><meta name="robots" content="noindex"><link rel="stylesheet" href="{href("/assets/css/style.css")}">{ADSENSE}</head><body><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p><div class="btns"><a href="{href("/ru/")}">RU</a><a href="{href("/en/")}">EN</a><a href="{href("/el/")}">EL</a></div></div></main></body></html>')
+    w("/404.html",f'<!doctype html><html lang="en"><head><meta charset="utf-8">{YANDEX_VERIFICATION}<title>404 — {SITE}</title><meta name="robots" content="noindex"><link rel="stylesheet" href="{href("/assets/css/style.css")}">{ADSENSE}</head><body><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p><div class="btns"><a href="{href("/ru/")}">RU</a><a href="{href("/en/")}">EN</a><a href="{href("/el/")}">EL</a></div></div></main></body></html>')
     w("/_headers","/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n")
     open(os.path.join(OUT,".nojekyll"),"w").close()
     # Google Search Console verification. Rewritten on every build so a rebuild cannot drop it.
