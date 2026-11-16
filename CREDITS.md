@@ -25,6 +25,9 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `weekend-events` | The dining and shopping area at Limassol Marina | Tech bro | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Limassol_Marina_07.jpg) |
 | `tax-deadline` | A calculator used to work out a tax figure | Joe lope | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Tax_calculator.jpg) |
 | `interconnector-2031` | A large electricity pylon in Cyprus | kaartcam | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Large_one-level_pylon.png) |
+| `nicosia-murder` | A street in central Nicosia (illustrative, not the scene of the crime) | Максим Улитин | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:City_Centre,_Nicosia,_Cyprus_-_panoramio_(1).jpg) |
+| `cyprus-copper` | The Skouriotissa copper mine in Cyprus | Dr. Tzeferis Peter | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Skouriotissa.jpg) |
+| `dubai-airport` | Terminal 2 of Dubai International Airport (illustrative) | Ravi Dwivedi | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dubai_Airport_Terminal_2.jpg) |
 
 ## Event photographs
 
