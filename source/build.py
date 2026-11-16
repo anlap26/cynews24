@@ -954,16 +954,22 @@ def event_ld(ev,l):
     addr={"@type":"PostalAddress","addressLocality":ev["locality"],"addressCountry":"CY"}
     if ev.get("street"): addr["streetAddress"]=ev["street"]
     kind="ScreeningEvent" if ev.get("type")=="cinema" else "Event"
+    organizer={"@type":"Organization","name":ev["source"],"url":ev["url"]}
     obj={"@type":kind,"name":ev["title"][l],"startDate":ev["start"],"eventStatus":"https://schema.org/EventScheduled",
          "eventAttendanceMode":"https://schema.org/OfflineEventAttendanceMode",
          "location":{"@type":"Place","name":ev["venue"][l],"address":addr},
          "url":ev["url"],"description":ev["desc"][l],
-         "organizer":{"@type":"Organization","name":ev["source"],"url":ev["url"]}}
+         "organizer":organizer,"performer":organizer}
     if ev.get("end"): obj["endDate"]=ev["end"]
-    if ev.get("low"):
-        obj["offers"]={"@type":"AggregateOffer","lowPrice":ev["low"],"highPrice":ev["high"],"priceCurrency":"EUR","url":ev["url"]}
+    # Include free events (low "0"); omit offers entirely when the price is unknown.
+    if ev.get("low") is not None and str(ev.get("low")) != "":
+        obj["offers"]={"@type":"AggregateOffer","lowPrice":ev["low"],"highPrice":ev.get("high", ev["low"]),
+                       "priceCurrency":"EUR","url":ev["url"],
+                       "availability":"https://schema.org/InStock"}
+        # offers.validFrom is omitted: ticket on-sale dates are not in the source data.
     if ev.get("photo"):
-        obj["image"]=abs_(f"/assets/img/events/{ev['photo']}-1200.webp")
+        obj["image"]=[abs_(f"/assets/img/events/{ev['photo']}-1200.webp"),
+                      abs_(f"/assets/img/events/{ev['photo']}-600.webp")]
     return obj
 def ev_card(ev,l,u):
     if ev.get("photo"):

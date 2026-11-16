@@ -271,5 +271,44 @@
       0.42
     ],
     "depicts": "A large electricity pylon in Cyprus"
+  },
+  "nicosia-murder": {
+    "author": "Максим Улитин",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:City_Centre,_Nicosia,_Cyprus_-_panoramio_(1).jpg",
+    "file": "nicosia-murder.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "A street in central Nicosia (illustrative, not the scene of the crime)"
+  },
+  "cyprus-copper": {
+    "author": "Dr. Tzeferis Peter",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Skouriotissa.jpg",
+    "file": "cyprus-copper.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The Skouriotissa copper mine in Cyprus"
+  },
+  "dubai-airport": {
+    "author": "Ravi Dwivedi",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Dubai_Airport_Terminal_2.jpg",
+    "file": "dubai-airport.jpg",
+    "focus": [
+      0.5,
+      0.52
+    ],
+    "depicts": "Terminal 2 of Dubai International Airport (illustrative)"
   }
 }
