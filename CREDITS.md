@@ -28,6 +28,11 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `nicosia-murder` | A street in central Nicosia (illustrative, not the scene of the crime) | Максим Улитин | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:City_Centre,_Nicosia,_Cyprus_-_panoramio_(1).jpg) |
 | `cyprus-copper` | The Skouriotissa copper mine in Cyprus | Dr. Tzeferis Peter | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Skouriotissa.jpg) |
 | `dubai-airport` | Terminal 2 of Dubai International Airport (illustrative) | Ravi Dwivedi | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Dubai_Airport_Terminal_2.jpg) |
+| `athens-propylaea` | A colonnade of the University of Athens; not Sunday's student marches | Tomisti | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:University_of_Athens_-_Propylaea_2.jpg) |
+| `pancyprian-gymnasium` | The entrance of the Pancyprian Gymnasium in Nicosia; not the ministry meeting | Maor X | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Entrance_to_Pancyprian_Gymnasium,_Nicosia.jpg) |
+| `nicosia-crossing` | The Ledra Street crossing in Nicosia; not Mia Milia or Athienou–Pyroi | Michal Osmenda | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Border_crossing_between_Cypriot_and_Turkish_parts_of_Nicosia_(8132811784).jpg) |
+| `iris-cubesat` | The IRIS-A CubeSat flight model on a workbench; not the Kyrenia 3 satellite | Mljhtest | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:IRIS-A_cubesat_flight_model.jpg) |
+| `kykkos-courtyard` | The courtyard of Kykkos Monastery; not the road where the injured man was found | Julian Nyča | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kykkos_Monastery_Courtyard_2.JPG) |
 
 ## Event photographs
 

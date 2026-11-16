@@ -2113,6 +2113,44 @@
    "high": "8",
    "url": "https://www.rialto.com.cy/el/post/soulful-groove-collective-live-at-lemba-cultural-village-at-13th-cyprus-jazz-world-music-showcase-1",
    "source": "Rialto Theatre"
+  },
+  {
+   "id": "galaxy-of-talents-2026",
+   "type": "concert",
+   "city": "limassol",
+   "start": "2026-11-18T19:00:00+02:00",
+   "end": "2026-11-19T20:00:00+02:00",
+   "when": {
+    "en": "18 and 19 November 2026, 19:00.",
+    "ru": "18 и 19 ноября 2026, 19:00.",
+    "el": "18 και 19 Νοεμβρίου 2026, 19:00."
+   },
+   "venue": {
+    "en": "Rialto Theatre",
+    "ru": "Театр Риалто",
+    "el": "Θέατρο Ριάλτο"
+   },
+   "locality": "Limassol",
+   "street": "Andrea Drousioti 19",
+   "title": {
+    "en": "Galaxy of Talents, 17th edition",
+    "ru": "Galaxy of Talents, 17-й выпуск",
+    "el": "Galaxy of Talents, 17η διοργάνωση"
+   },
+   "desc": {
+    "en": "Vestnik Kipra and the Galaxy of Talents organising committee present the 17th edition. Performers from dance, music and gymnastics schools take the Rialto stage. The theatre's ticket page lists prices from €25 to €40, a running time of 60 minutes, and Greek, English and Russian. One performance is on Wednesday 18 November and one on Thursday 19 November, both at 19:00.",
+    "ru": "«Вестник Кипра» и оргкомитет Galaxy of Talents проводят 17-й выпуск. На сцену Риалто выходят участники школ танца, музыки и гимнастики. На странице билетов театра указаны цены от €25 до €40, продолжительность 60 минут и языки: греческий, английский и русский. Один показ в среду 18 ноября и один в четверг 19 ноября, оба в 19:00.",
+    "el": "Η Βέστνικ Κίπρα και η οργανωτική επιτροπή του Galaxy of Talents παρουσιάζουν την 17η διοργάνωση. Στη σκηνή του Ριάλτο ανεβαίνουν συμμετέχοντες από σχολές χορού, μουσικής και γυμναστικής. Η σελίδα εισιτηρίων του θεάτρου αναφέρει τιμές από €25 έως €40, διάρκεια 60 λεπτών και γλώσσες ελληνικά, αγγλικά και ρωσικά. Μία παράσταση την Τετάρτη 18 Νοεμβρίου και μία την Πέμπτη 19 Νοεμβρίου, και οι δύο στις 19:00."
+   },
+   "price": {
+    "en": "€25–€40",
+    "ru": "€25–€40",
+    "el": "€25–€40"
+   },
+   "low": "25",
+   "high": "40",
+   "url": "https://rialto.interticket.com/program/galaxy-of-talents-2918",
+   "source": "Rialto Theatre"
   }
  ]
 }

@@ -318,7 +318,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "page": "https://commons.wikimedia.org/wiki/File:Municipal-theatre-nicosia.jpg",
     "file": "ev-fallback-theatre.jpg",
-    "focus": [0.5, 0.38],
+    "focus": [
+      0.5,
+      0.38
+    ],
     "depicts": "The Municipal Theatre of Nicosia",
     "alt": {
       "en": "The Municipal Theatre of Nicosia",
@@ -333,7 +336,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "page": "https://commons.wikimedia.org/wiki/File:Jewel_Theatre_-_Movie_auditorium.jpg",
     "file": "ev-fallback-cinema.jpg",
-    "focus": [0.5, 0.4],
+    "focus": [
+      0.5,
+      0.4
+    ],
     "depicts": "Seats and a screen inside a cinema auditorium",
     "alt": {
       "en": "Seats and a screen inside a cinema auditorium",
@@ -348,7 +354,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "page": "https://commons.wikimedia.org/wiki/File:2015_Paphos_Odeon.jpg",
     "file": "ev-fallback-concert.jpg",
-    "focus": [0.5, 0.42],
+    "focus": [
+      0.5,
+      0.42
+    ],
     "depicts": "The ancient odeon at Paphos",
     "alt": {
       "en": "The ancient odeon at Paphos, used for open-air performances",
@@ -363,7 +372,10 @@
     "license_url": "https://creativecommons.org/licenses/by/2.0",
     "page": "https://commons.wikimedia.org/wiki/File:Entrée_du_festival_du_vin_de_Limassol.jpg",
     "file": "ev-fallback-festival.jpg",
-    "focus": [0.5, 0.48],
+    "focus": [
+      0.5,
+      0.48
+    ],
     "depicts": "Neon sign for the Limassol Wine Festival",
     "alt": {
       "en": "Neon sign for the Limassol Wine Festival",
@@ -378,7 +390,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "page": "https://commons.wikimedia.org/wiki/File:Food-market-nicosia.jpg",
     "file": "ev-fallback-fair.jpg",
-    "focus": [0.55, 0.5],
+    "focus": [
+      0.55,
+      0.5
+    ],
     "depicts": "Stalls at a food market in Nicosia",
     "alt": {
       "en": "Stalls at a food market in Nicosia",
@@ -393,7 +408,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "page": "https://commons.wikimedia.org/wiki/File:Leventis_Gallery,_Nicosia,_Cyprus-2.jpg",
     "file": "ev-fallback-exhibition.jpg",
-    "focus": [0.4, 0.48],
+    "focus": [
+      0.4,
+      0.48
+    ],
     "depicts": "The Leventis Art Gallery in Nicosia",
     "alt": {
       "en": "The Leventis Art Gallery in Nicosia",
@@ -408,7 +426,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "page": "https://commons.wikimedia.org/wiki/File:Alsos_forest_kids_playground_in_Nicosia_Republic_of_Cyprus.jpg",
     "file": "ev-fallback-kids.jpg",
-    "focus": [0.48, 0.55],
+    "focus": [
+      0.48,
+      0.55
+    ],
     "depicts": "A playground in Alsos Forest Park, Nicosia",
     "alt": {
       "en": "A playground in Alsos Forest Park, Nicosia",
@@ -423,12 +444,80 @@
     "license_url": "https://creativecommons.org/licenses/by/2.0",
     "page": "https://commons.wikimedia.org/wiki/File:GSP_Stadium_in_Nicosia_(Omonoia_-_Manchester_City).jpg",
     "file": "ev-fallback-sport.jpg",
-    "focus": [0.5, 0.55],
+    "focus": [
+      0.5,
+      0.55
+    ],
     "depicts": "A football match at the GSP Stadium in Nicosia",
     "alt": {
       "en": "A football match at the GSP Stadium in Nicosia",
       "ru": "Футбольный матч на стадионе ГСП в Никосии",
       "el": "Ποδόσφαιρο στο στάδιο ΓΣΠ στη Λευκωσία"
     }
+  },
+  "kykkos-courtyard": {
+    "author": "Julian Nyča",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Kykkos_Monastery_Courtyard_2.JPG",
+    "file": "kykkos-courtyard.jpg",
+    "focus": [
+      0.48,
+      0.42
+    ],
+    "depicts": "The courtyard of Kykkos Monastery; not the road where the injured man was found"
+  },
+  "iris-cubesat": {
+    "author": "Mljhtest",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:IRIS-A_cubesat_flight_model.jpg",
+    "file": "iris-cubesat.jpg",
+    "focus": [
+      0.55,
+      0.5
+    ],
+    "depicts": "The IRIS-A CubeSat flight model on a workbench; not the Kyrenia 3 satellite"
+  },
+  "nicosia-crossing": {
+    "author": "Michal Osmenda",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Border_crossing_between_Cypriot_and_Turkish_parts_of_Nicosia_(8132811784).jpg",
+    "file": "nicosia-crossing.jpg",
+    "focus": [
+      0.45,
+      0.48
+    ],
+    "depicts": "The Ledra Street crossing in Nicosia; not Mia Milia or Athienou–Pyroi"
+  },
+  "pancyprian-gymnasium": {
+    "author": "Maor X",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Entrance_to_Pancyprian_Gymnasium,_Nicosia.jpg",
+    "file": "pancyprian-gymnasium.jpg",
+    "focus": [
+      0.5,
+      0.32
+    ],
+    "depicts": "The entrance of the Pancyprian Gymnasium in Nicosia; not the ministry meeting"
+  },
+  "athens-propylaea": {
+    "author": "Tomisti",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:University_of_Athens_-_Propylaea_2.jpg",
+    "file": "athens-propylaea-2.jpg",
+    "focus": [
+      0.42,
+      0.45
+    ],
+    "depicts": "A colonnade of the University of Athens; not Sunday's student marches"
   }
 }
