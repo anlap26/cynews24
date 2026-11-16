@@ -275,6 +275,18 @@ def load_credits():
     if not os.path.exists(p): return {}
     with open(p,encoding="utf8") as f: return json.load(f)
 CREDITS=load_credits()
+# One shared illustration per event type. Used only when the event has no
+# photograph of its own. Keys are entries in credits.json.
+EV_FALLBACK={
+ "theatre":"ev-fallback-theatre",
+ "cinema":"ev-fallback-cinema",
+ "concert":"ev-fallback-concert",
+ "festival":"ev-fallback-festival",
+ "fair":"ev-fallback-fair",
+ "exhibition":"ev-fallback-exhibition",
+ "kids":"ev-fallback-kids",
+ "sport":"ev-fallback-sport",
+}
 def credit_for(s):
     """Photo credit: from the article itself for CMS uploads, otherwise from credits.json."""
     if "upload" in s:
@@ -354,6 +366,10 @@ def write_credits_md():
     lines += ["","## Event photographs","","| Image | Author | Licence | Original |","|---|---|---|---|"]
     for key,p in EV_PHOTOS.items():
         lines.append(f'| `events/{key}` | {p["author"]} | [{p["license"]}]({p["license_url"]}) | [{p["source"]}]({p["page"]}) |')
+    lines += ["","## Event category fallbacks","","Shown when an event has no photograph of its own. These pictures are not used as the event image in structured data.","","| Category | Image | Author | Licence | Original |","|---|---|---|---|---|"]
+    for kind,key in EV_FALLBACK.items():
+        p=CREDITS[key]
+        lines.append(f'| {kind} | `events/{key}` | {p["author"]} | [{p["license"]}]({p["license_url"]}) | [{p["source"]}]({p["page"]}) |')
     lines += ["","CC BY-SA files: the cropped, resized and watermarked images published with the site are adaptations and remain under the same CC BY-SA licence as the original.",""]
     text="\n".join(lines)+"\n"
     open(os.path.join(OUT,"CREDITS.md"),"w",encoding="utf8").write(text)
@@ -967,15 +983,26 @@ def event_ld(ev,l):
                        "priceCurrency":"EUR","url":ev["url"],
                        "availability":"https://schema.org/InStock"}
         # offers.validFrom is omitted: ticket on-sale dates are not in the source data.
+    # Own photograph only. A category fallback is a listing illustration and
+    # must not be published as this event's image.
     if ev.get("photo"):
         obj["image"]=[abs_(f"/assets/img/events/{ev['photo']}-1200.webp"),
                       abs_(f"/assets/img/events/{ev['photo']}-600.webp")]
     return obj
-def ev_card(ev,l,u):
+def event_illustration(ev):
+    """Card image: the event's own photo, or the category fallback when it has none."""
     if ev.get("photo"):
-        ph=EV_PHOTOS[ev["photo"]]
-        media=(f'<figure class="pic"><img src="{href(f"/assets/img/events/{ev["photo"]}-600.webp")}" '
-               f'srcset="{href(f"/assets/img/events/{ev["photo"]}-600.webp")} 600w, {href(f"/assets/img/events/{ev["photo"]}-1200.webp")} 1200w" '
+        return ev["photo"], EV_PHOTOS[ev["photo"]]
+    key=EV_FALLBACK.get(ev.get("type"))
+    ph=CREDITS.get(key) if key else None
+    if ph and ph.get("file") and ph.get("alt"):
+        return key, ph
+    return None, None
+def ev_card(ev,l,u):
+    key,ph=event_illustration(ev)
+    if ph:
+        media=(f'<figure class="pic"><img src="{href(f"/assets/img/events/{key}-600.webp")}" '
+               f'srcset="{href(f"/assets/img/events/{key}-600.webp")} 600w, {href(f"/assets/img/events/{key}-1200.webp")} 1200w" '
                f'sizes="(max-width:600px) 100vw, 240px" width="600" height="338" alt="{e(ph["alt"][l])}" loading="lazy">'
                f'<figcaption>{ev_caption(ph,l)}</figcaption></figure>')
     else:
@@ -1039,13 +1066,17 @@ def page_events(l):
     h+=f'<p data-evempty hidden>{e(u["empty"])}</p>{groups}</main>'
     h+=script+footer(l)
     return h
+def _write_event_webp(d, key, p):
+    im=Image.open(os.path.join(HERE,"photos",p["file"]))
+    plain=cover_crop(im,1200,675,tuple(p.get("focus",(0.5,0.5))))
+    watermark(plain).save(f"{d}/{key}-1200.webp","WEBP",quality=78,method=6)
+    watermark(plain.resize((600,338),Image.LANCZOS)).save(f"{d}/{key}-600.webp","WEBP",quality=76,method=6)
 def build_event_photos():
     d=OUT+"/assets/img/events"; os.makedirs(d,exist_ok=True)
     for key,p in EV_PHOTOS.items():
-        im=Image.open(os.path.join(HERE,"photos",p["file"]))
-        plain=cover_crop(im,1200,675,tuple(p.get("focus",(0.5,0.5))))
-        watermark(plain).save(f"{d}/{key}-1200.webp","WEBP",quality=78,method=6)
-        watermark(plain.resize((600,338),Image.LANCZOS)).save(f"{d}/{key}-600.webp","WEBP",quality=76,method=6)
+        _write_event_webp(d, key, p)
+    for key in EV_FALLBACK.values():
+        _write_event_webp(d, key, CREDITS[key])
 
 def page_root():
     # language chooser = x-default

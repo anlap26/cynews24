@@ -40,5 +40,20 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `events/lefkara` | Qasinka | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2022_03_Pano_Lefkara_1.jpg) |
 | `events/ayia-napa` | Wojciech Biegun | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ayia_Napa_harbour,_Cyprus_-_panoramio.jpg) |
 
+## Event category fallbacks
+
+Shown when an event has no photograph of its own. These pictures are not used as the event image in structured data.
+
+| Category | Image | Author | Licence | Original |
+|---|---|---|---|---|
+| theatre | `events/ev-fallback-theatre` | ChristosV | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Municipal-theatre-nicosia.jpg) |
+| cinema | `events/ev-fallback-cinema` | Lovingcentralalberta | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Jewel_Theatre_-_Movie_auditorium.jpg) |
+| concert | `events/ev-fallback-concert` | Liilia Moroz | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2015_Paphos_Odeon.jpg) |
+| festival | `events/ev-fallback-festival` | George M. Groutas | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Entrée_du_festival_du_vin_de_Limassol.jpg) |
+| fair | `events/ev-fallback-fair` | ChristosV | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Food-market-nicosia.jpg) |
+| exhibition | `events/ev-fallback-exhibition` | Молли | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Leventis_Gallery,_Nicosia,_Cyprus-2.jpg) |
+| kids | `events/ev-fallback-kids` | AlsosforestCyprus | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Alsos_forest_kids_playground_in_Nicosia_Republic_of_Cyprus.jpg) |
+| sport | `events/ev-fallback-sport` | George Groutas | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:GSP_Stadium_in_Nicosia_(Omonoia_-_Manchester_City).jpg) |
+
 CC BY-SA files: the cropped, resized and watermarked images published with the site are adaptations and remain under the same CC BY-SA licence as the original.
 
