@@ -472,7 +472,7 @@ article.a h1{font-size:40px;line-height:1.1;letter-spacing:-.8px;margin:6px 0 12
 .by .when{display:flex;flex-direction:column;align-items:flex-end;gap:2px;text-align:right}
 .by time{display:block}
 figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6px}figcaption a{color:#0b57b0;text-decoration:underline}
-.body p{font-size:18px;line-height:1.65;margin:0 0 18px}
+.body p{font-size:18px;line-height:1.65;margin:0 0 18px;overflow-wrap:anywhere}.body a{color:#0b57b0;text-decoration:underline}
 .src{background:var(--soft);border-left:4px solid var(--acc);padding:14px 16px;margin:28px 0;font-size:15px}.src h2{font-size:15px;margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}.src p{margin:0 0 8px;color:var(--mut)}.src ul{margin:0;padding-left:18px}.src a{text-decoration:underline;color:#0b57b0}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}.tags li{border:1px solid var(--line);border-radius:20px;padding:3px 12px;font-size:13px;color:#33383f}
 .tgcta{margin:4px 0 28px}.tgcta a{display:flex;align-items:center;gap:12px;background:var(--dark);color:#fff;padding:14px 16px;font-weight:700;font-size:17px;line-height:1.35}
@@ -724,6 +724,19 @@ def article_times(s):
 def fdt(iso,l):
     dt=datetime.datetime.fromisoformat(iso)
     return f'{fdate(dt.date().isoformat(),l)}, {dt.strftime("%H:%M")} (EET)'
+_URL_RE = re.compile(r"https?://[^\s<]+")
+def linkify(text):
+    """Article text stays plain. A bare URL becomes a link after it is escaped."""
+    def repl(m):
+        url = m.group(0)
+        tail = ""
+        while url and url[-1] in ".,;:)":
+            tail = url[-1] + tail
+            url = url[:-1]
+        if not url:
+            return m.group(0)
+        return f'<a href="{url}" target="_blank" rel="noopener">{url}</a>{tail}'
+    return _URL_RE.sub(repl, e(text))
 def page_article(l,s):
     u=UI[l]; path=f"/{l}/{s['slug']}/"; pathfn=lambda x:f"/{x}/{s['slug']}/"
     title=s["title"][l]
@@ -747,7 +760,7 @@ def page_article(l,s):
     h+=f'<article class="a"><span class="cat">{CATN[l][s["cat"]]}</span><h1>{e(title)}</h1><p class="dek">{e(s["lede"][l])}</p>'
     h+=f'<div class="by"><span class="who">{e(u["byline"])}</span><span class="when"><time datetime="{pub}">{e(u["published"])}: {fdt(pub,l)}</time><time datetime="{mod}">{e(u["updated"])}: {fdt(mod,l)}</time></span></div>'
     h+=f'<figure>{img_tag(s,l,1200,False,True,"(max-width:800px) 100vw,760px")}{f"<figcaption>{photo_caption(s,l)}</figcaption>" if photo_caption(s,l) else ""}</figure>'
-    h+='<div class="body">'+"".join(f'<p>{e(p)}</p>' for p in s["body"][l])+'</div>'
+    h+='<div class="body">'+"".join(f'<p>{linkify(p)}</p>' for p in s["body"][l])+'</div>'
     if s["sources"]:
         h+=f'<section class="src" aria-label="{u["sources"]}"><h2>{u["sources"]}</h2><p>{u["sources_note"]}</p><ul>'+"".join(f'<li><a href="{e(x[1])}" target="_blank" rel="noopener nofollow">{e(x[0])}</a></li>' for x in s["sources"])+'</ul></section>'
     if s["kw"][l]:

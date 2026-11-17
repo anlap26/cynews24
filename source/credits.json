@@ -623,5 +623,44 @@
       0.35
     ],
     "depicts": "The Metsovion Polytechnic building in Athens"
+  },
+  "nicosia-town-hall": {
+    "author": "Iakovos Hatzistavrou, European Commission",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Nicosia_Town_Hall.jpg",
+    "file": "nicosia-town-hall.jpg",
+    "focus": [
+      0.5,
+      0.42
+    ],
+    "depicts": "Nicosia Town Hall on Eleftheria Square"
+  },
+  "strovolos-house": {
+    "author": "Молли",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Izgled-Strovolos-4.jpg",
+    "file": "strovolos-house.jpg",
+    "focus": [
+      0.5,
+      0.32
+    ],
+    "depicts": "A house in Strovolos, in the Nicosia district"
+  },
+  "larnaca-arrivals": {
+    "author": "Héctor Ochoa",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Larnaca_Airport_Arrivals_Hall_20180330.jpg",
+    "file": "larnaca-arrivals.jpg",
+    "focus": [
+      0.55,
+      0.38
+    ],
+    "depicts": "The arrivals hall at Larnaca airport"
   }
 }
