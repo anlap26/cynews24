@@ -262,6 +262,10 @@
       }
     },
     "november-17-blackout-rumour": {
+      "en": {
+        "at": "2026-11-17T15:19:04Z",
+        "status": "sent"
+      },
       "ru": {
         "at": "2026-11-17T15:19:04Z",
         "status": "sent"
