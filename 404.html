@@ -1,1 +1,58 @@
-<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="yandex-verification" content="4db90fdda985d0e0" /><title>404 — CyNews 24</title><meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/css/style.css"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1547877294743851" crossorigin="anonymous"></script></head><body><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p><div class="btns"><a href="/ru/">RU</a><a href="/en/">EN</a><a href="/el/">EL</a></div></div></main></body></html>
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="yandex-verification" content="4db90fdda985d0e0" /><title>404 — CyNews 24</title><meta name="robots" content="noindex"><link rel="stylesheet" href="/assets/css/style.css"><script>
+window.dataLayer=window.dataLayer||[];
+function gtag(){dataLayer.push(arguments);}
+gtag('consent','default',{
+  'ad_storage':'denied',
+  'ad_user_data':'denied',
+  'ad_personalization':'denied',
+  'analytics_storage':'denied',
+  'wait_for_update':500
+});
+gtag('set','ads_data_redaction',true);
+gtag('set','url_passthrough',true);
+try{
+  if(localStorage.getItem('cynews24-consent')==='accepted'){
+    gtag('consent','update',{
+      'ad_storage':'granted',
+      'ad_user_data':'granted',
+      'ad_personalization':'granted',
+      'analytics_storage':'granted'
+    });
+  }
+}catch(err){}
+</script><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1547877294743851" crossorigin="anonymous"></script></head><body><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p><div class="btns"><a href="/ru/">RU</a><a href="/en/">EN</a><a href="/el/">EL</a></div></div></main><div id="cookie-banner" class="cookiebanner" hidden role="dialog" aria-labelledby="cookie-title"><div class="wrap"><p id="cookie-title"><strong>Cookies</strong></p><p>We use cookies so Google can show ads and, when analytics is switched on, count visits. Until you accept, those cookies stay off. <a href="/en/cookies/">Cookie policy</a></p><div class="cookie-actions"><button type="button" data-consent="rejected">Reject</button><button type="button" data-consent="accepted">Accept</button></div></div></div><script>
+(function(){
+  var KEY="cynews24-consent";
+  var banner=document.getElementById("cookie-banner");
+  if(!banner||typeof gtag!=="function") return;
+  function show(){banner.hidden=false}
+  function hide(){banner.hidden=true}
+  function apply(value){
+    var state=value==="accepted"?"granted":"denied";
+    gtag("consent","update",{
+      ad_storage:state,
+      ad_user_data:state,
+      ad_personalization:state,
+      analytics_storage:state
+    });
+    try{localStorage.setItem(KEY,value)}catch(err){}
+    hide();
+  }
+  var saved="";
+  try{saved=localStorage.getItem(KEY)||""}catch(err){}
+  if(saved!=="accepted"&&saved!=="rejected") show();
+  banner.addEventListener("click",function(ev){
+    var btn=ev.target.closest("[data-consent]");
+    if(!btn) return;
+    apply(btn.getAttribute("data-consent"));
+  });
+  document.querySelectorAll("[data-cookie-settings]").forEach(function(a){
+    a.addEventListener("click",function(ev){
+      ev.preventDefault();
+      show();
+      var first=banner.querySelector("[data-consent]");
+      if(first) first.focus();
+    });
+  });
+})();
+</script></body></html>

@@ -42,6 +42,20 @@ Slugs already sent are stored in `source/content/facebook-posted.json`. Editing 
 
 Run the workflow manually with **dry run** checked to print the messages and to confirm the Page is reachable. A dry run does not publish anything.
 
+## IndexNow
+
+A push to `main` runs **IndexNow** (`.github/workflows/indexnow.yml`). The key is `INDEXNOW_KEY` in `source/build.py`, a random 32-character hex string. The build writes it to the site root as `<key>.txt` (the file contains the key). The workflow reads that file and POSTs to `https://api.indexnow.org/indexnow`.
+
+The list is the URLs in `sitemap.xml` and `news-sitemap.xml`. When the push has a parent commit, only URLs whose pages changed are sent. If the generator changed and no page file did, every sitemap URL is sent. If nothing public changed, the sitemap addresses themselves are sent. IndexNow checks the key file on the live site, so the job waits until `https://cynews24.net/<key>.txt` returns the key.
+
+## Bing, analytics and cookies
+
+`BING_VERIFICATION` in `source/build.py` is the Bing Webmaster Tools value for `<meta name="msvalidate.01">`. Leave it empty until you have a code; an empty value omits the tag.
+
+`GA4_ID` is the Google Analytics 4 measurement ID (`G-XXXXXXXX`). While it is empty the site does not load Google Analytics, and the privacy and cookie pages say so. When it is set, `gtag.js` loads after Google Consent Mode has defaulted advertising and analytics storage to denied. The cookie banner (Accept / Reject, remembered in `localStorage`) updates that consent. AdSense stays loaded either way; its script comes after the consent default.
+
+The cookie policy is at `/ru/cookies/`, `/en/cookies/` and `/el/cookies/`. The footer link **Cookie settings** opens the banner again.
+
 ## Rebuild locally
 
 From `source/` (Python 3 and Pillow, DejaVu fonts):

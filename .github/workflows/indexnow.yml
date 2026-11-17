@@ -1,0 +1,39 @@
+# Tells IndexNow about URLs in sitemap.xml and news-sitemap.xml after a push
+# to main. Changed pages are sent when the parent commit is known. If the
+# generator changed but no page file did, every sitemap URL is sent. If
+# nothing public changed, the two sitemap addresses are sent.
+# The key file at the site root has to answer with the key before the API
+# accepts the list, so the job waits for GitHub Pages.
+name: IndexNow
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: indexnow-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  submit:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Submit URLs to IndexNow
+        env:
+          INDEXNOW_BEFORE: ${{ github.event.before }}
+          INDEXNOW_HEAD: ${{ github.sha }}
+          SITE_HOST: cynews24.net
+        run: python source/indexnow_submit.py

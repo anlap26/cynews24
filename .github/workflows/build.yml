@@ -54,6 +54,9 @@ jobs:
         with:
           python-version: "3.12"
 
+      - name: Install Python packages
+        run: pip install -r source/requirements.txt
+
       - name: Test Telegram poster
         run: python -m unittest discover -s source -p 'test_*.py' -v
 
