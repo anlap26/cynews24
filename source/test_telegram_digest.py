@@ -209,13 +209,18 @@ class SelectTests(unittest.TestCase):
 
 
 class StateTests(unittest.TestCase):
-    def test_shipped_state_is_empty_and_roundtrips(self):
+    def test_shipped_state_roundtrips(self):
+        """The committed file may already list dates that were posted. It must
+        still load and serialize back to the same bytes, so a run does not
+        rewrite it or send those digests again."""
         self.assertTrue(os.path.exists(STATE))
         with open(STATE, encoding="utf-8") as handle:
             raw = handle.read()
         state = digest.load_state(STATE)
         self.assertEqual(raw, digest.serialize(state))
-        self.assertEqual(state["sent"], {})
+        self.assertIsInstance(state["sent"], dict)
+        for day in state["sent"]:
+            datetime.date.fromisoformat(day)
         self.assertIn("@cynews24", state["note"])
         self.assertIn("@cynews24en", state["note"])
 
