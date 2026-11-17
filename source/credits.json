@@ -519,5 +519,109 @@
       0.45
     ],
     "depicts": "A colonnade of the University of Athens; not Sunday's student marches"
+  },
+  "blackout-rumour": {
+    "author": "Kiddo27",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Broadcast_studio_in_Gaylord_College_of_Journalism_at_OU.jpg",
+    "file": "broadcast-studio.jpg",
+    "focus": [
+      0.5,
+      0.38
+    ],
+    "depicts": "A broadcast studio, with a control room visible behind glass"
+  },
+  "water-tariffs": {
+    "author": "Pbach",
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Kouris_Dam,_Cyprus.jpg",
+    "file": "kouris-dam.jpg",
+    "focus": [
+      0.5,
+      0.55
+    ],
+    "depicts": "Kouris Dam, in the Limassol district"
+  },
+  "provident-funds": {
+    "author": "ΣτηρίζωΚύπρο",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Ministry_of_Finance_building_in_Nicosia_Republic_of_Cyprus.jpg",
+    "file": "finance-ministry.jpg",
+    "focus": [
+      0.5,
+      0.42
+    ],
+    "depicts": "The Ministry of Finance building in Nicosia"
+  },
+  "cemetery-graves": {
+    "author": "NeoCy",
+    "source": "Wikimedia Commons",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Nicosia_ancient_Armenian_cemetery.jpg",
+    "file": "nicosia-cemetery.jpg",
+    "focus": [
+      0.5,
+      0.48
+    ],
+    "depicts": "An old cemetery in Nicosia, not the Saints Constantine and Helen cemetery"
+  },
+  "france-gsi": {
+    "author": "Z22",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Wolfe_Island_Wind_Project_Submarine_Power_Cable.jpg",
+    "file": "submarine-cable.jpg",
+    "focus": [
+      0.5,
+      0.42
+    ],
+    "depicts": "A cross-section of a submarine power cable"
+  },
+  "presidential-spending": {
+    "author": "NicosiaRepublicCyprus",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Mahatma_Gandhi_Statue_next_to_Cyprus_Parliament_House_of_Representatives_Nicosia_Republic_of_Cyprus.jpg",
+    "file": "parliament-nicosia.jpg",
+    "focus": [
+      0.45,
+      0.42
+    ],
+    "depicts": "The Gandhi statue beside the House of Representatives in Nicosia"
+  },
+  "erhurman-meeting": {
+    "author": "Nicosiaduringnight1",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Buffer_Zone_new_entrance_Ledra_Street_Nicosia_Republic_of_Cyprus.jpg",
+    "file": "ledra-buffer.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The entrance to the buffer zone at Ledra Street in Nicosia"
+  },
+  "polytechnic-anniversary": {
+    "author": "athenswalk",
+    "source": "Wikimedia Commons",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Metsovio_polytechnic_school..jpg",
+    "file": "metsovio.jpg",
+    "focus": [
+      0.42,
+      0.35
+    ],
+    "depicts": "The Metsovion Polytechnic building in Athens"
   }
 }
