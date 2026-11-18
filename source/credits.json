@@ -1,4 +1,95 @@
 {
+  "summit-palace": {
+    "author": "Iakovos Hatzistavrou, European Commission",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Cypriot_Presidential_Palace_5.jpg",
+    "file": "summit-palace.jpg",
+    "focus": [
+      0.5,
+      0.42
+    ],
+    "depicts": "The Presidential Palace in Nicosia"
+  },
+  "fig-tree-bay": {
+    "author": "dronepicr",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Fig_Tree_Bay,_Cyprus_(41914176930).jpg",
+    "file": "fig-tree-bay.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The coast at Fig Tree Bay, Cyprus"
+  },
+  "berlaymont": {
+    "author": "acediscovery",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Berlaymont_EU_Building-Brussels.jpg",
+    "file": "berlaymont.jpg",
+    "focus": [
+      0.5,
+      0.35
+    ],
+    "depicts": "The Berlaymont building in Brussels, headquarters of the European Commission"
+  },
+  "desalination-plant": {
+    "author": "James Grellier",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Reverse_osmosis_desalination_plant.JPG",
+    "file": "desalination-plant.jpg",
+    "focus": [
+      0.5,
+      0.4
+    ],
+    "depicts": "A reverse-osmosis seawater desalination plant near Barcelona; not one of the Cyprus units"
+  },
+  "varosha-salaminia": {
+    "author": "Shanomag",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Varosha_(Famagusta)_Salaminia_Tower_Hotel_1.jpg",
+    "file": "varosha-salaminia.jpg",
+    "focus": [
+      0.5,
+      0.4
+    ],
+    "depicts": "The Salaminia Tower hotel in fenced Varosha, Famagusta"
+  },
+  "justus-lipsius": {
+    "author": "Szilas",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Justus_Lipsius_building_2007-05-08.jpg",
+    "file": "justus-lipsius.jpg",
+    "focus": [
+      0.55,
+      0.45
+    ],
+    "depicts": "The Justus Lipsius building in Brussels, seat of the Council of the European Union"
+  },
+  "unficyp-ledra": {
+    "author": "Mehmet İlkman",
+    "source": "Wikimedia Commons",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:The_memorial_by_the_UNFICYP_commemorating_its_60th_year_of_service_outside_of_Ledra_Palace_Hotel.jpg",
+    "file": "unficyp-ledra.jpg",
+    "focus": [
+      0.5,
+      0.55
+    ],
+    "depicts": "The UNFICYP 60-year memorial outside the Ledra Palace Hotel in Nicosia"
+  },
   "fitto-cyprus-talks": {
     "author": "Iakovos Hatzistavrou, European Commission",
     "source": "Wikimedia Commons",

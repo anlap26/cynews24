@@ -1,0 +1,32 @@
+{
+  "contact": {
+    "email": "info@cynews24.net",
+    "whatsapp": "",
+    "path": "/advertising/"
+  },
+  "listings": [
+    {
+      "id": "example-limassol-apartment",
+      "published": false,
+      "type": "apartment",
+      "status": "example",
+      "city": {"ru": "Лимассол", "en": "Limassol", "el": "Λεμεσός"},
+      "area": {"ru": "береговая линия", "en": "seafront", "el": "παραλιακό μέτωπο"},
+      "price": 350000,
+      "price_from": true,
+      "bedrooms": 2,
+      "area_m2": 78,
+      "title": {
+        "ru": "ПРИМЕР — квартира у моря в Лимассоле (не объявление)",
+        "en": "EXAMPLE — seafront apartment in Limassol (not a real listing)",
+        "el": "ΠΑΡΑΔΕΙΓΜΑ — διαμέρισμα στην παραλία της Λεμεσού (όχι αγγελία)"
+      },
+      "description": {
+        "ru": "Это образец записи в data/properties.json, чтобы был виден формат полей. Квартиры с такой ценой и площадью не существует. Пока published стоит false, карточка не попадает на сайт. Не включайте published, пока не замените текст, цену и фотографии на данные реального объекта.",
+        "en": "This is a sample record in data/properties.json so the field format is visible. There is no apartment at this price and size. While published is false, the card is not placed on the site. Do not turn published on until the text, price and photographs have been replaced with a real property.",
+        "el": "Αυτή είναι ενδεικτική εγγραφή στο data/properties.json ώστε να φαίνεται η μορφή των πεδίων. Δεν υπάρχει διαμέρισμα σε αυτή την τιμή και την επιφάνεια. Όσο το published είναι false, η κάρτα δεν μπαίνει στον ιστότοπο. Μην ενεργοποιήσετε το published πριν αντικαταστήσετε κείμενο, τιμή και φωτογραφίες με πραγματικό ακίνητο."
+      },
+      "photos": ["images/properties/example-limassol-apartment/cover.jpg"]
+    }
+  ]
+}

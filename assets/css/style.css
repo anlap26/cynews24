@@ -114,6 +114,19 @@ button.send:hover{background:var(--acc)}
 .ev p{margin:0 0 8px}
 .ev figcaption{font-size:12px}
 .ev a{color:#0b57b0;text-decoration:underline}
+.plistings{margin:4px 0 26px}.plistings h2,.pnews{font-size:22px;border-top:4px solid var(--acc);padding-top:8px;margin:8px 0 14px}
+.pempty{background:var(--soft);border-left:4px solid var(--acc);padding:14px 16px;margin:0}
+.pcard{border:1px solid var(--line);background:#fff;display:flex;flex-direction:column}
+.pcard .img{background:var(--soft);aspect-ratio:16/9}
+.pcard .pad{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.pcard h3{font-size:18px;line-height:1.25;margin:4px 0}
+.pcard .price{font-weight:800;color:var(--acc);margin:0}
+.pcard .facts{font-size:13px;color:var(--mut);margin:0}
+.pstatus{display:inline-block;align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;border:1px solid var(--line);padding:2px 8px}
+.pcta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.pcta a{display:inline-block;background:var(--dark);color:#fff;font-weight:800;padding:10px 14px;text-decoration:none}
+.pcta a:hover{background:var(--acc)}
+.pgallery{display:grid;gap:12px;margin:0 0 18px}
 .cookiebanner{position:fixed;z-index:40;left:0;right:0;bottom:0;background:var(--dark);color:#fff;padding:14px 0 16px;box-shadow:0 -6px 20px rgba(0,0,0,.28)}
 .cookiebanner[hidden]{display:none}
 .cookiebanner p{margin:0 0 8px;max-width:760px;color:#e6e9ee}

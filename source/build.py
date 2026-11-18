@@ -587,6 +587,19 @@ button.send:hover{background:var(--acc)}
 .ev p{margin:0 0 8px}
 .ev figcaption{font-size:12px}
 .ev a{color:#0b57b0;text-decoration:underline}
+.plistings{margin:4px 0 26px}.plistings h2,.pnews{font-size:22px;border-top:4px solid var(--acc);padding-top:8px;margin:8px 0 14px}
+.pempty{background:var(--soft);border-left:4px solid var(--acc);padding:14px 16px;margin:0}
+.pcard{border:1px solid var(--line);background:#fff;display:flex;flex-direction:column}
+.pcard .img{background:var(--soft);aspect-ratio:16/9}
+.pcard .pad{padding:12px 12px 14px;display:flex;flex-direction:column;gap:4px;flex:1}
+.pcard h3{font-size:18px;line-height:1.25;margin:4px 0}
+.pcard .price{font-weight:800;color:var(--acc);margin:0}
+.pcard .facts{font-size:13px;color:var(--mut);margin:0}
+.pstatus{display:inline-block;align-self:flex-start;font-size:12px;font-weight:800;letter-spacing:.4px;text-transform:uppercase;border:1px solid var(--line);padding:2px 8px}
+.pcta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
+.pcta a{display:inline-block;background:var(--dark);color:#fff;font-weight:800;padding:10px 14px;text-decoration:none}
+.pcta a:hover{background:var(--acc)}
+.pgallery{display:grid;gap:12px;margin:0 0 18px}
 .cookiebanner{position:fixed;z-index:40;left:0;right:0;bottom:0;background:var(--dark);color:#fff;padding:14px 0 16px;box-shadow:0 -6px 20px rgba(0,0,0,.28)}
 .cookiebanner[hidden]{display:none}
 .cookiebanner p{margin:0 0 8px;max-width:760px;color:#e6e9ee}
@@ -888,6 +901,203 @@ def page_home(l):
     # grid override for tablet/mobile handled by CSS? add class
     return h
 
+PROP_FILE=os.path.join(os.path.dirname(HERE),"data","properties.json")
+PROP_TYPES={
+ "en":{"project":"Development","apartment":"Apartment","villa":"Villa","house":"House","land":"Land","office":"Office"},
+ "ru":{"project":"Проект","apartment":"Квартира","villa":"Вилла","house":"Дом","land":"Участок","office":"Офис"},
+ "el":{"project":"Έργο","apartment":"Διαμέρισμα","villa":"Βίλα","house":"Οικία","land":"Οικόπεδο","office":"Γραφείο"},
+}
+PROP_STATUS={
+ "en":{"available":"Available","sold":"Sold","under construction":"Under construction","example":"Example"},
+ "ru":{"available":"Свободно","sold":"Продано","under construction":"Строится","example":"Пример"},
+ "el":{"available":"Διαθέσιμο","sold":"Πωλήθηκε","under construction":"Υπό κατασκευή","example":"Παράδειγμα"},
+}
+LISTING_UI={
+ "en":dict(h="Property listings",news="Property news",empty="No property listings are published yet. New developments and homes for sale will appear here.",
+           beds="bedrooms",area="m²",from_="from",contact="Contact",email="Email",whatsapp="WhatsApp",page="Advertising and contact"),
+ "ru":dict(h="Объявления",news="Новости недвижимости",empty="Опубликованных объявлений пока нет. Новые проекты и объекты на продажу появятся здесь.",
+           beds="спален",area="м²",from_="от",contact="Связаться",email="Эл. почта",whatsapp="WhatsApp",page="Реклама и контакты"),
+ "el":dict(h="Αγγελίες",news="Ειδήσεις ακινήτων",empty="Δεν υπάρχουν δημοσιευμένες αγγελίες ακόμη. Νέα έργα και ακίνητα προς πώληση θα εμφανίζονται εδώ.",
+           beds="υπνοδωμάτια",area="τ.μ.",from_="από",contact="Επικοινωνία",email="Email",whatsapp="WhatsApp",page="Διαφήμιση και επικοινωνία"),
+}
+def _loc(v,l):
+    if isinstance(v, dict):
+        return _clean(v.get(l) or v.get("en") or "")
+    return _clean("" if v is None else str(v))
+def load_property_file():
+    if not os.path.exists(PROP_FILE):
+        return {"contact":{},"listings":[]}
+    with open(PROP_FILE,encoding="utf8") as f:
+        data=json.load(f)
+    if isinstance(data, list):
+        data={"contact":{},"listings":data}
+    if not isinstance(data, dict):
+        raise SystemExit("data/properties.json must be an object")
+    data.setdefault("contact",{})
+    listings=data.get("listings") or []
+    if not isinstance(listings, list):
+        raise SystemExit("data/properties.json listings must be a list")
+    seen=set()
+    for p in listings:
+        pid=_clean(p.get("id"))
+        if not re.fullmatch(r"[a-z0-9]+(?:-[a-z0-9]+)*", pid or ""):
+            raise SystemExit(f"property id {pid!r} must be lowercase letters, digits and hyphens")
+        if pid in seen:
+            raise SystemExit(f"duplicate property id {pid}")
+        seen.add(pid)
+        for key in ("title","description","city"):
+            if not isinstance(p.get(key), dict) or not _clean(p[key].get("en")):
+                raise SystemExit(f"property {pid}: {key} needs at least an English value")
+    data["listings"]=listings
+    return data
+_PROPS=None
+def property_data():
+    global _PROPS
+    if _PROPS is None:
+        _PROPS=load_property_file()
+    return _PROPS
+def listing_is_live(p):
+    """The sample record stays off the site. A listing is live only when published and not marked example."""
+    if not p.get("published"):
+        return False
+    return str(p.get("status") or "").strip().lower()!="example"
+def published_listings():
+    return [p for p in property_data()["listings"] if listing_is_live(p)]
+def _prop_label(table, l, key):
+    return table[l].get(key) or table["en"].get(key) or str(key)
+def _prop_price(p, l):
+    raw=p.get("price")
+    if raw is None or raw=="":
+        return ""
+    try:
+        num=int(raw)
+    except (TypeError, ValueError):
+        raise SystemExit(f"property {p.get('id')}: price must be a number of euros")
+    text="€"+f"{num:,}"
+    if p.get("price_from"):
+        text=LISTING_UI[l]["from_"]+" "+text
+    return text
+def _prop_facts(p, l):
+    u=LISTING_UI[l]
+    bits=[]
+    city=_loc(p.get("city"), l)
+    area=_loc(p.get("area"), l)
+    place=", ".join(x for x in (city, area) if x)
+    if place:
+        bits.append(place)
+    if p.get("bedrooms") not in (None, ""):
+        bits.append(f'{p["bedrooms"]} {u["beds"]}')
+    if p.get("area_m2") not in (None, ""):
+        bits.append(f'{p["area_m2"]} {u["area"]}')
+    return " · ".join(bits)
+def listing_photo_file(rel):
+    rel=(rel or "").lstrip("/")
+    if not rel.startswith("images/properties/"):
+        return ""
+    path=os.path.normpath(os.path.join(os.path.dirname(HERE), rel))
+    root=os.path.normpath(os.path.join(os.path.dirname(HERE), "images", "properties"))
+    if not path.startswith(root+os.sep) or not os.path.isfile(path):
+        return ""
+    return path
+def build_listing_photos():
+    d=os.path.join(OUT,"assets","img","properties")
+    os.makedirs(d, exist_ok=True)
+    for p in published_listings():
+        for i, rel in enumerate(p.get("photos") or []):
+            src=listing_photo_file(rel)
+            if not src:
+                print(f"WARNING: listing photo missing for {p['id']}: {rel}")
+                continue
+            im=Image.open(src)
+            plain=cover_crop(im,1200,675,(0.5,0.45))
+            plain.save(f"{d}/{p['id']}-{i}-1200.webp","WEBP",quality=78,method=6)
+            plain.resize((600,338),Image.LANCZOS).save(f"{d}/{p['id']}-{i}-600.webp","WEBP",quality=76,method=6)
+def _listing_img(p, i, l, lazy=True):
+    rel=(p.get("photos") or [None])[i] if i < len(p.get("photos") or []) else None
+    if not listing_photo_file(rel or ""):
+        return ""
+    alt=e(_loc(p.get("title"), l))
+    src=href(f"/assets/img/properties/{p['id']}-{i}-1200.webp")
+    small=href(f"/assets/img/properties/{p['id']}-{i}-600.webp")
+    ex=' loading="lazy"' if lazy else ""
+    return f'<img src="{src}" srcset="{small} 600w, {src} 1200w" sizes="(max-width:600px) 100vw, 360px" width="1200" height="675" alt="{alt}" decoding="async"{ex}>'
+def listing_card(p, l):
+    u=LISTING_UI[l]
+    link=href(f"/{l}/real-estate/{p['id']}/")
+    img=_listing_img(p, 0, l)
+    media=f'<a class="img" href="{link}" tabindex="-1">{img}</a>' if img else ""
+    kind=_prop_label(PROP_TYPES, l, p.get("type"))
+    status=_prop_label(PROP_STATUS, l, p.get("status"))
+    price=_prop_price(p, l)
+    return (f'<article class="pcard">{media}<div class="pad"><span class="pstatus">{e(status)}</span>'
+            f'<span class="cat">{e(kind)}</span><a href="{link}"><h3>{e(_loc(p["title"], l))}</h3></a>'
+            f'<p class="price">{e(price)}</p><p class="facts">{e(_prop_facts(p, l))}</p></div></article>')
+def listings_block(l):
+    u=LISTING_UI[l]
+    rows=published_listings()
+    if rows:
+        body='<div class="grid g3">'+"".join(listing_card(p, l) for p in rows)+'</div>'
+    else:
+        body=f'<p class="pempty">{e(u["empty"])}</p>'
+    return f'<section class="plistings" aria-label="{e(u["h"])}"><h2>{e(u["h"])}</h2>{body}</section>'
+def listing_contact(p):
+    base=dict(property_data().get("contact") or {})
+    over=p.get("contact") or {}
+    if isinstance(over, dict):
+        for k,v in over.items():
+            if _clean(v if isinstance(v, str) else ""):
+                base[k]=v
+    return base
+def _wa_href(raw):
+    digits=re.sub(r"\D","", raw or "")
+    if len(digits)<8:
+        return ""
+    return "https://wa.me/"+digits
+def listing_cta(p, l):
+    u=LISTING_UI[l]
+    c=listing_contact(p)
+    bits=[]
+    path=_clean(c.get("path") or "/advertising/")
+    if not path.startswith("/"):
+        path="/"+path
+    if not path.endswith("/"):
+        path=path+"/"
+    bits.append(f'<a href="{href("/"+l+path)}">{e(u["page"])}</a>')
+    email=_clean(c.get("email"))
+    if email:
+        bits.append(f'<a href="mailto:{e(email)}">{e(u["email"])}: {e(email)}</a>')
+    wa=_wa_href(c.get("whatsapp"))
+    if wa:
+        bits.append(f'<a href="{e(wa)}" target="_blank" rel="noopener">{e(u["whatsapp"])}</a>')
+    return f'<div class="pcta">{"".join(bits)}</div>'
+def page_listing(l, p):
+    u=LISTING_UI[l]
+    pid=p["id"]
+    path=f"/{l}/real-estate/{pid}/"
+    pathfn=lambda x, pid=pid: f"/{x}/real-estate/{pid}/"
+    title=_loc(p["title"], l)
+    desc=trunc(_loc(p["description"], l).replace("\n"," "), 158)
+    price=_prop_price(p, l)
+    photos=[]
+    for i in range(len(p.get("photos") or [])):
+        tag=_listing_img(p, i, l, lazy=(i>0))
+        if tag:
+            photos.append(f'<figure>{tag}</figure>')
+    gallery=f'<div class="pgallery">{"".join(photos)}</div>' if photos else ""
+    paras="".join(f"<p>{e(x)}</p>" for x in _paras(_loc(p["description"], l)))
+    offer={"@type":"Offer","priceCurrency":"EUR","availability":"https://schema.org/InStock"}
+    if p.get("price") not in (None,""):
+        offer["price"]=str(int(p["price"]))
+    ld={"@context":"https://schema.org","@type":"RealEstateListing","name":title,"description":_loc(p["description"], l),
+        "url":abs_(path),"inLanguage":l,"address":{"@type":"PostalAddress","addressLocality":_loc(p.get("city"), l),"addressCountry":"CY"},
+        "offers":offer}
+    h=head(l, f"{title} | {CATN[l]['real-estate']} | {SITE}", desc or title, [title, CATN[l]["real-estate"], SITE], path, pathfn, "/assets/og-default.jpg", jsonld=[ld])
+    h+=header(l, pathfn, "real-estate")
+    h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{UI[l]["crumb_home"]}</a> › <a href="{href(f"/{l}/real-estate/")}">{CATN[l]["real-estate"]}</a></nav>'
+    h+=f'<article class="adpage"><p class="cat">{e(_prop_label(PROP_TYPES, l, p.get("type")))}</p><h1>{e(title)}</h1>'
+    h+=f'<p class="leadin">{e(price)}</p><p class="meta">{e(_prop_facts(p, l))} · {e(_prop_label(PROP_STATUS, l, p.get("status")))}</p>'
+    h+=gallery+f'<div class="body">{paras}</div><h2>{e(u["contact"])}</h2>{listing_cta(p, l)}</article></main>'+footer(l)
+    return h
 def page_cat(l,c):
     u=UI[l]; pathfn=lambda x:f"/{x}/{c}/"
     items=[s for s in sorted_all() if s["cat"]==c]
@@ -900,7 +1110,9 @@ def page_cat(l,c):
         {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":u["crumb_home"],"item":abs_(f"/{l}/")},{"@type":"ListItem","position":2,"name":CATN[l][c],"item":abs_(f"/{l}/{c}/")}]}]
     og=f'/assets/img/{items[0]["img"]}-og.jpg'
     h=head(l,title,desc,kws,f"/{l}/{c}/",pathfn,og,jsonld=ld)+header(l,pathfn,c)
-    h+=f'<main id="main" class="wrap"><h1 class="sec">{CATN[l][c]}</h1><p class="meta" style="margin-top:-6px">{e(desc)}</p><div class="grid g3" style="margin-top:18px">'+"".join(card(s,l,lazy=(i>2)) for i,s in enumerate(items))+'</div></main>'+footer(l)
+    block=listings_block(l) if c=="real-estate" else ""
+    news=f'<h2 class="pnews">{e(LISTING_UI[l]["news"])}</h2>' if c=="real-estate" else ""
+    h+=f'<main id="main" class="wrap"><h1 class="sec">{CATN[l][c]}</h1><p class="meta" style="margin-top:-6px">{e(desc)}</p>{block}{news}<div class="grid g3" style="margin-top:18px">'+"".join(card(s,l,lazy=(i>2)) for i,s in enumerate(items))+'</div></main>'+footer(l)
     return h
 
 def article_times(s):
@@ -1332,6 +1544,9 @@ def sitemap():
     x.append(entry(lambda l:f"/{l}/cookies/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/advertising/",TODAY,"0.4"))
     x.append(entry(lambda l:f"/{l}/events/",TODAY,"0.6"))
+    for prop in published_listings():
+        pid=prop["id"]
+        x.append(entry(lambda l, pid=pid: f"/{l}/real-estate/{pid}/", TODAY, "0.5"))
     x.append('</urlset>'); return "".join(x)
 
 def news_sitemap():
@@ -1374,11 +1589,14 @@ def main():
     os.makedirs(OUT+"/assets/css",exist_ok=True)
     build_assets()
     build_event_photos()
+    build_listing_photos()
     w("/assets/css/style.css",CSS)
     w("/index.html",page_root())
     for l in LANGS:
         w(f"/{l}/index.html",page_home(l))
         for c in CATS: w(f"/{l}/{c}/index.html",page_cat(l,c))
+        for prop in published_listings():
+            w(f"/{l}/real-estate/{prop['id']}/index.html", page_listing(l, prop))
         for s in STORIES: w(f"/{l}/{s['slug']}/index.html",page_article(l,s))
         w(f"/{l}/about/index.html",page_about(l))
         w(f"/{l}/editorial-policy/index.html",page_info(l,"editorial-policy",POLICY[l],"WebPage"))

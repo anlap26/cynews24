@@ -13,6 +13,8 @@ on:
     branches: [main]
     paths:
       - "source/**"
+      - "data/**"
+      - "images/properties/**"
       - "!source/content/telegram-posted.json"
       - "!source/content/telegram-digest.json"
       - "!source/content/facebook-posted.json"
@@ -20,6 +22,8 @@ on:
   pull_request:
     paths:
       - "source/**"
+      - "data/**"
+      - "images/properties/**"
       - "!source/content/telegram-posted.json"
       - "!source/content/telegram-digest.json"
       - "!source/content/facebook-posted.json"
