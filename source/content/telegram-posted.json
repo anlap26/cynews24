@@ -412,6 +412,10 @@
       }
     },
     "tourist-arrivals-october": {
+      "en": {
+        "at": "2026-11-18T05:33:45Z",
+        "status": "sent"
+      },
       "ru": {
         "at": "2026-11-18T05:33:45Z",
         "status": "sent"
