@@ -197,7 +197,7 @@ AD_EMAIL="cynews24@gmail.com"
 PUBLISHER="Anna"
 # Real profile URLs only. An empty string is not rendered.
 # Facebook stays hidden: Post to Facebook stores the page id in a secret, not a public URL.
-SOCIAL={"facebook":"","instagram":"https://www.instagram.com/cynews24/"}
+SOCIAL={"facebook":"","instagram":"https://www.instagram.com/cynews24/","youtube":"https://www.youtube.com/@thepeachickclub"}
 TELEGRAM={"ru":"https://t.me/cynews24","en":"https://t.me/cynews24en"}
 ABOUT = {
  "en":dict(t="About CyNews 24",d="CyNews 24 is an independent trilingual Cyprus news aggregator and digest, published in Russian, English and Greek and based in Cyprus.",
@@ -486,7 +486,9 @@ img{max-width:100%;height:auto;display:block}
 .lang{display:flex;gap:2px}.lang a{padding:4px 9px;border:1px solid #3b4556;font-weight:700;font-size:12px;letter-spacing:.5px}.lang a[aria-current=true]{background:#fff;color:var(--dark);border-color:#fff}.lang a:hover{background:#2a3446}.lang a[aria-current=true]:hover{background:#fff}
 .tr .tg{display:inline-flex;align-items:center;gap:6px;background:var(--acc);color:#fff;padding:5px 10px;font-weight:800;font-size:12px;letter-spacing:.4px}
 .tr .tg:hover{background:#fff;color:var(--dark)}
-.tr .tg svg{display:block}
+.tr .tg svg,.tr .yt svg{display:block}
+.tr .yt{display:inline-flex;align-items:center;gap:6px;border:1px solid #3b4556;color:#fff;padding:5px 10px;font-weight:800;font-size:12px;letter-spacing:.4px}
+.tr .yt:hover{background:#fff;color:var(--dark)}
 nav.cats{border-bottom:1px solid var(--line);background:#fff;position:sticky;top:0;z-index:20}
 nav.cats ul{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;scrollbar-width:none}
 nav.cats li a{display:block;padding:13px 14px;font-weight:700;font-size:15px;white-space:nowrap;border-bottom:4px solid transparent}
@@ -785,8 +787,10 @@ def header(l, pathfn, active=None):
     nav+=f'<li class="promo"><a href="{href(f"/{l}/advertising/")}" {"aria-current=\"page\"" if active=="advertising" else ""}>{u["ads"]}</a></li>'
     tg=telegram_for(l)
     tg_btn=f'<a class="tg" href="{e(tg)}" target="_blank" rel="noopener">{_icons()["telegram"]}<span>{e(u["tg"])}</span></a>' if tg else ""
+    yt=(SOCIAL.get("youtube") or "").strip()
+    yt_btn=f'<a class="yt" href="{e(yt)}" target="_blank" rel="noopener" title="The Peachick Club">{_icons()["youtube"]}<span>YouTube</span></a>' if yt else ""
     return (f'<body><a class="skip" href="#main">{u["skip"]}</a><header class="top"><div class="wrap"><a class="logo" href="{href(f"/{l}/")}" aria-label="{SITE}"><b>CyNews</b><i>24</i></a>'
-      f'<div class="tr">{tg_btn}<span class="date">{fdate(TODAY,l,True)}</span><nav class="lang" aria-label="{u["lang"]}">{sw}</nav></div></div></header>'
+      f'<div class="tr">{tg_btn}{yt_btn}<span class="date">{fdate(TODAY,l,True)}</span><nav class="lang" aria-label="{u["lang"]}">{sw}</nav></div></div></header>'
       f'<nav class="cats" aria-label="{u["menu"]}"><div class="wrap"><ul>{nav}</ul></div></nav>')
 
 def social_items():
@@ -794,7 +798,7 @@ def social_items():
     icons=_icons(); items=[]
     if TELEGRAM.get("ru"): items.append((TELEGRAM["ru"], "tg_ru", "telegram"))
     if TELEGRAM.get("en"): items.append((TELEGRAM["en"], "tg_en", "telegram"))
-    for key,label in (("instagram","Instagram"),("facebook","Facebook")):
+    for key,label in (("instagram","Instagram"),("youtube","YouTube"),("facebook","Facebook")):
         url=(SOCIAL.get(key) or "").strip()
         if url: items.append((url, label, key))
     return icons, items
@@ -1292,6 +1296,7 @@ def _icons():
      "facebook":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M14 8h3V4h-3c-2.8 0-5 2.2-5 5v2H7v4h2v7h4v-7h3l1-4h-4V9c0-.6.4-1 1-1z"/></svg>',
      "instagram":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M8 3h8a5 5 0 0 1 5 5v8a5 5 0 0 1-5 5H8a5 5 0 0 1-5-5V8a5 5 0 0 1 5-5zm8 2H8a3 3 0 0 0-3 3v8a3 3 0 0 0 3 3h8a3 3 0 0 0 3-3V8a3 3 0 0 0-3-3zm-4 3.2A3.8 3.8 0 1 1 8.2 12 3.8 3.8 0 0 1 12 8.2zm0 2A1.8 1.8 0 1 0 13.8 12 1.8 1.8 0 0 0 12 10.2zM17.4 6.6a1 1 0 1 1-1 1 1 1 0 0 1 1-1z"/></svg>',
      "telegram":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M11.944 0A12 12 0 0 0 0 12a12 12 0 0 0 12 12 12 12 0 0 0 12-12A12 12 0 0 0 12 0a12 12 0 0 0-.056 0zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 0 1 .171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>',
+     "youtube":'<svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true"><path fill="currentColor" d="M23.5 6.2a3 3 0 0 0-2.1-2.1C19.5 3.6 12 3.6 12 3.6s-7.5 0-9.4.5A3 3 0 0 0 .5 6.2 31.6 31.6 0 0 0 0 12a31.6 31.6 0 0 0 .5 5.8 3 3 0 0 0 2.1 2.1c1.9.5 9.4.5 9.4.5s7.5 0 9.4-.5a3 3 0 0 0 2.1-2.1A31.6 31.6 0 0 0 24 12a31.6 31.6 0 0 0-.5-5.8zM9.8 15.5v-7l6.2 3.5z"/></svg>',
     }
 def social_block(l):
     a=AD[l]; block=footer_social(l)

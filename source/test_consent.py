@@ -102,6 +102,10 @@ class ConsentTests(unittest.TestCase):
         self.assertNotIn("facebook.com", html)
         self.assertIn("https://www.instagram.com/cynews24/", build.footer_social("en"))
         self.assertIn("https://www.instagram.com/cynews24/", build.footer_social("el"))
+        self.assertIn('href="https://www.youtube.com/@thepeachickclub" target="_blank" rel="noopener noreferrer"', html)
+        self.assertIn("YouTube", html)
+        self.assertIn("https://www.youtube.com/@thepeachickclub", build.same_as())
+        self.assertIn('class="yt" href="https://www.youtube.com/@thepeachickclub" target="_blank" rel="noopener"', build.header("en", lambda x: f"/{x}/"))
 
     def test_sitemap_lists_cookie_policy_and_the_key_is_32_hex(self):
         sm = build.sitemap()
