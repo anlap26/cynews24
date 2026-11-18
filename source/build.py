@@ -914,11 +914,11 @@ PROP_STATUS={
 }
 LISTING_UI={
  "en":dict(h="Property listings",news="Property news",empty="No property listings are published yet. New developments and homes for sale will appear here.",
-           beds="bedrooms",area="m²",from_="from",contact="Contact",email="Email",whatsapp="WhatsApp",page="Advertising and contact"),
+           beds="bedrooms",area="m²",from_="from",on_request="Price on request",vat="+ VAT",contact="Contact",email="Email",whatsapp="WhatsApp",page="Advertising and contact"),
  "ru":dict(h="Объявления",news="Новости недвижимости",empty="Опубликованных объявлений пока нет. Новые проекты и объекты на продажу появятся здесь.",
-           beds="спален",area="м²",from_="от",contact="Связаться",email="Эл. почта",whatsapp="WhatsApp",page="Реклама и контакты"),
+           beds="спален",area="м²",from_="от",on_request="Цена по запросу",vat="без НДС",contact="Связаться",email="Эл. почта",whatsapp="WhatsApp",page="Реклама и контакты"),
  "el":dict(h="Αγγελίες",news="Ειδήσεις ακινήτων",empty="Δεν υπάρχουν δημοσιευμένες αγγελίες ακόμη. Νέα έργα και ακίνητα προς πώληση θα εμφανίζονται εδώ.",
-           beds="υπνοδωμάτια",area="τ.μ.",from_="από",contact="Επικοινωνία",email="Email",whatsapp="WhatsApp",page="Διαφήμιση και επικοινωνία"),
+           beds="υπνοδωμάτια",area="τ.μ.",from_="από",on_request="Τιμή κατόπιν αιτήματος",vat="πλέον ΦΠΑ",contact="Επικοινωνία",email="Email",whatsapp="WhatsApp",page="Διαφήμιση και επικοινωνία"),
 }
 def _loc(v,l):
     if isinstance(v, dict):
@@ -966,16 +966,19 @@ def published_listings():
 def _prop_label(table, l, key):
     return table[l].get(key) or table["en"].get(key) or str(key)
 def _prop_price(p, l):
+    """A missing price is 'on request'. vat_excluded adds the local VAT note after the figure."""
     raw=p.get("price")
     if raw is None or raw=="":
-        return ""
+        return LISTING_UI[l]["on_request"]
     try:
         num=int(raw)
     except (TypeError, ValueError):
-        raise SystemExit(f"property {p.get('id')}: price must be a number of euros")
+        raise SystemExit(f"property {p.get('id')}: price must be a number of euros or null")
     text="€"+f"{num:,}"
     if p.get("price_from"):
         text=LISTING_UI[l]["from_"]+" "+text
+    if p.get("vat_excluded"):
+        text=text+" "+LISTING_UI[l]["vat"]
     return text
 def _prop_facts(p, l):
     u=LISTING_UI[l]

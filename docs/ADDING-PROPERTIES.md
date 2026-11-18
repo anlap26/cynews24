@@ -11,7 +11,7 @@ News articles in the same section are separate. They stay in `source/content/art
 3. Set `"published": true`. Leave `"status"` as `available`, `under construction` or `sold`. The value `example` is never shown, even if `published` is true.
 4. Fill `title`, `city`, `area` and `description` in `ru`, `en` and `el`.
 5. Set `type` to one of `project`, `apartment`, `villa`, `house`, `land`, `office`.
-6. Set `price` in euros (a number). `"price_from": true` prints “from” in front of the price.
+6. Set `price` in euros (a number), or `null` for “price on request”. `"price_from": true` prints “from” in front of a number. `"vat_excluded": true` adds the VAT note after it.
 7. Set `bedrooms` and `area_m2` as numbers. Use `null` when the figure does not apply (for example a plot with no bedrooms).
 8. Put photographs in `images/properties/{id}/` and list the paths in `photos`, for example `images/properties/limassol-tower/cover.jpg`. The first photo is the card image. JPEG or PNG.
 9. Contact details sit once, at the top of the file: `email` (info@cynews24.net), optional `whatsapp` (international digits, no plus, spaces or dashes) and `path` (the advertising and contact page, `/advertising/`). A listing may override them with its own `contact` object.
@@ -37,8 +37,9 @@ If every listing has `"published": false`, or the only entry is the example, the
 | `type` | `project`, `apartment`, `villa`, `house`, `land` or `office`. |
 | `status` | `available`, `under construction`, `sold`, or `example` for the sample. |
 | `city`, `area` | Place, in all three languages. |
-| `price` | Euros. |
+| `price` | Euros, or `null` when the price is on request. |
 | `price_from` | Optional. `true` means the price is a starting price. |
+| `vat_excluded` | Optional. `true` adds “+ VAT” / “без НДС” / “πλέον ΦΠΑ” after the figure. |
 | `bedrooms` | Number, or `null`. |
 | `area_m2` | Floor or plot area in square metres, or `null`. |
 | `title`, `description` | Text in `ru`, `en` and `el`. |

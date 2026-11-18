@@ -27,6 +27,98 @@
         "el": "Αυτή είναι ενδεικτική εγγραφή στο data/properties.json ώστε να φαίνεται η μορφή των πεδίων. Δεν υπάρχει διαμέρισμα σε αυτή την τιμή και την επιφάνεια. Όσο το published είναι false, η κάρτα δεν μπαίνει στον ιστότοπο. Μην ενεργοποιήσετε το published πριν αντικαταστήσετε κείμενο, τιμή και φωτογραφίες με πραγματικό ακίνητο."
       },
       "photos": ["images/properties/example-limassol-apartment/cover.jpg"]
+    },
+    {
+      "id": "bellissimo",
+      "published": true,
+      "type": "villa",
+      "status": "available",
+      "vat_excluded": true,
+      "city": {"ru": "Пафос", "en": "Paphos", "el": "Πάφος"},
+      "area": {"ru": "Хлорака", "en": "Chloraka", "el": "Χλώρακα"},
+      "price": 955600,
+      "price_from": false,
+      "bedrooms": 3,
+      "area_m2": 209.5,
+      "title": {
+        "ru": "Вилла Bellissimo",
+        "en": "Bellissimo Villa",
+        "el": "Bellissimo Villa"
+      },
+      "description": {
+        "ru": "Bellissimo Villa — проект ATEX Developers Ltd в Хлораке, на западе Пафоса: четыре отдельные виллы двух типов с видом на море. Свободны две из четырёх. У свободных вилл участок 550 м². Крытая площадь 209,5 м²: 147 м² внутри, 44 м² крытых веранд и 18,5 м² крытой парковки, плюс открытая веранда 31 м². Класс энергоэффективности A.\n\nВ вилле три спальни, три ванные и отдельный санузел, кухня-гостиная открытой планировки, свой бассейн, свой сад и террасы. Окна — алюминиевые стеклопакеты, отделка высокого уровня.\n\nДо пляжа около 300 м, до пляжа с «Голубым флагом» пять минут на машине. Супермаркет в 50 м. Центр Пафоса в пяти минутах, аэропорт Пафоса примерно в двадцати. Цена €955 600 за виллу, без НДС. Координаты: 34.7991111, 32.4006667.",
+        "en": "Bellissimo Villa is a project by ATEX Developers Ltd in Chloraka, west Paphos: four exclusive villas in two types, with sea views. Two of the four villas are still available. Each available villa has a 550 m² plot. The covered area is 209.5 m²: 147 m² internal, 44 m² of covered verandas and 18.5 m² of covered parking, plus a 31 m² uncovered veranda. The energy rating is A.\n\nEach villa has three bedrooms, three bathrooms and a separate WC, an open-plan kitchen and living room, a private swimming pool, a private garden and terraces. The windows are double-glazed aluminium, and the finishes are high quality.\n\nThe beach is about 300 m away, and a Blue Flag beach is a five-minute drive. A supermarket is 50 m away. Paphos centre is five minutes away and Paphos airport about 20 minutes. The price is €955,600 per villa, excluding VAT. Coordinates: 34.7991111, 32.4006667.",
+        "el": "Η Bellissimo Villa είναι έργο της ATEX Developers Ltd στη Χλώρακα, στη δυτική Πάφο: τέσσερις αποκλειστικές βίλες σε δύο τύπους, με θέα στη θάλασσα. Διαθέσιμες μένουν δύο από τις τέσσερις. Κάθε διαθέσιμη βίλα έχει οικόπεδο 550 τ.μ. Η καλυμμένη επιφάνεια είναι 209,5 τ.μ.: 147 τ.μ. εσωτερικά, 44 τ.μ. στεγασμένες βεράντες και 18,5 τ.μ. στεγασμένος χώρος στάθμευσης, συν ακάλυπτη βεράντα 31 τ.μ. Η ενεργειακή κλάση είναι Α.\n\nΚάθε βίλα έχει τρία υπνοδωμάτια, τρία μπάνια και ξεχωριστό WC, κουζίνα και σαλόνι σε ενιαία διάταξη, ιδιωτική πισίνα, ιδιωτικό κήπο και ταράτσες. Τα παράθυρα είναι αλουμινίου με διπλά τζάμια και τα τελειώματα υψηλής ποιότητας.\n\nΗ παραλία είναι περίπου 300 μ. μακριά, και μια παραλία με Γαλάζια Σημαία απέχει πέντε λεπτά με το αυτοκίνητο. Σούπερ μάρκετ στα 50 μ. Το κέντρο της Πάφου είναι πέντε λεπτά και το αεροδρόμιο Πάφου περίπου 20. Η τιμή είναι €955.600 ανά βίλα, πλέον ΦΠΑ. Συντεταγμένες: 34.7991111, 32.4006667."
+      },
+      "photos": [
+        "images/properties/bellissimo/01.jpg",
+        "images/properties/bellissimo/02.jpg",
+        "images/properties/bellissimo/03.jpg",
+        "images/properties/bellissimo/04.jpg",
+        "images/properties/bellissimo/05.jpg",
+        "images/properties/bellissimo/06.jpg"
+      ]
+    },
+    {
+      "id": "olivia",
+      "published": true,
+      "type": "villa",
+      "status": "available",
+      "city": {"ru": "Пафос", "en": "Paphos", "el": "Πάφος"},
+      "area": {"ru": "Тала", "en": "Tala", "el": "Τάλα"},
+      "price": null,
+      "price_from": false,
+      "bedrooms": 6,
+      "area_m2": 286,
+      "title": {
+        "ru": "Особняк Olivia",
+        "en": "Olivia Mansion",
+        "el": "Olivia Mansion"
+      },
+      "description": {
+        "ru": "Olivia Mansion — отдельная резиденция ATEX Developers Ltd в Тале, Пафос. Шесть спален и десять ванных, свой лифт. Крылая жилая площадь 286 м²: 138,3 м² на первом этаже и 147,7 м² на втором. Подвал 160 м² в эту цифру не входит.\n\nВ доме есть тренажёрный зал, сауна, хаммам и винный погреб. Снаружи — бассейн, зона барбекю, джакузи, кострище и открытый кинотеатр. Цена по запросу.",
+        "en": "Olivia Mansion is a single luxury residence by ATEX Developers Ltd in Tala, Paphos. It has six bedrooms and ten bathrooms, and a private lift. Covered living space is 286 m²: 138.3 m² on the ground floor and 147.7 m² on the first floor. A 160 m² basement is not included in that figure.\n\nThe house has a gym, a sauna, a hammam and a wine cellar. Outside there is a swimming pool, a barbecue area, a jacuzzi, a fire pit and an outdoor cinema. The price is on request.",
+        "el": "Το Olivia Mansion είναι μία πολυτελής κατοικία της ATEX Developers Ltd στην Τάλα της Πάφου. Έχει έξι υπνοδωμάτια και δέκα μπάνια, και ιδιωτικό ανελκυστήρα. Η καλυμμένη κατοικήσιμη επιφάνεια είναι 286 τ.μ.: 138,3 τ.μ. στο ισόγειο και 147,7 τ.μ. στον πρώτο όροφο. Υπόγειο 160 τ.μ. δεν περιλαμβάνεται σε αυτό το νούμερο.\n\nΤο σπίτι έχει γυμναστήριο, σάουνα, χαμάμ και κάβα κρασιών. Έξω υπάρχουν πισίνα, χώρος μπάρμπεκιου, τζακούζι, εστία φωτιάς και υπαίθριος κινηματογράφος. Η τιμή δίνεται κατόπιν αιτήματος."
+      },
+      "photos": [
+        "images/properties/olivia/01.jpg",
+        "images/properties/olivia/02.jpg",
+        "images/properties/olivia/03.jpg",
+        "images/properties/olivia/04.jpg",
+        "images/properties/olivia/05.jpg",
+        "images/properties/olivia/06.jpg"
+      ]
+    },
+    {
+      "id": "the-city-home-2",
+      "published": true,
+      "type": "project",
+      "status": "available",
+      "vat_excluded": true,
+      "city": {"ru": "Пафос", "en": "Paphos", "el": "Πάφος"},
+      "area": {"ru": "Героскипу", "en": "Geroskipou", "el": "Γεροσκήπου"},
+      "price": 715000,
+      "price_from": true,
+      "bedrooms": 3,
+      "area_m2": 148,
+      "title": {
+        "ru": "The City Home 2",
+        "en": "The City Home 2",
+        "el": "The City Home 2"
+      },
+      "description": {
+        "ru": "The City Home 2 — проект ATEX Developers Ltd в Героскипу, Пафос: 12 домов, у каждого отдельный титул. Свободны 10 из 12. Класс энергоэффективности A, ежегодных взносов на содержание нет.\n\nТип 1 — отдельно стоящие виллы с тремя спальнями, около 170–175 м². Тип 2 — сблокированные дома с двумя спальнями, около 148–152 м². Участки около 243–286 м². На карточке указаны 3 спальни и площадь от 148 м²: в комплексе есть дома и с двумя, и с тремя спальнями. Цены без НДС: от €715 000 за сблокированный дом с двумя спальнями и от €790 100 за виллу с тремя, до €844 000. Это специальное предложение. Координаты: 34.7543056, 32.4663889.",
+        "en": "The City Home 2 is a project by ATEX Developers Ltd in Geroskipou, Paphos: 12 homes, each with its own title deed. Ten of the 12 are still available. The energy rating is A, and there are no annual communal fees.\n\nType 1 is a detached three-bedroom villa of about 170–175 m². Type 2 is a semi-detached two-bedroom home of about 148–152 m². Plots are about 243–286 m². The card shows 3 bedrooms and 148 m² because the homes run from two to three bedrooms, and the smaller covered area starts at about 148 m². Prices exclude VAT and start at €715,000 for a two-bedroom semi-detached home and at €790,100 for a three-bedroom villa, up to €844,000. This is a special offer. Coordinates: 34.7543056, 32.4663889.",
+        "el": "Το The City Home 2 είναι έργο της ATEX Developers Ltd στο Γεροσκήπου της Πάφου: 12 κατοικίες, καθεμία με δικό της τίτλο. Διαθέσιμες είναι 10 από τις 12. Η ενεργειακή κλάση είναι Α και δεν υπάρχουν ετήσια κοινόχρηστα.\n\nΟ τύπος 1 είναι ανεξάρτητη βίλα τριών υπνοδωματίων, περίπου 170–175 τ.μ. Ο τύπος 2 είναι ημιανεξάρτητη κατοικία δύο υπνοδωματίων, περίπου 148–152 τ.μ. Τα οικόπεδα είναι περίπου 243–286 τ.μ. Στην κάρτα φαίνονται 3 υπνοδωμάτια και 148 τ.μ., γιατί οι κατοικίες είναι δύο ή τριών υπνοδωματίων και η μικρότερη καλυμμένη επιφάνεια ξεκινά από περίπου 148 τ.μ. Οι τιμές είναι πλέον ΦΠΑ και ξεκινούν από €715.000 για ημιανεξάρτητη κατοικία δύο υπνοδωματίων και από €790.100 για βίλα τριών, έως €844.000. Πρόκειται για ειδική προσφορά. Συντεταγμένες: 34.7543056, 32.4663889."
+      },
+      "photos": [
+        "images/properties/the-city-home-2/01.jpg",
+        "images/properties/the-city-home-2/02.jpg",
+        "images/properties/the-city-home-2/03.jpg",
+        "images/properties/the-city-home-2/04.jpg",
+        "images/properties/the-city-home-2/05.jpg",
+        "images/properties/the-city-home-2/06.jpg"
+      ]
     }
   ]
 }
