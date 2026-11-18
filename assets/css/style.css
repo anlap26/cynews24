@@ -131,6 +131,14 @@ button.send:hover{background:var(--acc)}
 .pcta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
 .pcta a{display:inline-block;background:var(--dark);color:#fff;font-weight:800;padding:10px 14px;text-decoration:none}
 .pcta a:hover{background:var(--acc)}
+.req{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+.req a{flex:1 1 auto;display:inline-block;background:var(--acc);color:#fff;font-weight:800;padding:12px 18px;text-align:center;text-decoration:none;font-size:16px;line-height:1.2}
+.req a:hover{background:var(--dark)}
+.req a.wa{background:#128C7E}
+.req a.wa:hover{background:#0b6b60}
+.pcard .req{margin:auto 0 0}
+.pcard .req a{flex:1 1 100%}
+#lead{scroll-margin-top:72px}
 .pgallery{display:grid;gap:12px;margin:0 0 18px}
 .cookiebanner{position:fixed;z-index:40;left:0;right:0;bottom:0;background:var(--dark);color:#fff;padding:14px 0 16px;box-shadow:0 -6px 20px rgba(0,0,0,.28)}
 .cookiebanner[hidden]{display:none}
@@ -144,4 +152,4 @@ button.send:hover{background:var(--acc)}
 .cookie-actions button:hover{background:#fff;color:var(--dark)}
 .cookie-actions button:focus{outline:2px solid #fff;outline-offset:2px}
 @media(max-width:980px){.lead{grid-template-columns:1fr}.grid,.g3{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.rel .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}}
+@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a{flex:1 1 100%}}

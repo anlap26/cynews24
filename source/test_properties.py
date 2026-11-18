@@ -42,3 +42,51 @@ class PropertyTests(unittest.TestCase):
             self.assertIn("No property listings are published yet.", build.listings_block("en"))
             self.assertIn("Опубликованных объявлений пока нет.", build.listings_block("ru"))
             self.assertIn("Δεν υπάρχουν δημοσιευμένες αγγελίες ακόμη.", build.listings_block("el"))
+
+    def test_listing_pages_have_a_lead_form_and_no_invented_whatsapp(self):
+        villa = next(p for p in build.published_listings() if p["id"] == "bellissimo")
+        labels = {
+            "en": ("Request info", "I&#x27;m interested in Bellissimo Villa", "Bellissimo Villa"),
+            "ru": ("Оставить заявку", "Меня интересует Вилла Bellissimo", "Вилла Bellissimo"),
+            "el": ("Ζητήστε πληροφορίες", "Ενδιαφέρομαι για Bellissimo Villa", "Bellissimo Villa"),
+        }
+        for lang, (label, interest, title) in labels.items():
+            page = build.page_listing(lang, villa)
+            card = build.listing_card(villa, lang)
+            grid = build.listings_block(lang)
+            self.assertIn('href="#lead"', page)
+            self.assertIn(label, page)
+            self.assertIn(f'action="{build.LEAD_FORM_ACTION}"', page)
+            self.assertIn('method="POST"', page)
+            self.assertIn(f'name="_subject" value="CyNews24 lead: {title}"', page)
+            self.assertIn(f'name="listing" value="{title}"', page)
+            self.assertIn(f'name="page" value="https://cynews24.net/{lang}/real-estate/bellissimo/"', page)
+            self.assertIn('name="_template" value="table"', page)
+            self.assertIn('name="_captcha" value="false"', page)
+            self.assertIn('name="_honey"', page)
+            self.assertIn(f'name="_next" value="https://cynews24.net/{lang}/thanks/"', page)
+            self.assertIn('name="name" required', page)
+            self.assertIn('name="phone" required', page)
+            self.assertIn('type="email" name="email"', page)
+            self.assertNotIn('name="email" required', page)
+            self.assertIn(f'<textarea name="message">{interest}</textarea>', page)
+            self.assertNotIn('name="message" required', page)
+            self.assertIn('name="consent" value="yes" required', page)
+            self.assertNotIn("wa.me", page)
+            self.assertNotIn('class="wa"', page)
+            self.assertIn(f'href="/{lang}/real-estate/bellissimo/#lead"', card)
+            self.assertIn(label, card)
+            self.assertIn(f'href="/{lang}/real-estate/bellissimo/#lead"', grid)
+            thanks = build.page_lead_thanks(lang)
+            self.assertIn('content="noindex,follow"', thanks)
+            self.assertIn(f'href="/{lang}/real-estate/"', thanks)
+
+    def test_whatsapp_button_appears_only_with_a_stored_number(self):
+        villa = dict(next(p for p in build.published_listings() if p["id"] == "olivia"))
+        villa["contact"] = {"whatsapp": "35799111222"}
+        page = build.page_listing("en", villa)
+        card = build.listing_card(villa, "en")
+        self.assertIn('class="wa" href="https://wa.me/35799111222"', page)
+        self.assertIn('class="wa" href="https://wa.me/35799111222"', card)
+        self.assertEqual(page.count('class="wa"'), 1)
+        self.assertEqual(card.count('class="wa"'), 1)

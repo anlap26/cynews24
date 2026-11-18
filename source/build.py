@@ -604,6 +604,14 @@ button.send:hover{background:var(--acc)}
 .pcta{display:flex;flex-wrap:wrap;gap:8px;margin:18px 0}
 .pcta a{display:inline-block;background:var(--dark);color:#fff;font-weight:800;padding:10px 14px;text-decoration:none}
 .pcta a:hover{background:var(--acc)}
+.req{display:flex;flex-wrap:wrap;gap:8px;margin:12px 0 16px}
+.req a{flex:1 1 auto;display:inline-block;background:var(--acc);color:#fff;font-weight:800;padding:12px 18px;text-align:center;text-decoration:none;font-size:16px;line-height:1.2}
+.req a:hover{background:var(--dark)}
+.req a.wa{background:#128C7E}
+.req a.wa:hover{background:#0b6b60}
+.pcard .req{margin:auto 0 0}
+.pcard .req a{flex:1 1 100%}
+#lead{scroll-margin-top:72px}
 .pgallery{display:grid;gap:12px;margin:0 0 18px}
 .cookiebanner{position:fixed;z-index:40;left:0;right:0;bottom:0;background:var(--dark);color:#fff;padding:14px 0 16px;box-shadow:0 -6px 20px rgba(0,0,0,.28)}
 .cookiebanner[hidden]{display:none}
@@ -617,7 +625,7 @@ button.send:hover{background:var(--acc)}
 .cookie-actions button:hover{background:#fff;color:var(--dark)}
 .cookie-actions button:focus{outline:2px solid #fff;outline-offset:2px}
 @media(max-width:980px){.lead{grid-template-columns:1fr}.grid,.g3{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.rel .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}}
+@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a{flex:1 1 100%}}
 """
 
 _GA_WARNED=False
@@ -938,12 +946,22 @@ PROP_STATUS={
 }
 LISTING_UI={
  "en":dict(h="Property listings",news="Property news",empty="No property listings are published yet. New developments and homes for sale will appear here.",
-           beds="bedrooms",area="m²",from_="from",on_request="Price on request",vat="+ VAT",contact="Contact",email="Email",whatsapp="WhatsApp",page="Advertising and contact"),
+           beds="bedrooms",area="m²",from_="from",on_request="Price on request",vat="+ VAT",contact="Contact",email="Email",whatsapp="WhatsApp",page="Advertising and contact",
+           request="Request info",lead_name="Name",lead_phone="Phone / WhatsApp",lead_email="Email",optional="optional",lead_message="Message",
+           interest="I'm interested in {title}",consent="I agree to be contacted about this listing.",send="Send request",honey="Leave this field empty",
+           thanks_t="Thank you",thanks="Your request has been sent. We will contact you about this property.",back="Back to property listings"),
  "ru":dict(h="Объявления",news="Новости недвижимости",empty="Опубликованных объявлений пока нет. Новые проекты и объекты на продажу появятся здесь.",
-           beds="спален",area="м²",from_="от",on_request="Цена по запросу",vat="без НДС",contact="Связаться",email="Эл. почта",whatsapp="WhatsApp",page="Реклама и контакты"),
+           beds="спален",area="м²",from_="от",on_request="Цена по запросу",vat="без НДС",contact="Связаться",email="Эл. почта",whatsapp="WhatsApp",page="Реклама и контакты",
+           request="Оставить заявку",lead_name="Имя",lead_phone="Телефон / WhatsApp",lead_email="Эл. почта",optional="необязательно",lead_message="Сообщение",
+           interest="Меня интересует {title}",consent="Я согласен, чтобы со мной связались по этому объявлению.",send="Отправить заявку",honey="Оставьте это поле пустым",
+           thanks_t="Спасибо",thanks="Заявка отправлена. Мы свяжемся с вами по этому объекту.",back="К объявлениям"),
  "el":dict(h="Αγγελίες",news="Ειδήσεις ακινήτων",empty="Δεν υπάρχουν δημοσιευμένες αγγελίες ακόμη. Νέα έργα και ακίνητα προς πώληση θα εμφανίζονται εδώ.",
-           beds="υπνοδωμάτια",area="τ.μ.",from_="από",on_request="Τιμή κατόπιν αιτήματος",vat="πλέον ΦΠΑ",contact="Επικοινωνία",email="Email",whatsapp="WhatsApp",page="Διαφήμιση και επικοινωνία"),
+           beds="υπνοδωμάτια",area="τ.μ.",from_="από",on_request="Τιμή κατόπιν αιτήματος",vat="πλέον ΦΠΑ",contact="Επικοινωνία",email="Email",whatsapp="WhatsApp",page="Διαφήμιση και επικοινωνία",
+           request="Ζητήστε πληροφορίες",lead_name="Όνομα",lead_phone="Τηλέφωνο / WhatsApp",lead_email="Email",optional="προαιρετικό",lead_message="Μήνυμα",
+           interest="Ενδιαφέρομαι για {title}",consent="Συμφωνώ να επικοινωνήσετε μαζί μου για αυτή την αγγελία.",send="Αποστολή αιτήματος",honey="Αφήστε κενό αυτό το πεδίο",
+           thanks_t="Ευχαριστούμε",thanks="Το αίτημά σας στάλθηκε. Θα επικοινωνήσουμε μαζί σας για αυτό το ακίνητο.",back="Πίσω στις αγγελίες"),
 }
+LEAD_FORM_ACTION="https://formsubmit.co/info@cynews24.net"
 def _loc(v,l):
     if isinstance(v, dict):
         return _clean(v.get(l) or v.get("en") or "")
@@ -1058,7 +1076,8 @@ def listing_card(p, l):
     price=_prop_price(p, l)
     return (f'<article class="pcard">{media}<div class="pad"><span class="pstatus">{e(status)}</span>'
             f'<span class="cat">{e(kind)}</span><a href="{link}"><h3>{e(_loc(p["title"], l))}</h3></a>'
-            f'<p class="price">{e(price)}</p><p class="facts">{e(_prop_facts(p, l))}</p></div></article>')
+            f'<p class="price">{e(price)}</p><p class="facts">{e(_prop_facts(p, l))}</p>'
+            f'{listing_request_links(p, l, link+"#lead")}</div></article>')
 def listings_block(l):
     u=LISTING_UI[l]
     rows=published_listings()
@@ -1097,6 +1116,45 @@ def listing_cta(p, l):
     if wa:
         bits.append(f'<a href="{e(wa)}" target="_blank" rel="noopener">{e(u["whatsapp"])}</a>')
     return f'<div class="pcta">{"".join(bits)}</div>'
+def listing_request_links(p, l, target):
+    """Request button, plus a WhatsApp button only when the listing already has a number."""
+    u=LISTING_UI[l]
+    bits=[f'<a href="{e(target)}">{e(u["request"])}</a>']
+    wa=_wa_href(listing_contact(p).get("whatsapp"))
+    if wa:
+        bits.append(f'<a class="wa" href="{e(wa)}" target="_blank" rel="noopener">{e(u["whatsapp"])}</a>')
+    return f'<p class="req">{"".join(bits)}</p>'
+def listing_form(l, p):
+    """Static lead form. FormSubmit emails info@cynews24.net. No script."""
+    u=LISTING_UI[l]
+    title=_loc(p["title"], l)
+    path=f"/{l}/real-estate/{p['id']}/"
+    interest=u["interest"].format(title=title)
+    subject=e("CyNews24 lead: "+title)
+    return f'''<form id="lead" class="adform" action="{LEAD_FORM_ACTION}" method="POST">
+<input type="hidden" name="_subject" value="{subject}">
+<input type="hidden" name="listing" value="{e(title)}">
+<input type="hidden" name="page" value="{e(abs_(path))}">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="false">
+<input type="hidden" name="_next" value="{e(abs_(f"/{l}/thanks/"))}">
+<p class="hp" aria-hidden="true"><label>{e(u["honey"])}<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
+<label class="fld"><span>{e(u["lead_name"])}</span><input type="text" name="name" required autocomplete="name"></label>
+<label class="fld"><span>{e(u["lead_phone"])}</span><input type="tel" name="phone" required autocomplete="tel"></label>
+<label class="fld"><span>{e(u["lead_email"])} <span class="hint">({e(u["optional"])})</span></span><input type="email" name="email" autocomplete="email"></label>
+<label class="fld"><span>{e(u["lead_message"])} <span class="hint">({e(u["optional"])})</span></span><textarea name="message">{e(interest)}</textarea></label>
+<label class="consent"><input type="checkbox" name="consent" value="yes" required> <span>{e(u["consent"])}</span></label>
+<button class="send" type="submit">{e(u["send"])}</button>
+</form>'''
+def page_lead_thanks(l):
+    u=LISTING_UI[l]
+    pathfn=lambda x: f"/{x}/thanks/"
+    h=head(l, f'{u["thanks_t"]} | {SITE}', u["thanks"], [SITE], f"/{l}/thanks/", pathfn, "/assets/og-default.jpg", robots="noindex,follow")
+    h+=header(l, pathfn, "real-estate")
+    h+=(f'<main id="main" class="wrap"><article class="adpage"><h1>{e(u["thanks_t"])}</h1>'
+        f'<p class="leadin">{e(u["thanks"])}</p>'
+        f'<p><a class="mail" href="{href(f"/{l}/real-estate/")}">{e(u["back"])}</a></p></article></main>'+footer(l))
+    return h
 def page_listing(l, p):
     u=LISTING_UI[l]
     pid=p["id"]
@@ -1122,8 +1180,9 @@ def page_listing(l, p):
     h+=header(l, pathfn, "real-estate")
     h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{UI[l]["crumb_home"]}</a> › <a href="{href(f"/{l}/real-estate/")}">{CATN[l]["real-estate"]}</a></nav>'
     h+=f'<article class="adpage"><p class="cat">{e(_prop_label(PROP_TYPES, l, p.get("type")))}</p><h1>{e(title)}</h1>'
-    h+=f'<p class="leadin">{e(price)}</p><p class="meta">{e(_prop_facts(p, l))} · {e(_prop_label(PROP_STATUS, l, p.get("status")))}</p>'
-    h+=gallery+f'<div class="body">{paras}</div><h2>{e(u["contact"])}</h2>{listing_cta(p, l)}</article></main>'+footer(l)
+    h+=f'<p class="leadin">{e(price)}</p>{listing_request_links(p, l, "#lead")}'
+    h+=f'<p class="meta">{e(_prop_facts(p, l))} · {e(_prop_label(PROP_STATUS, l, p.get("status")))}</p>'
+    h+=gallery+f'<div class="body">{paras}</div><h2>{e(u["contact"])}</h2>{listing_cta(p, l)}{listing_form(l, p)}</article></main>'+footer(l)
     return h
 def page_cat(l,c):
     u=UI[l]; pathfn=lambda x:f"/{x}/{c}/"
@@ -1632,6 +1691,7 @@ def main():
         w(f"/{l}/events/index.html",page_events(l))
         w(f"/{l}/advertising/index.html",page_advertising(l))
         w(f"/{l}/advertising/thanks/index.html",page_ad_thanks(l))
+        w(f"/{l}/thanks/index.html",page_lead_thanks(l))
         w(f"/{l}/feed.xml",rss(l))
     w("/feed.xml",rss("en"))
     w("/sitemap.xml",sitemap())
