@@ -102,10 +102,27 @@ class ConsentTests(unittest.TestCase):
         self.assertNotIn("facebook.com", html)
         self.assertIn("https://www.instagram.com/cynews24/", build.footer_social("en"))
         self.assertIn("https://www.instagram.com/cynews24/", build.footer_social("el"))
-        self.assertIn('href="https://www.youtube.com/@thepeachickclub" target="_blank" rel="noopener noreferrer"', html)
-        self.assertIn("YouTube", html)
-        self.assertIn("https://www.youtube.com/@thepeachickclub", build.same_as())
-        self.assertIn('class="yt" href="https://www.youtube.com/@thepeachickclub" target="_blank" rel="noopener"', build.header("en", lambda x: f"/{x}/"))
+        self.assertNotIn("youtube.com", html)
+        self.assertNotIn("youtube.com", build.header("en", lambda x: f"/{x}/"))
+        self.assertNotIn("youtube.com", " ".join(build.same_as()))
+
+    def test_homepage_recommends_the_peachick_club(self):
+        with mock.patch.object(build, "mycytax_catalog", return_value=object()), \
+             mock.patch.object(build.mycytax, "projects_html", return_value=""):
+            en = build.page_home("en")
+            ru = build.page_home("ru")
+            el = build.page_home("el")
+        link='href="https://www.youtube.com/@thepeachickclub" target="_blank" rel="noopener"'
+        self.assertIn("Editor&#x27;s pick: cartoons for kids, made in Cyprus", en)
+        self.assertIn("Real peachicks from Cyprus", en)
+        self.assertIn(link, en)
+        self.assertIn("От редакции: мультики для детей, снятые на Кипре", ru)
+        self.assertIn("Смотреть на YouTube", ru)
+        self.assertIn(link, ru)
+        self.assertIn("Επιλογή σύνταξης: κινούμενα για παιδιά, γυρισμένα στην Κύπρο", el)
+        self.assertIn("Δείτε στο YouTube", el)
+        self.assertIn(link, el)
+        self.assertFalse(any("youtube.com" in url for url in build.same_as()))
 
     def test_sitemap_lists_cookie_policy_and_the_key_is_32_hex(self):
         sm = build.sitemap()
