@@ -132,14 +132,20 @@ class GuideContentTests(unittest.TestCase):
             self.assertIn("cynews24-21", page)
 
     def test_travel_links_live_in_one_config(self):
-        self.assertEqual(set(build.TRAVEL_LINKS), {
-            "BOOKING_URL", "GETYOURGUIDE_URL", "DISCOVERCARS_URL", "AIRALO_URL", "SAFETYWING_URL",
-        })
         self.assertEqual(build.TRAVEL_LINKS["BOOKING_URL"], "https://www.booking.com/")
+        self.assertEqual(build.TRAVEL_LINKS["GETYOURGUIDE_URL"], "https://www.getyourguide.com/")
+        self.assertEqual(build.TRAVEL_LINKS["DISCOVERCARS_URL"], "https://www.discovercars.com/")
         self.assertEqual(build.TRAVEL_LINKS["SAFETYWING_URL"], "https://safetywing.com/")
+        self.assertEqual(build.TRAVEL_LINKS["AIRALO_URL"], "https://airalo.tpx.lt/nILAEUYZ")
+        self.assertEqual(build.TRAVEL_LINKS["YESIM_URL"], "https://yesim.tpx.lt/L3JvkZOj")
+        self.assertEqual(build.TRAVEL_LINKS["KLOOK_URL"], "https://klook.tpx.lt/xtutlwca")
         html = build.page_article("en", build.BYSLUG["renting-a-car-in-cyprus"])
-        self.assertIn('rel="sponsored nofollow"', html)
+        self.assertIn('rel="sponsored nofollow noopener"', html)
         self.assertIn("https://www.discovercars.com/", html)
+        self.assertIn("https://kiwitaxi.tpx.lt/pmM77dyU", html)
+        self.assertIn("https://tpx.lt/sJrz0dYS", html)
+        esim = build.page_article("en", build.BYSLUG["esim-mobile-data-cyprus"])
+        self.assertLess(esim.find("https://airalo.tpx.lt/nILAEUYZ"), esim.find("https://yesim.tpx.lt/L3JvkZOj"))
         self.assertIn('href="/en/travel/"', build.header("en", lambda x: f"/{x}/"))
         self.assertTrue(build.BYSLUG["esim-mobile-data-cyprus"]["guide"])
 
