@@ -51,6 +51,7 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `justus-lipsius` | The Justus Lipsius building in Brussels, seat of the Council of the European Union | Szilas | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Justus_Lipsius_building_2007-05-08.jpg) |
 | `water-tariffs` | Kouris Dam, in the Limassol district | Pbach | [Public domain](https://creativecommons.org/publicdomain/mark/1.0/) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kouris_Dam,_Cyprus.jpg) |
 | `summit-palace` | The Presidential Palace in Nicosia | Iakovos Hatzistavrou, European Commission | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Cypriot_Presidential_Palace_5.jpg) |
+| `cyprus-students-uk-home-fees` | Original illustration kept | — | — | — |
 
 ## Event photographs
 
