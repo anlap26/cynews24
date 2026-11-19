@@ -1321,6 +1321,11 @@ def fdt(iso,l):
 _URL_RE = re.compile(r"https?://[^\s<]+")
 _MD_LINK = re.compile(r"\[([^\]\n]+)\]\((https?://[^\s)]+|/[^)\s]+)\)")
 _OFFER_RE = re.compile(r"^\{\{offer:([a-z0-9]+)\}\}$")
+def _ext_rel(url):
+    """Temu affiliate links are sponsored. Other outbound links stay ordinary."""
+    if "temu.to/" in url or "://temu.to" in url:
+        return "sponsored nofollow noopener"
+    return "noopener"
 def linkify(text):
     """Article text stays plain. A bare URL becomes a link after it is escaped."""
     def repl(m):
@@ -1331,7 +1336,7 @@ def linkify(text):
             url = url[:-1]
         if not url:
             return m.group(0)
-        return f'<a href="{url}" target="_blank" rel="noopener">{url}</a>{tail}'
+        return f'<a href="{url}" target="_blank" rel="{_ext_rel(url)}">{url}</a>{tail}'
     return _URL_RE.sub(repl, e(text))
 def render_inline(text):
     """Bare URLs stay links. A [label](url) or [label](/path/) is a labelled link."""
@@ -1342,7 +1347,7 @@ def render_inline(text):
         if url.startswith("/"):
             parts.append(f'<a href="{e(href(url))}">{e(label)}</a>')
         else:
-            parts.append(f'<a href="{e(url)}" target="_blank" rel="noopener">{e(label)}</a>')
+            parts.append(f'<a href="{e(url)}" target="_blank" rel="{_ext_rel(url)}">{e(label)}</a>')
         pos = m.end()
     parts.append(linkify(text[pos:]))
     return "".join(parts)
