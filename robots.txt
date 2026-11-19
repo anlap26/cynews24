@@ -1,5 +1,9 @@
 User-agent: *
 Allow: /
+Disallow: /feed.xml
+Disallow: /ru/feed.xml
+Disallow: /en/feed.xml
+Disallow: /el/feed.xml
 
 Sitemap: https://cynews24.net/sitemap.xml
 Sitemap: https://cynews24.net/news-sitemap.xml
