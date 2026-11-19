@@ -317,7 +317,7 @@ PRIVACY = {
    ("Who we are",["This policy covers the CyNews 24 website. The publisher is Anna. The site is based in Cyprus. Email: cynews24@gmail.com."]),
    ("Advertising contact form",["The Advertise & Contact page has a form that sends your message through FormSubmit (formsubmit.co) to cynews24@gmail.com. The fields are your name, company, email, phone if you provide one, the formats you select, an optional budget range, your message and your consent. We use those details only to reply to that enquiry. FormSubmit processes the submission in order to deliver the email. We do not sell the details and we do not add them to a marketing list."]),
    ("Analytics",["The site does not use Google Analytics. It loads Google AdSense (ca-pub-1547877294743851) so Google can show ads. Advertising and analytics storage stay denied until you accept cookies in the banner. If you accept, AdSense may receive technical data such as the page address and a cookie identifier. If you reject, that storage stays denied. Cookie settings in the footer opens the choice again."]),
-   ("Cookies",["CyNews 24 does not set its own cookies. The accept or reject choice is stored in this browser's local storage under the name cynews24-consent, which is not a cookie. Google Consent Mode starts denied, before the AdSense script and before any analytics tag. AdSense may set advertising cookies only after you accept. The language chooser on the front page reads the browser language and may redirect once; it does not store a cookie. The cookie policy has the full account. If you follow a link to another site, that site has its own policy."]),
+   ("Cookies",["CyNews 24 does not set its own cookies. The accept or reject choice is stored in this browser's local storage under the name cynews24-consent, which is not a cookie. Google Consent Mode starts denied, before the AdSense script and before any analytics tag. AdSense may set advertising cookies only after you accept. The language chooser on the front page links to the Russian, English and Greek editions. It does not store a cookie. The cookie policy has the full account. If you follow a link to another site, that site has its own policy."]),
    ("Email",["If you email cynews24@gmail.com, we use the message to answer you or to correct a story. We keep it for as long as that purpose requires."]),
    ("Changes",["If this policy changes, the new text replaces this page."])]),
  "ru":dict(t="Политика конфиденциальности",d="Как CyNews 24 обрабатывает форму рекламного обращения, аналитику и файлы cookie.",
@@ -325,7 +325,7 @@ PRIVACY = {
    ("Кто мы",["Эта политика относится к сайту CyNews 24. Издатель — Анна. Сайт базируется на Кипре. Эл. почта: cynews24@gmail.com."]),
    ("Форма рекламного обращения",["На странице «Реклама и контакты» есть форма. Она отправляет сообщение через FormSubmit (formsubmit.co) на cynews24@gmail.com. Поля: имя, компания, эл. почта, телефон, если вы его указали, выбранные форматы, необязательный диапазон бюджета, сообщение и согласие. Мы используем эти сведения только чтобы ответить на это обращение. FormSubmit обрабатывает отправку, чтобы доставить письмо. Мы не продаём эти сведения и не добавляем их в маркетинговый список."]),
    ("Аналитика",["Сайт не использует Google Analytics. Он подключает Google AdSense (ca-pub-1547877294743851), чтобы Google мог показывать объявления. Хранение данных для рекламы и аналитики запрещено, пока вы не примите cookie в баннере. Если вы принимаете, AdSense может получать технические данные, например адрес страницы и идентификатор cookie. Если вы отклоняете, такое хранение остаётся запрещённым. «Настройки cookie» в подвале снова открывают выбор."]),
-   ("Файлы cookie",["CyNews 24 не ставит собственные cookie. Выбор «принять» или «отклонить» хранится в local storage этого браузера под именем cynews24-consent — это не cookie. Google Consent Mode с самого начала запрещает хранение, ещё до скрипта AdSense и до любого тега аналитики. AdSense может ставить рекламные cookie только после вашего согласия. Выбор языка на первой странице читает язык браузера и может один раз перенаправить; cookie при этом не сохраняется. Подробности — в политике cookie. Если вы переходите по ссылке на другой сайт, у того сайта своя политика."]),
+   ("Файлы cookie",["CyNews 24 не ставит собственные cookie. Выбор «принять» или «отклонить» хранится в local storage этого браузера под именем cynews24-consent — это не cookie. Google Consent Mode с самого начала запрещает хранение, ещё до скрипта AdSense и до любого тега аналитики. AdSense может ставить рекламные cookie только после вашего согласия. Выбор языка на первой странице ведёт на русскую, английскую и греческую версии. Cookie при этом не сохраняется. Подробности — в политике cookie. Если вы переходите по ссылке на другой сайт, у того сайта своя политика."]),
    ("Почта",["Если вы пишете на cynews24@gmail.com, мы используем письмо, чтобы ответить или исправить материал. Мы храним его, пока это нужно для этой цели."]),
    ("Изменения",["Если политика изменится, новый текст заменит эту страницу."])]),
  "el":dict(t="Πολιτική απορρήτου",d="Πώς το CyNews 24 χειρίζεται τη φόρμα διαφημιστικής επικοινωνίας, τα αναλυτικά και τα cookies.",
@@ -333,7 +333,7 @@ PRIVACY = {
    ("Ποιοι είμαστε",["Αυτή η πολιτική καλύπτει τον ιστότοπο CyNews 24. Εκδότρια είναι η Άννα. Ο ιστότοπος έχει έδρα την Κύπρο. Email: cynews24@gmail.com."]),
    ("Φόρμα διαφημιστικής επικοινωνίας",["Η σελίδα Διαφήμιση & Επικοινωνία έχει φόρμα που στέλνει το μήνυμά σας μέσω του FormSubmit (formsubmit.co) στο cynews24@gmail.com. Τα πεδία είναι το όνομα, η εταιρεία, το email, το τηλέφωνο αν το δώσετε, οι μορφές που επιλέγετε, ένα προαιρετικό εύρος προϋπολογισμού, το μήνυμα και η συγκατάθεσή σας. Χρησιμοποιούμε αυτά τα στοιχεία μόνο για να απαντήσουμε σε εκείνο το αίτημα. Το FormSubmit επεξεργάζεται την υποβολή για να παραδώσει το email. Δεν πουλάμε τα στοιχεία και δεν τα προσθέτουμε σε λίστα μάρκετινγκ."]),
    ("Αναλυτικά",["Ο ιστότοπος δεν χρησιμοποιεί Google Analytics. Φορτώνει το Google AdSense (ca-pub-1547877294743851) ώστε η Google να εμφανίζει διαφημίσεις. Η αποθήκευση για διαφήμιση και αναλυτικά μένει σε άρνηση μέχρι να αποδεχτείτε τα cookies στο πλαίσιο. Αν αποδεχτείτε, το AdSense μπορεί να λαμβάνει τεχνικά δεδομένα, όπως τη διεύθυνση της σελίδας και ένα αναγνωριστικό cookie. Αν απορρίψετε, αυτή η αποθήκευση μένει σε άρνηση. Οι «Ρυθμίσεις cookies» στο υποσέλιδο ανοίγουν ξανά την επιλογή."]),
-   ("Cookies",["Το CyNews 24 δεν τοποθετεί δικά του cookies. Η επιλογή αποδοχής ή απόρριψης αποθηκεύεται στο local storage αυτού του προγράμματος περιήγησης με το όνομα cynews24-consent και δεν είναι cookie. Το Google Consent Mode ξεκινά σε άρνηση, πριν από το script του AdSense και πριν από οποιαδήποτε ετικέτα αναλυτικών. Το AdSense μπορεί να τοποθετεί διαφημιστικά cookies μόνο αφού αποδεχτείτε. Η επιλογή γλώσσας στην πρώτη σελίδα διαβάζει τη γλώσσα του προγράμματος περιήγησης και μπορεί να ανακατευθύνει μία φορά· δεν αποθηκεύει cookie. Η πλήρης περιγραφή είναι στην πολιτική cookies. Αν ακολουθήσετε σύνδεσμο προς άλλον ιστότοπο, εκείνος έχει τη δική του πολιτική."]),
+   ("Cookies",["Το CyNews 24 δεν τοποθετεί δικά του cookies. Η επιλογή αποδοχής ή απόρριψης αποθηκεύεται στο local storage αυτού του προγράμματος περιήγησης με το όνομα cynews24-consent και δεν είναι cookie. Το Google Consent Mode ξεκινά σε άρνηση, πριν από το script του AdSense και πριν από οποιαδήποτε ετικέτα αναλυτικών. Το AdSense μπορεί να τοποθετεί διαφημιστικά cookies μόνο αφού αποδεχτείτε. Η επιλογή γλώσσας στην πρώτη σελίδα οδηγεί στις ρωσικές, αγγλικές και ελληνικές εκδόσεις. Δεν αποθηκεύει cookie. Η πλήρης περιγραφή είναι στην πολιτική cookies. Αν ακολουθήσετε σύνδεσμο προς άλλον ιστότοπο, εκείνος έχει τη δική του πολιτική."]),
    ("Email",["Αν στείλετε email στο cynews24@gmail.com, χρησιμοποιούμε το μήνυμα για να απαντήσουμε ή για να διορθώσουμε ένα άρθρο. Το κρατάμε για όσο χρειάζεται αυτός ο σκοπός."]),
    ("Αλλαγές",["Αν η πολιτική αλλάξει, το νέο κείμενο αντικαθιστά αυτή τη σελίδα."])])}
 # Analytics paragraphs below are the text used while GA4_ID is empty.
@@ -345,7 +345,7 @@ COOKIES = {
    ("Your choice",["A banner offers Accept and Reject. Until you choose, Google Consent Mode keeps ad storage, ad user data, ad personalisation and analytics storage denied. That default is set in the page before the Google AdSense script and before any Google tag. Accept grants those four storage types. Reject leaves them denied. The choice is saved in local storage as cynews24-consent on this browser. It is not a cookie and it is not sent to the server."]),
    ("Advertising",["The pages load Google AdSense, publisher ca-pub-1547877294743851, so Google can show ads. If you accept, Google may set advertising cookies and use them to measure and personalise ads. If you reject, AdSense may still show an ad that does not use those cookies. What Google stores is described in Google's cookie policy."]),
    ("Analytics",["The site does not use Google Analytics, so it does not set analytics cookies. Analytics storage stays denied. If a measurement ID is configured later, analytics cookies are stored only after you accept."]),
-   ("What this site does not store",["CyNews 24 does not set its own cookies. The language chooser on the front page reads the browser language and may redirect once. It does not store a cookie. The advertising contact form does not set a cookie on this site."]),
+   ("What this site does not store",["CyNews 24 does not set its own cookies. The language chooser on the front page links to the Russian, English and Greek editions. It does not store a cookie. The advertising contact form does not set a cookie on this site."]),
    ("Changing your mind",["Cookie settings in the footer opens the banner again. You can also block or delete cookies in the browser. Clearing site data removes the saved choice, and the banner is shown again."]),
    ("Contact",["Questions about this policy: cynews24@gmail.com. The supervisory authority in Cyprus is the Commissioner for Personal Data Protection."])]),
  "ru":dict(t="Политика cookie",d="Как CyNews 24 спрашивает согласие до сохранения рекламных и аналитических cookie и как изменить этот выбор.",
@@ -354,7 +354,7 @@ COOKIES = {
    ("Ваш выбор",["Баннер предлагает «Принять» и «Отклонить». Пока вы не выбрали, Google Consent Mode запрещает хранение для рекламы, пользовательских данных рекламы, персонализации рекламы и аналитики. Этот запрет записан в странице до скрипта Google AdSense и до любого тега Google. «Принять» разрешает эти четыре вида хранения. «Отклонить» оставляет запрет. Выбор сохраняется в local storage этого браузера как cynews24-consent. Это не cookie, и на сервер он не отправляется."]),
    ("Реклама",["Страницы подключают Google AdSense, издатель ca-pub-1547877294743851, чтобы Google мог показывать объявления. Если вы принимаете, Google может ставить рекламные cookie и использовать их для измерения и персонализации рекламы. Если вы отклоняете, AdSense может показать объявление, которое эти cookie не использует. Что хранит Google, описано в политике cookie Google."]),
    ("Аналитика",["Сайт не использует Google Analytics и не ставит аналитические cookie. Хранение для аналитики остаётся запрещённым. Если идентификатор измерения появится позже, аналитические cookie сохраняются только после вашего согласия."]),
-   ("Чего сайт не хранит",["CyNews 24 не ставит собственные cookie. Выбор языка на первой странице читает язык браузера и может один раз перенаправить. Cookie при этом не сохраняется. Форма рекламного обращения не ставит cookie на этом сайте."]),
+   ("Чего сайт не хранит",["CyNews 24 не ставит собственные cookie. Выбор языка на первой странице ведёт на русскую, английскую и греческую версии. Cookie при этом не сохраняется. Форма рекламного обращения не ставит cookie на этом сайте."]),
    ("Как изменить выбор",["«Настройки cookie» в подвале снова открывают баннер. Cookie можно также запретить или удалить в браузере. Очистка данных сайта удаляет сохранённый выбор, и баннер показывается снова."]),
    ("Контакты",["Вопросы об этой политике: cynews24@gmail.com. Надзорный орган на Кипре — Комиссар по защите персональных данных."])]),
  "el":dict(t="Πολιτική cookies",d="Πώς το CyNews 24 ζητά συγκατάθεση πριν αποθηκευτούν διαφημιστικά ή αναλυτικά cookies και πώς αλλάζετε την επιλογή.",
@@ -363,7 +363,7 @@ COOKIES = {
    ("Η επιλογή σας",["Ένα πλαίσιο προσφέρει Αποδοχή και Απόρριψη. Μέχρι να επιλέξετε, το Google Consent Mode κρατά σε άρνηση την αποθήκευση διαφημίσεων, τα δεδομένα χρήστη για διαφημίσεις, την εξατομίκευση διαφημίσεων και την αποθήκευση αναλυτικών. Η προεπιλογή μπαίνει στη σελίδα πριν από το script του Google AdSense και πριν από οποιαδήποτε ετικέτα Google. Η Αποδοχή επιτρέπει αυτά τα τέσσερα είδη αποθήκευσης. Η Απόρριψη τα αφήνει σε άρνηση. Η επιλογή αποθηκεύεται στο local storage αυτού του προγράμματος περιήγησης ως cynews24-consent. Δεν είναι cookie και δεν στέλνεται στον διακομιστή."]),
    ("Διαφήμιση",["Οι σελίδες φορτώνουν το Google AdSense, εκδότη ca-pub-1547877294743851, ώστε η Google να εμφανίζει διαφημίσεις. Αν αποδεχτείτε, η Google μπορεί να τοποθετεί διαφημιστικά cookies και να τα χρησιμοποιεί για μέτρηση και εξατομίκευση διαφημίσεων. Αν απορρίψετε, το AdSense μπορεί ακόμη να εμφανίσει διαφήμιση που δεν χρησιμοποιεί αυτά τα cookies. Τι αποθηκεύει η Google περιγράφεται στην πολιτική cookies της Google."]),
    ("Αναλυτικά",["Ο ιστότοπος δεν χρησιμοποιεί Google Analytics, άρα δεν τοποθετεί αναλυτικά cookies. Η αποθήκευση αναλυτικών μένει σε άρνηση. Αν αργότερα οριστεί αναγνωριστικό μέτρησης, τα αναλυτικά cookies αποθηκεύονται μόνο αφού αποδεχτείτε."]),
-   ("Τι δεν αποθηκεύουμε",["Το CyNews 24 δεν τοποθετεί δικά του cookies. Η επιλογή γλώσσας στην πρώτη σελίδα διαβάζει τη γλώσσα του προγράμματος περιήγησης και μπορεί να ανακατευθύνει μία φορά. Δεν αποθηκεύει cookie. Η φόρμα διαφημιστικής επικοινωνίας δεν τοποθετεί cookie σε αυτόν τον ιστότοπο."]),
+   ("Τι δεν αποθηκεύουμε",["Το CyNews 24 δεν τοποθετεί δικά του cookies. Η επιλογή γλώσσας στην πρώτη σελίδα οδηγεί στις ρωσικές, αγγλικές και ελληνικές εκδόσεις. Δεν αποθηκεύει cookie. Η φόρμα διαφημιστικής επικοινωνίας δεν τοποθετεί cookie σε αυτόν τον ιστότοπο."]),
    ("Αλλαγή επιλογής",["Οι «Ρυθμίσεις cookies» στο υποσέλιδο ανοίγουν ξανά το πλαίσιο. Μπορείτε επίσης να μπλοκάρετε ή να διαγράψετε cookies στο πρόγραμμα περιήγησης. Η εκκαθάριση δεδομένων του ιστότοπου αφαιρεί την αποθηκευμένη επιλογή και το πλαίσιο εμφανίζεται ξανά."]),
    ("Επικοινωνία",["Ερωτήματα για αυτή την πολιτική: cynews24@gmail.com. Η εποπτική αρχή στην Κύπρο είναι ο Επίτροπος Προστασίας Δεδομένων Προσωπικού Χαρακτήρα."])])}
 e=html.escape
@@ -822,14 +822,14 @@ def _privacy_when_ga(l, gid):
     if l=="en":
         return (
           [f"The site uses Google Analytics 4 (measurement ID {gid}) to count visits. The tag loads only after Google Consent Mode has set analytics storage to denied, and Analytics stores cookies only if you accept. Until then, analytics storage stays denied. The site also loads Google AdSense (ca-pub-1547877294743851) so Google can show ads. Advertising storage stays denied until you accept. Cookie settings in the footer opens the choice again."],
-          ["CyNews 24 does not set its own cookies. The accept or reject choice is stored in this browser's local storage under the name cynews24-consent, which is not a cookie. Google Consent Mode starts denied, before the AdSense script and before the Analytics tag. If you accept, Google Analytics and Google AdSense may set cookies. If you reject, advertising and analytics storage stay denied. The language chooser on the front page reads the browser language and may redirect once; it does not store a cookie. The cookie policy has the full account. If you follow a link to another site, that site has its own policy."])
+          ["CyNews 24 does not set its own cookies. The accept or reject choice is stored in this browser's local storage under the name cynews24-consent, which is not a cookie. Google Consent Mode starts denied, before the AdSense script and before the Analytics tag. If you accept, Google Analytics and Google AdSense may set cookies. If you reject, advertising and analytics storage stay denied. The language chooser on the front page links to the Russian, English and Greek editions. It does not store a cookie. The cookie policy has the full account. If you follow a link to another site, that site has its own policy."])
     if l=="ru":
         return (
           [f"Сайт использует Google Analytics 4 (идентификатор {gid}), чтобы считать визиты. Тег подключается только после того, как Google Consent Mode запретил хранение для аналитики, и Analytics ставит cookie только если вы согласились. До согласия хранение для аналитики запрещено. Сайт также подключает Google AdSense (ca-pub-1547877294743851), чтобы Google мог показывать объявления. Хранение для рекламы запрещено, пока вы не примите cookie. «Настройки cookie» в подвале снова открывают выбор."],
-          ["CyNews 24 не ставит собственные cookie. Выбор «принять» или «отклонить» хранится в local storage этого браузера под именем cynews24-consent — это не cookie. Google Consent Mode с самого начала запрещает хранение, ещё до скрипта AdSense и до тега Analytics. Если вы принимаете, Google Analytics и Google AdSense могут ставить cookie. Если вы отклоняете, хранение для рекламы и аналитики остаётся запрещённым. Выбор языка на первой странице читает язык браузера и может один раз перенаправить; cookie при этом не сохраняется. Подробности — в политике cookie. Если вы переходите по ссылке на другой сайт, у того сайта своя политика."])
+          ["CyNews 24 не ставит собственные cookie. Выбор «принять» или «отклонить» хранится в local storage этого браузера под именем cynews24-consent — это не cookie. Google Consent Mode с самого начала запрещает хранение, ещё до скрипта AdSense и до тега Analytics. Если вы принимаете, Google Analytics и Google AdSense могут ставить cookie. Если вы отклоняете, хранение для рекламы и аналитики остаётся запрещённым. Выбор языка на первой странице ведёт на русскую, английскую и греческую версии. Cookie при этом не сохраняется. Подробности — в политике cookie. Если вы переходите по ссылке на другой сайт, у того сайта своя политика."])
     return (
       [f"Ο ιστότοπος χρησιμοποιεί το Google Analytics 4 (αναγνωριστικό {gid}) για να μετρά τις επισκέψεις. Η ετικέτα φορτώνει μόνο αφού το Google Consent Mode έχει θέσει την αποθήκευση αναλυτικών σε άρνηση, και το Analytics αποθηκεύει cookies μόνο αν αποδεχτείτε. Μέχρι τότε η αποθήκευση αναλυτικών μένει σε άρνηση. Ο ιστότοπος φορτώνει επίσης το Google AdSense (ca-pub-1547877294743851) ώστε η Google να εμφανίζει διαφημίσεις. Η αποθήκευση για διαφήμιση μένει σε άρνηση μέχρι να αποδεχτείτε. Οι «Ρυθμίσεις cookies» στο υποσέλιδο ανοίγουν ξανά την επιλογή."],
-      ["Το CyNews 24 δεν τοποθετεί δικά του cookies. Η επιλογή αποδοχής ή απόρριψης αποθηκεύεται στο local storage αυτού του προγράμματος περιήγησης με το όνομα cynews24-consent και δεν είναι cookie. Το Google Consent Mode ξεκινά σε άρνηση, πριν από το script του AdSense και πριν από την ετικέτα του Analytics. Αν αποδεχτείτε, το Google Analytics και το Google AdSense μπορούν να τοποθετούν cookies. Αν απορρίψετε, η αποθήκευση για διαφήμιση και αναλυτικά μένει σε άρνηση. Η επιλογή γλώσσας στην πρώτη σελίδα διαβάζει τη γλώσσα του προγράμματος περιήγησης και μπορεί να ανακατευθύνει μία φορά· δεν αποθηκεύει cookie. Η πλήρης περιγραφή είναι στην πολιτική cookies. Αν ακολουθήσετε σύνδεσμο προς άλλον ιστότοπο, εκείνος έχει τη δική του πολιτική."])
+      ["Το CyNews 24 δεν τοποθετεί δικά του cookies. Η επιλογή αποδοχής ή απόρριψης αποθηκεύεται στο local storage αυτού του προγράμματος περιήγησης με το όνομα cynews24-consent και δεν είναι cookie. Το Google Consent Mode ξεκινά σε άρνηση, πριν από το script του AdSense και πριν από την ετικέτα του Analytics. Αν αποδεχτείτε, το Google Analytics και το Google AdSense μπορούν να τοποθετούν cookies. Αν απορρίψετε, η αποθήκευση για διαφήμιση και αναλυτικά μένει σε άρνηση. Η επιλογή γλώσσας στην πρώτη σελίδα οδηγεί στις ρωσικές, αγγλικές και ελληνικές εκδόσεις. Δεν αποθηκεύει cookie. Η πλήρης περιγραφή είναι στην πολιτική cookies. Αν ακολουθήσετε σύνδεσμο προς άλλον ιστότοπο, εκείνος έχει τη δική του πολιτική."])
 def privacy_for(l):
     gid=_ga()
     if not gid: return PRIVACY[l]
@@ -845,22 +845,39 @@ def cookies_for(l):
     gid=_ga()
     if not gid: return COOKIES[l]
     return _replace_section(COOKIES[l], _AH[l], _cookie_analytics_when_ga(l, gid))
-def alt_links(l, pathfn):
-    out=[]
-    for x in LANGS:
-        out.append(f'<link rel="alternate" hreflang="{x}" href="{abs_(pathfn(x))}">')
-    out.append(f'<link rel="alternate" hreflang="x-default" href="{abs_("/")}">')
+# GitHub Pages serves /path/ and /path/index.html as the same file. Send the
+# index.html address to the directory URL, which is the canonical.
+PATH_CANON_JS = (
+    "<script>(function(){var p=location.pathname;"
+    "if(/\\/index\\.html$/i.test(p)){location.replace(p.replace(/index\\.html$/i,'')+location.search+location.hash);}"
+    "})();</script>")
+def indexed_langs(story=None):
+    """Languages that have their own text. A missing translation is noindex and is not an alternate."""
+    if not story:
+        return list(LANGS)
+    return [x for x in LANGS if x not in story.get("missing", ())]
+def x_default_path(pathfn, langs):
+    """The language chooser is x-default only for the three homepages.
+    Every other page points x-default at its own English URL."""
+    if len(langs) == len(LANGS) and all(pathfn(x) == f"/{x}/" for x in LANGS):
+        return "/"
+    pick = "en" if "en" in langs else ("ru" if "ru" in langs else langs[0])
+    return pathfn(pick)
+def alt_links(l, pathfn, langs=None):
+    langs = list(langs or LANGS)
+    out=[f'<link rel="alternate" hreflang="{x}" href="{abs_(pathfn(x))}">' for x in langs]
+    out.append(f'<link rel="alternate" hreflang="x-default" href="{abs_(x_default_path(pathfn, langs))}">')
     return "\n".join(out)
 
-def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None, mod=None, robots="index,follow,max-image-preview:large,max-snippet:-1"):
+def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None, mod=None, robots="index,follow,max-image-preview:large,max-snippet:-1", langs=None):
     h=[f'<!doctype html><html lang="{l}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
-    YANDEX_VERIFICATION, IMPACT_VERIFICATION]
+    PATH_CANON_JS, YANDEX_VERIFICATION, IMPACT_VERIFICATION]
     if bing_meta(): h.append(bing_meta())
     h+=[f'<title>{e(title)}</title><meta name="description" content="{e(desc)}">',
     f'<meta name="keywords" content="{e(", ".join(kws))}">',
     f'<meta name="robots" content="{e(robots)}">',
     f'<link rel="canonical" href="{abs_(path)}">',
-    alt_links(l,pathfn),
+    alt_links(l,pathfn,langs) if not robots.lower().startswith("noindex") else "",
     f'<meta property="og:site_name" content="{SITE}"><meta property="og:type" content="{typ}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{abs_(path)}"><meta property="og:image" content="{abs_(og_img)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="{LOCALE[l]}">']
     for x in LANGS:
         if x!=l: h.append(f'<meta property="og:locale:alternate" content="{LOCALE[x]}">')
@@ -1472,11 +1489,10 @@ def page_article(l,s):
     faq=faq_ld(s["faq"][l])
     if faq: ld.append(faq)
     preload=f'<link rel="preload" as="image" href="{href(f"/assets/img/{s["img"]}-1200.webp")}" imagesrcset="{href(f"/assets/img/{s["img"]}-600.webp")} 600w, {href(f"/assets/img/{s["img"]}-1200.webp")} 1200w" imagesizes="(max-width:800px) 100vw,760px">'
-    if l in s.get("missing",()):
-        # Not translated yet: the Russian text is shown, so keep this copy out of search results.
-        h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod,robots="noindex,follow")+header(l,pathfn,s["cat"])
-    else:
-        h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod)+header(l,pathfn,s["cat"])
+    # A missing translation repeats the Russian text, so it stays out of the index,
+    # the sitemap and the hreflang cluster.
+    robots = "noindex,follow" if l in s.get("missing", ()) else "index,follow,max-image-preview:large,max-snippet:-1"
+    h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod,robots=robots,langs=indexed_langs(s))+header(l,pathfn,s["cat"])
     h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{u["crumb_home"]}</a> › <a href="{href(f"/{l}/{s["cat"]}/")}">{CATN[l][s["cat"]]}</a></nav>'
     h+=f'<article class="a"><span class="cat">{CATN[l][s["cat"]]}</span><h1>{e(title)}</h1><p class="dek">{e(s["lede"][l])}</p>'
     h+=f'<div class="by"><span class="who">{e(u["byline"])}</span><span class="when"><time datetime="{pub}">{e(u["published"])}: {fdt(pub,l)}</time><time datetime="{mod}">{e(u["updated"])}: {fdt(mod,l)}</time></span></div>'
@@ -1830,10 +1846,12 @@ def build_event_photos():
         _write_event_webp(d, key, CREDITS[key])
 
 def page_root():
-    # language chooser = x-default
+    # Language chooser. It is x-default for the three homepages only, and it does not
+    # redirect: a redirect made Google treat this URL and /en/ as the same page.
     alts="\n".join(f'<link rel="alternate" hreflang="{x}" href="{abs_(f"/{x}/")}">' for x in LANGS)+f'\n<link rel="alternate" hreflang="x-default" href="{abs_("/")}">'
     ld={"@context":"https://schema.org","@type":"WebSite","name":SITE,"url":abs_("/"),"inLanguage":LANGS}
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+{PATH_CANON_JS}
 {YANDEX_VERIFICATION}
 {IMPACT_VERIFICATION}
 {bing_meta()}
@@ -1845,12 +1863,11 @@ def page_root():
 <meta property="og:site_name" content="{SITE}"><meta property="og:type" content="website"><meta property="og:title" content="CyNews 24 – Cyprus News · Новости Кипра · Ειδήσεις Κύπρου"><meta property="og:description" content="Cyprus news in English, Russian and Greek."><meta property="og:url" content="{abs_("/")}"><meta property="og:image" content="{abs_("/assets/og-default.jpg")}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="CyNews 24"><meta name="twitter:description" content="Cyprus news in English, Russian and Greek."><meta name="twitter:image" content="{abs_("/assets/og-default.jpg")}">
 <link rel="icon" href="{href("/favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="{href("/apple-touch-icon.png")}"><meta name="theme-color" content="#111827"><link rel="stylesheet" href="{href("/assets/css/style.css")}">
-<link rel="alternate" type="application/rss+xml" title="{SITE} (EN)" href="{href("/feed.xml")}">
+<link rel="alternate" type="application/rss+xml" title="{SITE} (EN)" href="{href("/en/feed.xml")}">
 <script type="application/ld+json">{json.dumps(ld)}</script>
 {google_tags()}</head>
 <body class="choose-body"><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>Cyprus news · Новости Кипра · Ειδήσεις Κύπρου</p>
 <div class="btns"><a href="{href("/ru/")}" hreflang="ru" lang="ru">Русский</a><a href="{href("/en/")}" hreflang="en" lang="en">English</a><a href="{href("/el/")}" hreflang="el" lang="el">Ελληνικά</a></div></div></main>
-<script>try{{var l=(navigator.language||"en").slice(0,2).toLowerCase();if(!/[?&]choose/.test(location.search)&&["ru","en","el"].indexOf(l)>-1&&!document.referrer.includes(location.host)){{location.replace("{href("/")}"+l+"/")}}}}catch(e){{}}</script>
 {cookie_banner("en")}</body></html>'''
 
 def rss(l):
@@ -1861,18 +1878,22 @@ def rss(l):
         x.append(f'<item><title>{e(s["title"][l])}</title><link>{abs_(f"/{l}/{s["slug"]}/")}</link><guid>{abs_(f"/{l}/{s["slug"]}/")}</guid><pubDate>{dt.strftime("%a, %d %b %Y %H:%M:%S +0200")}</pubDate><description>{e(s["lede"][l])}</description></item>')
     x.append('</channel></rss>'); return "".join(x)
 
+def hreflang_xml(pathfn, langs):
+    alts="".join(f'<xhtml:link rel="alternate" hreflang="{x}" href="{abs_(pathfn(x))}"/>' for x in langs)
+    return alts+f'<xhtml:link rel="alternate" hreflang="x-default" href="{abs_(x_default_path(pathfn, langs))}"/>'
 def sitemap():
-    def entry(pathfn,lastmod,prio):
-        out=[]
-        for l in LANGS:
-            alts="".join(f'<xhtml:link rel="alternate" hreflang="{x}" href="{abs_(pathfn(x))}"/>' for x in LANGS)+f'<xhtml:link rel="alternate" hreflang="x-default" href="{abs_("/")}"/>'
-            out.append(f'<url><loc>{abs_(pathfn(l))}</loc><lastmod>{lastmod}</lastmod><priority>{prio}</priority>{alts}</url>')
-        return "".join(out)
+    def entry(pathfn,lastmod,prio,langs=None):
+        langs=list(langs or LANGS)
+        alts=hreflang_xml(pathfn, langs)
+        return "".join(f'<url><loc>{abs_(pathfn(l))}</loc><lastmod>{lastmod}</lastmod><priority>{prio}</priority>{alts}</url>' for l in langs)
     x=['<?xml version="1.0" encoding="UTF-8"?><urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:xhtml="http://www.w3.org/1999/xhtml">',
-       f'<url><loc>{abs_("/")}</loc><lastmod>{TODAY}</lastmod><priority>0.5</priority>'+"".join(f'<xhtml:link rel="alternate" hreflang="{l}" href="{abs_(f"/{l}/")}"/>' for l in LANGS)+f'<xhtml:link rel="alternate" hreflang="x-default" href="{abs_("/")}"/></url>']
+       f'<url><loc>{abs_("/")}</loc><lastmod>{TODAY}</lastmod><priority>0.5</priority>'+hreflang_xml(lambda l:f"/{l}/", LANGS)+'</url>']
     x.append(entry(lambda l:f"/{l}/",TODAY,"1.0"))
     for c in CATS: x.append(entry(lambda l,c=c:f"/{l}/{c}/",TODAY,"0.7"))
-    for s in STORIES: x.append(entry(lambda l,s=s:f"/{l}/{s['slug']}/",TODAY,"0.8"))
+    for s in STORIES:
+        langs=indexed_langs(s)
+        if langs:
+            x.append(entry(lambda l,s=s:f"/{l}/{s['slug']}/",TODAY,"0.8",langs))
     x.append(entry(lambda l:f"/{l}/about/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/editorial-policy/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/affiliate-disclosure/",TODAY,"0.3"))
@@ -1896,7 +1917,7 @@ def news_sitemap():
         pub,_mod=article_times(s)
         published=datetime.datetime.fromisoformat(pub)
         if published < cutoff: continue
-        for l in LANGS:
+        for l in indexed_langs(s):
             loc=abs_(f"/{l}/{s['slug']}/")
             x.append("<url><loc>"+e(loc)+"</loc><news:news><news:publication><news:name>CyNews 24</news:name><news:language>"+l+"</news:language></news:publication><news:publication_date>"+e(pub)+"</news:publication_date><news:title>"+e(s["title"][l])+"</news:title></news:news></url>")
     x.append("</urlset>")
@@ -1912,7 +1933,7 @@ def mycytax_catalog():
 def w(path,content):
     p=OUT+path; os.makedirs(os.path.dirname(p),exist_ok=True); open(p,"w",encoding="utf8").write(content)
 def page_404():
-    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8">{YANDEX_VERIFICATION}{IMPACT_VERIFICATION}{bing_meta()}'
+    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8">{PATH_CANON_JS}{YANDEX_VERIFICATION}{IMPACT_VERIFICATION}{bing_meta()}'
       f'<title>404 — {SITE}</title><meta name="robots" content="noindex">'
       f'<link rel="stylesheet" href="{href("/assets/css/style.css")}">{google_tags()}</head>'
       f'<body><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div>'
@@ -1947,10 +1968,13 @@ def main():
         w(f"/{l}/advertising/thanks/index.html",page_ad_thanks(l))
         w(f"/{l}/thanks/index.html",page_lead_thanks(l))
         w(f"/{l}/feed.xml",rss(l))
-    w("/feed.xml",rss("en"))
+    # One feed per language. /feed.xml was a second copy of the English feed.
+    stale_feed=os.path.join(OUT,"feed.xml")
+    if os.path.isfile(stale_feed):
+        os.remove(stale_feed)
     w("/sitemap.xml",sitemap())
     w("/news-sitemap.xml",news_sitemap())
-    w("/robots.txt",f"User-agent: *\nAllow: /\n\nSitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/news-sitemap.xml\n")
+    w("/robots.txt","User-agent: *\nAllow: /\nDisallow: /feed.xml\nDisallow: /ru/feed.xml\nDisallow: /en/feed.xml\nDisallow: /el/feed.xml\n\n"+f"Sitemap: {BASE}/sitemap.xml\nSitemap: {BASE}/news-sitemap.xml\n")
     w("/404.html",page_404())
     w("/_headers","/assets/*\n  Cache-Control: public, max-age=31536000, immutable\n/*\n  X-Content-Type-Options: nosniff\n  Referrer-Policy: strict-origin-when-cross-origin\n")
     open(os.path.join(OUT,".nojekyll"),"w").close()

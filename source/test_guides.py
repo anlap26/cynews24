@@ -50,11 +50,12 @@ class GuideContentTests(unittest.TestCase):
         for slug in SLUGS:
             for lang in LANGS:
                 html = build.page_article(lang, build.BYSLUG[slug])
-                self.assertIn(f'href="https://cynews24.net/{lang}/{slug}/"', html)
+                self.assertIn(f'rel="canonical" href="https://cynews24.net/{lang}/{slug}/"', html)
                 self.assertIn('hreflang="ru"', html)
                 self.assertIn('hreflang="en"', html)
                 self.assertIn('hreflang="el"', html)
-                self.assertIn('hreflang="x-default"', html)
+                self.assertIn(f'hreflang="x-default" href="https://cynews24.net/en/{slug}/"', html)
+                self.assertNotIn('hreflang="x-default" href="https://cynews24.net/"', html)
                 self.assertIn('"@type": "Article"', html)
                 self.assertNotIn('"@type": "NewsArticle"', html)
                 self.assertIn('"@type": "FAQPage"', html)
@@ -102,6 +103,16 @@ class GuideContentTests(unittest.TestCase):
                 self.assertIn(f"https://cynews24.net/{lang}/{slug}/", xml)
         for lang in LANGS:
             self.assertIn(f"https://cynews24.net/{lang}/affiliate-disclosure/", xml)
+        self.assertIn(
+            'hreflang="x-default" href="https://cynews24.net/en/international-health-insurance/"',
+            xml)
+        self.assertIn("<loc>https://cynews24.net/</loc>", xml)
+        self.assertIn('hreflang="x-default" href="https://cynews24.net/"', xml)
+        self.assertNotIn("https://cynews24.net/feed.xml", xml)
+        self.assertNotIn("index.html", xml)
+        for loc in re.findall(r"<loc>(.*?)</loc>", xml):
+            self.assertTrue(loc.startswith("https://cynews24.net/"), loc)
+            self.assertTrue(loc.endswith("/"), loc)
         news = build.news_sitemap()
         for slug in SLUGS:
             self.assertNotIn(slug, news)

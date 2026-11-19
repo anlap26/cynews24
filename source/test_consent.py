@@ -59,7 +59,17 @@ class ConsentTests(unittest.TestCase):
             self.assertIn('id="cookie-banner"', html)
             self.assertIn("Accept", html)
             self.assertIn("Reject", html)
-        self.assertIn('href="/feed.xml"', build.page_root())
+        root = build.page_root()
+        self.assertIn('href="/en/feed.xml"', root)
+        self.assertNotIn("navigator.language", root)
+        self.assertIn('rel="canonical" href="https://cynews24.net/"', root)
+        self.assertIn('hreflang="x-default" href="https://cynews24.net/"', root)
+        home = build.page_home("en")
+        self.assertIn('rel="canonical" href="https://cynews24.net/en/"', home)
+        self.assertIn('hreflang="x-default" href="https://cynews24.net/"', home)
+        thanks = build.page_lead_thanks("en")
+        self.assertIn("noindex", thanks)
+        self.assertNotIn('rel="alternate" hreflang', thanks)
 
     def test_banner_languages_and_consent_update(self):
         self.assertIn("Принять", build.cookie_banner("ru"))
