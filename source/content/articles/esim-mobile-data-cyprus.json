@@ -29,6 +29,16 @@
         "q": "Нужна ли местная SIM, если уже есть EU SIM?",
         "a": "Не для того, чтобы включить роуминг. Имеет смысл, если нужен кипрский номер или домашний пакет мал. Если оператор не из ЕС или ЕЭЗ, правило «роуме как дома» само по себе не действует."
       }
+    ],
+    "steps": [
+      {
+        "name": "Что поставить до вылета",
+        "text": "Телефон, который принимает eSIM, можно настроить до посадки. Тогда в зале прилёта Ларнаки или Пафоса данные уже есть, без очереди в салон. Туристическая eSIM чаще даёт интернет, а обычные звонки и SMS остаются на домашней SIM или уходят в приложения. Так устроены многие международные eSIM; конкретный объём гигабайт и срок пишут на странице продавца в день покупки. Эта статья их не копирует: прайсы меняются, а официальной единой цены «eSIM для Кипра» у государства нет."
+      },
+      {
+        "name": "Местная SIM после прилёта",
+        "text": "Физическую карту покупают уже на острове, в салоне оператора. Республика не публикует в туристическом буклете один туристический тариф, поэтому страница не называет ни € за гигабайт, ни «100 ГБ за две недели». Условия смотрят на сайте оператора или на ценнике в салоне в день покупки. Паспорт или местный адрес могут спросить в магазине; если на витрине этого нет, не считайте, что так у всех."
+      }
     ]
   },
   "en": {
@@ -57,6 +67,16 @@
         "q": "Do I need a local SIM if I already have an EU SIM?",
         "a": "Not in order to switch roaming on. It helps if you want a Cypriot number or the home allowance is small. If the operator is outside the EU and the EEA, roam like at home does not apply by itself."
       }
+    ],
+    "steps": [
+      {
+        "name": "What to install before the flight",
+        "text": "A phone that accepts an eSIM can be set up before boarding. Then the arrivals hall at Larnaca or Paphos already has data, without a queue at a shop. A travel eSIM is often data, while ordinary calls and texts stay on the home SIM or move to apps. That is how many international eSIMs are built. The gigabytes and the validity are on the seller’s page the day you buy. This article does not copy them: price lists change, and the state does not publish one official “eSIM for Cyprus” rate."
+      },
+      {
+        "name": "A local SIM after you land",
+        "text": "A physical card is bought on the island, in an operator’s shop. The Republic does not print one tourist tariff in the tourism booklet, so this page names neither a euro-per-gigabyte figure nor a “100 GB for a fortnight”. Read the operator’s site, or the price in the shop, on the day. A shop may ask for a passport. If the counter does not, do not assume every shop asks."
+      }
     ]
   },
   "el": {
@@ -83,6 +103,16 @@
       {
         "q": "Χρειάζομαι τοπική SIM αν έχω ήδη SIM ΕΕ;",
         "a": "Όχι για να ενεργοποιήσετε την περιαγωγή. Βοηθά αν θέλετε κυπριακό αριθμό ή το οικιακό πακέτο είναι μικρό. Αν ο πάροχος είναι εκτός ΕΕ και ΕΟΧ, η περιαγωγή σαν στο σπίτι δεν ισχύει από μόνη της."
+      }
+    ],
+    "steps": [
+      {
+        "name": "Τι να εγκαταστήσετε πριν από την πτήση",
+        "text": "Τηλέφωνο που δέχεται eSIM ρυθμίζεται πριν από την επιβίβαση. Τότε η αίθουσα αφίξεων σε Λάρνακα ή Πάφο έχει ήδη δεδομένα, χωρίς ουρά σε κατάστημα. Μια ταξιδιωτική eSIM είναι συχνά μόνο δεδομένα, και οι συνηθισμένες κλήσεις μένουν στην οικιακή SIM ή πάνε σε εφαρμογές. Τα gigabyte και η διάρκεια είναι στη σελίδα του πωλητή την ημέρα της αγοράς. Αυτό το άρθρο δεν τα αντιγράφει: οι τιμοκατάλογοι αλλάζουν, και το κράτος δεν δημοσιεύει μία επίσημη τιμή «eSIM για την Κύπρο»."
+      },
+      {
+        "name": "Τοπική SIM μετά την άφιξη",
+        "text": "Φυσική κάρτα αγοράζεται στο νησί, σε κατάστημα παρόχου. Η Δημοκρατία δεν τυπώνει ένα τουριστικό τιμολόγιο στον οδηγό τουρισμού, άρα η σελίδα δεν λέει ούτε ευρώ ανά gigabyte ούτε «100 GB για δεκαπενθήμερο». Διαβάστε τον ιστότοπο του παρόχου ή την τιμή στο κατάστημα εκείνη την ημέρα. Ένα κατάστημα μπορεί να ζητήσει διαβατήριο. Αν δεν το ζητά, μην υποθέσετε ότι όλα το ζητούν."
       }
     ]
   },

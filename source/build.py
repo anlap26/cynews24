@@ -106,6 +106,19 @@ def _faq(path, lang, v):
         if not q or not a: raise SystemExit(f"{path}: {lang} faq item needs q and a")
         out.append({"q": q, "a": a})
     return out
+def _steps(path, lang, v):
+    """Optional HowTo steps. A guide with two or more gets HowTo; news leaves this empty."""
+    if not v: return []
+    if not isinstance(v, list): raise SystemExit(f"{path}: {lang} steps must be a list")
+    out = []
+    for item in v:
+        if not isinstance(item, dict): raise SystemExit(f"{path}: {lang} step must be an object")
+        name, text = _clean(item.get("name")), _clean(item.get("text"))
+        if not name or not text: raise SystemExit(f"{path}: {lang} step needs name and text")
+        out.append({"name": name, "text": text})
+    if len(out) == 1:
+        raise SystemExit(f"{path}: {lang} HowTo needs at least two steps")
+    return out
 def load_story(path):
     with open(path, encoding="utf8") as f: d = json.load(f)
     stem = os.path.splitext(os.path.basename(path))[0]
@@ -121,7 +134,7 @@ def load_story(path):
         if not _clean(ru.get(k)): raise SystemExit(f"{path}: Russian {k} is required")
     s = {"slug": slug, "file": stem, "cat": cat, "date": date, "seq": d.get("seq"), "missing": set(), "guide": bool(d.get("guide"))}
     for k in ("title", "lede", "alt", "desc"): s[k] = {}
-    s["body"] = {}; s["kw"] = {}; s["offers"] = {}; s["faq"] = {}
+    s["body"] = {}; s["kw"] = {}; s["offers"] = {}; s["faq"] = {}; s["steps"] = {}
     for l in LANGS:
         src = d.get(l) or {}
         if l != "ru" and not (_clean(src.get("title")) and _clean(src.get("lede")) and _clean(src.get("body"))):
@@ -133,6 +146,7 @@ def load_story(path):
         s["desc"][l] = _clean(src.get("desc"))
         s["offers"][l] = _offers(path, l, src.get("offers"))
         s["faq"][l] = _faq(path, l, src.get("faq"))
+        s["steps"][l] = _steps(path, l, src.get("steps"))
     s["sources"] = [(_clean(x.get("name")) or _clean(x.get("url")), _clean(x.get("url")))
                     for x in (d.get("sources") or []) if _clean(x.get("url"))]
     if _clean(d.get("updated")): s["updated"] = _clean(d["updated"])
@@ -962,7 +976,7 @@ def footer_social(l):
 def same_as():
     return [url for url,_label,_key in social_items()[1]]
 def org_ld(l):
-    return {"@type":"NewsMediaOrganization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),
+    return {"@type":["Organization","NewsMediaOrganization"],"@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),
             "email":AD_EMAIL,"description":HOME_D[l],
             "logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512},
             "address":{"@type":"PostalAddress","addressCountry":"CY"},
@@ -974,6 +988,27 @@ def org_ld(l):
             "masthead":abs_(f"/{l}/about/"),
             "contactPoint":[{"@type":"ContactPoint","contactType":"editorial","email":AD_EMAIL,"areaServed":"CY","availableLanguage":["Russian","English","Greek"]},
                             {"@type":"ContactPoint","contactType":"advertising","email":AD_EMAIL,"availableLanguage":["Russian","English","Greek"],"url":abs_(f"/{l}/advertising/")}]}
+def website_ld(l, path, description=None):
+    """WebSite node for a home page. SearchAction is omitted: there is no site search."""
+    node={"@context":"https://schema.org","@type":"WebSite","@id":abs_(path)+"#website",
+          "name":SITE,"url":abs_(path),"inLanguage":l,
+          "publisher":{"@id":abs_("/")+"#org"}}
+    if description:
+        node["description"]=description
+    return node
+def publisher_ld():
+    return {"@type":"Organization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),
+            "logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512}}
+def author_ld():
+    """The newsroom is the author. Stories do not carry an individual reporter name."""
+    return {"@type":"Organization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/")}
+def breadcrumb_ld(trail):
+    """trail is (name, site path) pairs. Google requires at least two ListItems."""
+    if len(trail) < 2:
+        raise SystemExit("BreadcrumbList needs at least two items")
+    return {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[
+        {"@type":"ListItem","position":i+1,"name":name,"item":abs_(path)}
+        for i,(name,path) in enumerate(trail)]}
 def footer(l):
     u=UI[l]
     links=[(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/affiliate-disclosure/",u["disclosure"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/cookies/",u["cookies"]),(f"/{l}/advertise/",ADVERTISE[l]["menu"]),(f"/{l}/property-consultation/",CONSULT[l]["menu"]),(f"/{l}/advertising/",u["ads"])]
@@ -1052,7 +1087,8 @@ def page_home(l):
     latest=sorted_all()[:8]
     kws=GKW[l]
     org=org_ld(l)
-    ld=[{"@context":"https://schema.org","@type":"WebSite","name":SITE,"url":abs_(f"/{l}/"),"inLanguage":l,"description":HOME_D[l],"publisher":{"@id":abs_("/")+"#org"}},
+    # No SearchAction: the site has no search box, so a query URL would be false.
+    ld=[website_ld(l, f"/{l}/", HOME_D[l]),
         {"@context":"https://schema.org",**org},
         {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":abs_(f"/{l}/{s['slug']}/"),"name":s["title"][l]} for i,s in enumerate(sorted_all())]}]
     h=head(l,HOME_T[l],HOME_D[l],kws,f"/{l}/",pathfn,"/assets/og-default.jpg",jsonld=ld)
@@ -1311,10 +1347,11 @@ def page_listing(l, p):
     offer={"@type":"Offer","priceCurrency":"EUR","availability":"https://schema.org/InStock"}
     if p.get("price") not in (None,""):
         offer["price"]=str(int(p["price"]))
-    ld={"@context":"https://schema.org","@type":"RealEstateListing","name":title,"description":_loc(p["description"], l),
+    ld=[{"@context":"https://schema.org","@type":"RealEstateListing","name":title,"description":_loc(p["description"], l),
         "url":abs_(path),"inLanguage":l,"address":{"@type":"PostalAddress","addressLocality":_loc(p.get("city"), l),"addressCountry":"CY"},
-        "offers":offer}
-    h=head(l, f"{title} | {CATN[l]['real-estate']} | {SITE}", desc or title, [title, CATN[l]["real-estate"], SITE], path, pathfn, "/assets/og-default.jpg", jsonld=[ld])
+        "offers":offer},
+        breadcrumb_ld([(UI[l]["crumb_home"], f"/{l}/"), (CATN[l]["real-estate"], f"/{l}/real-estate/"), (title, path)])]
+    h=head(l, f"{title} | {CATN[l]['real-estate']} | {SITE}", desc or title, [title, CATN[l]["real-estate"], SITE], path, pathfn, "/assets/og-default.jpg", jsonld=ld)
     h+=header(l, pathfn, "real-estate")
     h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{UI[l]["crumb_home"]}</a> › <a href="{href(f"/{l}/real-estate/")}">{CATN[l]["real-estate"]}</a></nav>'
     h+=f'<article class="adpage"><p class="cat">{e(_prop_label(PROP_TYPES, l, p.get("type")))}</p><h1>{e(title)}</h1>'
@@ -1331,7 +1368,7 @@ def page_cat(l,c):
     desc=CAT_D[l][c]
     kws=[CATN[l][c]]+GKW[l][:6]
     ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":title,"url":abs_(f"/{l}/{c}/"),"inLanguage":l,"description":desc,"isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")}},
-        {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":u["crumb_home"],"item":abs_(f"/{l}/")},{"@type":"ListItem","position":2,"name":CATN[l][c],"item":abs_(f"/{l}/{c}/")}]}]
+        breadcrumb_ld([(u["crumb_home"], f"/{l}/"), (CATN[l][c], f"/{l}/{c}/")])]
     og=f'/assets/img/{items[0]["img"]}-og.jpg'
     h=head(l,title,desc,kws,f"/{l}/{c}/",pathfn,og,jsonld=ld)+header(l,pathfn,c)
     block=listings_block(l) if c=="real-estate" else ""
@@ -1342,8 +1379,16 @@ def page_cat(l,c):
 def article_times(s):
     """Stable published time. Updated time stays equal unless the story records a later update."""
     pub=f'{s["date"]}T09:00:00+02:00'
-    mod=s.get("updated") or pub
-    return pub, mod
+    raw=(s.get("updated") or "").strip()
+    if not raw:
+        return pub, pub
+    if re.fullmatch(r"\d{4}-\d{2}-\d{2}", raw):
+        raw=raw+"T09:00:00+02:00"
+    published=datetime.datetime.fromisoformat(pub)
+    modified=datetime.datetime.fromisoformat(raw)
+    if modified < published:
+        return pub, pub
+    return pub, raw
 def fdt(iso,l):
     dt=datetime.datetime.fromisoformat(iso)
     return f'{fdate(dt.date().isoformat(),l)}, {dt.strftime("%H:%M")} (EET)'
@@ -1506,6 +1551,14 @@ def faq_ld(items):
     if not items: return None
     return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
         {"@type":"Question","name":item["q"],"acceptedAnswer":{"@type":"Answer","text":item["a"]}} for item in items]}
+def howto_ld(l, s):
+    """HowTo only when the story supplies at least two steps that are on the page."""
+    steps=s["steps"][l]
+    if len(steps) < 2: return None
+    return {"@context":"https://schema.org","@type":"HowTo","name":s["title"][l],
+            "description":s["desc"][l] or s["lede"][l],"inLanguage":l,"image":[image_ld(s)],
+            "step":[{"@type":"HowToStep","position":i+1,"name":step["name"],"text":step["text"]}
+                    for i,step in enumerate(steps)]}
 # Small partner box on practical pages only. News stories are left alone.
 PARTNER_WIDGETS = {
  "relocating-to-cyprus": "insurance",
@@ -1640,15 +1693,15 @@ def page_article(l,s):
     kws=s["kw"][l]+GKW[l][:4]
     pub,mod=article_times(s)
     og=f'/assets/img/{s["img"]}-og.jpg'
-    publisher={"@type":"NewsMediaOrganization","name":SITE,"url":abs_("/"),"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512},"sameAs":same_as()}
-    schema="Article" if s.get("guide") else "NewsArticle"
-    ld=[{"@context":"https://schema.org","@type":schema,"mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":title,"description":schema_desc,"image":image_ld(s),"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
-        "author":{"@type":"Organization","name":u["byline"],"url":abs_(f"/{l}/about/")},"publisher":publisher,
+    ld=[{"@context":"https://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":title,"description":schema_desc,"image":[image_ld(s)],"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
+        "author":author_ld(),"publisher":publisher_ld(),
         "isBasedOn":[x[1] for x in s["sources"]],"citation":[{"@type":"CreativeWork","name":x[0],"url":x[1]} for x in s["sources"]],"articleBody":plain_body(s["body"][l]),"url":abs_(path),
         "locationCreated":{"@type":"Place","name":"Cyprus"},"about":{"@type":"Place","name":"Cyprus"}},
-      {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":u["crumb_home"],"item":abs_(f"/{l}/")},{"@type":"ListItem","position":2,"name":CATN[l][s["cat"]],"item":abs_(f"/{l}/{s['cat']}/")},{"@type":"ListItem","position":3,"name":title,"item":abs_(path)}]}]
+      breadcrumb_ld([(u["crumb_home"], f"/{l}/"), (CATN[l][s["cat"]], f"/{l}/{s['cat']}/"), (title, path)])]
     faq=faq_ld(s["faq"][l])
     if faq: ld.append(faq)
+    howto=howto_ld(l, s)
+    if howto: ld.append(howto)
     preload=f'<link rel="preload" as="image" href="{href(f"/assets/img/{s["img"]}-1200.webp")}" imagesrcset="{href(f"/assets/img/{s["img"]}-600.webp")} 600w, {href(f"/assets/img/{s["img"]}-1200.webp")} 1200w" imagesizes="(max-width:800px) 100vw,760px">'
     # A missing translation repeats the Russian text, so it stays out of the index,
     # the sitemap and the hreflang cluster.
@@ -1709,8 +1762,10 @@ def info_body(l, page, kind):
     return "".join(parts)
 def page_info(l, slug, page, schema_type):
     u=UI[l]; pathfn=lambda x,slug=slug:f"/{x}/{slug}/"
-    ld=[{"@context":"https://schema.org","@type":schema_type,"name":page["t"],"url":abs_(f"/{l}/{slug}/"),"inLanguage":l,"description":page["d"],
-         "publisher":{"@id":abs_("/")+"#org"},"about":{"@id":abs_("/")+"#org"}}]
+    path=f"/{l}/{slug}/"
+    ld=[{"@context":"https://schema.org","@type":schema_type,"name":page["t"],"url":abs_(path),"inLanguage":l,"description":page["d"],
+         "publisher":{"@id":abs_("/")+"#org"},"about":{"@id":abs_("/")+"#org"}},
+        breadcrumb_ld([(u["crumb_home"], f"/{l}/"), (page["t"], path)])]
     h=head(l,f'{page["t"]} | {SITE}',page["d"],[page["t"],SITE],f"/{l}/{slug}/",pathfn,"/assets/og-default.jpg",jsonld=ld)+header(l,pathfn)
     kind={"about":"about","editorial-policy":"policy","privacy":"privacy","cookies":"cookies","affiliate-disclosure":"affiliate"}[slug]
     h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(page["t"])}</h1><div class="body">{info_body(l,page,kind)}</div></article></main>'+footer(l)
@@ -1833,7 +1888,8 @@ def ad_form(l):
 def page_advertising(l):
     a=AD[l]; pathfn=lambda x:f"/{x}/advertising/"
     ld=[{"@context":"https://schema.org","@type":"ContactPage","name":a["title"],"url":abs_(f"/{l}/advertising/"),"inLanguage":l,"description":a["desc"],
-         "mainEntity":{"@type":"Organization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),"email":AD_EMAIL,"sameAs":same_as(),"contactPoint":contact_point(l)}}]
+         "mainEntity":{"@type":"Organization","@id":abs_("/")+"#org","name":SITE,"url":abs_("/"),"email":AD_EMAIL,"sameAs":same_as(),"contactPoint":contact_point(l)}},
+        breadcrumb_ld([(UI[l]["crumb_home"], f"/{l}/"), (a["title"], f"/{l}/advertising/")])]
     cards="".join(f'<article class="fmt"><h3>{e(n)}</h3><p>{e(d)}</p></article>' for n,d in a["formats"])
     h=head(l,f'{a["title"]} | {SITE}',a["desc"],[a["title"],SITE,"Cyprus"],f"/{l}/advertising/",pathfn,"/assets/og-default.jpg",jsonld=ld)
     h+=header(l,pathfn,"advertising")
@@ -1970,7 +2026,10 @@ def property_consult(l, page_url):
             f'{property_consult_form(l, page_url, f"/{l}/property-consultation/thanks/")}</section>')
 def page_property_consultation(l):
     c=CONSULT[l]; path=f"/{l}/property-consultation/"; pathfn=lambda x:f"/{x}/property-consultation/"
-    h=head(l, f'{c["title"]} | {SITE}', c["desc"], [c["title"], SITE, "Cyprus"], path, pathfn, "/assets/og-default.jpg")
+    ld=[{"@context":"https://schema.org","@type":"WebPage","name":c["title"],"url":abs_(path),"inLanguage":l,"description":c["desc"],
+         "isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")}},
+        breadcrumb_ld([(UI[l]["crumb_home"], f"/{l}/"), (c["menu"], path)])]
+    h=head(l, f'{c["title"]} | {SITE}', c["desc"], [c["title"], SITE, "Cyprus"], path, pathfn, "/assets/og-default.jpg", jsonld=ld)
     h+=header(l, pathfn)
     h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(c["title"])}</h1><p class="leadin">{e(c["lead"])}</p>'
     h+=property_consult_form(l, abs_(path), f"/{l}/property-consultation/thanks/")
@@ -2003,7 +2062,10 @@ def advertise_form(l):
 def page_advertise(l):
     a=ADVERTISE[l]; path=f"/{l}/advertise/"; pathfn=lambda x:f"/{x}/advertise/"
     cards="".join(f'<article class="fmt"><h3>{e(n)}</h3><p>{e(d)}</p></article>' for n,d in a["packages"])
-    h=head(l, f'{a["title"]} | {SITE}', a["desc"], [a["title"], SITE, "Cyprus"], path, pathfn, "/assets/og-default.jpg")
+    ld=[{"@context":"https://schema.org","@type":"WebPage","name":a["title"],"url":abs_(path),"inLanguage":l,"description":a["desc"],
+         "isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")}},
+        breadcrumb_ld([(UI[l]["crumb_home"], f"/{l}/"), (a["menu"], path)])]
+    h=head(l, f'{a["title"]} | {SITE}', a["desc"], [a["title"], SITE, "Cyprus"], path, pathfn, "/assets/og-default.jpg", jsonld=ld)
     h+=header(l, pathfn, "advertise")
     h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(a["title"])}</h1><p class="leadin">{e(a["lead"])}</p>'
     h+=f'<p><a href="{e(TELEGRAM["ru"])}" target="_blank" rel="noopener">@cynews24</a> · <a href="{e(TELEGRAM["en"])}" target="_blank" rel="noopener">@cynews24en</a> · <a href="https://www.instagram.com/cynews24/" target="_blank" rel="noopener">Instagram @cynews24</a></p>'
@@ -2138,12 +2200,16 @@ TRAVEL_PAGE = {
 }
 def page_travel(l):
     title, desc = TRAVEL_PAGE[l]
+    path=f"/{l}/travel/"
     pathfn=lambda x:f"/{x}/travel/"
     cards=[]
     for slug in TRAVEL_GUIDES:
         s=BYSLUG[slug]
         cards.append(f'<article class="fmt"><h3><a href="{href(f"/{l}/{slug}/")}">{e(s["title"][l])}</a></h3><p>{e(trunc(s["lede"][l],180))}</p></article>')
-    h=head(l, f'{title} | {SITE}', desc, [title, "Cyprus", SITE], f"/{l}/travel/", pathfn, "/assets/og-default.jpg")
+    ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":title,"url":abs_(path),"inLanguage":l,"description":desc,
+         "isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")}},
+        breadcrumb_ld([(UI[l]["crumb_home"], f"/{l}/"), (TRAVEL_MENU[l], path)])]
+    h=head(l, f'{title} | {SITE}', desc, [title, "Cyprus", SITE], path, pathfn, "/assets/og-default.jpg", jsonld=ld)
     h+=header(l, pathfn, "travel")
     h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(title)}</h1><p class="leadin">{e(desc)}</p><div class="fmts">{"".join(cards)}</div></article></main>'+footer(l)
     return h
@@ -2186,7 +2252,11 @@ def page_events(l):
   });
 })();
 </script>'''
-    h=head(l,f'{u["title"]} | {SITE}',u["desc"],[u["title"],"Cyprus",SITE],f"/{l}/events/",pathfn,"/assets/og-default.jpg",jsonld=[graph])
+    ld=[graph,
+        {"@context":"https://schema.org","@type":"CollectionPage","name":u["title"],"url":abs_(f"/{l}/events/"),"inLanguage":l,"description":u["desc"],
+         "isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")}},
+        breadcrumb_ld([(UI[l]["crumb_home"], f"/{l}/"), (u["title"], f"/{l}/events/")])]
+    h=head(l,f'{u["title"]} | {SITE}',u["desc"],[u["title"],"Cyprus",SITE],f"/{l}/events/",pathfn,"/assets/og-default.jpg",jsonld=ld)
     h+=header(l,pathfn,"events")
     h+=f'<main id="main" class="wrap"><h1 class="sec">{e(u["title"])}</h1><p class="leadin" style="max-width:760px">{e(u["desc"])}</p>'
     h+=f'<div class="filters"><p>{e(u["city"])}</p>{cities}<p>{e(u["kind"])}</p>{kinds}</div>'
@@ -2209,7 +2279,10 @@ def page_root():
     # Language chooser. It is x-default for the three homepages only, and it does not
     # redirect: a redirect made Google treat this URL and /en/ as the same page.
     alts="\n".join(f'<link rel="alternate" hreflang="{x}" href="{abs_(f"/{x}/")}">' for x in LANGS)+f'\n<link rel="alternate" hreflang="x-default" href="{abs_("/")}">'
-    ld={"@context":"https://schema.org","@type":"WebSite","name":SITE,"url":abs_("/"),"inLanguage":LANGS}
+    root_desc="CyNews 24: Cyprus news in English, Russian and Greek."
+    blocks=[website_ld("en", "/", root_desc), {"@context":"https://schema.org",**org_ld("en")}]
+    blocks[0]["inLanguage"]=list(LANGS)
+    ld="\n".join('<script type="application/ld+json">'+json.dumps(j,ensure_ascii=False).replace("</","<\\/")+'</script>' for j in blocks)
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 {PATH_CANON_JS}
 {YANDEX_VERIFICATION}
@@ -2224,7 +2297,7 @@ def page_root():
 <meta name="twitter:card" content="summary_large_image"><meta name="twitter:title" content="CyNews 24"><meta name="twitter:description" content="Cyprus news in English, Russian and Greek."><meta name="twitter:image" content="{abs_("/assets/og-default.jpg")}">
 <link rel="icon" href="{href("/favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="{href("/apple-touch-icon.png")}"><meta name="theme-color" content="#111827"><link rel="stylesheet" href="{href("/assets/css/style.css")}">
 <link rel="alternate" type="application/rss+xml" title="{SITE} (EN)" href="{href("/en/feed.xml")}">
-<script type="application/ld+json">{json.dumps(ld)}</script>
+{ld}
 {google_tags()}
 {TRAVELPAYOUTS_DRIVE}</head>
 <body class="choose-body"><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>Cyprus news · Новости Кипра · Ειδήσεις Κύπρου</p>
