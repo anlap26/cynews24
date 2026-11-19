@@ -1,6 +1,6 @@
 # -*- coding: utf-8 -*-
 import os, sys, json, html, shutil, re, datetime
-from urllib.parse import urlparse
+from urllib.parse import quote_plus, urlparse
 from PIL import Image, ImageDraw, ImageFont
 HERE = os.path.dirname(os.path.abspath(__file__))
 sys.path.insert(0, HERE)
@@ -292,21 +292,24 @@ DISCLOSURE = {
  "en":dict(t="Affiliate disclosure",d="How CyNews 24 uses affiliate links, which partners they point to, and what those links do not promise.",
   sections=[
    ("What an affiliate link is",["Some practical guides on CyNews 24 link to companies whose products a reader who lives or travels abroad may actually use: international health insurance, a travel eSIM, a VPN, encrypted email, or a password manager. If you follow one of those links and buy, the company may pay CyNews 24 a commission. You do not pay an extra fee to us. The price, if there is one, is the price on the company’s own site."]),
-   ("Where the links live",["Every partner address is stored in one configuration file, source/affiliates.json. The site publishes that file as /assets/js/affiliates.js, and every partner button reads the address from there. Until a real address is added, the value is a placeholder such as #AFFILIATE_GENKI. A placeholder does not go to a shop. The partners named in the guides are Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass and Mail) and 1Password."]),
+   ("Where the links live",["Every partner address is stored in one configuration file, source/affiliates.json. The site publishes that file as /assets/js/affiliates.js, and every partner button reads the address from there. Until a real address is added, the value is a placeholder such as #AFFILIATE_GENKI. A placeholder does not go to a shop. The partners named in the guides are Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass and Mail) and 1Password. Some practical pages also link to Amazon.de."]),
+   ("Amazon",["Those Amazon links are searches on Amazon.de, not a page for one product, and they do not name a price. As an Amazon Associate I earn from qualifying purchases. The home address carries the tag cynews24-21, and a search uses the same tag. CyNews 24 does not invent a product code. What Amazon shows, and what it costs, is on Amazon at the time you look."]),
    ("How to recognise one",["A partner button opens in a new tab and is marked rel=\"nofollow sponsored\". The guide says, near the offers, that the links are affiliate links, and it links to this page. News stories do not carry these buttons. A short box appears only on a few practical pages about moving, expat life, banking or technology, and it links back to the full guide."]),
    ("What the guide does not do",["The text does not invent a premium, a coverage limit, a server count or a statistic. Where a figure is not in a source we cite, the guide says to read the current terms, because they change. A partner link is not a recommendation that a product is right for you, and it is not insurance, legal, tax or security advice. CyNews 24 is not affiliated with the companies, except that we may earn a commission if you buy through a link."]),
    ("Corrections",["If a guide is wrong, email cynews24@gmail.com with the page address and the correction. The editorial policy explains how corrections are handled."])]),
  "ru":dict(t="Раскрытие партнёрских ссылок",d="Как CyNews 24 использует партнёрские ссылки, на какие сервисы они ведут и чего эти ссылки не обещают.",
   sections=[
    ("Что такое партнёрская ссылка",["В некоторых практических материалах CyNews 24 есть ссылки на компании, чьи услуги могут пригодиться человеку, который живёт или путешествует за границей: международная медицинская страховка, туристическая eSIM, VPN, шифрованная почта или менеджер паролей. Если вы перейдёте по такой ссылке и купите услугу, компания может выплатить CyNews 24 комиссию. Нам вы отдельно ничего не доплачиваете. Цена, если она есть, — та, что указана на сайте самой компании."]),
-   ("Где лежат адреса",["Все партнёрские адреса собраны в одном файле настроек, source/affiliates.json. Сайт публикует его как /assets/js/affiliates.js, и каждая партнёрская кнопка берёт адрес оттуда. Пока вместо настоящего адреса стоит заглушка вроде #AFFILIATE_GENKI. Заглушка ни в какой магазин не ведёт. В материалах названы Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass и Mail) и 1Password."]),
+   ("Где лежат адреса",["Все партнёрские адреса собраны в одном файле настроек, source/affiliates.json. Сайт публикует его как /assets/js/affiliates.js, и каждая партнёрская кнопка берёт адрес оттуда. Пока вместо настоящего адреса стоит заглушка вроде #AFFILIATE_GENKI. Заглушка ни в какой магазин не ведёт. В материалах названы Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass и Mail) и 1Password. На некоторых практических страницах есть ссылки на Amazon.de."]),
+   ("Amazon",["Ссылки на Amazon — это поиск на Amazon.de, а не страница одного товара, и в них нет цены. Как участник партнёрской программы Amazon я зарабатываю на соответствующих покупках. В адресе главной страницы стоит метка cynews24-21, и тот же тег стоит в поиске. CyNews 24 не выдумывает код товара. Что показывает Amazon и сколько это стоит, видно на Amazon в момент, когда вы смотрите."]),
    ("Как её узнать",["Партнёрская кнопка открывается в новой вкладке и помечена rel=\"nofollow sponsored\". Рядом с предложениями материал прямо говорит, что ссылки партнёрские, и ведёт на эту страницу. В новостях таких кнопок нет. Короткий блок стоит только на нескольких практических страницах о переезде, жизни за границей, банках или технологиях и ведёт на полный материал."]),
    ("Чего материал не делает",["Текст не выдумывает премию, лимит покрытия, число серверов или статистику. Если цифры нет в источнике, на который мы ссылаемся, материал отправляет к действующим условиям: они меняются. Партнёрская ссылка не означает, что продукт вам подходит, и не является страховой, юридической, налоговой или иной профессиональной консультацией. CyNews 24 не связан с этими компаниями, кроме того, что мы можем получить комиссию, если вы купите услугу по ссылке."]),
    ("Поправки",["Если в материале ошибка, напишите на cynews24@gmail.com и укажите адрес страницы и поправку. Как обрабатываются поправки, сказано в редакционной политике."])]),
  "el":dict(t="Γνωστοποίηση συνεργατών",d="Πώς το CyNews 24 χρησιμοποιεί συνδέσμους συνεργατών, σε ποιες εταιρείες οδηγούν και τι δεν υπόσχονται.",
   sections=[
    ("Τι είναι ένας σύνδεσμος συνεργάτη",["Ορισμένοι πρακτικοί οδηγοί του CyNews 24 παραπέμπουν σε εταιρείες των οποίων τις υπηρεσίες μπορεί να χρησιμοποιήσει κάποιος που ζει ή ταξιδεύει στο εξωτερικό: διεθνή ασφάλιση υγείας, ταξιδιωτική eSIM, VPN, κρυπτογραφημένο email ή διαχειριστή κωδικών. Αν ακολουθήσετε έναν τέτοιο σύνδεσμο και αγοράσετε, η εταιρεία μπορεί να πληρώσει προμήθεια στο CyNews 24. Δεν πληρώνετε σε εμάς επιπλέον τέλος. Η τιμή, αν υπάρχει, είναι η τιμή στον ιστότοπο της εταιρείας."]),
-   ("Πού βρίσκονται οι διευθύνσεις",["Κάθε διεύθυνση συνεργάτη φυλάσσεται σε ένα αρχείο ρυθμίσεων, το source/affiliates.json. Ο ιστότοπος το δημοσιεύει ως /assets/js/affiliates.js, και κάθε κουμπί συνεργάτη διαβάζει τη διεύθυνση από εκεί. Μέχρι να προστεθεί πραγματική διεύθυνση, η τιμή είναι θέση όπως #AFFILIATE_GENKI. Η θέση δεν οδηγεί σε κατάστημα. Οι συνεργάτες που ονομάζονται στους οδηγούς είναι οι Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass και Mail) και 1Password."]),
+   ("Πού βρίσκονται οι διευθύνσεις",["Κάθε διεύθυνση συνεργάτη φυλάσσεται σε ένα αρχείο ρυθμίσεων, το source/affiliates.json. Ο ιστότοπος το δημοσιεύει ως /assets/js/affiliates.js, και κάθε κουμπί συνεργάτη διαβάζει τη διεύθυνση από εκεί. Μέχρι να προστεθεί πραγματική διεύθυνση, η τιμή είναι θέση όπως #AFFILIATE_GENKI. Η θέση δεν οδηγεί σε κατάστημα. Οι συνεργάτες που ονομάζονται στους οδηγούς είναι οι Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass και Mail) και 1Password. Ορισμένες πρακτικές σελίδες παραπέμπουν και στο Amazon.de."]),
+   ("Amazon",["Οι σύνδεσμοι της Amazon είναι αναζητήσεις στο Amazon.de, όχι σελίδα ενός προϊόντος, και δεν αναφέρουν τιμή. Ως συνεργάτης της Amazon, κερδίζω από αγορές που πληρούν τις προϋποθέσεις. Η διεύθυνση της αρχικής σελίδας έχει την ετικέτα cynews24-21, και την ίδια ετικέτα έχει η αναζήτηση. Το CyNews 24 δεν επινοεί κωδικό προϊόντος. Τι δείχνει η Amazon και πόσο κοστίζει φαίνεται στην Amazon τη στιγμή που κοιτάτε."]),
    ("Πώς ξεχωρίζει",["Ένα κουμπί συνεργάτη ανοίγει σε νέα καρτέλα και φέρει rel=\"nofollow sponsored\". Ο οδηγός λέει, κοντά στις προσφορές, ότι οι σύνδεσμοι είναι συνεργατών και παραπέμπει σε αυτή τη σελίδα. Τα ειδησεογραφικά άρθρα δεν έχουν τέτοια κουμπιά. Ένα σύντομο πλαίσιο εμφανίζεται μόνο σε λίγες πρακτικές σελίδες για μετακόμιση, ζωή στο εξωτερικό, τράπεζες ή τεχνολογία και οδηγεί πίσω στον πλήρη οδηγό."]),
    ("Τι δεν κάνει ο οδηγός",["Το κείμενο δεν επινοεί ασφάλιστρο, όριο κάλυψης, αριθμό διακομιστών ή στατιστικό. Όπου ένας αριθμός δεν υπάρχει σε πηγή που αναφέρουμε, ο οδηγός στέλνει στους τρέχοντες όρους, γιατί αλλάζουν. Ένας σύνδεσμος συνεργάτη δεν σημαίνει ότι ένα προϊόν σας ταιριάζει και δεν είναι ασφαλιστική, νομική, φορολογική ή άλλη επαγγελματική συμβουλή. Το CyNews 24 δεν συνδέεται με τις εταιρείες, εκτός του ότι μπορεί να λάβει προμήθεια αν αγοράσετε μέσω συνδέσμου."]),
    ("Διορθώσεις",["Αν ένας οδηγός έχει λάθος, στείλτε email στο cynews24@gmail.com με τη διεύθυνση της σελίδας και τη διόρθωση. Η συντακτική πολιτική εξηγεί πώς χειριζόμαστε τις διορθώσεις."])]),
@@ -1354,27 +1357,57 @@ def load_affiliates():
     with open(path, encoding="utf8") as f: data = json.load(f)
     if not isinstance(data, dict) or not data:
         raise SystemExit("source/affiliates.json must map partner keys to URLs")
-    out = {}
+    urls, search = {}, {}
     for key, value in data.items():
         if not isinstance(key, str) or not re.fullmatch(r"[a-z0-9]+", key):
             raise SystemExit(f"source/affiliates.json: bad partner key {key!r}")
-        if not isinstance(value, str) or not value.strip():
-            raise SystemExit(f"source/affiliates.json: {key} needs a URL")
-        out[key] = value.strip()
-    return out
-AFFILIATES = load_affiliates()
+        if isinstance(value, str) and value.strip():
+            urls[key] = value.strip()
+            continue
+        if isinstance(value, dict):
+            url = _clean(value.get("url"))
+            pattern = _clean(value.get("search"))
+            if not url:
+                raise SystemExit(f"source/affiliates.json: {key} needs a url")
+            urls[key] = url
+            if pattern:
+                if "{query}" not in pattern:
+                    raise SystemExit(f"source/affiliates.json: {key} search pattern needs {{query}}")
+                search[key] = pattern
+            continue
+        raise SystemExit(f"source/affiliates.json: {key} needs a URL")
+    return urls, search
+AFFILIATES, AFFILIATE_SEARCH = load_affiliates()
+def affiliate_href(key, query=None):
+    """Partner URL from the config. A query fills that partner's {query} search pattern."""
+    if key not in AFFILIATES:
+        raise SystemExit(f"unknown partner {key}; add it to source/affiliates.json")
+    if not query:
+        return AFFILIATES[key]
+    pattern = AFFILIATE_SEARCH.get(key)
+    if not pattern:
+        raise SystemExit(f"source/affiliates.json: {key} has no search pattern")
+    return pattern.replace("{query}", quote_plus(query))
 def affiliates_js():
     comment = ("/* Generated from source/affiliates.json. Edit that file.\n"
                "   A site rebuild overwrites this script. Every partner button reads\n"
-               "   window.CYNEWS_AFFILIATES. Replace a #AFFILIATE_… value with the real URL. */\n")
-    return comment + "window.CYNEWS_AFFILIATES = " + json.dumps(AFFILIATES, ensure_ascii=False, indent=2) + ";\n"
+               "   window.CYNEWS_AFFILIATES. A button with data-affiliate-query fills\n"
+               "   {query} in window.CYNEWS_AFFILIATE_SEARCH. Replace a #AFFILIATE_…\n"
+               "   value with the real URL. */\n")
+    return (comment
+            + "window.CYNEWS_AFFILIATES = " + json.dumps(AFFILIATES, ensure_ascii=False, indent=2) + ";\n"
+            + "window.CYNEWS_AFFILIATE_SEARCH = " + json.dumps(AFFILIATE_SEARCH, ensure_ascii=False, indent=2) + ";\n")
 def affiliate_boot():
     return (f'<script src="{href("/assets/js/affiliates.js")}"></script><script>'
             '(function(){var map=window.CYNEWS_AFFILIATES||{};'
+            'var search=window.CYNEWS_AFFILIATE_SEARCH||{};'
             'document.querySelectorAll("[data-affiliate]").forEach(function(a){'
             'var k=a.getAttribute("data-affiliate");'
-            'if(Object.prototype.hasOwnProperty.call(map,k)&&map[k])a.setAttribute("href",map[k]);'
-            'a.setAttribute("rel","nofollow sponsored noopener");a.setAttribute("target","_blank");'
+            'var q=a.getAttribute("data-affiliate-query");'
+            'if(q&&search[k])a.setAttribute("href",search[k].replace("{query}",encodeURIComponent(q).replace(/%20/g,"+")));'
+            'else if(Object.prototype.hasOwnProperty.call(map,k)&&typeof map[k]==="string"&&map[k])a.setAttribute("href",map[k]);'
+            'if(!a.getAttribute("rel"))a.setAttribute("rel","nofollow sponsored noopener");'
+            'a.setAttribute("target","_blank");'
             '});})();</script>')
 def offer_html(offer):
     partner = offer["partner"]
@@ -1469,6 +1502,77 @@ def partner_widget(l, s):
             f'<p>{e(copy["text"])} <a href="{guide}">{e(copy["link"])}</a></p>'
             f'<div class="affbtns">{"".join(buttons)}</div>'
             f'<p class="fine"><a href="{disc}">{e(UI[l]["disclosure"])}</a></p></aside>')
+# Search links only. Queries stay in the config's {query} pattern. No product codes.
+AMAZON_NOTE = {
+ "en": "As an Amazon Associate I earn from qualifying purchases.",
+ "ru": "Как участник партнёрской программы Amazon я зарабатываю на соответствующих покупках.",
+ "el": "Ως συνεργάτης της Amazon, κερδίζω από αγορές που πληρούν τις προϋποθέσεις.",
+}
+AMAZON_BLOCKS = {
+ "relocating-to-cyprus": {
+  "en": dict(title="A few things people pack",
+    text="Cyprus uses the UK square-pin socket, so a European two-pin plug needs an adapter. A power bank and a luggage scale are ordinary packing, not part of the residence file. These open Amazon.de searches. They are not a review, and the results and prices change.",
+    links=[("UK plug adapter (Type G)","UK plug adapter Type G"),("Power bank","power bank"),("Luggage scale","luggage scale")]),
+  "ru": dict(title="Что часто кладут в чемодан",
+    text="На Кипре розетки британского типа, с тремя прямоугольными штырями, поэтому европейская вилка с двумя штырями просит переходник. Пауэрбанк и весы для багажа — обычные дорожные вещи, к документам на проживание они не относятся. Ссылки открывают поиск на Amazon.de. Это не обзор, а выдача и цены меняются.",
+    links=[("Переходник на британскую розетку","UK plug adapter Type G"),("Пауэрбанк","power bank"),("Весы для багажа","luggage scale")]),
+  "el": dict(title="Τι βάζουν συχνά στη βαλίτσα",
+    text="Η Κύπρος χρησιμοποιεί τη βρετανική πρίζα, με τρεις ορθογώνιες ακίδες, οπότε ένα ευρωπαϊκό διπολικό φις θέλει αντάπτορα. Ένα power bank και μια ζυγαριά αποσκευών είναι συνηθισμένα ταξιδιωτικά είδη και δεν ανήκουν στον φάκελο διαμονής. Οι σύνδεσμοι ανοίγουν αναζήτηση στο Amazon.de. Δεν είναι κριτική, και τα αποτελέσματα και οι τιμές αλλάζουν.",
+    links=[("Αντάπτορας βρετανικής πρίζας","UK plug adapter Type G"),("Power bank","power bank"),("Ζυγαριά αποσκευών","luggage scale")]),
+ },
+ "international-health-insurance": {
+  "en": dict(title="Packing is not a policy",
+    text="A health policy does not put a plaster or a thermometer in the bag. A basic kit is ordinary travel packing. It is not treatment, and it does not replace a doctor or GeSY. These open Amazon.de searches, and prices change.",
+    links=[("Travel first-aid kit","travel first aid kit"),("Digital thermometer","digital thermometer"),("UK plug adapter (Type G)","UK plug adapter Type G")]),
+  "ru": dict(title="Аптечка — это не полис",
+    text="Медицинский полис не кладёт пластырь и градусник в сумку. Простая аптечка — обычные дорожные вещи. Это не лечение и не замена врачу или ГЕСИ. Ссылки открывают поиск на Amazon.de, а цены меняются.",
+    links=[("Дорожная аптечка","travel first aid kit"),("Электронный градусник","digital thermometer"),("Переходник на британскую розетку","UK plug adapter Type G")]),
+  "el": dict(title="Το φαρμακείο δεν είναι συμβόλαιο",
+    text="Ένα ασφαλιστήριο υγείας δεν βάζει τσιρότο ή θερμόμετρο στην τσάντα. Ένα βασικό κιτ είναι συνηθισμένη ταξιδιωτική προετοιμασία. Δεν είναι θεραπεία και δεν αντικαθιστά γιατρό ή το ΓεΣΥ. Οι σύνδεσμοι ανοίγουν αναζήτηση στο Amazon.de, και οι τιμές αλλάζουν.",
+    links=[("Ταξιδιωτικό φαρμακείο","travel first aid kit"),("Ψηφιακό θερμόμετρο","digital thermometer"),("Αντάπτορας βρετανικής πρίζας","UK plug adapter Type G")]),
+ },
+ "protect-data-foreign-banks": {
+  "en": dict(title="A hardware key, if the bank allows one",
+    text="A hardware key survives a new SIM better than a text message, where the bank allows it. A USB data blocker is for charging from a socket you do not trust. A hardware wallet matters only if you hold crypto. These are Amazon.de searches, not a test of one model, and prices change.",
+    links=[("Security key (YubiKey)","YubiKey"),("USB data blocker","USB data blocker"),("Hardware wallet","hardware wallet")]),
+  "ru": dict(title="Аппаратный ключ, если банк его принимает",
+    text="Аппаратный ключ переживает смену SIM лучше, чем код в SMS, если банк это разрешает. Блокиратор данных на USB нужен, когда заряжаешься от чужой розетки. Аппаратный кошелёк имеет смысл, только если у вас есть криптовалюта. Это поиск на Amazon.de, а не проверка одной модели, и цены меняются.",
+    links=[("Ключ безопасности (YubiKey)","YubiKey"),("USB-блокиратор данных","USB data blocker"),("Аппаратный кошелёк","hardware wallet")]),
+  "el": dict(title="Κλειδί υλικού, αν η τράπεζα το δέχεται",
+    text="Ένα κλειδί υλικού αντέχει μια νέα SIM καλύτερα από ένα μήνυμα, όπου η τράπεζα το επιτρέπει. Ένας αποκλειστής δεδομένων USB είναι για φόρτιση από πρίζα που δεν εμπιστεύεστε. Ένα πορτοφόλι υλικού αφορά μόνο όποιον κρατά κρυπτονόμισμα. Αυτές είναι αναζητήσεις στο Amazon.de, όχι δοκιμή ενός μοντέλου, και οι τιμές αλλάζουν.",
+    links=[("Κλειδί ασφαλείας (YubiKey)","YubiKey"),("Αποκλειστής δεδομένων USB","USB data blocker"),("Πορτοφόλι υλικού","hardware wallet")]),
+ },
+ "cyprus-resident-handbook": {
+  "en": dict(title="Once you have the keys",
+    text="A lease does not, by itself, let you change the lock. Ask the landlord before you fit one. An indoor camera covers your own rooms, not a neighbour’s. These are Amazon.de searches for setting up a home, not a security survey, and prices change.",
+    links=[("Smart lock","smart lock"),("Home security camera","home security camera"),("Video doorbell","video doorbell")]),
+  "ru": dict(title="Когда ключи уже у вас",
+    text="Договор аренды сам по себе не разрешает менять замок. Спросите хозяина, прежде чем ставить свой. Камера внутри снимает ваши комнаты, а не соседа. Это поиск на Amazon.de для обустройства жилья, а не обследование охраны, и цены меняются.",
+    links=[("Умный замок","smart lock"),("Камера для дома","home security camera"),("Видеозвонок","video doorbell")]),
+  "el": dict(title="Όταν έχετε τα κλειδιά",
+    text="Μια μίσθωση από μόνη της δεν επιτρέπει να αλλάξετε την κλειδαριά. Ρωτήστε τον ιδιοκτήτη πριν τοποθετήσετε μία. Μια κάμερα μέσα καλύπτει τα δικά σας δωμάτια, όχι τον γείτονα. Αυτές είναι αναζητήσεις στο Amazon.de για ένα σπίτι που στήνετε, όχι έλεγχος ασφάλειας, και οι τιμές αλλάζουν.",
+    links=[("Έξυπνη κλειδαριά","smart lock"),("Κάμερα σπιτιού","home security camera"),("Θυροτηλέφωνο με κάμερα","video doorbell")]),
+ },
+}
+def amazon_block(l, s):
+    copy = (AMAZON_BLOCKS.get(s["slug"]) or {}).get(l)
+    if not copy: return ""
+    links = copy["links"]
+    if not 2 <= len(links) <= 4:
+        raise SystemExit(f'{s["slug"]}: Amazon block needs 2 to 4 links')
+    buttons = []
+    for label, query in links:
+        if re.search(r"/dp/|B0[A-Z0-9]{8}", query):
+            raise SystemExit(f'{s["slug"]}: Amazon links are searches, not product codes')
+        buttons.append(
+            f'<a class="affbtn" data-affiliate="amazon" data-affiliate-query="{e(query)}" '
+            f'href="{e(affiliate_href("amazon", query))}" rel="sponsored nofollow noopener" target="_blank">{e(label)}</a>')
+    disc = href(f'/{l}/affiliate-disclosure/')
+    return (f'<aside class="partner amazon" aria-label="{e(copy["title"])}">'
+            f'<p class="kicker">Amazon.de</p><h2>{e(copy["title"])}</h2>'
+            f'<p>{e(copy["text"])}</p>'
+            f'<div class="affbtns">{"".join(buttons)}</div>'
+            f'<p class="fine">{e(AMAZON_NOTE[l])} <a href="{disc}">{e(UI[l]["disclosure"])}</a></p></aside>')
 def page_article(l,s):
     u=UI[l]; path=f"/{l}/{s['slug']}/"; pathfn=lambda x:f"/{x}/{s['slug']}/"
     title=s["title"][l]
@@ -1507,7 +1611,9 @@ def page_article(l,s):
         h+=f'<h2 style="font-size:16px;margin:0 0 8px">{u["tags"]}</h2><ul class="tags">'+"".join(f'<li>{e(k)}</li>' for k in s["kw"][l])+'</ul>'
     h+=f'<p class="langsw">'+" ".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS if x!=l)+'</p>'
     widget=partner_widget(l,s)
+    amazon=amazon_block(l,s)
     h+=widget
+    h+=amazon
     # Page language, immediately before the Telegram subscribe line.
     plain=[(p[3:].strip() if p.startswith("## ") else p) for p in s["body"][l] if not _OFFER_RE.match(p.strip())]
     h+=mycytax.article_crosslink(l, s["title"][l], plain, s["kw"][l], mycytax_catalog())
@@ -1518,7 +1624,7 @@ def page_article(l,s):
     rel=[x for x in sorted_all() if x["slug"]!=s["slug"]]
     rel.sort(key=lambda x:(x["cat"]!=s["cat"],))
     h+=f'<section class="rel"><h2>{u["related"]}</h2><div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
-    if s["offers"][l] or widget:
+    if s["offers"][l] or widget or amazon:
         h=h.replace("</body></html>", affiliate_boot()+"</body></html>", 1)
     return h
 

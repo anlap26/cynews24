@@ -25,10 +25,19 @@ class GuideContentTests(unittest.TestCase):
     def test_affiliate_config_is_the_only_partner_map(self):
         with open(os.path.join(HERE, "affiliates.json"), encoding="utf-8") as handle:
             data = json.load(handle)
-        self.assertEqual(set(data), set(PARTNERS))
-        for key, value in data.items():
-            self.assertTrue(value.startswith("#AFFILIATE_"), value)
-        self.assertEqual(build.AFFILIATES, data)
+        self.assertEqual(set(data) - {"amazon"}, set(PARTNERS))
+        for key in PARTNERS:
+            self.assertTrue(data[key].startswith("#AFFILIATE_"), data[key])
+            self.assertEqual(build.AFFILIATES[key], data[key])
+        amazon = data["amazon"]
+        self.assertEqual(amazon["url"], "https://www.amazon.de/?tag=cynews24-21")
+        self.assertEqual(amazon["search"], "https://www.amazon.de/s?k={query}&tag=cynews24-21")
+        self.assertEqual(build.AFFILIATES["amazon"], amazon["url"])
+        self.assertEqual(build.AFFILIATE_SEARCH["amazon"], amazon["search"])
+        href = build.affiliate_href("amazon", "UK plug adapter Type G")
+        self.assertEqual(href, "https://www.amazon.de/s?k=UK+plug+adapter+Type+G&tag=cynews24-21")
+        self.assertNotIn("/dp/", href)
+        self.assertNotIn("/gp/product/", href)
 
     def test_guides_are_long_enough_in_every_language(self):
         for slug in SLUGS:
@@ -85,6 +94,42 @@ class GuideContentTests(unittest.TestCase):
             self.assertIn('class="partner"', html)
             self.assertIn("data-affiliate", html)
             self.assertIn("/en/affiliate-disclosure/", html)
+
+    def test_amazon_blocks_are_search_links_on_a_few_pages(self):
+        expected = {
+            "relocating-to-cyprus": ("UK plug adapter Type G", "power bank", "luggage scale"),
+            "international-health-insurance": ("travel first aid kit", "digital thermometer", "UK plug adapter Type G"),
+            "protect-data-foreign-banks": ("YubiKey", "USB data blocker", "hardware wallet"),
+            "cyprus-resident-handbook": ("smart lock", "home security camera", "video doorbell"),
+        }
+        notes = {
+            "en": "As an Amazon Associate I earn from qualifying purchases.",
+            "ru": "Как участник партнёрской программы Amazon я зарабатываю на соответствующих покупках.",
+            "el": "Ως συνεργάτης της Amazon, κερδίζω από αγορές που πληρούν τις προϋποθέσεις.",
+        }
+        self.assertLessEqual(len(expected), 6)
+        for slug, queries in expected.items():
+            self.assertGreaterEqual(len(queries), 2)
+            self.assertLessEqual(len(queries), 4)
+            for lang in LANGS:
+                html = build.page_article(lang, build.BYSLUG[slug])
+                self.assertEqual(html.count('data-affiliate="amazon"'), len(queries), (slug, lang))
+                self.assertIn('rel="sponsored nofollow noopener"', html)
+                self.assertIn('target="_blank"', html)
+                self.assertIn(notes[lang], html)
+                self.assertIn(f"/{lang}/affiliate-disclosure/", html)
+                for query in queries:
+                    self.assertIn(f'data-affiliate-query="{query}"', html)
+                    self.assertIn(build.affiliate_href("amazon", query).replace("&", "&amp;"), html)
+                    self.assertIn("tag=cynews24-21", build.affiliate_href("amazon", query))
+                    self.assertNotIn("/dp/", build.affiliate_href("amazon", query))
+        news = build.page_article("en", build.BYSLUG["nicosia-murder-massage-parlour"])
+        self.assertNotIn("cynews24-21", news)
+        self.assertNotIn("amazon.de", news)
+        for lang, sentence in notes.items():
+            page = build.page_info(lang, "affiliate-disclosure", build.DISCLOSURE[lang], "WebPage")
+            self.assertIn(sentence, page)
+            self.assertIn("cynews24-21", page)
 
     def test_guides_are_not_posted_as_news(self):
         articles = telegram_post.load_articles(ARTICLES)

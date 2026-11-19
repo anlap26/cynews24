@@ -4,5 +4,9 @@
   "nordvpn": "#AFFILIATE_NORDVPN",
   "surfshark": "#AFFILIATE_SURFSHARK",
   "proton": "#AFFILIATE_PROTON",
-  "onepassword": "#AFFILIATE_1PASSWORD"
+  "onepassword": "#AFFILIATE_1PASSWORD",
+  "amazon": {
+    "url": "https://www.amazon.de/?tag=cynews24-21",
+    "search": "https://www.amazon.de/s?k={query}&tag=cynews24-21"
+  }
 }
