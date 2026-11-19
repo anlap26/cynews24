@@ -319,6 +319,7 @@ PRIVACY = {
   sections=[
    ("Who we are",["This policy covers the CyNews 24 website. The publisher is Anna. The site is based in Cyprus. Email: cynews24@gmail.com."]),
    ("Advertising contact form",["The Advertise & Contact page has a form that sends your message through FormSubmit (formsubmit.co) to cynews24@gmail.com. The fields are your name, company, email, phone if you provide one, the formats you select, an optional budget range, your message and your consent. We use those details only to reply to that enquiry. FormSubmit processes the submission in order to deliver the email. We do not sell the details and we do not add them to a marketing list."]),
+   ("Property consultation and Advertise",["The property consultation form, on articles and on its own page, and the Advertise page send what you type through FormSubmit to 2877novosti@gmail.com. The fields are the ones on that form, including your consent. We use them only to reply to that enquiry. We do not sell them and we do not add them to a marketing list."]),
    ("Analytics",["The site does not use Google Analytics. It loads Google AdSense (ca-pub-1547877294743851) so Google can show ads. Advertising and analytics storage stay denied until you accept cookies in the banner. If you accept, AdSense may receive technical data such as the page address and a cookie identifier. If you reject, that storage stays denied. Cookie settings in the footer opens the choice again."]),
    ("Cookies",["CyNews 24 does not set its own cookies. The accept or reject choice is stored in this browser's local storage under the name cynews24-consent, which is not a cookie. Google Consent Mode starts denied, before the AdSense script and before any analytics tag. AdSense may set advertising cookies only after you accept. The language chooser on the front page links to the Russian, English and Greek editions. It does not store a cookie. The cookie policy has the full account. If you follow a link to another site, that site has its own policy."]),
    ("Email",["If you email cynews24@gmail.com, we use the message to answer you or to correct a story. We keep it for as long as that purpose requires."]),
@@ -327,6 +328,7 @@ PRIVACY = {
   sections=[
    ("Кто мы",["Эта политика относится к сайту CyNews 24. Издатель — Анна. Сайт базируется на Кипре. Эл. почта: cynews24@gmail.com."]),
    ("Форма рекламного обращения",["На странице «Реклама и контакты» есть форма. Она отправляет сообщение через FormSubmit (formsubmit.co) на cynews24@gmail.com. Поля: имя, компания, эл. почта, телефон, если вы его указали, выбранные форматы, необязательный диапазон бюджета, сообщение и согласие. Мы используем эти сведения только чтобы ответить на это обращение. FormSubmit обрабатывает отправку, чтобы доставить письмо. Мы не продаём эти сведения и не добавляем их в маркетинговый список."]),
+   ("Консультация по недвижимости и «Реклама»",["Форма консультации по недвижимости — в материалах и на отдельной странице — и страница «Реклама» отправляют введённые данные через FormSubmit на 2877novosti@gmail.com. Поля — те, что на форме, включая согласие. Мы используем их только чтобы ответить на это обращение. Мы не продаём их и не добавляем в маркетинговый список."]),
    ("Аналитика",["Сайт не использует Google Analytics. Он подключает Google AdSense (ca-pub-1547877294743851), чтобы Google мог показывать объявления. Хранение данных для рекламы и аналитики запрещено, пока вы не примите cookie в баннере. Если вы принимаете, AdSense может получать технические данные, например адрес страницы и идентификатор cookie. Если вы отклоняете, такое хранение остаётся запрещённым. «Настройки cookie» в подвале снова открывают выбор."]),
    ("Файлы cookie",["CyNews 24 не ставит собственные cookie. Выбор «принять» или «отклонить» хранится в local storage этого браузера под именем cynews24-consent — это не cookie. Google Consent Mode с самого начала запрещает хранение, ещё до скрипта AdSense и до любого тега аналитики. AdSense может ставить рекламные cookie только после вашего согласия. Выбор языка на первой странице ведёт на русскую, английскую и греческую версии. Cookie при этом не сохраняется. Подробности — в политике cookie. Если вы переходите по ссылке на другой сайт, у того сайта своя политика."]),
    ("Почта",["Если вы пишете на cynews24@gmail.com, мы используем письмо, чтобы ответить или исправить материал. Мы храним его, пока это нужно для этой цели."]),
@@ -335,6 +337,7 @@ PRIVACY = {
   sections=[
    ("Ποιοι είμαστε",["Αυτή η πολιτική καλύπτει τον ιστότοπο CyNews 24. Εκδότρια είναι η Άννα. Ο ιστότοπος έχει έδρα την Κύπρο. Email: cynews24@gmail.com."]),
    ("Φόρμα διαφημιστικής επικοινωνίας",["Η σελίδα Διαφήμιση & Επικοινωνία έχει φόρμα που στέλνει το μήνυμά σας μέσω του FormSubmit (formsubmit.co) στο cynews24@gmail.com. Τα πεδία είναι το όνομα, η εταιρεία, το email, το τηλέφωνο αν το δώσετε, οι μορφές που επιλέγετε, ένα προαιρετικό εύρος προϋπολογισμού, το μήνυμα και η συγκατάθεσή σας. Χρησιμοποιούμε αυτά τα στοιχεία μόνο για να απαντήσουμε σε εκείνο το αίτημα. Το FormSubmit επεξεργάζεται την υποβολή για να παραδώσει το email. Δεν πουλάμε τα στοιχεία και δεν τα προσθέτουμε σε λίστα μάρκετινγκ."]),
+   ("Συμβουλευτική ακινήτων και Διαφήμιση",["Η φόρμα συμβουλευτικής ακινήτων, στα άρθρα και στη δική της σελίδα, και η σελίδα Διαφήμιση στέλνουν όσα γράφετε μέσω FormSubmit στο 2877novosti@gmail.com. Τα πεδία είναι όσα έχει η φόρμα, μαζί με τη συγκατάθεση. Τα χρησιμοποιούμε μόνο για να απαντήσουμε σε εκείνο το αίτημα. Δεν τα πουλάμε και δεν τα προσθέτουμε σε λίστα μάρκετινγκ."]),
    ("Αναλυτικά",["Ο ιστότοπος δεν χρησιμοποιεί Google Analytics. Φορτώνει το Google AdSense (ca-pub-1547877294743851) ώστε η Google να εμφανίζει διαφημίσεις. Η αποθήκευση για διαφήμιση και αναλυτικά μένει σε άρνηση μέχρι να αποδεχτείτε τα cookies στο πλαίσιο. Αν αποδεχτείτε, το AdSense μπορεί να λαμβάνει τεχνικά δεδομένα, όπως τη διεύθυνση της σελίδας και ένα αναγνωριστικό cookie. Αν απορρίψετε, αυτή η αποθήκευση μένει σε άρνηση. Οι «Ρυθμίσεις cookies» στο υποσέλιδο ανοίγουν ξανά την επιλογή."]),
    ("Cookies",["Το CyNews 24 δεν τοποθετεί δικά του cookies. Η επιλογή αποδοχής ή απόρριψης αποθηκεύεται στο local storage αυτού του προγράμματος περιήγησης με το όνομα cynews24-consent και δεν είναι cookie. Το Google Consent Mode ξεκινά σε άρνηση, πριν από το script του AdSense και πριν από οποιαδήποτε ετικέτα αναλυτικών. Το AdSense μπορεί να τοποθετεί διαφημιστικά cookies μόνο αφού αποδεχτείτε. Η επιλογή γλώσσας στην πρώτη σελίδα οδηγεί στις ρωσικές, αγγλικές και ελληνικές εκδόσεις. Δεν αποθηκεύει cookie. Η πλήρης περιγραφή είναι στην πολιτική cookies. Αν ακολουθήσετε σύνδεσμο προς άλλον ιστότοπο, εκείνος έχει τη δική του πολιτική."]),
    ("Email",["Αν στείλετε email στο cynews24@gmail.com, χρησιμοποιούμε το μήνυμα για να απαντήσουμε ή για να διορθώσουμε ένα άρθρο. Το κρατάμε για όσο χρειάζεται αυτός ο σκοπός."]),
@@ -611,6 +614,13 @@ a.affbtn{color:#fff}
 .partner h2{font-size:18px;line-height:1.3;margin:0 0 8px}
 .partner p{font-size:15px;line-height:1.45;margin:0 0 10px}
 .partner .fine{font-size:13px;color:var(--mut);margin:8px 0 0}
+.consult{max-width:760px;margin:28px auto 8px;background:#fff;border:1px solid var(--line);border-top:4px solid var(--acc);padding:16px 16px 18px}
+.consult h2{font-size:22px;line-height:1.25;margin:0 0 8px}
+.consult .leadin{font-size:15.5px;line-height:1.45;margin:0 0 12px;color:#23272d}
+.consult .pair,.adform .pair{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.consult .adform{margin-top:0}
+.consult .adform textarea{min-height:88px}
+@media(max-width:600px){.consult .pair,.adform .pair{grid-template-columns:1fr}}
 .faq{margin:8px 0 22px}
 .faq h2{font-size:22px;border-top:4px solid var(--ink);padding-top:8px;margin:0 0 8px}
 .faq details{border-bottom:1px solid var(--line);padding:12px 0}
@@ -904,6 +914,7 @@ def header(l, pathfn, active=None):
     nav=f'<li><a href="{href(f"/{l}/")}" {"aria-current=\"page\"" if active=="home" else ""}>{u["home"]}</a></li>'+"".join(
       f'<li><a href="{href(f"/{l}/{c}/")}" {"aria-current=\"page\"" if active==c else ""}>{CATN[l][c]}</a></li>' for c in CATS)
     nav+=f'<li><a href="{href(f"/{l}/events/")}" {"aria-current=\"page\"" if active=="events" else ""}>{u["events"]}</a></li>'
+    nav+=f'<li class="promo"><a href="{href(f"/{l}/advertise/")}" {"aria-current=\"page\"" if active=="advertise" else ""}>{ADVERTISE[l]["menu"]}</a></li>'
     nav+=f'<li class="promo"><a href="{href(f"/{l}/advertising/")}" {"aria-current=\"page\"" if active=="advertising" else ""}>{u["ads"]}</a></li>'
     tg=telegram_for(l)
     tg_btn=f'<a class="tg" href="{e(tg)}" target="_blank" rel="noopener">{_icons()["telegram"]}<span>{e(u["tg"])}</span></a>' if tg else ""
@@ -950,7 +961,7 @@ def org_ld(l):
                             {"@type":"ContactPoint","contactType":"advertising","email":AD_EMAIL,"availableLanguage":["Russian","English","Greek"],"url":abs_(f"/{l}/advertising/")}]}
 def footer(l):
     u=UI[l]
-    links=[(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/affiliate-disclosure/",u["disclosure"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/cookies/",u["cookies"]),(f"/{l}/advertising/",u["ads"])]
+    links=[(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/affiliate-disclosure/",u["disclosure"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/cookies/",u["cookies"]),(f"/{l}/advertise/",ADVERTISE[l]["menu"]),(f"/{l}/property-consultation/",CONSULT[l]["menu"]),(f"/{l}/advertising/",u["ads"])]
     fl="".join(f'<a href="{href(p)}">{e(n)}</a>' for p,n in links)
     fl+=f'<a href="{href(f"/{l}/cookies/")}" data-cookie-settings>{e(u["cookie_settings"])}</a>'
     langs=" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)
@@ -1071,6 +1082,9 @@ LISTING_UI={
            thanks_t="Ευχαριστούμε",thanks="Το αίτημά σας στάλθηκε. Θα επικοινωνήσουμε μαζί σας για αυτό το ακίνητο.",back="Πίσω στις αγγελίες"),
 }
 LEAD_FORM_ACTION="https://formsubmit.co/info@cynews24.net"
+# Property consultation and the Advertise page. One place to change the inbox.
+LEADS_EMAIL="2877novosti@gmail.com"
+LEADS_FORM_ACTION="https://formsubmit.co/"+LEADS_EMAIL
 def _loc(v,l):
     if isinstance(v, dict):
         return _clean(v.get(l) or v.get("en") or "")
@@ -1626,6 +1640,7 @@ def page_article(l,s):
     if cta:
         h+=f'<p class="tgcta"><a href="{e(cta)}" target="_blank" rel="noopener">{_icons()["telegram"]}<span>{e(u["tg_cta"])}</span></a></p>'
     h+='</article>'
+    h+=property_consult(l, abs_(path))
     rel=[x for x in sorted_all() if x["slug"]!=s["slug"]]
     rel.sort(key=lambda x:(x["cat"]!=s["cat"],))
     h+=f'<section class="rel"><h2>{u["related"]}</h2><div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
@@ -1788,6 +1803,180 @@ def page_advertising(l):
     h+=f'<h2>{e(a["formats_h"])}</h2><div class="fmts">{cards}</div><p class="adnote">{e(a["standards"])}</p>'
     h+=f'<h2>{e(a["contact_h"])}</h2><p>{e(a["email_l"])}: <a class="mail" href="mailto:{AD_EMAIL}">{AD_EMAIL}</a></p>'
     h+=ad_form(l)+social_block(l)+'</article></main>'+footer(l)
+    return h
+CONSULT={
+ "en":dict(menu="Property advice",
+  title="Buying, renting or selling property in Cyprus? Get a free consultation",
+  desc="A free consultation on buying, long-term rent, selling, investment or tax on a sale in Cyprus. Limassol, Paphos, Larnaca, Nicosia, Famagusta or another area.",
+  lead="Tell us what you are considering. We reply to the details you send. This is not a valuation and not tax advice.",
+  name="Name", email="Email", phone="Phone / WhatsApp",
+  interest="I am interested in", interests=[("buy","Buy"),("rent","Rent long-term"),("sell","Sell"),("investment","Investment"),("tax","Tax on sale")],
+  area="Area", areas=[("limassol","Limassol"),("paphos","Paphos"),("larnaca","Larnaca"),("nicosia","Nicosia"),("famagusta","Famagusta"),("other","Other")],
+  budget="Budget", budget_hint="optional", message="Message", message_hint="optional",
+  choose="Choose",
+  consent="I agree that CyNews 24 may use these details only to reply to this enquiry.",
+  privacy="Privacy policy", send="Request a consultation",
+  thanks_t="Thank you", thanks="Your consultation request has been sent. We will reply to the email address you provided.",
+  back="Back to the consultation form"),
+ "ru":dict(menu="Консультация по жилью",
+  title="Покупаете, снимаете или продаёте жильё на Кипре? Бесплатная консультация",
+  desc="Бесплатная консультация по покупке, долгой аренде, продаже, инвестиции или налогу с продажи на Кипре. Лимассол, Пафос, Ларнака, Никосия, Фамагуста или другой район.",
+  lead="Напишите, что вы рассматриваете. Мы ответим на то, что вы отправите. Это не оценка и не налоговая консультация.",
+  name="Имя", email="Эл. почта", phone="Телефон / WhatsApp",
+  interest="Меня интересует", interests=[("buy","Покупка"),("rent","Долгая аренда"),("sell","Продажа"),("investment","Инвестиция"),("tax","Налог с продажи")],
+  area="Район", areas=[("limassol","Лимассол"),("paphos","Пафос"),("larnaca","Ларнака"),("nicosia","Никосия"),("famagusta","Фамагуста"),("other","Другой")],
+  budget="Бюджет", budget_hint="необязательно", message="Сообщение", message_hint="необязательно",
+  choose="Выберите",
+  consent="Я согласен, что CyNews 24 использует эти данные только чтобы ответить на это обращение.",
+  privacy="Политика конфиденциальности", send="Запросить консультацию",
+  thanks_t="Спасибо", thanks="Запрос на консультацию отправлен. Мы ответим на указанный адрес электронной почты.",
+  back="К форме консультации"),
+ "el":dict(menu="Συμβουλή για ακίνητο",
+  title="Αγοράζετε, ενοικιάζετε ή πουλάτε ακίνητο στην Κύπρο; Δωρεάν συμβουλευτική",
+  desc="Δωρεάν συμβουλευτική για αγορά, μακροχρόνια ενοικίαση, πώληση, επένδυση ή φόρο πώλησης στην Κύπρο. Λεμεσός, Πάφος, Λάρνακα, Λευκωσία, Αμμόχωστος ή άλλη περιοχή.",
+  lead="Πείτε μας τι εξετάζετε. Απαντάμε σε όσα στέλνετε. Δεν είναι εκτίμηση και δεν είναι φορολογική συμβουλή.",
+  name="Όνομα", email="Email", phone="Τηλέφωνο / WhatsApp",
+  interest="Με ενδιαφέρει", interests=[("buy","Αγορά"),("rent","Μακροχρόνια ενοικίαση"),("sell","Πώληση"),("investment","Επένδυση"),("tax","Φόρος πώλησης")],
+  area="Περιοχή", areas=[("limassol","Λεμεσός"),("paphos","Πάφος"),("larnaca","Λάρνακα"),("nicosia","Λευκωσία"),("famagusta","Αμμόχωστος"),("other","Άλλη")],
+  budget="Προϋπολογισμός", budget_hint="προαιρετικό", message="Μήνυμα", message_hint="προαιρετικό",
+  choose="Επιλέξτε",
+  consent="Συμφωνώ ότι το CyNews 24 θα χρησιμοποιήσει αυτά τα στοιχεία μόνο για να απαντήσει σε αυτό το αίτημα.",
+  privacy="Πολιτική απορρήτου", send="Ζητήστε συμβουλευτική",
+  thanks_t="Ευχαριστούμε", thanks="Το αίτημα συμβουλευτικής στάλθηκε. Θα απαντήσουμε στη διεύθυνση email που δώσατε.",
+  back="Πίσω στη φόρμα"),
+}
+ADVERTISE={
+ "en":dict(menu="Advertise",
+  title="Advertise with us",
+  desc="Advertise on CyNews 24 to Cyprus residents and expats, in English, Russian and Greek, and on Telegram, Facebook and Instagram. Contact us for current stats. Packages have no listed prices.",
+  lead="CyNews 24 is read by Cyprus residents and expats. Every story is in English, Russian and Greek. The same news goes to Telegram @cynews24 and @cynews24en, the CyNews 24 Facebook page, and Instagram @cynews24. Contact us for current stats.",
+  packages_h="Packages",
+  packages=[
+   ("Sponsored article","A labelled story on the site, kept separate from news."),
+   ("Banner","A display placement on the site."),
+   ("Telegram post","A post on @cynews24, @cynews24en, or both."),
+   ("Social bundle","A sponsored article plus Telegram and a post on the channels you choose.")],
+  note="Prices are not listed here. Contact us and we will reply with what is available.",
+  name="Name", company="Company", email="Email", phone="Phone", optional="optional",
+  package="Package", packages_opts=[("sponsored-article","Sponsored article"),("banner","Banner"),("telegram-post","Telegram post"),("social-bundle","Social bundle")],
+  message="Message",
+  consent="I agree that CyNews 24 may use these details only to reply to this advertising enquiry.",
+  privacy="Privacy policy", send="Send enquiry",
+  thanks_t="Thank you", thanks="Your advertising enquiry has been sent. We will reply to the email address you provided.",
+  back="Back to Advertise"),
+ "ru":dict(menu="Реклама",
+  title="Реклама у нас",
+  desc="Реклама на CyNews 24 для жителей Кипра и экспатов, на английском, русском и греческом, и в Telegram, Facebook и Instagram. Актуальные цифры — по запросу. У пакетов нет цен на странице.",
+  lead="CyNews 24 читают жители Кипра и экспаты. Каждый материал выходит на английском, русском и греческом. Те же новости идут в Telegram @cynews24 и @cynews24en, на страницу CyNews 24 в Facebook и в Instagram @cynews24. Актуальные цифры аудитории — по запросу.",
+  packages_h="Пакеты",
+  packages=[
+   ("Спонсорская статья","Помеченный материал на сайте, отдельно от новостей."),
+   ("Баннер","Показ на сайте."),
+   ("Пост в Telegram","Публикация в @cynews24, @cynews24en или в обоих."),
+   ("Соцсети вместе","Спонсорская статья плюс Telegram и пост в выбранных каналах.")],
+  note="Цен на этой странице нет. Напишите, и мы ответим, что сейчас доступно.",
+  name="Имя", company="Компания", email="Эл. почта", phone="Телефон", optional="необязательно",
+  package="Пакет", packages_opts=[("sponsored-article","Спонсорская статья"),("banner","Баннер"),("telegram-post","Пост в Telegram"),("social-bundle","Соцсети вместе")],
+  message="Сообщение",
+  consent="Я согласен, что CyNews 24 использует эти данные только чтобы ответить на запрос о рекламе.",
+  privacy="Политика конфиденциальности", send="Отправить запрос",
+  thanks_t="Спасибо", thanks="Запрос о рекламе отправлен. Мы ответим на указанный адрес электронной почты.",
+  back="К странице «Реклама»"),
+ "el":dict(menu="Διαφήμιση",
+  title="Διαφημιστείτε σε εμάς",
+  desc="Διαφήμιση στο CyNews 24 για κατοίκους Κύπρου και expats, στα αγγλικά, ρωσικά και ελληνικά, και σε Telegram, Facebook και Instagram. Τρέχοντα στατιστικά κατόπιν επικοινωνίας. Τα πακέτα δεν έχουν τιμές.",
+  lead="Το CyNews 24 το διαβάζουν κάτοικοι Κύπρου και expats. Κάθε θέμα βγαίνει στα αγγλικά, ρωσικά και ελληνικά. Οι ίδιες ειδήσεις πηγαίνουν στο Telegram @cynews24 και @cynews24en, στη σελίδα του CyNews 24 στο Facebook και στο Instagram @cynews24. Για τρέχοντα στατιστικά, επικοινωνήστε μαζί μας.",
+  packages_h="Πακέτα",
+  packages=[
+   ("Χορηγούμενο άρθρο","Επισημασμένο θέμα στον ιστότοπο, χωριστά από τις ειδήσεις."),
+   ("Banner","Προβολή στον ιστότοπο."),
+   ("Ανάρτηση στο Telegram","Ανάρτηση στο @cynews24, στο @cynews24en ή και στα δύο."),
+   ("Πακέτο social","Χορηγούμενο άρθρο συν Telegram και ανάρτηση στα κανάλια που διαλέγετε.")],
+  note="Οι τιμές δεν αναγράφονται εδώ. Στείλτε μήνυμα και θα απαντήσουμε τι είναι διαθέσιμο.",
+  name="Όνομα", company="Εταιρεία", email="Email", phone="Τηλέφωνο", optional="προαιρετικό",
+  package="Πακέτο", packages_opts=[("sponsored-article","Χορηγούμενο άρθρο"),("banner","Banner"),("telegram-post","Ανάρτηση στο Telegram"),("social-bundle","Πακέτο social")],
+  message="Μήνυμα",
+  consent="Συμφωνώ ότι το CyNews 24 θα χρησιμοποιήσει αυτά τα στοιχεία μόνο για να απαντήσει σε αυτό το αίτημα διαφήμισης.",
+  privacy="Πολιτική απορρήτου", send="Αποστολή αιτήματος",
+  thanks_t="Ευχαριστούμε", thanks="Το αίτημα διαφήμισης στάλθηκε. Θα απαντήσουμε στη διεύθυνση email που δώσατε.",
+  back="Πίσω στη Διαφήμιση"),
+}
+def _opts(pairs, choose):
+    return f'<option value="">{e(choose)}</option>'+"".join(f'<option value="{e(v)}">{e(lab)}</option>' for v,lab in pairs)
+def _consent(l, text, privacy):
+    return (f'<label class="consent"><input type="checkbox" name="consent" value="yes" required> '
+            f'<span>{e(text)} <a href="{href(f"/{l}/privacy/")}">{e(privacy)}</a></span></label>')
+def property_consult_form(l, page_url, next_path):
+    c=CONSULT[l]
+    return f'''<form class="adform" action="{e(LEADS_FORM_ACTION)}" method="POST">
+<input type="hidden" name="_subject" value="cynews24 property lead">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_next" value="{e(abs_(next_path))}">
+<input type="hidden" name="page" value="{e(page_url)}">
+<p class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
+<div class="pair"><label class="fld"><span>{e(c["name"])}</span><input type="text" name="name" required autocomplete="name"></label>
+<label class="fld"><span>{e(c["email"])}</span><input type="email" name="email" required autocomplete="email"></label></div>
+<label class="fld"><span>{e(c["phone"])}</span><input type="tel" name="phone" autocomplete="tel"></label>
+<div class="pair"><label class="fld"><span>{e(c["interest"])}</span><select name="interest" required>{_opts(c["interests"], c["choose"])}</select></label>
+<label class="fld"><span>{e(c["area"])}</span><select name="area" required>{_opts(c["areas"], c["choose"])}</select></label></div>
+<label class="fld"><span>{e(c["budget"])} <span class="hint">({e(c["budget_hint"])})</span></span><input type="text" name="budget" autocomplete="off"></label>
+<label class="fld"><span>{e(c["message"])} <span class="hint">({e(c["message_hint"])})</span></span><textarea name="message"></textarea></label>
+{_consent(l, c["consent"], c["privacy"])}
+<button class="send" type="submit">{e(c["send"])}</button>
+</form>'''
+def property_consult(l, page_url):
+    c=CONSULT[l]
+    return (f'<section class="consult" aria-label="{e(c["title"])}"><h2>{e(c["title"])}</h2>'
+            f'<p class="leadin">{e(c["lead"])} <a href="{href(f"/{l}/property-consultation/")}">{e(c["menu"])}</a></p>'
+            f'{property_consult_form(l, page_url, f"/{l}/property-consultation/thanks/")}</section>')
+def page_property_consultation(l):
+    c=CONSULT[l]; path=f"/{l}/property-consultation/"; pathfn=lambda x:f"/{x}/property-consultation/"
+    h=head(l, f'{c["title"]} | {SITE}', c["desc"], [c["title"], SITE, "Cyprus"], path, pathfn, "/assets/og-default.jpg")
+    h+=header(l, pathfn)
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(c["title"])}</h1><p class="leadin">{e(c["lead"])}</p>'
+    h+=property_consult_form(l, abs_(path), f"/{l}/property-consultation/thanks/")
+    h+='</article></main>'+footer(l)
+    return h
+def page_property_consult_thanks(l):
+    c=CONSULT[l]; pathfn=lambda x:f"/{x}/property-consultation/thanks/"
+    h=head(l, f'{c["thanks_t"]} | {SITE}', c["thanks"], [SITE], f"/{l}/property-consultation/thanks/", pathfn, "/assets/og-default.jpg", robots="noindex,follow")
+    h+=header(l, pathfn)
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(c["thanks_t"])}</h1><p class="leadin">{e(c["thanks"])}</p><p><a href="{href(f"/{l}/property-consultation/")}">{e(c["back"])}</a></p></article></main>'+footer(l)
+    return h
+def advertise_form(l):
+    a=ADVERTISE[l]
+    return f'''<form class="adform" action="{e(LEADS_FORM_ACTION)}" method="POST">
+<input type="hidden" name="_subject" value="cynews24 advertising enquiry">
+<input type="hidden" name="_template" value="table">
+<input type="hidden" name="_captcha" value="true">
+<input type="hidden" name="_next" value="{e(abs_(f"/{l}/advertise/thanks/"))}">
+<input type="hidden" name="page" value="{e(abs_(f"/{l}/advertise/"))}">
+<p class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
+<div class="pair"><label class="fld"><span>{e(a["name"])}</span><input type="text" name="name" required autocomplete="name"></label>
+<label class="fld"><span>{e(a["email"])}</span><input type="email" name="email" required autocomplete="email"></label></div>
+<label class="fld"><span>{e(a["company"])} <span class="hint">({e(a["optional"])})</span></span><input type="text" name="company" autocomplete="organization"></label>
+<label class="fld"><span>{e(a["phone"])} <span class="hint">({e(a["optional"])})</span></span><input type="tel" name="phone" autocomplete="tel"></label>
+<label class="fld"><span>{e(a["package"])}</span><select name="package">{_opts(a["packages_opts"], CONSULT[l]["choose"])}</select></label>
+<label class="fld"><span>{e(a["message"])}</span><textarea name="message" required></textarea></label>
+{_consent(l, a["consent"], a["privacy"])}
+<button class="send" type="submit">{e(a["send"])}</button>
+</form>'''
+def page_advertise(l):
+    a=ADVERTISE[l]; path=f"/{l}/advertise/"; pathfn=lambda x:f"/{x}/advertise/"
+    cards="".join(f'<article class="fmt"><h3>{e(n)}</h3><p>{e(d)}</p></article>' for n,d in a["packages"])
+    h=head(l, f'{a["title"]} | {SITE}', a["desc"], [a["title"], SITE, "Cyprus"], path, pathfn, "/assets/og-default.jpg")
+    h+=header(l, pathfn, "advertise")
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(a["title"])}</h1><p class="leadin">{e(a["lead"])}</p>'
+    h+=f'<p><a href="{e(TELEGRAM["ru"])}" target="_blank" rel="noopener">@cynews24</a> · <a href="{e(TELEGRAM["en"])}" target="_blank" rel="noopener">@cynews24en</a> · <a href="https://www.instagram.com/cynews24/" target="_blank" rel="noopener">Instagram @cynews24</a></p>'
+    h+=f'<h2>{e(a["packages_h"])}</h2><div class="fmts">{cards}</div><p class="adnote">{e(a["note"])}</p>'
+    h+=f'<div class="consult">{advertise_form(l)}</div></article></main>'+footer(l)
+    return h
+def page_advertise_thanks(l):
+    a=ADVERTISE[l]; pathfn=lambda x:f"/{x}/advertise/thanks/"
+    h=head(l, f'{a["thanks_t"]} | {SITE}', a["thanks"], [SITE], f"/{l}/advertise/thanks/", pathfn, "/assets/og-default.jpg", robots="noindex,follow")
+    h+=header(l, pathfn, "advertise")
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(a["thanks_t"])}</h1><p class="leadin">{e(a["thanks"])}</p><p><a href="{href(f"/{l}/advertise/")}">{e(a["back"])}</a></p></article></main>'+footer(l)
     return h
 def page_ad_thanks(l):
     a=AD[l]; pathfn=lambda x:f"/{x}/advertising/thanks/"
@@ -2011,6 +2200,8 @@ def sitemap():
     x.append(entry(lambda l:f"/{l}/privacy/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/cookies/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/advertising/",TODAY,"0.4"))
+    x.append(entry(lambda l:f"/{l}/advertise/",TODAY,"0.4"))
+    x.append(entry(lambda l:f"/{l}/property-consultation/",TODAY,"0.5"))
     x.append(entry(lambda l:f"/{l}/events/",TODAY,"0.6"))
     for prop in published_listings():
         pid=prop["id"]
@@ -2077,6 +2268,10 @@ def main():
         w(f"/{l}/events/index.html",page_events(l))
         w(f"/{l}/advertising/index.html",page_advertising(l))
         w(f"/{l}/advertising/thanks/index.html",page_ad_thanks(l))
+        w(f"/{l}/advertise/index.html",page_advertise(l))
+        w(f"/{l}/advertise/thanks/index.html",page_advertise_thanks(l))
+        w(f"/{l}/property-consultation/index.html",page_property_consultation(l))
+        w(f"/{l}/property-consultation/thanks/index.html",page_property_consult_thanks(l))
         w(f"/{l}/thanks/index.html",page_lead_thanks(l))
         w(f"/{l}/feed.xml",rss(l))
     # One feed per language. /feed.xml was a second copy of the English feed.

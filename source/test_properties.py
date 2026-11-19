@@ -2,6 +2,7 @@
 """Property listings stay off the site until published. No network."""
 from __future__ import annotations
 
+import os
 import unittest
 from unittest import mock
 
@@ -80,6 +81,28 @@ class PropertyTests(unittest.TestCase):
             thanks = build.page_lead_thanks(lang)
             self.assertIn('content="noindex,follow"', thanks)
             self.assertIn(f'href="/{lang}/real-estate/"', thanks)
+
+    def test_consultation_and_advertise_use_the_leads_inbox(self):
+        self.assertEqual(build.LEADS_EMAIL, "2877novosti@gmail.com")
+        self.assertEqual(build.LEADS_FORM_ACTION, "https://formsubmit.co/2877novosti@gmail.com")
+        with open(os.path.join(os.path.dirname(__file__), "build.py"), encoding="utf8") as handle:
+            self.assertNotIn("cs1.atex", handle.read())
+        story = build.STORIES[0]
+        for lang in ("en", "ru", "el"):
+            article = build.page_article(lang, story)
+            consult = build.page_property_consultation(lang)
+            advertise = build.page_advertise(lang)
+            for html in (article, consult, advertise, build.footer(lang), build.header(lang, lambda x: f"/{x}/")):
+                self.assertNotIn("cs1.atex", html)
+            self.assertIn('action="https://formsubmit.co/2877novosti@gmail.com"', article)
+            self.assertIn('name="_subject" value="cynews24 property lead"', article)
+            self.assertIn('name="_captcha" value="true"', article)
+            self.assertIn(f'href="/{lang}/privacy/"', article)
+            self.assertIn('name="consent" value="yes" required', article)
+            self.assertIn('name="_subject" value="cynews24 advertising enquiry"', advertise)
+            self.assertIn(f'href="/{lang}/advertise/"', build.footer(lang))
+            self.assertIn('content="noindex,follow"', build.page_advertise_thanks(lang))
+            self.assertIn('content="noindex,follow"', build.page_property_consult_thanks(lang))
 
     def test_whatsapp_button_appears_only_with_a_stored_number(self):
         villa = dict(next(p for p in build.published_listings() if p["id"] == "olivia"))
