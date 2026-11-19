@@ -12,6 +12,7 @@ EV_PHOTOS=_EV["photos"]
 SITE = "CyNews 24"
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1547877294743851" crossorigin="anonymous"></script>'
 YANDEX_VERIFICATION = '<meta name="yandex-verification" content="4db90fdda985d0e0" />'
+IMPACT_VERIFICATION = '<meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">'
 # Bing Webmaster Tools value for <meta name="msvalidate.01">. Empty omits the tag.
 BING_VERIFICATION = ""
 # Google Analytics 4 measurement ID (G-XXXXXXXX). Empty means the tag is not loaded.
@@ -853,7 +854,7 @@ def alt_links(l, pathfn):
 
 def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None, mod=None, robots="index,follow,max-image-preview:large,max-snippet:-1"):
     h=[f'<!doctype html><html lang="{l}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
-    YANDEX_VERIFICATION]
+    YANDEX_VERIFICATION, IMPACT_VERIFICATION]
     if bing_meta(): h.append(bing_meta())
     h+=[f'<title>{e(title)}</title><meta name="description" content="{e(desc)}">',
     f'<meta name="keywords" content="{e(", ".join(kws))}">',
@@ -1834,6 +1835,7 @@ def page_root():
     ld={"@context":"https://schema.org","@type":"WebSite","name":SITE,"url":abs_("/"),"inLanguage":LANGS}
     return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 {YANDEX_VERIFICATION}
+{IMPACT_VERIFICATION}
 {bing_meta()}
 <title>CyNews 24 – Cyprus News · Новости Кипра · Ειδήσεις Κύπρου</title>
 <meta name="description" content="CyNews 24: Cyprus news in English, Russian and Greek. Новости Кипра на русском, английском и греческом. Ειδήσεις Κύπρου στα ελληνικά, αγγλικά και ρωσικά.">
@@ -1910,7 +1912,7 @@ def mycytax_catalog():
 def w(path,content):
     p=OUT+path; os.makedirs(os.path.dirname(p),exist_ok=True); open(p,"w",encoding="utf8").write(content)
 def page_404():
-    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8">{YANDEX_VERIFICATION}{bing_meta()}'
+    return (f'<!doctype html><html lang="en"><head><meta charset="utf-8">{YANDEX_VERIFICATION}{IMPACT_VERIFICATION}{bing_meta()}'
       f'<title>404 — {SITE}</title><meta name="robots" content="noindex">'
       f'<link rel="stylesheet" href="{href("/assets/css/style.css")}">{google_tags()}</head>'
       f'<body><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div>'
