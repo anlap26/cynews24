@@ -12,10 +12,7 @@ EV_PHOTOS=_EV["photos"]
 SITE = "CyNews 24"
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1547877294743851" crossorigin="anonymous"></script>'
 YANDEX_VERIFICATION = '<meta name="yandex-verification" content="4db90fdda985d0e0" />'
-IMPACT_VERIFICATION = (
-    '<meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">'
-    '<meta name="impact-site-verification" value="b33c7a36-3ecd-4d6c-b37e-2ffdb0396d00">'
-)
+IMPACT_VERIFICATION = '<meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">'
 # Bing Webmaster Tools value for <meta name="msvalidate.01">. Empty omits the tag.
 BING_VERIFICATION = ""
 # Google Analytics 4 measurement ID (G-XXXXXXXX). Empty means the tag is not loaded.
