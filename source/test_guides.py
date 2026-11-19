@@ -14,7 +14,7 @@ HERE = os.path.dirname(os.path.abspath(__file__))
 ARTICLES = os.path.join(HERE, "content", "articles")
 SLUGS = ("international-health-insurance", "protect-data-foreign-banks")
 LANGS = ("ru", "en", "el")
-PARTNERS = ("safetywing", "genki", "airalo", "nordvpn", "surfshark", "proton", "onepassword")
+PARTNERS = ("genki", "airalo", "nordvpn", "surfshark", "proton", "onepassword")
 
 
 def _words(text):
