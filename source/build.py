@@ -71,6 +71,29 @@ _TR = dict(zip("абвгдеёзийклмнопрстуфхыэ", "abvgdeezijkl
 def slugify(v):
     v = "".join(_TR.get(ch, ch) for ch in str(v).lower())
     return re.sub(r"-+", "-", re.sub(r"[^a-z0-9]+", "-", v)).strip("-")[:70].strip("-")
+def _offers(path, lang, v):
+    if not v: return {}
+    if not isinstance(v, list): raise SystemExit(f"{path}: {lang} offers must be a list")
+    out = {}
+    for item in v:
+        if not isinstance(item, dict): raise SystemExit(f"{path}: {lang} offer must be an object")
+        partner = _clean(item.get("partner"))
+        label = _clean(item.get("label"))
+        note = _clean(item.get("note"))
+        if not partner or not label: raise SystemExit(f"{path}: {lang} offer needs partner and label")
+        if partner in out: raise SystemExit(f"{path}: duplicate offer {partner}")
+        out[partner] = {"partner": partner, "label": label, "note": note}
+    return out
+def _faq(path, lang, v):
+    if not v: return []
+    if not isinstance(v, list): raise SystemExit(f"{path}: {lang} faq must be a list")
+    out = []
+    for item in v:
+        if not isinstance(item, dict): raise SystemExit(f"{path}: {lang} faq item must be an object")
+        q, a = _clean(item.get("q")), _clean(item.get("a"))
+        if not q or not a: raise SystemExit(f"{path}: {lang} faq item needs q and a")
+        out.append({"q": q, "a": a})
+    return out
 def load_story(path):
     with open(path, encoding="utf8") as f: d = json.load(f)
     stem = os.path.splitext(os.path.basename(path))[0]
@@ -84,9 +107,9 @@ def load_story(path):
     ru = d.get("ru") or {}
     for k in ("title", "lede", "body"):
         if not _clean(ru.get(k)): raise SystemExit(f"{path}: Russian {k} is required")
-    s = {"slug": slug, "file": stem, "cat": cat, "date": date, "seq": d.get("seq"), "missing": set()}
-    for k in ("title", "lede", "alt"): s[k] = {}
-    s["body"] = {}; s["kw"] = {}
+    s = {"slug": slug, "file": stem, "cat": cat, "date": date, "seq": d.get("seq"), "missing": set(), "guide": bool(d.get("guide"))}
+    for k in ("title", "lede", "alt", "desc"): s[k] = {}
+    s["body"] = {}; s["kw"] = {}; s["offers"] = {}; s["faq"] = {}
     for l in LANGS:
         src = d.get(l) or {}
         if l != "ru" and not (_clean(src.get("title")) and _clean(src.get("lede")) and _clean(src.get("body"))):
@@ -95,6 +118,9 @@ def load_story(path):
         s["body"][l] = _paras(src.get("body"))
         s["alt"][l] = _clean(src.get("alt")) or _clean(ru.get("alt")) or s["title"][l]
         s["kw"][l] = _kw(src.get("kw"))
+        s["desc"][l] = _clean(src.get("desc"))
+        s["offers"][l] = _offers(path, l, src.get("offers"))
+        s["faq"][l] = _faq(path, l, src.get("faq"))
     s["sources"] = [(_clean(x.get("name")) or _clean(x.get("url")), _clean(x.get("url")))
                     for x in (d.get("sources") or []) if _clean(x.get("url"))]
     if _clean(d.get("updated")): s["updated"] = _clean(d["updated"])
@@ -150,7 +176,11 @@ UI = {
   tagline="Cyprus news in three languages",
   footer="CyNews 24 summarises public reporting from Cypriot and international media in Russian, English and Greek. Articles are rewritten in our own words and link to their sources; photographs are used under open licences and credited. CyNews 24 is not affiliated with the outlets cited.",
   copy="All rights reserved.",updated="Updated",home_h="Top stories from Cyprus",realestate_h="Real estate & planning",allnews="All news",
-  cat_h="{c} — news from Cyprus", crumb_home="Home"),
+  cat_h="{c} — news from Cyprus", crumb_home="Home",
+  faq="Questions readers ask",
+  disclosure="Affiliate disclosure",
+  disclosure_text="Some links on this page are affiliate links. If you use one, CyNews 24 may earn a commission. The provider sets the price. Terms change, so read them on the provider’s site before you buy. This page is not insurance, legal or security advice.",
+  sources_note_guide="The links below are the public pages this guide relies on. They are not a quotation, and a provider’s terms can change."),
  "ru":dict(home="Главная",latest="Последние новости",more="Ещё новости",sources="Источники",related="Читайте также",toplines="Главное",
   byline="Редакционная группа CyNews 24",illus="Иллюстрация создана для CyNews 24 (сгенерирована ИИ, не фотография)",
   sources_note="Материал — авторский пересказ фактов, опубликованных изданиями ниже; полные подробности — в оригиналах.",
@@ -164,7 +194,11 @@ UI = {
   tagline="Новости Кипра на трёх языках",
   footer="CyNews 24 обобщает публикации кипрских и международных СМИ на русском, английском и греческом языках. Тексты написаны своими словами и содержат ссылки на источники; фотографии используются по открытым лицензиям с указанием автора. CyNews 24 не связан с упомянутыми изданиями.",
   copy="Все права защищены.",updated="Обновлено",home_h="Главные новости Кипра",realestate_h="Недвижимость и градостроительство",allnews="Все новости",
-  cat_h="{c} — новости Кипра", crumb_home="Главная"),
+  cat_h="{c} — новости Кипра", crumb_home="Главная",
+  faq="Вопросы читателей",
+  disclosure="Раскрытие партнёрских ссылок",
+  disclosure_text="Часть ссылок на этой странице — партнёрские. Если вы перейдёте по такой ссылке, CyNews 24 может получить комиссию. Цену назначает сам сервис. Условия меняются: перед покупкой прочитайте их на сайте сервиса. Эта страница — не страховая, юридическая или иная профессиональная консультация.",
+  sources_note_guide="Ниже — публичные страницы, на которые опирается этот материал. Это не цитата из договора, и условия сервиса могут измениться."),
  "el":dict(home="Αρχική",latest="Τελευταία νέα",more="Περισσότερες ειδήσεις",sources="Πηγές",related="Σχετικά θέματα",toplines="Κορυφαία θέματα",
   byline="Συντακτική ομάδα CyNews 24",illus="Εικονογράφηση για το CyNews 24 (δημιουργήθηκε με ΤΝ, όχι φωτογραφία)",
   sources_note="Το κείμενο είναι πρωτότυπη αναδιατύπωση γεγονότων που δημοσίευσαν τα παρακάτω μέσα· για πλήρεις λεπτομέρειες δείτε τα πρωτότυπα.",
@@ -178,7 +212,11 @@ UI = {
   tagline="Ειδήσεις Κύπρου σε τρεις γλώσσες",
   footer="Το CyNews 24 συνοψίζει δημοσιεύματα κυπριακών και διεθνών μέσων στα ρωσικά, αγγλικά και ελληνικά. Τα κείμενα γράφονται με δικά μας λόγια και παραπέμπουν στις πηγές τους· οι φωτογραφίες χρησιμοποιούνται με ανοιχτές άδειες και αναφέρουν τον δημιουργό. Το CyNews 24 δεν συνδέεται με τα μέσα που αναφέρονται.",
   copy="Με επιφύλαξη παντός δικαιώματος.",updated="Ενημερώθηκε",home_h="Κορυφαίες ειδήσεις από την Κύπρο",realestate_h="Ακίνητα και πολεοδομία",allnews="Όλες οι ειδήσεις",
-  cat_h="{c} — ειδήσεις από την Κύπρο", crumb_home="Αρχική"),
+  cat_h="{c} — ειδήσεις από την Κύπρο", crumb_home="Αρχική",
+  faq="Ερωτήσεις αναγνωστών",
+  disclosure="Γνωστοποίηση συνεργατών",
+  disclosure_text="Ορισμένοι σύνδεσμοι σε αυτή τη σελίδα είναι σύνδεσμοι συνεργατών. Αν τους χρησιμοποιήσετε, το CyNews 24 μπορεί να λάβει προμήθεια. Την τιμή την ορίζει ο πάροχος. Οι όροι αλλάζουν· διαβάστε τους στον ιστότοπο του παρόχου πριν αγοράσετε. Η σελίδα δεν είναι ασφαλιστική, νομική ή άλλη επαγγελματική συμβουλή.",
+  sources_note_guide="Οι σύνδεσμοι παρακάτω είναι οι δημόσιες σελίδες στις οποίες στηρίζεται αυτός ο οδηγός. Δεν είναι παράθεμα σύμβασης, και οι όροι ενός παρόχου μπορεί να αλλάξουν."),
 }
 HOME_T = {"en":"CyNews 24 – Latest Cyprus News: Politics, Economy, Property",
  "ru":"CyNews 24 — Новости Кипра сегодня: политика, экономика, недвижимость",
@@ -231,6 +269,7 @@ POLICY = {
    ("Sourcing",["Each news article lists its sources and links to them. The article is a rewritten summary, not a copy of those reports. Readers should open the links for the full original. Citing an outlet is not an endorsement, and it does not mean that outlet wrote our text."]),
    ("Corrections",["If you believe a story is wrong, email cynews24@gmail.com with the article URL, the passage and the correction. We review the request. When a correction is needed, we change the article and its updated time. A correction is not removed because it is inconvenient."]),
    ("Advertising is separate from news",["Sponsored or paid material is labelled and kept separate from newsroom reporting. Advertising enquiries go through the advertising and contact page and are not handled as news. Rates are available on request."]),
+   ("Affiliate links",["Some practical guides link to commercial partners such as an insurer or a security service. Those links are labelled, and the affiliate disclosure page explains them. A partner link is not a news story, and it is not a statement of a price or of what a policy covers. The guide does not invent prices, limits or statistics."]),
    ("Contact the newsroom",["Editorial questions and correction requests: cynews24@gmail.com. The publisher is Anna, and the site is based in Cyprus."])]),
  "ru":dict(t="Редакционная политика и поправки",d="Как CyNews 24 проверяет факты, указывает источники, отделяет рекламу от новостей и исправляет ошибки.",
   sections=[
@@ -238,6 +277,7 @@ POLICY = {
    ("Источники",["У каждого новостного материала есть список источников и ссылки на них. Текст — пересказ, а не копия этих публикаций. Полный оригинал — по ссылке. Ссылка на издание не означает поддержки и не означает, что текст написало это издание."]),
    ("Поправки",["Если вы считаете, что в материале ошибка, напишите на cynews24@gmail.com: укажите адрес страницы, фрагмент и поправку. Мы рассматриваем обращение. Если поправка нужна, мы меняем материал и время его обновления. Поправку не снимают из-за того, что она неудобна."]),
    ("Реклама отделена от новостей",["Спонсорские и оплаченные материалы помечаются и отделены от редакционных новостей. Запросы о рекламе идут через страницу рекламы и контактов и не оформляются как новости. Стоимость — по запросу."]),
+   ("Партнёрские ссылки",["В некоторых практических материалах есть ссылки на коммерческих партнёров, например на страховщика или сервис защиты данных. Такие ссылки помечены, а страница о партнёрских ссылках объясняет, как они устроены. Партнёрская ссылка — не новость и не утверждение о цене или о составе покрытия. Материал не выдумывает цены, лимиты и статистику."]),
    ("Связь с редакцией",["Вопросы редакции и просьбы об исправлении: cynews24@gmail.com. Издатель — Анна, сайт базируется на Кипре."])]),
  "el":dict(t="Συντακτική πολιτική και διορθώσεις",d="Πώς το CyNews 24 ελέγχει τα γεγονότα, αναφέρει πηγές, διαχωρίζει τη διαφήμιση από τις ειδήσεις και χειρίζεται διορθώσεις.",
   sections=[
@@ -245,7 +285,31 @@ POLICY = {
    ("Πηγές",["Κάθε ειδησεογραφικό άρθρο παραθέτει τις πηγές του και συνδέεται με αυτές. Το άρθρο είναι αναδιατυπωμένη σύνοψη, όχι αντίγραφο εκείνων των ρεπορτάζ. Οι αναγνώστες ανοίγουν τους συνδέσμους για το πλήρες πρωτότυπο. Η παραπομπή σε ένα μέσο δεν είναι εύνοια και δεν σημαίνει ότι εκείνο έγραψε το κείμενό μας."]),
    ("Διορθώσεις",["Αν πιστεύετε ότι ένα άρθρο έχει λάθος, στείλτε email στο cynews24@gmail.com με τη διεύθυνση του άρθρου, το απόσπασμα και τη διόρθωση. Εξετάζουμε το αίτημα. Όταν χρειάζεται διόρθωση, αλλάζουμε το άρθρο και την ώρα ενημέρωσής του. Μια διόρθωση δεν αποσύρεται επειδή είναι άβολη."]),
    ("Η διαφήμιση είναι χωριστά από τις ειδήσεις",["Το χορηγούμενο ή πληρωμένο υλικό επισημαίνεται και μένει χωριστά από το ρεπορτάζ. Τα διαφημιστικά αιτήματα περνούν από τη σελίδα διαφήμισης και επικοινωνίας και δεν αντιμετωπίζονται ως ειδήσεις. Οι τιμές δίνονται κατόπιν αιτήματος."]),
+   ("Σύνδεσμοι συνεργατών",["Ορισμένοι πρακτικοί οδηγοί παραπέμπουν σε εμπορικούς συνεργάτες, για παράδειγμα σε έναν ασφαλιστή ή σε μια υπηρεσία προστασίας δεδομένων. Οι σύνδεσμοι επισημαίνονται, και η σελίδα γνωστοποίησης εξηγεί πώς λειτουργούν. Ένας σύνδεσμος συνεργάτη δεν είναι είδηση και δεν δηλώνει τιμή ή τι καλύπτει ένα συμβόλαιο. Ο οδηγός δεν επινοεί τιμές, όρια ή στατιστικά."]),
    ("Επικοινωνία με τη σύνταξη",["Συντακτικά ερωτήματα και αιτήματα διόρθωσης: cynews24@gmail.com. Εκδότρια είναι η Άννα και ο ιστότοπος έχει έδρα την Κύπρο."])])}
+DISCLOSURE = {
+ "en":dict(t="Affiliate disclosure",d="How CyNews 24 uses affiliate links, which partners they point to, and what those links do not promise.",
+  sections=[
+   ("What an affiliate link is",["Some practical guides on CyNews 24 link to companies whose products a reader who lives or travels abroad may actually use: international health insurance, a travel eSIM, a VPN, encrypted email, or a password manager. If you follow one of those links and buy, the company may pay CyNews 24 a commission. You do not pay an extra fee to us. The price, if there is one, is the price on the company’s own site."]),
+   ("Where the links live",["Every partner address is stored in one configuration file, source/affiliates.json. The site publishes that file as /assets/js/affiliates.js, and every partner button reads the address from there. Until a real address is added, the value is a placeholder such as #AFFILIATE_SAFETYWING. A placeholder does not go to a shop. The partners named in the guides are SafetyWing, Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass and Mail) and 1Password."]),
+   ("How to recognise one",["A partner button opens in a new tab and is marked rel=\"nofollow sponsored\". The guide says, near the offers, that the links are affiliate links, and it links to this page. News stories do not carry these buttons. A short box appears only on a few practical pages about moving, expat life, banking or technology, and it links back to the full guide."]),
+   ("What the guide does not do",["The text does not invent a premium, a coverage limit, a server count or a statistic. Where a figure is not in a source we cite, the guide says to read the current terms, because they change. A partner link is not a recommendation that a product is right for you, and it is not insurance, legal, tax or security advice. CyNews 24 is not affiliated with the companies, except that we may earn a commission if you buy through a link."]),
+   ("Corrections",["If a guide is wrong, email cynews24@gmail.com with the page address and the correction. The editorial policy explains how corrections are handled."])]),
+ "ru":dict(t="Раскрытие партнёрских ссылок",d="Как CyNews 24 использует партнёрские ссылки, на какие сервисы они ведут и чего эти ссылки не обещают.",
+  sections=[
+   ("Что такое партнёрская ссылка",["В некоторых практических материалах CyNews 24 есть ссылки на компании, чьи услуги могут пригодиться человеку, который живёт или путешествует за границей: международная медицинская страховка, туристическая eSIM, VPN, шифрованная почта или менеджер паролей. Если вы перейдёте по такой ссылке и купите услугу, компания может выплатить CyNews 24 комиссию. Нам вы отдельно ничего не доплачиваете. Цена, если она есть, — та, что указана на сайте самой компании."]),
+   ("Где лежат адреса",["Все партнёрские адреса собраны в одном файле настроек, source/affiliates.json. Сайт публикует его как /assets/js/affiliates.js, и каждая партнёрская кнопка берёт адрес оттуда. Пока вместо настоящего адреса стоит заглушка вроде #AFFILIATE_SAFETYWING. Заглушка ни в какой магазин не ведёт. В материалах названы SafetyWing, Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass и Mail) и 1Password."]),
+   ("Как её узнать",["Партнёрская кнопка открывается в новой вкладке и помечена rel=\"nofollow sponsored\". Рядом с предложениями материал прямо говорит, что ссылки партнёрские, и ведёт на эту страницу. В новостях таких кнопок нет. Короткий блок стоит только на нескольких практических страницах о переезде, жизни за границей, банках или технологиях и ведёт на полный материал."]),
+   ("Чего материал не делает",["Текст не выдумывает премию, лимит покрытия, число серверов или статистику. Если цифры нет в источнике, на который мы ссылаемся, материал отправляет к действующим условиям: они меняются. Партнёрская ссылка не означает, что продукт вам подходит, и не является страховой, юридической, налоговой или иной профессиональной консультацией. CyNews 24 не связан с этими компаниями, кроме того, что мы можем получить комиссию, если вы купите услугу по ссылке."]),
+   ("Поправки",["Если в материале ошибка, напишите на cynews24@gmail.com и укажите адрес страницы и поправку. Как обрабатываются поправки, сказано в редакционной политике."])]),
+ "el":dict(t="Γνωστοποίηση συνεργατών",d="Πώς το CyNews 24 χρησιμοποιεί συνδέσμους συνεργατών, σε ποιες εταιρείες οδηγούν και τι δεν υπόσχονται.",
+  sections=[
+   ("Τι είναι ένας σύνδεσμος συνεργάτη",["Ορισμένοι πρακτικοί οδηγοί του CyNews 24 παραπέμπουν σε εταιρείες των οποίων τις υπηρεσίες μπορεί να χρησιμοποιήσει κάποιος που ζει ή ταξιδεύει στο εξωτερικό: διεθνή ασφάλιση υγείας, ταξιδιωτική eSIM, VPN, κρυπτογραφημένο email ή διαχειριστή κωδικών. Αν ακολουθήσετε έναν τέτοιο σύνδεσμο και αγοράσετε, η εταιρεία μπορεί να πληρώσει προμήθεια στο CyNews 24. Δεν πληρώνετε σε εμάς επιπλέον τέλος. Η τιμή, αν υπάρχει, είναι η τιμή στον ιστότοπο της εταιρείας."]),
+   ("Πού βρίσκονται οι διευθύνσεις",["Κάθε διεύθυνση συνεργάτη φυλάσσεται σε ένα αρχείο ρυθμίσεων, το source/affiliates.json. Ο ιστότοπος το δημοσιεύει ως /assets/js/affiliates.js, και κάθε κουμπί συνεργάτη διαβάζει τη διεύθυνση από εκεί. Μέχρι να προστεθεί πραγματική διεύθυνση, η τιμή είναι θέση όπως #AFFILIATE_SAFETYWING. Η θέση δεν οδηγεί σε κατάστημα. Οι συνεργάτες που ονομάζονται στους οδηγούς είναι οι SafetyWing, Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass και Mail) και 1Password."]),
+   ("Πώς ξεχωρίζει",["Ένα κουμπί συνεργάτη ανοίγει σε νέα καρτέλα και φέρει rel=\"nofollow sponsored\". Ο οδηγός λέει, κοντά στις προσφορές, ότι οι σύνδεσμοι είναι συνεργατών και παραπέμπει σε αυτή τη σελίδα. Τα ειδησεογραφικά άρθρα δεν έχουν τέτοια κουμπιά. Ένα σύντομο πλαίσιο εμφανίζεται μόνο σε λίγες πρακτικές σελίδες για μετακόμιση, ζωή στο εξωτερικό, τράπεζες ή τεχνολογία και οδηγεί πίσω στον πλήρη οδηγό."]),
+   ("Τι δεν κάνει ο οδηγός",["Το κείμενο δεν επινοεί ασφάλιστρο, όριο κάλυψης, αριθμό διακομιστών ή στατιστικό. Όπου ένας αριθμός δεν υπάρχει σε πηγή που αναφέρουμε, ο οδηγός στέλνει στους τρέχοντες όρους, γιατί αλλάζουν. Ένας σύνδεσμος συνεργάτη δεν σημαίνει ότι ένα προϊόν σας ταιριάζει και δεν είναι ασφαλιστική, νομική, φορολογική ή άλλη επαγγελματική συμβουλή. Το CyNews 24 δεν συνδέεται με τις εταιρείες, εκτός του ότι μπορεί να λάβει προμήθεια αν αγοράσετε μέσω συνδέσμου."]),
+   ("Διορθώσεις",["Αν ένας οδηγός έχει λάθος, στείλτε email στο cynews24@gmail.com με τη διεύθυνση της σελίδας και τη διόρθωση. Η συντακτική πολιτική εξηγεί πώς χειριζόμαστε τις διορθώσεις."])]),
+}
 PRIVACY = {
  "en":dict(t="Privacy policy",d="How CyNews 24 handles the advertising contact form, analytics and cookies.",
   sections=[
@@ -398,7 +462,12 @@ def image_ld(s):
     return obj
 def write_credits_md():
     lines=["# Photo credits","","Story photographs are openly licensed pictures. The generator crops each one to 16:9, resizes it and adds a CyNews 24 watermark. Adaptations of CC BY-SA photographs stay under the same licence.","","| Image | What it shows | Author | Licence | Original |","|---|---|---|---|---|"]
+    seen=set()
     for s in STORIES:
+        # Two stories may share one photograph. List that photograph once.
+        if s["img"] in seen:
+            continue
+        seen.add(s["img"])
         c=credit_for(s)
         if c and "upload" in s:
             lic=f'[{c.get("license") or "—"}]({c["license_url"]})' if c.get("license_url") else (c.get("license") or "—")
@@ -524,6 +593,25 @@ article.a h1{font-size:40px;line-height:1.1;letter-spacing:-.8px;margin:6px 0 12
 .by time{display:block}
 figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6px}figcaption a{color:#0b57b0;text-decoration:underline}
 .body p{font-size:18px;line-height:1.65;margin:0 0 18px;overflow-wrap:anywhere}.body a{color:#0b57b0;text-decoration:underline}
+.body h2{font-size:26px;line-height:1.25;letter-spacing:-.3px;margin:28px 0 12px;border-top:4px solid var(--ink);padding-top:8px}
+.disclosure{font-size:14.5px;line-height:1.5;color:#33383f;background:var(--soft);border-left:4px solid var(--acc);padding:12px 14px;margin:0 0 18px}
+.disclosure a{color:#0b57b0;text-decoration:underline}
+.offer{background:var(--soft);border:1px solid var(--line);border-top:4px solid var(--acc);padding:14px 16px;margin:0 0 18px}
+.offer p{font-size:16px;line-height:1.5;margin:0 0 12px}
+.affbtns{display:flex;flex-wrap:wrap;gap:8px;margin:0}
+.affbtn{display:inline-block;background:var(--acc);color:#fff;font-weight:800;padding:12px 16px;text-decoration:none;font-size:16px;line-height:1.25;text-align:center}
+a.affbtn{color:#fff}
+.affbtn:hover{background:var(--dark);color:#fff}
+.partner{background:#fff;border:1px solid var(--line);border-left:4px solid var(--acc);padding:14px 16px;margin:8px 0 18px}
+.partner .kicker{font-size:12px;font-weight:800;letter-spacing:.5px;text-transform:uppercase;color:var(--acc);margin:0 0 4px}
+.partner h2{font-size:18px;line-height:1.3;margin:0 0 8px}
+.partner p{font-size:15px;line-height:1.45;margin:0 0 10px}
+.partner .fine{font-size:13px;color:var(--mut);margin:8px 0 0}
+.faq{margin:8px 0 22px}
+.faq h2{font-size:22px;border-top:4px solid var(--ink);padding-top:8px;margin:0 0 8px}
+.faq details{border-bottom:1px solid var(--line);padding:12px 0}
+.faq summary{font-weight:700;cursor:pointer;font-size:17px;line-height:1.35}
+.faq details p{margin:8px 0 0;font-size:16.5px;line-height:1.55}
 .src{background:var(--soft);border-left:4px solid var(--acc);padding:14px 16px;margin:28px 0;font-size:15px}.src h2{font-size:15px;margin:0 0 6px;text-transform:uppercase;letter-spacing:.5px}.src p{margin:0 0 8px;color:var(--mut)}.src ul{margin:0;padding-left:18px}.src a{text-decoration:underline;color:#0b57b0}
 .tags{display:flex;flex-wrap:wrap;gap:8px;margin:0 0 28px;padding:0;list-style:none}.tags li{border:1px solid var(--line);border-radius:20px;padding:3px 12px;font-size:13px;color:#33383f}
 .tgcta{margin:4px 0 28px}.tgcta a{display:flex;align-items:center;gap:12px;background:var(--dark);color:#fff;padding:14px 16px;font-weight:700;font-size:17px;line-height:1.35}
@@ -625,7 +713,7 @@ button.send:hover{background:var(--acc)}
 .cookie-actions button:hover{background:#fff;color:var(--dark)}
 .cookie-actions button:focus{outline:2px solid #fff;outline-offset:2px}
 @media(max-width:980px){.lead{grid-template-columns:1fr}.grid,.g3{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.rel .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a{flex:1 1 100%}}
+@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}.body h2{font-size:22px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a,.affbtn{flex:1 1 100%;display:block;width:100%}}
 """
 
 _GA_WARNED=False
@@ -841,7 +929,7 @@ def org_ld(l):
                             {"@type":"ContactPoint","contactType":"advertising","email":AD_EMAIL,"availableLanguage":["Russian","English","Greek"],"url":abs_(f"/{l}/advertising/")}]}
 def footer(l):
     u=UI[l]
-    links=[(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/cookies/",u["cookies"]),(f"/{l}/advertising/",u["ads"])]
+    links=[(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/affiliate-disclosure/",u["disclosure"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/cookies/",u["cookies"]),(f"/{l}/advertising/",u["ads"])]
     fl="".join(f'<a href="{href(p)}">{e(n)}</a>' for p,n in links)
     fl+=f'<a href="{href(f"/{l}/cookies/")}" data-cookie-settings>{e(u["cookie_settings"])}</a>'
     langs=" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)
@@ -1210,6 +1298,8 @@ def fdt(iso,l):
     dt=datetime.datetime.fromisoformat(iso)
     return f'{fdate(dt.date().isoformat(),l)}, {dt.strftime("%H:%M")} (EET)'
 _URL_RE = re.compile(r"https?://[^\s<]+")
+_MD_LINK = re.compile(r"\[([^\]\n]+)\]\((https?://[^\s)]+|/[^)\s]+)\)")
+_OFFER_RE = re.compile(r"^\{\{offer:([a-z0-9]+)\}\}$")
 def linkify(text):
     """Article text stays plain. A bare URL becomes a link after it is escaped."""
     def repl(m):
@@ -1222,19 +1312,164 @@ def linkify(text):
             return m.group(0)
         return f'<a href="{url}" target="_blank" rel="noopener">{url}</a>{tail}'
     return _URL_RE.sub(repl, e(text))
+def render_inline(text):
+    """Bare URLs stay links. A [label](url) or [label](/path/) is a labelled link."""
+    parts = []; pos = 0
+    for m in _MD_LINK.finditer(text):
+        parts.append(linkify(text[pos:m.start()]))
+        label, url = m.group(1), m.group(2)
+        if url.startswith("/"):
+            parts.append(f'<a href="{e(href(url))}">{e(label)}</a>')
+        else:
+            parts.append(f'<a href="{e(url)}" target="_blank" rel="noopener">{e(label)}</a>')
+        pos = m.end()
+    parts.append(linkify(text[pos:]))
+    return "".join(parts)
+def plain_body(paras):
+    out = []
+    for p in paras:
+        if _OFFER_RE.match(p.strip()): continue
+        out.append(p[3:].strip() if p.startswith("## ") else p)
+    return " ".join(out)
+def load_affiliates():
+    path = os.path.join(HERE, "affiliates.json")
+    with open(path, encoding="utf8") as f: data = json.load(f)
+    if not isinstance(data, dict) or not data:
+        raise SystemExit("source/affiliates.json must map partner keys to URLs")
+    out = {}
+    for key, value in data.items():
+        if not isinstance(key, str) or not re.fullmatch(r"[a-z0-9]+", key):
+            raise SystemExit(f"source/affiliates.json: bad partner key {key!r}")
+        if not isinstance(value, str) or not value.strip():
+            raise SystemExit(f"source/affiliates.json: {key} needs a URL")
+        out[key] = value.strip()
+    return out
+AFFILIATES = load_affiliates()
+def affiliates_js():
+    comment = ("/* Generated from source/affiliates.json. Edit that file.\n"
+               "   A site rebuild overwrites this script. Every partner button reads\n"
+               "   window.CYNEWS_AFFILIATES. Replace a #AFFILIATE_… value with the real URL. */\n")
+    return comment + "window.CYNEWS_AFFILIATES = " + json.dumps(AFFILIATES, ensure_ascii=False, indent=2) + ";\n"
+def affiliate_boot():
+    return (f'<script src="{href("/assets/js/affiliates.js")}"></script><script>'
+            '(function(){var map=window.CYNEWS_AFFILIATES||{};'
+            'document.querySelectorAll("[data-affiliate]").forEach(function(a){'
+            'var k=a.getAttribute("data-affiliate");'
+            'if(Object.prototype.hasOwnProperty.call(map,k)&&map[k])a.setAttribute("href",map[k]);'
+            'a.setAttribute("rel","nofollow sponsored noopener");a.setAttribute("target","_blank");'
+            '});})();</script>')
+def offer_html(offer):
+    partner = offer["partner"]
+    if partner not in AFFILIATES:
+        raise SystemExit(f"unknown partner {partner}; add it to source/affiliates.json")
+    note = f'<p>{render_inline(offer["note"])}</p>' if offer.get("note") else ""
+    return (f'<aside class="offer">{note}<div class="affbtns">'
+            f'<a class="affbtn" data-affiliate="{e(partner)}" href="{e(AFFILIATES[partner])}" '
+            f'rel="nofollow sponsored noopener" target="_blank">{e(offer["label"])}</a></div></aside>')
+def render_body(l, s):
+    offers = s["offers"][l]
+    parts = []
+    seen = set()
+    for p in s["body"][l]:
+        m = _OFFER_RE.match(p.strip())
+        if m:
+            key = m.group(1)
+            if key not in offers:
+                raise SystemExit(f'{s["slug"]}: {l} uses {{{{offer:{key}}}}} without an offer label')
+            parts.append(offer_html(offers[key]))
+            seen.add(key)
+            continue
+        if p.startswith("## "):
+            parts.append(f'<h2>{render_inline(p[3:].strip())}</h2>')
+            continue
+        parts.append(f'<p>{render_inline(p)}</p>')
+    missing = [key for key in offers if key not in seen]
+    if missing:
+        raise SystemExit(f'{s["slug"]}: {l} offers not placed in the text: {missing}')
+    return "".join(parts)
+def faq_html(l, s):
+    items = s["faq"][l]
+    if not items: return ""
+    blocks = []
+    for item in items:
+        blocks.append(f'<details><summary>{e(item["q"])}</summary><p>{render_inline(item["a"])}</p></details>')
+    return f'<section class="faq" aria-label="{e(UI[l]["faq"])}"><h2>{e(UI[l]["faq"])}</h2>{"".join(blocks)}</section>'
+def faq_ld(items):
+    if not items: return None
+    return {"@context":"https://schema.org","@type":"FAQPage","mainEntity":[
+        {"@type":"Question","name":item["q"],"acceptedAnswer":{"@type":"Answer","text":item["a"]}} for item in items]}
+# Small partner box on practical pages only. News stories are left alone.
+PARTNER_WIDGETS = {
+ "relocating-to-cyprus": "insurance",
+ "cyprus-resident-handbook": "security",
+ "mortgage-cyprus-germany-greece-spain": "security",
+ "fintech-jobs-not-registrations": "security",
+}
+WIDGET_COPY = {
+ "insurance": {
+  "en": dict(kicker="Partner offers", title="Health cover while you settle",
+    text="A residence file does not include a health policy. Travel medical cover and a longer-stay plan are different products, and GeSY enrolment has its own rules.",
+    link="International health insurance: an honest breakdown", slug="international-health-insurance",
+    buttons=[("safetywing","See SafetyWing"),("genki","See Genki")]),
+  "ru": dict(kicker="Партнёрские предложения", title="Медицинская страховка на время переезда",
+    text="Документы на проживание не включают медицинский полис. Туристическая страховка и полис для долгой жизни за границей — разные продукты, а запись в ГЕСИ идёт по своим правилам.",
+    link="Международная медицинская страховка: честный разбор", slug="international-health-insurance",
+    buttons=[("safetywing","Смотреть SafetyWing"),("genki","Смотреть Genki")]),
+  "el": dict(kicker="Προσφορές συνεργατών", title="Κάλυψη υγείας όσο τακτοποιείστε",
+    text="Ο φάκελος διαμονής δεν περιλαμβάνει ασφαλιστήριο υγείας. Η ταξιδιωτική κάλυψη και ένα πρόγραμμα μακράς διαμονής είναι διαφορετικά προϊόντα, και η εγγραφή στο ΓεΣΥ έχει δικούς της κανόνες.",
+    link="Διεθνής ασφάλιση υγείας: μια ειλικρινής ανάλυση", slug="international-health-insurance",
+    buttons=[("safetywing","Δείτε τη SafetyWing"),("genki","Δείτε τη Genki")]),
+ },
+ "security": {
+  "en": dict(kicker="Partner offers", title="Accounts you open from abroad",
+    text="A bank login, a tax portal and the email that can reset both are worth protecting before you rely on a café network or a new SIM.",
+    link="How to protect data and accounts abroad", slug="protect-data-foreign-banks",
+    buttons=[("nordvpn","See NordVPN"),("onepassword","See 1Password")]),
+  "ru": dict(kicker="Партнёрские предложения", title="Счета, которые открывают из-за границы",
+    text="Банковский вход, налоговый портал и почту, с которой оба можно сбросить, стоит защитить до того, как вы начнёте пользоваться сетью кафе или новой SIM.",
+    link="Как защитить данные и счета за границей", slug="protect-data-foreign-banks",
+    buttons=[("nordvpn","Смотреть NordVPN"),("onepassword","Смотреть 1Password")]),
+  "el": dict(kicker="Προσφορές συνεργατών", title="Λογαριασμοί που ανοίγετε από το εξωτερικό",
+    text="Μια τραπεζική είσοδος, μια φορολογική πύλη και το email που μπορεί να τα επαναφέρει και τα δύο αξίζει να προστατευτούν πριν βασιστείτε σε δίκτυο καφέ ή σε νέα SIM.",
+    link="Πώς να προστατεύσετε δεδομένα και λογαριασμούς στο εξωτερικό", slug="protect-data-foreign-banks",
+    buttons=[("nordvpn","Δείτε το NordVPN"),("onepassword","Δείτε το 1Password")]),
+ },
+}
+def partner_widget(l, s):
+    kind = PARTNER_WIDGETS.get(s["slug"])
+    if not kind or s.get("guide"): return ""
+    copy = WIDGET_COPY[kind][l]
+    buttons = []
+    for key, label in copy["buttons"]:
+        if key not in AFFILIATES:
+            raise SystemExit(f"widget partner {key} is missing from source/affiliates.json")
+        buttons.append(f'<a class="affbtn" data-affiliate="{e(key)}" href="{e(AFFILIATES[key])}" rel="nofollow sponsored noopener" target="_blank">{e(label)}</a>')
+    guide = href(f'/{l}/{copy["slug"]}/')
+    disc = href(f'/{l}/affiliate-disclosure/')
+    return (f'<aside class="partner" aria-label="{e(copy["title"])}">'
+            f'<p class="kicker">{e(copy["kicker"])}</p><h2>{e(copy["title"])}</h2>'
+            f'<p>{e(copy["text"])} <a href="{guide}">{e(copy["link"])}</a></p>'
+            f'<div class="affbtns">{"".join(buttons)}</div>'
+            f'<p class="fine"><a href="{disc}">{e(UI[l]["disclosure"])}</a></p></aside>')
 def page_article(l,s):
     u=UI[l]; path=f"/{l}/{s['slug']}/"; pathfn=lambda x:f"/{x}/{s['slug']}/"
     title=s["title"][l]
-    desc=trunc(s["lede"][l],158)
+    # A guide can carry its own meta description. News keeps the full lede in
+    # the article schema and the shortened lede in the meta description.
+    desc=s["desc"][l] or trunc(s["lede"][l],158)
+    schema_desc=s["desc"][l] or s["lede"][l]
     kws=s["kw"][l]+GKW[l][:4]
     pub,mod=article_times(s)
     og=f'/assets/img/{s["img"]}-og.jpg'
     publisher={"@type":"NewsMediaOrganization","name":SITE,"url":abs_("/"),"logo":{"@type":"ImageObject","url":abs_("/assets/logo-512.png"),"width":512,"height":512},"sameAs":same_as()}
-    ld=[{"@context":"https://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":title,"description":s["lede"][l],"image":image_ld(s),"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
+    schema="Article" if s.get("guide") else "NewsArticle"
+    ld=[{"@context":"https://schema.org","@type":schema,"mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":title,"description":schema_desc,"image":image_ld(s),"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
         "author":{"@type":"Organization","name":u["byline"],"url":abs_(f"/{l}/about/")},"publisher":publisher,
-        "isBasedOn":[x[1] for x in s["sources"]],"citation":[{"@type":"CreativeWork","name":x[0],"url":x[1]} for x in s["sources"]],"articleBody":" ".join(s["body"][l]),"url":abs_(path),
+        "isBasedOn":[x[1] for x in s["sources"]],"citation":[{"@type":"CreativeWork","name":x[0],"url":x[1]} for x in s["sources"]],"articleBody":plain_body(s["body"][l]),"url":abs_(path),
         "locationCreated":{"@type":"Place","name":"Cyprus"},"about":{"@type":"Place","name":"Cyprus"}},
       {"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":u["crumb_home"],"item":abs_(f"/{l}/")},{"@type":"ListItem","position":2,"name":CATN[l][s["cat"]],"item":abs_(f"/{l}/{s['cat']}/")},{"@type":"ListItem","position":3,"name":title,"item":abs_(path)}]}]
+    faq=faq_ld(s["faq"][l])
+    if faq: ld.append(faq)
     preload=f'<link rel="preload" as="image" href="{href(f"/assets/img/{s["img"]}-1200.webp")}" imagesrcset="{href(f"/assets/img/{s["img"]}-600.webp")} 600w, {href(f"/assets/img/{s["img"]}-1200.webp")} 1200w" imagesizes="(max-width:800px) 100vw,760px">'
     if l in s.get("missing",()):
         # Not translated yet: the Russian text is shown, so keep this copy out of search results.
@@ -1245,14 +1480,20 @@ def page_article(l,s):
     h+=f'<article class="a"><span class="cat">{CATN[l][s["cat"]]}</span><h1>{e(title)}</h1><p class="dek">{e(s["lede"][l])}</p>'
     h+=f'<div class="by"><span class="who">{e(u["byline"])}</span><span class="when"><time datetime="{pub}">{e(u["published"])}: {fdt(pub,l)}</time><time datetime="{mod}">{e(u["updated"])}: {fdt(mod,l)}</time></span></div>'
     h+=f'<figure>{img_tag(s,l,1200,False,True,"(max-width:800px) 100vw,760px")}{f"<figcaption>{photo_caption(s,l)}</figcaption>" if photo_caption(s,l) else ""}</figure>'
-    h+='<div class="body">'+"".join(f'<p>{linkify(p)}</p>' for p in s["body"][l])+'</div>'
+    notice=f'<p class="disclosure">{e(u["disclosure_text"])} <a href="{href(f"/{l}/affiliate-disclosure/")}">{e(u["disclosure"])}</a></p>' if s["offers"][l] else ""
+    h+=f'<div class="body">{notice}{render_body(l,s)}</div>'
+    h+=faq_html(l,s)
     if s["sources"]:
-        h+=f'<section class="src" aria-label="{u["sources"]}"><h2>{u["sources"]}</h2><p>{u["sources_note"]}</p><ul>'+"".join(f'<li><a href="{e(x[1])}" target="_blank" rel="noopener nofollow">{e(x[0])}</a></li>' for x in s["sources"])+'</ul></section>'
+        note=u["sources_note_guide"] if s.get("guide") else u["sources_note"]
+        h+=f'<section class="src" aria-label="{u["sources"]}"><h2>{u["sources"]}</h2><p>{note}</p><ul>'+"".join(f'<li><a href="{e(x[1])}" target="_blank" rel="noopener nofollow">{e(x[0])}</a></li>' for x in s["sources"])+'</ul></section>'
     if s["kw"][l]:
         h+=f'<h2 style="font-size:16px;margin:0 0 8px">{u["tags"]}</h2><ul class="tags">'+"".join(f'<li>{e(k)}</li>' for k in s["kw"][l])+'</ul>'
     h+=f'<p class="langsw">'+" ".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS if x!=l)+'</p>'
+    widget=partner_widget(l,s)
+    h+=widget
     # Page language, immediately before the Telegram subscribe line.
-    h+=mycytax.article_crosslink(l, s["title"][l], s["body"][l], s["kw"][l], mycytax_catalog())
+    plain=[(p[3:].strip() if p.startswith("## ") else p) for p in s["body"][l] if not _OFFER_RE.match(p.strip())]
+    h+=mycytax.article_crosslink(l, s["title"][l], plain, s["kw"][l], mycytax_catalog())
     cta=telegram_for(l)
     if cta:
         h+=f'<p class="tgcta"><a href="{e(cta)}" target="_blank" rel="noopener">{_icons()["telegram"]}<span>{e(u["tg_cta"])}</span></a></p>'
@@ -1260,6 +1501,8 @@ def page_article(l,s):
     rel=[x for x in sorted_all() if x["slug"]!=s["slug"]]
     rel.sort(key=lambda x:(x["cat"]!=s["cat"],))
     h+=f'<section class="rel"><h2>{u["related"]}</h2><div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
+    if s["offers"][l] or widget:
+        h=h.replace("</body></html>", affiliate_boot()+"</body></html>", 1)
     return h
 
 def info_body(l, page, kind):
@@ -1271,8 +1514,12 @@ def info_body(l, page, kind):
         parts.append("".join(f"<p>{e(p)}</p>" for p in paras))
         if kind=="about" and i==len(page["sections"])-1:
             parts.append(f'<p><a href="{href(f"/{l}/advertising/")}">{e(u["ads"])}</a> · <a href="{href(f"/{l}/editorial-policy/")}">{e(u["policy"])}</a> · <a href="{href(f"/{l}/privacy/")}">{e(u["privacy"])}</a></p>')
+        if kind=="policy" and i==len(page["sections"])-2:
+            parts.append(f'<p><a href="{href(f"/{l}/affiliate-disclosure/")}">{e(u["disclosure"])}</a></p>')
         if kind=="policy" and i==len(page["sections"])-1:
             parts.append(f'<p><a class="mail" href="mailto:{AD_EMAIL}">{AD_EMAIL}</a> · <a href="{href(f"/{l}/advertising/")}">{e(u["ads"])}</a></p>')
+        if kind=="affiliate" and i==len(page["sections"])-1:
+            parts.append(f'<p><a href="{href(f"/{l}/editorial-policy/")}">{e(u["policy"])}</a> · <a href="{href(f"/{l}/advertising/")}">{e(u["ads"])}</a></p>')
         if kind=="privacy" and i==len(page["sections"])-1:
             parts.append(f'<p><a href="{href(f"/{l}/cookies/")}">{e(u["cookies"])}</a></p>')
         if kind=="cookies" and i==len(page["sections"])-1:
@@ -1284,7 +1531,7 @@ def page_info(l, slug, page, schema_type):
     ld=[{"@context":"https://schema.org","@type":schema_type,"name":page["t"],"url":abs_(f"/{l}/{slug}/"),"inLanguage":l,"description":page["d"],
          "publisher":{"@id":abs_("/")+"#org"},"about":{"@id":abs_("/")+"#org"}}]
     h=head(l,f'{page["t"]} | {SITE}',page["d"],[page["t"],SITE],f"/{l}/{slug}/",pathfn,"/assets/og-default.jpg",jsonld=ld)+header(l,pathfn)
-    kind={"about":"about","editorial-policy":"policy","privacy":"privacy","cookies":"cookies"}[slug]
+    kind={"about":"about","editorial-policy":"policy","privacy":"privacy","cookies":"cookies","affiliate-disclosure":"affiliate"}[slug]
     h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(page["t"])}</h1><div class="body">{info_body(l,page,kind)}</div></article></main>'+footer(l)
     return h
 def page_about(l):
@@ -1626,6 +1873,7 @@ def sitemap():
     for s in STORIES: x.append(entry(lambda l,s=s:f"/{l}/{s['slug']}/",TODAY,"0.8"))
     x.append(entry(lambda l:f"/{l}/about/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/editorial-policy/",TODAY,"0.3"))
+    x.append(entry(lambda l:f"/{l}/affiliate-disclosure/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/privacy/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/cookies/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/advertising/",TODAY,"0.4"))
@@ -1642,6 +1890,7 @@ def news_sitemap():
     x=['<?xml version="1.0" encoding="UTF-8"?>',
        '<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9" xmlns:news="http://www.google.com/schemas/sitemap-news/0.9">']
     for s in sorted_all():
+        if s.get("guide"): continue
         pub,_mod=article_times(s)
         published=datetime.datetime.fromisoformat(pub)
         if published < cutoff: continue
@@ -1677,6 +1926,8 @@ def main():
     build_event_photos()
     build_listing_photos()
     w("/assets/css/style.css",CSS)
+    os.makedirs(OUT+"/assets/js",exist_ok=True)
+    w("/assets/js/affiliates.js",affiliates_js())
     w("/index.html",page_root())
     for l in LANGS:
         w(f"/{l}/index.html",page_home(l))
@@ -1686,6 +1937,7 @@ def main():
         for s in STORIES: w(f"/{l}/{s['slug']}/index.html",page_article(l,s))
         w(f"/{l}/about/index.html",page_about(l))
         w(f"/{l}/editorial-policy/index.html",page_info(l,"editorial-policy",POLICY[l],"WebPage"))
+        w(f"/{l}/affiliate-disclosure/index.html",page_info(l,"affiliate-disclosure",DISCLOSURE[l],"WebPage"))
         w(f"/{l}/privacy/index.html",page_info(l,"privacy",privacy_for(l),"WebPage"))
         w(f"/{l}/cookies/index.html",page_info(l,"cookies",cookies_for(l),"WebPage"))
         w(f"/{l}/events/index.html",page_events(l))
