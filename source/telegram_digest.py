@@ -113,6 +113,9 @@ def load_items(directory: str) -> list[Item]:
             data = json.load(handle)
         if not isinstance(data, dict):
             raise SystemExit(f"{path}: article must be a JSON object")
+        # Practical guides are not headlines in the news digest.
+        if data.get("guide") is True:
+            continue
         article = tg.load_article(path)
         items.append(Item(article, _seq(path, data.get("seq"))))
     slugs = [item.article.slug for item in items]

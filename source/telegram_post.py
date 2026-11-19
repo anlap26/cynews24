@@ -270,7 +270,15 @@ def load_articles(directory: str) -> list[Article]:
     if not os.path.isdir(directory):
         raise SystemExit(f"Articles directory not found: {directory}")
     names = sorted(name for name in os.listdir(directory) if name.endswith(".json"))
-    articles = [load_article(os.path.join(directory, name)) for name in names]
+    articles = []
+    for name in names:
+        path = os.path.join(directory, name)
+        with open(path, encoding="utf-8") as handle:
+            data = json.load(handle)
+        # Practical guides are not news posts. Leave them off the news channels.
+        if isinstance(data, dict) and data.get("guide") is True:
+            continue
+        articles.append(load_article(path))
     slugs = [article.slug for article in articles]
     duplicates = sorted({slug for slug in slugs if slugs.count(slug) > 1})
     if duplicates:
