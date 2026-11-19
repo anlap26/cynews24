@@ -79,4 +79,4 @@ try{
     });
   });
 })();
-</script></footer><script src="/assets/js/affiliates.js"></script><script>(function(){var map=window.CYNEWS_AFFILIATES||{};document.querySelectorAll("[data-affiliate]").forEach(function(a){var k=a.getAttribute("data-affiliate");if(Object.prototype.hasOwnProperty.call(map,k)&&map[k])a.setAttribute("href",map[k]);a.setAttribute("rel","nofollow sponsored noopener");a.setAttribute("target","_blank");});})();</script></body></html>
+</script></footer><script src="/assets/js/affiliates.js"></script><script>(function(){var map=window.CYNEWS_AFFILIATES||{};var search=window.CYNEWS_AFFILIATE_SEARCH||{};document.querySelectorAll("[data-affiliate]").forEach(function(a){var k=a.getAttribute("data-affiliate");var q=a.getAttribute("data-affiliate-query");if(q&&search[k])a.setAttribute("href",search[k].replace("{query}",encodeURIComponent(q).replace(/%20/g,"+")));else if(Object.prototype.hasOwnProperty.call(map,k)&&typeof map[k]==="string"&&map[k])a.setAttribute("href",map[k]);if(!a.getAttribute("rel"))a.setAttribute("rel","nofollow sponsored noopener");a.setAttribute("target","_blank");});})();</script></body></html>
