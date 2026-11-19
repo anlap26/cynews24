@@ -131,6 +131,18 @@ class GuideContentTests(unittest.TestCase):
             self.assertIn(sentence, page)
             self.assertIn("cynews24-21", page)
 
+    def test_travel_links_live_in_one_config(self):
+        self.assertEqual(set(build.TRAVEL_LINKS), {
+            "BOOKING_URL", "GETYOURGUIDE_URL", "DISCOVERCARS_URL", "AIRALO_URL", "SAFETYWING_URL",
+        })
+        self.assertEqual(build.TRAVEL_LINKS["BOOKING_URL"], "https://www.booking.com/")
+        self.assertEqual(build.TRAVEL_LINKS["SAFETYWING_URL"], "https://safetywing.com/")
+        html = build.page_article("en", build.BYSLUG["renting-a-car-in-cyprus"])
+        self.assertIn('rel="sponsored nofollow"', html)
+        self.assertIn("https://www.discovercars.com/", html)
+        self.assertIn('href="/en/travel/"', build.header("en", lambda x: f"/{x}/"))
+        self.assertTrue(build.BYSLUG["esim-mobile-data-cyprus"]["guide"])
+
     def test_guides_are_not_posted_as_news(self):
         articles = telegram_post.load_articles(ARTICLES)
         facebook = facebook_post.load_articles(ARTICLES)

@@ -38,6 +38,7 @@ LANGS = ["ru","en","el"]
 LOCALE = {"ru":"ru_RU","en":"en_GB","el":"el_GR"}
 LANGNAME = {"ru":"Русский","en":"English","el":"Ελληνικά"}
 CATS = ["politics","economy","real-estate","society","tourism","sport","world"]
+TRAVEL_MENU = {"en":"Travel","ru":"Путешествия","el":"Ταξίδια"}
 CATN = {
  "en":dict(zip(CATS,["Politics","Economy","Real Estate","Society","Tourism","Sport","World"])),
  "ru":dict(zip(CATS,["Политика","Экономика","Недвижимость","Общество","Туризм","Спорт","В мире"])),
@@ -294,6 +295,7 @@ DISCLOSURE = {
    ("What an affiliate link is",["Some practical guides on CyNews 24 link to companies whose products a reader who lives or travels abroad may actually use: international health insurance, a travel eSIM, a VPN, encrypted email, or a password manager. If you follow one of those links and buy, the company may pay CyNews 24 a commission. You do not pay an extra fee to us. The price, if there is one, is the price on the company’s own site."]),
    ("Where the links live",["Every partner address is stored in one configuration file, source/affiliates.json. The site publishes that file as /assets/js/affiliates.js, and every partner button reads the address from there. Until a real address is added, the value is a placeholder such as #AFFILIATE_GENKI. A placeholder does not go to a shop. The partners named in the guides are Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass and Mail) and 1Password. Some practical pages also link to Amazon.de."]),
    ("Amazon",["Those Amazon links are searches on Amazon.de, not a page for one product, and they do not name a price. As an Amazon Associate I earn from qualifying purchases. The home address carries the tag cynews24-21, and a search uses the same tag. CyNews 24 does not invent a product code. What Amazon shows, and what it costs, is on Amazon at the time you look."]),
+   ("Travel homepages",["Travel guides may link to Booking, GetYourGuide, DiscoverCars, Airalo and SafetyWing. Those five addresses live in one file, source/travel_affiliates.json, under the names BOOKING_URL, GETYOURGUIDE_URL, DISCOVERCARS_URL, AIRALO_URL and SAFETYWING_URL. Until a real affiliate address is pasted there, each value is the company’s own homepage. A homepage is not a tracked offer and it does not name a price. The button is still marked sponsored."]),
    ("How to recognise one",["A partner button opens in a new tab and is marked rel=\"nofollow sponsored\". The guide says, near the offers, that the links are affiliate links, and it links to this page. News stories do not carry these buttons. A short box appears only on a few practical pages about moving, expat life, banking or technology, and it links back to the full guide."]),
    ("What the guide does not do",["The text does not invent a premium, a coverage limit, a server count or a statistic. Where a figure is not in a source we cite, the guide says to read the current terms, because they change. A partner link is not a recommendation that a product is right for you, and it is not insurance, legal, tax or security advice. CyNews 24 is not affiliated with the companies, except that we may earn a commission if you buy through a link."]),
    ("Corrections",["If a guide is wrong, email cynews24@gmail.com with the page address and the correction. The editorial policy explains how corrections are handled."])]),
@@ -302,6 +304,7 @@ DISCLOSURE = {
    ("Что такое партнёрская ссылка",["В некоторых практических материалах CyNews 24 есть ссылки на компании, чьи услуги могут пригодиться человеку, который живёт или путешествует за границей: международная медицинская страховка, туристическая eSIM, VPN, шифрованная почта или менеджер паролей. Если вы перейдёте по такой ссылке и купите услугу, компания может выплатить CyNews 24 комиссию. Нам вы отдельно ничего не доплачиваете. Цена, если она есть, — та, что указана на сайте самой компании."]),
    ("Где лежат адреса",["Все партнёрские адреса собраны в одном файле настроек, source/affiliates.json. Сайт публикует его как /assets/js/affiliates.js, и каждая партнёрская кнопка берёт адрес оттуда. Пока вместо настоящего адреса стоит заглушка вроде #AFFILIATE_GENKI. Заглушка ни в какой магазин не ведёт. В материалах названы Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass и Mail) и 1Password. На некоторых практических страницах есть ссылки на Amazon.de."]),
    ("Amazon",["Ссылки на Amazon — это поиск на Amazon.de, а не страница одного товара, и в них нет цены. Как участник партнёрской программы Amazon я зарабатываю на соответствующих покупках. В адресе главной страницы стоит метка cynews24-21, и тот же тег стоит в поиске. CyNews 24 не выдумывает код товара. Что показывает Amazon и сколько это стоит, видно на Amazon в момент, когда вы смотрите."]),
+   ("Главные страницы для путешествий",["В путеводителях могут быть ссылки на Booking, GetYourGuide, DiscoverCars, Airalo и SafetyWing. Эти пять адресов лежат в одном файле, source/travel_affiliates.json, под именами BOOKING_URL, GETYOURGUIDE_URL, DISCOVERCARS_URL, AIRALO_URL и SAFETYWING_URL. Пока туда не вставлен настоящий партнёрский адрес, значение — главная страница самой компании. Главная страница — не отслеживаемое предложение и не называет цену. Кнопка всё равно помечена как sponsored."]),
    ("Как её узнать",["Партнёрская кнопка открывается в новой вкладке и помечена rel=\"nofollow sponsored\". Рядом с предложениями материал прямо говорит, что ссылки партнёрские, и ведёт на эту страницу. В новостях таких кнопок нет. Короткий блок стоит только на нескольких практических страницах о переезде, жизни за границей, банках или технологиях и ведёт на полный материал."]),
    ("Чего материал не делает",["Текст не выдумывает премию, лимит покрытия, число серверов или статистику. Если цифры нет в источнике, на который мы ссылаемся, материал отправляет к действующим условиям: они меняются. Партнёрская ссылка не означает, что продукт вам подходит, и не является страховой, юридической, налоговой или иной профессиональной консультацией. CyNews 24 не связан с этими компаниями, кроме того, что мы можем получить комиссию, если вы купите услугу по ссылке."]),
    ("Поправки",["Если в материале ошибка, напишите на cynews24@gmail.com и укажите адрес страницы и поправку. Как обрабатываются поправки, сказано в редакционной политике."])]),
@@ -310,6 +313,7 @@ DISCLOSURE = {
    ("Τι είναι ένας σύνδεσμος συνεργάτη",["Ορισμένοι πρακτικοί οδηγοί του CyNews 24 παραπέμπουν σε εταιρείες των οποίων τις υπηρεσίες μπορεί να χρησιμοποιήσει κάποιος που ζει ή ταξιδεύει στο εξωτερικό: διεθνή ασφάλιση υγείας, ταξιδιωτική eSIM, VPN, κρυπτογραφημένο email ή διαχειριστή κωδικών. Αν ακολουθήσετε έναν τέτοιο σύνδεσμο και αγοράσετε, η εταιρεία μπορεί να πληρώσει προμήθεια στο CyNews 24. Δεν πληρώνετε σε εμάς επιπλέον τέλος. Η τιμή, αν υπάρχει, είναι η τιμή στον ιστότοπο της εταιρείας."]),
    ("Πού βρίσκονται οι διευθύνσεις",["Κάθε διεύθυνση συνεργάτη φυλάσσεται σε ένα αρχείο ρυθμίσεων, το source/affiliates.json. Ο ιστότοπος το δημοσιεύει ως /assets/js/affiliates.js, και κάθε κουμπί συνεργάτη διαβάζει τη διεύθυνση από εκεί. Μέχρι να προστεθεί πραγματική διεύθυνση, η τιμή είναι θέση όπως #AFFILIATE_GENKI. Η θέση δεν οδηγεί σε κατάστημα. Οι συνεργάτες που ονομάζονται στους οδηγούς είναι οι Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass και Mail) και 1Password. Ορισμένες πρακτικές σελίδες παραπέμπουν και στο Amazon.de."]),
    ("Amazon",["Οι σύνδεσμοι της Amazon είναι αναζητήσεις στο Amazon.de, όχι σελίδα ενός προϊόντος, και δεν αναφέρουν τιμή. Ως συνεργάτης της Amazon, κερδίζω από αγορές που πληρούν τις προϋποθέσεις. Η διεύθυνση της αρχικής σελίδας έχει την ετικέτα cynews24-21, και την ίδια ετικέτα έχει η αναζήτηση. Το CyNews 24 δεν επινοεί κωδικό προϊόντος. Τι δείχνει η Amazon και πόσο κοστίζει φαίνεται στην Amazon τη στιγμή που κοιτάτε."]),
+   ("Αρχικές σελίδες για ταξίδια",["Οι ταξιδιωτικοί οδηγοί μπορεί να παραπέμπουν σε Booking, GetYourGuide, DiscoverCars, Airalo και SafetyWing. Οι πέντε διευθύνσεις βρίσκονται σε ένα αρχείο, το source/travel_affiliates.json, με τα ονόματα BOOKING_URL, GETYOURGUIDE_URL, DISCOVERCARS_URL, AIRALO_URL και SAFETYWING_URL. Μέχρι να μπει εκεί πραγματική διεύθυνση συνεργάτη, η τιμή είναι η αρχική σελίδα της εταιρείας. Η αρχική σελίδα δεν είναι παρακολουθούμενη προσφορά και δεν αναφέρει τιμή. Το κουμπί σημειώνεται πάντως ως sponsored."]),
    ("Πώς ξεχωρίζει",["Ένα κουμπί συνεργάτη ανοίγει σε νέα καρτέλα και φέρει rel=\"nofollow sponsored\". Ο οδηγός λέει, κοντά στις προσφορές, ότι οι σύνδεσμοι είναι συνεργατών και παραπέμπει σε αυτή τη σελίδα. Τα ειδησεογραφικά άρθρα δεν έχουν τέτοια κουμπιά. Ένα σύντομο πλαίσιο εμφανίζεται μόνο σε λίγες πρακτικές σελίδες για μετακόμιση, ζωή στο εξωτερικό, τράπεζες ή τεχνολογία και οδηγεί πίσω στον πλήρη οδηγό."]),
    ("Τι δεν κάνει ο οδηγός",["Το κείμενο δεν επινοεί ασφάλιστρο, όριο κάλυψης, αριθμό διακομιστών ή στατιστικό. Όπου ένας αριθμός δεν υπάρχει σε πηγή που αναφέρουμε, ο οδηγός στέλνει στους τρέχοντες όρους, γιατί αλλάζουν. Ένας σύνδεσμος συνεργάτη δεν σημαίνει ότι ένα προϊόν σας ταιριάζει και δεν είναι ασφαλιστική, νομική, φορολογική ή άλλη επαγγελματική συμβουλή. Το CyNews 24 δεν συνδέεται με τις εταιρείες, εκτός του ότι μπορεί να λάβει προμήθεια αν αγοράσετε μέσω συνδέσμου."]),
    ("Διορθώσεις",["Αν ένας οδηγός έχει λάθος, στείλτε email στο cynews24@gmail.com με τη διεύθυνση της σελίδας και τη διόρθωση. Η συντακτική πολιτική εξηγεί πώς χειριζόμαστε τις διορθώσεις."])]),
@@ -913,6 +917,7 @@ def header(l, pathfn, active=None):
     sw="".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}" {"aria-current=\"true\"" if x==l else ""} title="{LANGNAME[x]}">{x.upper()}</a>' for x in LANGS)
     nav=f'<li><a href="{href(f"/{l}/")}" {"aria-current=\"page\"" if active=="home" else ""}>{u["home"]}</a></li>'+"".join(
       f'<li><a href="{href(f"/{l}/{c}/")}" {"aria-current=\"page\"" if active==c else ""}>{CATN[l][c]}</a></li>' for c in CATS)
+    nav+=f'<li><a href="{href(f"/{l}/travel/")}" {"aria-current=\"page\"" if active=="travel" else ""}>{TRAVEL_MENU[l]}</a></li>'
     nav+=f'<li><a href="{href(f"/{l}/events/")}" {"aria-current=\"page\"" if active=="events" else ""}>{u["events"]}</a></li>'
     nav+=f'<li class="promo"><a href="{href(f"/{l}/advertise/")}" {"aria-current=\"page\"" if active=="advertise" else ""}>{ADVERTISE[l]["menu"]}</a></li>'
     nav+=f'<li class="promo"><a href="{href(f"/{l}/advertising/")}" {"aria-current=\"page\"" if active=="advertising" else ""}>{u["ads"]}</a></li>'
@@ -1335,6 +1340,7 @@ def fdt(iso,l):
 _URL_RE = re.compile(r"https?://[^\s<]+")
 _MD_LINK = re.compile(r"\[([^\]\n]+)\]\((https?://[^\s)]+|/[^)\s]+)\)")
 _OFFER_RE = re.compile(r"^\{\{offer:([a-z0-9]+)\}\}$")
+_TRAVEL_RE = re.compile(r"^\{\{travel:([A-Z0-9_]+)\|([^\n}]+)\}\}$")
 def _ext_rel(url):
     """Temu affiliate links are sponsored. Other outbound links stay ordinary."""
     if "temu.to/" in url or "://temu.to" in url:
@@ -1368,7 +1374,7 @@ def render_inline(text):
 def plain_body(paras):
     out = []
     for p in paras:
-        if _OFFER_RE.match(p.strip()): continue
+        if _OFFER_RE.match(p.strip()) or _TRAVEL_RE.match(p.strip()): continue
         out.append(p[3:].strip() if p.startswith("## ") else p)
     return " ".join(out)
 def load_affiliates():
@@ -1397,6 +1403,20 @@ def load_affiliates():
         raise SystemExit(f"source/affiliates.json: {key} needs a URL")
     return urls, search
 AFFILIATES, AFFILIATE_SEARCH = load_affiliates()
+TRAVEL_LINK_KEYS = ("BOOKING_URL","GETYOURGUIDE_URL","DISCOVERCARS_URL","AIRALO_URL","SAFETYWING_URL")
+def load_travel_links():
+    path = os.path.join(HERE, "travel_affiliates.json")
+    with open(path, encoding="utf8") as f: data = json.load(f)
+    if not isinstance(data, dict):
+        raise SystemExit("source/travel_affiliates.json must be an object")
+    missing = [k for k in TRAVEL_LINK_KEYS if not isinstance(data.get(k), str) or not data[k].strip()]
+    if missing:
+        raise SystemExit(f"source/travel_affiliates.json missing {missing}")
+    extra = [k for k in data if k not in TRAVEL_LINK_KEYS]
+    if extra:
+        raise SystemExit(f"source/travel_affiliates.json unexpected keys {extra}")
+    return {k: data[k].strip() for k in TRAVEL_LINK_KEYS}
+TRAVEL_LINKS = load_travel_links()
 def affiliate_href(key, query=None):
     """Partner URL from the config. A query fills that partner's {query} search pattern."""
     if key not in AFFILIATES:
@@ -1448,6 +1468,14 @@ def render_body(l, s):
                 raise SystemExit(f'{s["slug"]}: {l} uses {{{{offer:{key}}}}} without an offer label')
             parts.append(offer_html(offers[key]))
             seen.add(key)
+            continue
+        tm = _TRAVEL_RE.match(p.strip())
+        if tm:
+            key, label = tm.group(1), tm.group(2).strip()
+            url = TRAVEL_LINKS.get(key)
+            if not url:
+                raise SystemExit(f'{s["slug"]}: unknown travel link {key}')
+            parts.append(f'<p class="affbtns"><a class="affbtn" href="{e(url)}" rel="sponsored nofollow" target="_blank">{e(label)}</a></p>')
             continue
         if p.startswith("## "):
             parts.append(f'<h2>{render_inline(p[3:].strip())}</h2>')
@@ -2087,6 +2115,28 @@ def week_home(l):
     items="".join(f'<li><a href="{href(f"/{l}/events/#ev-{ev["id"]}")}">{e(ev["title"][l])}</a><span class="meta">{e(ev["when"][l])}</span></li>' for ev in rows)
     return (f'<section class="weekband" aria-label="{e(u["week"])}"><h2><a href="{href(f"/{l}/events/")}">{e(u["week"])}</a></h2>'
             f'<ul>{items}</ul></section>')
+TRAVEL_GUIDES = (
+ "best-things-to-do-cyprus-2026",
+ "renting-a-car-in-cyprus",
+ "where-to-stay-in-cyprus",
+ "esim-mobile-data-cyprus",
+)
+TRAVEL_PAGE = {
+ "en": ("Travel in Cyprus", "Guides to things to do, hiring a car, where to stay, and mobile data. Each page cites its sources and does not invent a price."),
+ "ru": ("Путешествия по Кипру", "Путеводители: чем заняться, аренда машины, где остановиться и мобильный интернет. На каждой странице указаны источники, цены не выдуманы."),
+ "el": ("Ταξίδι στην Κύπρο", "Οδηγοί για αξιοθέατα, ενοικίαση αυτοκινήτου, πού να μείνετε και δεδομένα κινητού. Κάθε σελίδα αναφέρει τις πηγές της και δεν επινοεί τιμή."),
+}
+def page_travel(l):
+    title, desc = TRAVEL_PAGE[l]
+    pathfn=lambda x:f"/{x}/travel/"
+    cards=[]
+    for slug in TRAVEL_GUIDES:
+        s=BYSLUG[slug]
+        cards.append(f'<article class="fmt"><h3><a href="{href(f"/{l}/{slug}/")}">{e(s["title"][l])}</a></h3><p>{e(trunc(s["lede"][l],180))}</p></article>')
+    h=head(l, f'{title} | {SITE}', desc, [title, "Cyprus", SITE], f"/{l}/travel/", pathfn, "/assets/og-default.jpg")
+    h+=header(l, pathfn, "travel")
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(title)}</h1><p class="leadin">{e(desc)}</p><div class="fmts">{"".join(cards)}</div></article></main>'+footer(l)
+    return h
 def page_events(l):
     u=EVL[l]; pathfn=lambda x:f"/{x}/events/"
     buckets=event_buckets()
@@ -2203,6 +2253,7 @@ def sitemap():
     x.append(entry(lambda l:f"/{l}/advertise/",TODAY,"0.4"))
     x.append(entry(lambda l:f"/{l}/property-consultation/",TODAY,"0.5"))
     x.append(entry(lambda l:f"/{l}/events/",TODAY,"0.6"))
+    x.append(entry(lambda l:f"/{l}/travel/",TODAY,"0.6"))
     for prop in published_listings():
         pid=prop["id"]
         x.append(entry(lambda l, pid=pid: f"/{l}/real-estate/{pid}/", TODAY, "0.5"))
@@ -2266,6 +2317,7 @@ def main():
         w(f"/{l}/privacy/index.html",page_info(l,"privacy",privacy_for(l),"WebPage"))
         w(f"/{l}/cookies/index.html",page_info(l,"cookies",cookies_for(l),"WebPage"))
         w(f"/{l}/events/index.html",page_events(l))
+        w(f"/{l}/travel/index.html",page_travel(l))
         w(f"/{l}/advertising/index.html",page_advertising(l))
         w(f"/{l}/advertising/thanks/index.html",page_ad_thanks(l))
         w(f"/{l}/advertise/index.html",page_advertise(l))
