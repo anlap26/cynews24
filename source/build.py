@@ -13,6 +13,16 @@ SITE = "CyNews 24"
 ADSENSE = '<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-1547877294743851" crossorigin="anonymous"></script>'
 YANDEX_VERIFICATION = '<meta name="yandex-verification" content="4db90fdda985d0e0" />'
 IMPACT_VERIFICATION = '<meta name="impact-site-verification" value="04c75eec-b177-4aab-a06b-a7dc4db45d6b">'
+# Travelpayouts Drive. Marker 603740. Pasted as issued; the loader pulls emrldtp.com.
+TRAVELPAYOUTS_DRIVE = """<script nowprocket data-noptimize="1" data-cfasync="false" data-wpfc-render="false" seraph-accel-crit="1" data-no-defer="1" data-cmp-ab="2">
+  (function () {
+      var script = document.createElement("script");
+      script.async = 1;
+      script.setAttribute("data-cmp-ab","2");
+      script.src = 'https://emrldtp.com/NjAzNzQw.js?t=603740';
+      document.head.appendChild(script);
+  })();
+</script>"""
 # Bing Webmaster Tools value for <meta name="msvalidate.01">. Empty omits the tag.
 BING_VERIFICATION = ""
 # Google Analytics 4 measurement ID (G-XXXXXXXX). Empty means the tag is not loaded.
@@ -906,7 +916,7 @@ def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jso
     h.append(f'<link rel="alternate" type="application/rss+xml" title="{SITE} ({l.upper()})" href="{href(f"/{l}/feed.xml")}">')
     if jsonld:
         for j in jsonld: h.append('<script type="application/ld+json">'+json.dumps(j,ensure_ascii=False).replace("</","<\\/")+'</script>')
-    h.append(extra); h.append(google_tags()); h.append('</head>')
+    h.append(extra); h.append(google_tags()); h.append(TRAVELPAYOUTS_DRIVE); h.append('</head>')
     return "\n".join(h)
 
 def telegram_for(l):
@@ -2215,7 +2225,8 @@ def page_root():
 <link rel="icon" href="{href("/favicon.svg")}" type="image/svg+xml"><link rel="apple-touch-icon" href="{href("/apple-touch-icon.png")}"><meta name="theme-color" content="#111827"><link rel="stylesheet" href="{href("/assets/css/style.css")}">
 <link rel="alternate" type="application/rss+xml" title="{SITE} (EN)" href="{href("/en/feed.xml")}">
 <script type="application/ld+json">{json.dumps(ld)}</script>
-{google_tags()}</head>
+{google_tags()}
+{TRAVELPAYOUTS_DRIVE}</head>
 <body class="choose-body"><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div><p>Cyprus news · Новости Кипра · Ειδήσεις Κύπρου</p>
 <div class="btns"><a href="{href("/ru/")}" hreflang="ru" lang="ru">Русский</a><a href="{href("/en/")}" hreflang="en" lang="en">English</a><a href="{href("/el/")}" hreflang="el" lang="el">Ελληνικά</a></div></div></main>
 {cookie_banner("en")}</body></html>'''
@@ -2288,7 +2299,7 @@ def w(path,content):
 def page_404():
     return (f'<!doctype html><html lang="en"><head><meta charset="utf-8">{PATH_CANON_JS}{YANDEX_VERIFICATION}{IMPACT_VERIFICATION}{bing_meta()}'
       f'<title>404 — {SITE}</title><meta name="robots" content="noindex">'
-      f'<link rel="stylesheet" href="{href("/assets/css/style.css")}">{google_tags()}</head>'
+      f'<link rel="stylesheet" href="{href("/assets/css/style.css")}">{google_tags()}{TRAVELPAYOUTS_DRIVE}</head>'
       f'<body><main class="choose"><div><div class="logo"><b>CyNews</b><i>24</i></div>'
       f'<p>404 — Page not found · Страница не найдена · Η σελίδα δεν βρέθηκε</p>'
       f'<div class="btns"><a href="{href("/ru/")}">RU</a><a href="{href("/en/")}">EN</a><a href="{href("/el/")}">EL</a></div>'
