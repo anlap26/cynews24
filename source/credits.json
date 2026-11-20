@@ -844,5 +844,35 @@
       0.62
     ],
     "depicts": "Farmland near Ypsonas, in the Limassol district, at sunset"
+  },
+  "vrysoudia-beach": {
+    "author": "Fry72, Karel Frydrýšek",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Vrysoudia_II_Beach,_Paphos,_Cyprus_5.jpg",
+    "file": "vrysoudia-beach.jpg",
+    "focus": [0.5, 0.42],
+    "depicts": "Vrysoudia II beach in Paphos. It is not the Eden Coast site in Geroskipou"
+  },
+  "agios-tychonas-view": {
+    "author": "Xaris333",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Limassol_view_from_Ayios_Tychonas_1.JPG",
+    "file": "agios-tychonas-view.jpg",
+    "focus": [0.55, 0.42],
+    "depicts": "Limassol seen from Agios Tychonas in January 2014. It is not Dream Tower"
+  },
+  "limassol-skyline": {
+    "author": "Στέφανος Νικολάου",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Skyline_of_Limassol.jpg",
+    "file": "limassol-skyline.jpg",
+    "focus": [0.45, 0.58],
+    "depicts": "The Limassol skyline in June 2022. It is not the KEAN site"
   }
 }

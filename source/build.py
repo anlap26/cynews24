@@ -1252,6 +1252,71 @@ def listing_card(p, l):
             f'<span class="cat">{e(kind)}</span><a href="{link}"><h3>{e(_loc(p["title"], l))}</h3></a>'
             f'<p class="price">{e(price)}</p><p class="facts">{e(_prop_facts(p, l))}</p>'
             f'{listing_request_links(p, l, link+"#lead")}</div></article>')
+# Editorial cards under the ATEX listings. Not inventory, and not links to the developer.
+BBF_COPY = {
+ "en": dict(h="Notes on other new projects",
+            note="These are not our listings. The prices are the developer’s or an agent’s and can change.",
+            cta="Get independent advice",
+            similar="Similar new projects",
+            advice="Get independent advice, compare this with other new projects, and check the full costs and taxes. This form comes to CyNews 24, not to a developer.",
+            send="Get independent advice"),
+ "ru": dict(h="Заметки о других новых проектах",
+            note="Это не наши объявления. Цены принадлежат застройщику или агентству и могут измениться.",
+            cta="Независимая консультация",
+            similar="Похожие новые проекты",
+            advice="Независимая консультация: сравнить с другими новыми проектами и проверить полные расходы и налоги. Форма приходит в CyNews 24, не застройщику.",
+            send="Независимая консультация"),
+ "el": dict(h="Σημειώσεις για άλλα νέα έργα",
+            note="Δεν είναι δικές μας αγγελίες. Οι τιμές είναι του κατασκευαστή ή ενός μεσίτη και μπορεί να αλλάξουν.",
+            cta="Ανεξάρτητη συμβουλή",
+            similar="Παρόμοια νέα έργα",
+            advice="Ανεξάρτητη συμβουλή: σύγκριση με άλλα νέα έργα και έλεγχος πλήρους κόστους και φόρων. Η φόρμα έρχεται στο CyNews 24, όχι σε κατασκευαστή.",
+            send="Ανεξάρτητη συμβουλή"),
+}
+BBF_REVIEWS = (
+ dict(slug="eden-coast-paphos-review", img="vrysoudia-beach", project=":eden coast",
+      place={"en":"Geroskipou, Paphos","ru":"Героскипу, Пафос","el":"Γεροσκήπου, Πάφος"},
+      price={"en":"From €940,000 on the developer page","ru":"От €940 000 на странице застройщика","el":"Από €940.000 στη σελίδα του κατασκευαστή"},
+      line={"en":"16 homes in the developer’s summary. Agents publish other prices and a 2029 date.","ru":"16 объектов в сводке застройщика. Агенты публикуют другие цены и дату в 2029 году.","el":"16 κατοικίες στη σύνοψη του κατασκευαστή. Οι μεσίτες δημοσιεύουν άλλες τιμές και ημερομηνία το 2029."},
+      alt={"en":"Vrysoudia II beach in Paphos, not the project site","ru":"Пляж Врисудия II в Пафосе, не площадка проекта","el":"Παραλία Βρυσούδια II στην Πάφο, όχι το οικόπεδο του έργου"}),
+ dict(slug="dream-tower-limassol-review", img="agios-tychonas-view", project=":dream tower",
+      place={"en":"Agios Tychonas, Limassol","ru":"Агиос Тихонас, Лимассол","el":"Άγιος Τύχωνας, Λεμεσός"},
+      price={"en":"From €890,000 on the developer page","ru":"От €890 000 на странице застройщика","el":"Από €890.000 στη σελίδα του κατασκευαστή"},
+      line={"en":"A 27-storey tower. Agents disagree with the developer’s starting price and with each other on size.","ru":"Башня в 27 этажей. Агенты расходятся и со стартовой ценой застройщика, и между собой по метражу.","el":"Πύργος 27 ορόφων. Οι μεσίτες διαφωνούν με την τιμή εκκίνησης του κατασκευαστή και μεταξύ τους στο εμβαδόν."},
+      alt={"en":"Limassol from Agios Tychonas in 2014, not the tower","ru":"Лимассол с Агиос Тихонаса в 2014 году, не башня","el":"Η Λεμεσός από τον Άγιο Τύχωνα το 2014, όχι ο πύργος"}),
+ dict(slug="kean-limassol-review", img="limassol-skyline", project="KEAN",
+      place={"en":"Limassol","ru":"Лимассол","el":"Λεμεσός"},
+      price={"en":"Price on request","ru":"Цена по запросу","el":"Τιμή κατόπιν αιτήματος"},
+      line={"en":"Four towers in a January 2026 Cyprus Mail article. That article states no sale price.","ru":"Четыре башни в статье Cyprus Mail за январь 2026 года. Продажной цены там нет.","el":"Τέσσερις πύργοι σε άρθρο της Cyprus Mail τον Ιανουάριο 2026. Το άρθρο δεν δίνει τιμή πώλησης."},
+      alt={"en":"Limassol skyline in 2022, not the KEAN site","ru":"Панорама Лимассола в 2022 году, не площадка KEAN","el":"Ορίζοντας της Λεμεσού το 2022, όχι το οικόπεδο KEAN"}),
+)
+BBF_BY_SLUG = {item["slug"]: item for item in BBF_REVIEWS}
+ATEX_COMPARE = ("bellissimo", "olivia", "the-city-home-2")
+def bbf_review_cards(l):
+    copy=BBF_COPY[l]
+    cards=[]
+    for item in BBF_REVIEWS:
+        stub={"img": item["img"], "alt": item["alt"]}
+        review=href(f"/{l}/{item['slug']}/")
+        advice=href(f"/{l}/{item['slug']}/#consult")
+        cards.append(
+            f'<article class="pcard"><a class="img" href="{review}">{img_tag(stub, l, 600, True, sizes="(max-width:600px) 100vw, 360px")}</a>'
+            f'<div class="pad"><a href="{review}"><h3>{e(item["project"])}</h3></a>'
+            f'<p class="facts">{e(item["place"][l])}</p><p>{e(item["price"][l])}</p>'
+            f'<p class="facts">{e(item["line"][l])}</p>'
+            f'<p class="req"><a href="{advice}">{e(copy["cta"])}</a></p></div></article>')
+    return (f'<h2 class="pnews">{e(copy["h"])}</h2><p class="meta">{e(copy["note"])}</p>'
+            f'<div class="grid g3">{"".join(cards)}</div>')
+def similar_atex(l):
+    order={pid: i for i, pid in enumerate(ATEX_COMPARE)}
+    rows=[p for p in published_listings() if p["id"] in order]
+    rows.sort(key=lambda p: order[p["id"]])
+    if not rows:
+        return ""
+    items="".join(
+        f'<li><a href="{href(f"/{l}/real-estate/{p["id"]}/")}">{e(_loc(p["title"], l))}</a>'
+        f' — {e(_prop_facts(p, l))}</li>' for p in rows)
+    return f'<section class="src"><h2>{e(BBF_COPY[l]["similar"])}</h2><ul>{items}</ul></section>'
 def listings_block(l):
     u=LISTING_UI[l]
     rows=published_listings()
@@ -1259,6 +1324,7 @@ def listings_block(l):
         body='<div class="grid g3">'+"".join(listing_card(p, l) for p in rows)+'</div>'
     else:
         body=f'<p class="pempty">{e(u["empty"])}</p>'
+    body+=bbf_review_cards(l)
     return f'<section class="plistings" aria-label="{e(u["h"])}"><h2>{e(u["h"])}</h2>{body}</section>'
 def listing_contact(p):
     base=dict(property_data().get("contact") or {})
@@ -1731,7 +1797,9 @@ def page_article(l,s):
     if cta:
         h+=f'<p class="tgcta"><a href="{e(cta)}" target="_blank" rel="noopener">{_icons()["telegram"]}<span>{e(u["tg_cta"])}</span></a></p>'
     h+='</article>'
-    h+=property_consult(l, abs_(path))
+    if s["slug"] in BBF_BY_SLUG:
+        h+=similar_atex(l)
+    h+=property_consult(l, abs_(path), BBF_BY_SLUG[s["slug"]]["project"] if s["slug"] in BBF_BY_SLUG else "")
     rel=[x for x in sorted_all() if x["slug"]!=s["slug"]]
     rel.sort(key=lambda x:(x["cat"]!=s["cat"],))
     h+=f'<section class="rel"><h2>{u["related"]}</h2><div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
@@ -2000,14 +2068,18 @@ def _opts(pairs, choose):
 def _consent(l, text, privacy):
     return (f'<label class="consent"><input type="checkbox" name="consent" value="yes" required> '
             f'<span>{e(text)} <a href="{href(f"/{l}/privacy/")}">{e(privacy)}</a></span></label>')
-def property_consult_form(l, page_url, next_path):
+def property_consult_form(l, page_url, next_path, project=""):
     c=CONSULT[l]
+    subject="cynews24 property lead" + (f": {project}" if project else "")
+    send=BBF_COPY[l]["send"] if project else c["send"]
+    named=f'<input type="hidden" name="project" value="{e(project)}">' if project else ""
     return f'''<form class="adform" action="{e(LEADS_FORM_ACTION)}" method="POST">
-<input type="hidden" name="_subject" value="cynews24 property lead">
+<input type="hidden" name="_subject" value="{e(subject)}">
 <input type="hidden" name="_template" value="table">
 <input type="hidden" name="_captcha" value="true">
 <input type="hidden" name="_next" value="{e(abs_(next_path))}">
 <input type="hidden" name="page" value="{e(page_url)}">
+{named}
 <p class="hp" aria-hidden="true"><label>Leave this field empty<input type="text" name="_honey" tabindex="-1" autocomplete="off"></label></p>
 <div class="pair"><label class="fld"><span>{e(c["name"])}</span><input type="text" name="name" required autocomplete="name"></label>
 <label class="fld"><span>{e(c["email"])}</span><input type="email" name="email" required autocomplete="email"></label></div>
@@ -2017,13 +2089,17 @@ def property_consult_form(l, page_url, next_path):
 <label class="fld"><span>{e(c["budget"])} <span class="hint">({e(c["budget_hint"])})</span></span><input type="text" name="budget" autocomplete="off"></label>
 <label class="fld"><span>{e(c["message"])} <span class="hint">({e(c["message_hint"])})</span></span><textarea name="message"></textarea></label>
 {_consent(l, c["consent"], c["privacy"])}
-<button class="send" type="submit">{e(c["send"])}</button>
+<button class="send" type="submit">{e(send)}</button>
 </form>'''
-def property_consult(l, page_url):
+def property_consult(l, page_url, project=""):
     c=CONSULT[l]
-    return (f'<section class="consult" aria-label="{e(c["title"])}"><h2>{e(c["title"])}</h2>'
-            f'<p class="leadin">{e(c["lead"])} <a href="{href(f"/{l}/property-consultation/")}">{e(c["menu"])}</a></p>'
-            f'{property_consult_form(l, page_url, f"/{l}/property-consultation/thanks/")}</section>')
+    if project:
+        lead=e(BBF_COPY[l]["advice"])
+    else:
+        lead=f'{e(c["lead"])} <a href="{href(f"/{l}/property-consultation/")}">{e(c["menu"])}</a>'
+    return (f'<section class="consult" id="consult" aria-label="{e(c["title"])}"><h2>{e(c["title"])}</h2>'
+            f'<p class="leadin">{lead}</p>'
+            f'{property_consult_form(l, page_url, f"/{l}/property-consultation/thanks/", project)}</section>')
 def page_property_consultation(l):
     c=CONSULT[l]; path=f"/{l}/property-consultation/"; pathfn=lambda x:f"/{x}/property-consultation/"
     ld=[{"@context":"https://schema.org","@type":"WebPage","name":c["title"],"url":abs_(path),"inLanguage":l,"description":c["desc"],
