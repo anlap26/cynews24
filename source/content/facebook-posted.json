@@ -1,6 +1,11 @@
 {
   "note": "Slugs already handled for the Facebook Page. FB_POST_LANG chooses the post language (default en, link /en/; ru links to /ru/, el to /el/). An entry means do not post again.",
   "posted": {
+    "camera-fines-180-days": {
+      "at": "2026-11-20T07:34:10Z",
+      "lang": "en",
+      "status": "sent"
+    },
     "cape-greco-monastery-legalisation": {
       "at": "2026-11-13T00:00:00Z",
       "lang": "en",
