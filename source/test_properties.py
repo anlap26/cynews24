@@ -83,18 +83,27 @@ class PropertyTests(unittest.TestCase):
             self.assertIn(f'href="/{lang}/real-estate/"', thanks)
 
     def test_consultation_and_advertise_use_the_leads_inbox(self):
-        self.assertEqual(build.LEADS_EMAIL, "2877novosti@gmail.com")
-        self.assertEqual(build.LEADS_FORM_ACTION, "https://formsubmit.co/2877novosti@gmail.com")
+        self.assertEqual(build.LEADS_EMAIL, "info@cynews42.com")
+        self.assertEqual(build.LEADS_FORM_ACTION, "https://formsubmit.co/info@cynews42.com")
+        self.assertEqual(build.LEAD_FORM_ACTION, "https://formsubmit.co/info@cynews42.com")
         with open(os.path.join(os.path.dirname(__file__), "build.py"), encoding="utf8") as handle:
-            self.assertNotIn("cs1.atex", handle.read())
+            source = handle.read()
+        self.assertNotIn("cs1.atex", source)
+        self.assertNotIn("2877novosti", source)
         story = build.STORIES[0]
+        action = 'action="https://formsubmit.co/info@cynews42.com"'
         for lang in ("en", "ru", "el"):
             article = build.page_article(lang, story)
             consult = build.page_property_consultation(lang)
             advertise = build.page_advertise(lang)
-            for html in (article, consult, advertise, build.footer(lang), build.header(lang, lambda x: f"/{x}/")):
+            advertising = build.page_advertising(lang)
+            for html in (article, consult, advertise, advertising, build.footer(lang), build.header(lang, lambda x: f"/{x}/")):
                 self.assertNotIn("cs1.atex", html)
-            self.assertIn('action="https://formsubmit.co/2877novosti@gmail.com"', article)
+                self.assertNotIn("2877novosti", html)
+            self.assertIn(action, article)
+            self.assertIn(action, consult)
+            self.assertIn(action, advertise)
+            self.assertIn(action, advertising)
             self.assertIn('name="_subject" value="cynews24 property lead"', article)
             self.assertIn('name="_captcha" value="true"', article)
             self.assertIn(f'href="/{lang}/privacy/"', article)
