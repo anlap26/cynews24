@@ -166,6 +166,15 @@ button.send:hover{background:var(--acc)}
 .pcard .req a{flex:1 1 100%}
 #lead{scroll-margin-top:72px}
 .pgallery{display:grid;gap:12px;margin:0 0 18px}
+.travelbox{background:var(--soft);border:1px solid var(--line);border-top:4px solid var(--acc);padding:14px 16px 12px;margin:8px 0 22px}
+.travelbox h2{font-size:18px;line-height:1.3;margin:0 0 10px;letter-spacing:-.2px}
+.travelcards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.travelcards a{display:flex;align-items:center;gap:8px;min-height:44px;background:var(--bg);color:var(--ink);border:1px solid var(--line);padding:8px 10px;font-weight:700;font-size:14px;line-height:1.25}
+.travelcards a:hover{border-color:var(--acc);color:var(--acc)}
+.travelcards a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.travelcards svg{flex:none;color:var(--acc)}
+.travelbox .fine{font-size:13px;line-height:1.45;color:var(--mut);margin:10px 0 0}
+.travelbox .fine a{color:#0b57b0;text-decoration:underline}
 .cookiebanner{position:fixed;z-index:40;left:0;right:0;bottom:0;background:var(--dark);color:#fff;padding:14px 0 16px;box-shadow:0 -6px 20px rgba(0,0,0,.28)}
 .cookiebanner[hidden]{display:none}
 .cookiebanner p{margin:0 0 8px;max-width:760px;color:#e6e9ee}
@@ -178,4 +187,4 @@ button.send:hover{background:var(--acc)}
 .cookie-actions button:hover{background:#fff;color:var(--dark)}
 .cookie-actions button:focus{outline:2px solid #fff;outline-offset:2px}
 @media(max-width:980px){.lead{grid-template-columns:1fr}.grid,.g3{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.rel .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}.body h2{font-size:22px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a,.affbtn{flex:1 1 100%;display:block;width:100%}}
+@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.travelcards{grid-template-columns:1fr 1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}.body h2{font-size:22px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a,.affbtn{flex:1 1 100%;display:block;width:100%}}
