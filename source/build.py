@@ -320,8 +320,8 @@ DISCLOSURE = {
    ("What an affiliate link is",["Some practical guides on CyNews 24 link to companies whose products a reader who lives or travels abroad may actually use: international health insurance, a travel eSIM, a VPN, encrypted email, or a password manager. If you follow one of those links and buy, the company may pay CyNews 24 a commission. You do not pay an extra fee to us. The price, if there is one, is the price on the company’s own site."]),
    ("Where the links live",["Every partner address is stored in one configuration file, source/affiliates.json. The site publishes that file as /assets/js/affiliates.js, and every partner button reads the address from there. Until a real address is added, the value is a placeholder such as #AFFILIATE_GENKI. A placeholder does not go to a shop. The partners named in the guides are Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass and Mail) and 1Password. Some practical pages also link to Amazon.de."]),
    ("Amazon",["Those Amazon links are searches on Amazon.de, not a page for one product, and they do not name a price. As an Amazon Associate I earn from qualifying purchases. The home address carries the tag cynews24-21, and a search uses the same tag. CyNews 24 does not invent a product code. What Amazon shows, and what it costs, is on Amazon at the time you look."]),
-   ("Travel links",["Every travel-guide address lives in one file, source/travel_affiliates.json. Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups and Aviasales are Travelpayouts links, marker 603740. Booking, GetYourGuide, DiscoverCars and SafetyWing are still each company’s own homepage, until those programmes are approved. A button is marked sponsored. None of these links states a price."]),
-   ("How to recognise one",["A partner button opens in a new tab and is marked rel=\"nofollow sponsored\". The guide says, near the offers, that the links are affiliate links, and it links to this page. News stories do not carry these buttons. A short box appears only on a few practical pages about moving, expat life, banking or technology, and it links back to the full guide."]),
+   ("Travel links",["Every travel-guide address lives in one file, source/travel_affiliates.json. Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups and Aviasales buttons inside the guides are Travelpayouts links, marker 603740. Booking, GetYourGuide, DiscoverCars and SafetyWing are still each company’s own homepage, until those programmes are approved. A separate row, Travel in Cyprus, uses marker 808586: Localrent, Welcome Pickups, Kiwitaxi, Klook, Tiqets, Airalo and Aviasales. A button is marked sponsored. None of these links states a price."]),
+   ("How to recognise one",["A partner button opens in a new tab and is marked rel=\"nofollow sponsored\". The guide says, near the offers, that the links are affiliate links, and it links to this page. Stories about tourism, travel, beaches, airports, transport, events and hotels end with a Travel in Cyprus row of partner links. Politics, crime and economy stories do not, unless the story is about travel. A short box appears only on a few practical pages about moving, expat life, banking or technology, and it links back to the full guide."]),
    ("What the guide does not do",["The text does not invent a premium, a coverage limit, a server count or a statistic. Where a figure is not in a source we cite, the guide says to read the current terms, because they change. A partner link is not a recommendation that a product is right for you, and it is not insurance, legal, tax or security advice. CyNews 24 is not affiliated with the companies, except that we may earn a commission if you buy through a link."]),
    ("Corrections",["If a guide is wrong, email cynews24@gmail.com with the page address and the correction. The editorial policy explains how corrections are handled."])]),
  "ru":dict(t="Раскрытие партнёрских ссылок",d="Как CyNews 24 использует партнёрские ссылки, на какие сервисы они ведут и чего эти ссылки не обещают.",
@@ -329,8 +329,8 @@ DISCLOSURE = {
    ("Что такое партнёрская ссылка",["В некоторых практических материалах CyNews 24 есть ссылки на компании, чьи услуги могут пригодиться человеку, который живёт или путешествует за границей: международная медицинская страховка, туристическая eSIM, VPN, шифрованная почта или менеджер паролей. Если вы перейдёте по такой ссылке и купите услугу, компания может выплатить CyNews 24 комиссию. Нам вы отдельно ничего не доплачиваете. Цена, если она есть, — та, что указана на сайте самой компании."]),
    ("Где лежат адреса",["Все партнёрские адреса собраны в одном файле настроек, source/affiliates.json. Сайт публикует его как /assets/js/affiliates.js, и каждая партнёрская кнопка берёт адрес оттуда. Пока вместо настоящего адреса стоит заглушка вроде #AFFILIATE_GENKI. Заглушка ни в какой магазин не ведёт. В материалах названы Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass и Mail) и 1Password. На некоторых практических страницах есть ссылки на Amazon.de."]),
    ("Amazon",["Ссылки на Amazon — это поиск на Amazon.de, а не страница одного товара, и в них нет цены. Как участник партнёрской программы Amazon я зарабатываю на соответствующих покупках. В адресе главной страницы стоит метка cynews24-21, и тот же тег стоит в поиске. CyNews 24 не выдумывает код товара. Что показывает Amazon и сколько это стоит, видно на Amazon в момент, когда вы смотрите."]),
-   ("Ссылки для путешествий",["Все адреса путеводителей лежат в одном файле, source/travel_affiliates.json. Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups и Aviasales — ссылки Travelpayouts, метка 603740. Booking, GetYourGuide, DiscoverCars и SafetyWing пока остаются главными страницами компаний, пока эти программы не одобрены. Кнопка помечена как sponsored. Ни одна из ссылок не называет цену."]),
-   ("Как её узнать",["Партнёрская кнопка открывается в новой вкладке и помечена rel=\"nofollow sponsored\". Рядом с предложениями материал прямо говорит, что ссылки партнёрские, и ведёт на эту страницу. В новостях таких кнопок нет. Короткий блок стоит только на нескольких практических страницах о переезде, жизни за границей, банках или технологиях и ведёт на полный материал."]),
+   ("Ссылки для путешествий",["Все адреса путеводителей лежат в одном файле, source/travel_affiliates.json. Кнопки Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups и Aviasales внутри путеводителей — ссылки Travelpayouts, метка 603740. Booking, GetYourGuide, DiscoverCars и SafetyWing пока остаются главными страницами компаний, пока эти программы не одобрены. Отдельный блок «Путешествие по Кипру» использует метку 808586: Localrent, Welcome Pickups, Kiwitaxi, Klook, Tiqets, Airalo и Aviasales. Кнопка помечена как sponsored. Ни одна из ссылок не называет цену."]),
+   ("Как её узнать",["Партнёрская кнопка открывается в новой вкладке и помечена rel=\"nofollow sponsored\". Рядом с предложениями материал прямо говорит, что ссылки партнёрские, и ведёт на эту страницу. Материалы о туризме, путешествиях, пляжах, аэропортах, транспорте, событиях и отелях заканчиваются блоком «Путешествие по Кипру». В политике, криминале и экономике его нет, если сам материал не о путешествии. Короткий блок стоит только на нескольких практических страницах о переезде, жизни за границей, банках или технологиях и ведёт на полный материал."]),
    ("Чего материал не делает",["Текст не выдумывает премию, лимит покрытия, число серверов или статистику. Если цифры нет в источнике, на который мы ссылаемся, материал отправляет к действующим условиям: они меняются. Партнёрская ссылка не означает, что продукт вам подходит, и не является страховой, юридической, налоговой или иной профессиональной консультацией. CyNews 24 не связан с этими компаниями, кроме того, что мы можем получить комиссию, если вы купите услугу по ссылке."]),
    ("Поправки",["Если в материале ошибка, напишите на cynews24@gmail.com и укажите адрес страницы и поправку. Как обрабатываются поправки, сказано в редакционной политике."])]),
  "el":dict(t="Γνωστοποίηση συνεργατών",d="Πώς το CyNews 24 χρησιμοποιεί συνδέσμους συνεργατών, σε ποιες εταιρείες οδηγούν και τι δεν υπόσχονται.",
@@ -338,8 +338,8 @@ DISCLOSURE = {
    ("Τι είναι ένας σύνδεσμος συνεργάτη",["Ορισμένοι πρακτικοί οδηγοί του CyNews 24 παραπέμπουν σε εταιρείες των οποίων τις υπηρεσίες μπορεί να χρησιμοποιήσει κάποιος που ζει ή ταξιδεύει στο εξωτερικό: διεθνή ασφάλιση υγείας, ταξιδιωτική eSIM, VPN, κρυπτογραφημένο email ή διαχειριστή κωδικών. Αν ακολουθήσετε έναν τέτοιο σύνδεσμο και αγοράσετε, η εταιρεία μπορεί να πληρώσει προμήθεια στο CyNews 24. Δεν πληρώνετε σε εμάς επιπλέον τέλος. Η τιμή, αν υπάρχει, είναι η τιμή στον ιστότοπο της εταιρείας."]),
    ("Πού βρίσκονται οι διευθύνσεις",["Κάθε διεύθυνση συνεργάτη φυλάσσεται σε ένα αρχείο ρυθμίσεων, το source/affiliates.json. Ο ιστότοπος το δημοσιεύει ως /assets/js/affiliates.js, και κάθε κουμπί συνεργάτη διαβάζει τη διεύθυνση από εκεί. Μέχρι να προστεθεί πραγματική διεύθυνση, η τιμή είναι θέση όπως #AFFILIATE_GENKI. Η θέση δεν οδηγεί σε κατάστημα. Οι συνεργάτες που ονομάζονται στους οδηγούς είναι οι Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass και Mail) και 1Password. Ορισμένες πρακτικές σελίδες παραπέμπουν και στο Amazon.de."]),
    ("Amazon",["Οι σύνδεσμοι της Amazon είναι αναζητήσεις στο Amazon.de, όχι σελίδα ενός προϊόντος, και δεν αναφέρουν τιμή. Ως συνεργάτης της Amazon, κερδίζω από αγορές που πληρούν τις προϋποθέσεις. Η διεύθυνση της αρχικής σελίδας έχει την ετικέτα cynews24-21, και την ίδια ετικέτα έχει η αναζήτηση. Το CyNews 24 δεν επινοεί κωδικό προϊόντος. Τι δείχνει η Amazon και πόσο κοστίζει φαίνεται στην Amazon τη στιγμή που κοιτάτε."]),
-   ("Σύνδεσμοι για ταξίδια",["Κάθε διεύθυνση των οδηγών είναι σε ένα αρχείο, το source/travel_affiliates.json. Οι Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups και Aviasales είναι σύνδεσμοι Travelpayouts, δείκτης 603740. Οι Booking, GetYourGuide, DiscoverCars και SafetyWing μένουν η αρχική σελίδα της εταιρείας, μέχρι να εγκριθούν αυτά τα προγράμματα. Το κουμπί σημειώνεται sponsored. Κανένας σύνδεσμος δεν αναφέρει τιμή."]),
-   ("Πώς ξεχωρίζει",["Ένα κουμπί συνεργάτη ανοίγει σε νέα καρτέλα και φέρει rel=\"nofollow sponsored\". Ο οδηγός λέει, κοντά στις προσφορές, ότι οι σύνδεσμοι είναι συνεργατών και παραπέμπει σε αυτή τη σελίδα. Τα ειδησεογραφικά άρθρα δεν έχουν τέτοια κουμπιά. Ένα σύντομο πλαίσιο εμφανίζεται μόνο σε λίγες πρακτικές σελίδες για μετακόμιση, ζωή στο εξωτερικό, τράπεζες ή τεχνολογία και οδηγεί πίσω στον πλήρη οδηγό."]),
+   ("Σύνδεσμοι για ταξίδια",["Κάθε διεύθυνση των οδηγών είναι σε ένα αρχείο, το source/travel_affiliates.json. Τα κουμπιά Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups και Aviasales μέσα στους οδηγούς είναι σύνδεσμοι Travelpayouts, δείκτης 603740. Οι Booking, GetYourGuide, DiscoverCars και SafetyWing μένουν η αρχική σελίδα της εταιρείας, μέχρι να εγκριθούν αυτά τα προγράμματα. Ξεχωριστή σειρά, Ταξίδι στην Κύπρο, χρησιμοποιεί τον δείκτη 808586: Localrent, Welcome Pickups, Kiwitaxi, Klook, Tiqets, Airalo και Aviasales. Το κουμπί σημειώνεται sponsored. Κανένας σύνδεσμος δεν αναφέρει τιμή."]),
+   ("Πώς ξεχωρίζει",["Ένα κουμπί συνεργάτη ανοίγει σε νέα καρτέλα και φέρει rel=\"nofollow sponsored\". Ο οδηγός λέει, κοντά στις προσφορές, ότι οι σύνδεσμοι είναι συνεργατών και παραπέμπει σε αυτή τη σελίδα. Θέματα για τουρισμό, ταξίδια, παραλίες, αεροδρόμια, μεταφορές, εκδηλώσεις και ξενοδοχεία κλείνουν με τη σειρά Ταξίδι στην Κύπρο. Η πολιτική, το έγκλημα και η οικονομία δεν την έχουν, εκτός αν το ίδιο το θέμα είναι για ταξίδι. Ένα σύντομο πλαίσιο εμφανίζεται μόνο σε λίγες πρακτικές σελίδες για μετακόμιση, ζωή στο εξωτερικό, τράπεζες ή τεχνολογία και οδηγεί πίσω στον πλήρη οδηγό."]),
    ("Τι δεν κάνει ο οδηγός",["Το κείμενο δεν επινοεί ασφάλιστρο, όριο κάλυψης, αριθμό διακομιστών ή στατιστικό. Όπου ένας αριθμός δεν υπάρχει σε πηγή που αναφέρουμε, ο οδηγός στέλνει στους τρέχοντες όρους, γιατί αλλάζουν. Ένας σύνδεσμος συνεργάτη δεν σημαίνει ότι ένα προϊόν σας ταιριάζει και δεν είναι ασφαλιστική, νομική, φορολογική ή άλλη επαγγελματική συμβουλή. Το CyNews 24 δεν συνδέεται με τις εταιρείες, εκτός του ότι μπορεί να λάβει προμήθεια αν αγοράσετε μέσω συνδέσμου."]),
    ("Διορθώσεις",["Αν ένας οδηγός έχει λάθος, στείλτε email στο cynews24@gmail.com με τη διεύθυνση της σελίδας και τη διόρθωση. Η συντακτική πολιτική εξηγεί πώς χειριζόμαστε τις διορθώσεις."])]),
 }
@@ -744,6 +744,15 @@ button.send:hover{background:var(--acc)}
 .pcard .req a{flex:1 1 100%}
 #lead{scroll-margin-top:72px}
 .pgallery{display:grid;gap:12px;margin:0 0 18px}
+.travelbox{background:var(--soft);border:1px solid var(--line);border-top:4px solid var(--acc);padding:14px 16px 12px;margin:8px 0 22px}
+.travelbox h2{font-size:18px;line-height:1.3;margin:0 0 10px;letter-spacing:-.2px}
+.travelcards{list-style:none;margin:0;padding:0;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:8px}
+.travelcards a{display:flex;align-items:center;gap:8px;min-height:44px;background:var(--bg);color:var(--ink);border:1px solid var(--line);padding:8px 10px;font-weight:700;font-size:14px;line-height:1.25}
+.travelcards a:hover{border-color:var(--acc);color:var(--acc)}
+.travelcards a:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.travelcards svg{flex:none;color:var(--acc)}
+.travelbox .fine{font-size:13px;line-height:1.45;color:var(--mut);margin:10px 0 0}
+.travelbox .fine a{color:#0b57b0;text-decoration:underline}
 .cookiebanner{position:fixed;z-index:40;left:0;right:0;bottom:0;background:var(--dark);color:#fff;padding:14px 0 16px;box-shadow:0 -6px 20px rgba(0,0,0,.28)}
 .cookiebanner[hidden]{display:none}
 .cookiebanner p{margin:0 0 8px;max-width:760px;color:#e6e9ee}
@@ -756,7 +765,7 @@ button.send:hover{background:var(--acc)}
 .cookie-actions button:hover{background:#fff;color:var(--dark)}
 .cookie-actions button:focus{outline:2px solid #fff;outline-offset:2px}
 @media(max-width:980px){.lead{grid-template-columns:1fr}.grid,.g3{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.rel .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}.body h2{font-size:22px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a,.affbtn{flex:1 1 100%;display:block;width:100%}}
+@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.travelcards{grid-template-columns:1fr 1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}.body h2{font-size:22px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a,.affbtn{flex:1 1 100%;display:block;width:100%}}
 """
 
 _GA_WARNED=False
@@ -1549,6 +1558,164 @@ def load_travel_links():
         raise SystemExit(f"source/travel_affiliates.json unexpected keys {extra}")
     return {k: data[k].strip() for k in TRAVEL_LINK_KEYS}
 TRAVEL_LINKS = load_travel_links()
+# Compact row for relevant stories. Marker 808586, short links only.
+# Guide buttons above keep source/travel_affiliates.json (marker 603740).
+_ACCENT = str.maketrans({"ά":"α","έ":"ε","ή":"η","ί":"ι","ό":"ο","ύ":"υ","ώ":"ω","ϊ":"ι","ϋ":"υ","ΐ":"ι","ΰ":"υ","ё":"е","’":"'","ʼ":"'","`":"'"})
+def _fold(text):
+    return (text or "").casefold().translate(_ACCENT)
+_TRAVEL_SKIP = re.compile(r"страхов|insurance|ασφαλ")
+_TRAVEL_TOPIC = re.compile(
+    r"\b(tourists?|tourism|holidays?|vacations?|excursions?|sightseeing|travel)\b"
+    r"|туризм\w*|туристы\b|туристов\b|туриста\b|туристом\b|туристами\b|туристическ\w*"
+    r"|отпуск\w*|каникул\w*"
+    r"|τουρισμ\w*|τουριστ\w*|διακοπε\w*|διακοπων|εκδρομ\w*")
+_AIRPORT_TOPIC = re.compile(
+    r"\b(larnaca|paphos|cyprus)\b.{0,48}\b(airport|airports|flight|flights|airline)s?\b"
+    r"|\b(airport|airports|flight|flights|airline)s?\b.{0,48}\b(larnaca|paphos|cyprus)\b"
+    r"|ларнак\w*.{0,48}(аэропорт\w*|авиабилет\w*|авиарейс\w*|рейс\w*)"
+    r"|(аэропорт\w*|авиабилет\w*|авиарейс\w*|рейс\w*).{0,48}ларнак\w*"
+    r"|пафос\w*.{0,48}(аэропорт\w*|авиабилет\w*|авиарейс\w*|рейс\w*)"
+    r"|(аэропорт\w*|авиабилет\w*|авиарейс\w*|рейс\w*).{0,48}пафос\w*"
+    r"|(аэропорт\w*|авиабилет\w*|авиарейс\w*|рейс\w*).{0,48}кипр\w*"
+    r"|кипр\w*.{0,48}(аэропорт\w*|авиабилет\w*|авиарейс\w*|рейс\w*)"
+    r"|λαρνακ\w*.{0,48}(αεροδρομ\w*|αεροπορ\w*|πτησ\w*)"
+    r"|(αεροδρομ\w*|αεροπορ\w*|πτησ\w*).{0,48}λαρνακ\w*"
+    r"|\bπαφ\w*.{0,48}(αεροδρομ\w*|αεροπορ\w*|πτησ\w*)"
+    r"|(αεροδρομ\w*|αεροπορ\w*|πτησ\w*).{0,48}\bπαφ\w*"
+    r"|(αεροδρομ\w*|αεροπορ\w*|πτησ\w*).{0,48}κυπρ\w*"
+    r"|κυπρ\w*.{0,48}(αεροδρομ\w*|αεροπορ\w*|πτησ\w*)")
+_BEACH_TOPIC = re.compile(
+    r"\bbeaches?\b|\bgovernor'?s beach\b|\bsea temperature\b|\bweather\b"
+    r"|пляж\w*|погод\w*|температур\w* моря"
+    r"|\bπαραλι\w*|\bκαιρ\w*")
+_CAR_TOPIC = re.compile(
+    r"\b(car hire|car rental|hire car|renting a car|rent a car)\b"
+    r"|аренд\w* (?:авто|машин\w*)|прокат\w* (?:авто|машин\w*)"
+    r"|ενοικιασ\w* αυτοκιν\w*")
+_STAY_TOPIC = re.compile(
+    r"\b(hotels?|resorts?|where to stay)\b"
+    r"|отел\w*|гостиниц\w*|где остановиться"
+    r"|ξενοδοχ\w*|που να μεινετε")
+_ESIM_TOPIC = re.compile(r"\be-?sim\b")
+_EVENT_TOPIC = re.compile(
+    r"\b(festivals?|christmas|xmas|carnival|things to do|public holiday|bank holiday)\b"
+    r"|фестивал\w*|рождеств\w*|карнавал\w*|чем заняться|что делать на кипре|празднич\w*|праздник\w*"
+    r"|φεστιβαλ|χριστουγεν\w*|καρναβαλ\w*|τι να κανω|τι να κανετε|αξιοθεατ\w*|εκδηλωσ\w*")
+_TRANSPORT_TOPIC = re.compile(
+    r"\b(taxis?|airport transfer|public transport)\b"
+    r"|такси|трансфер\w*"
+    r"|\bταξι\b")
+# A beach word inside a property listing, or "space weather", is not a trip.
+_NOT_A_BEACH = re.compile(
+    r"space weather|космическ\w* погод|διαστημικ\w* καιρ"
+    r"|διαμερισμ|ακινητ|квартир|апартамент|\bapartments?\b")
+# Politics, the economy and world news need the travel words in the title.
+# A tag such as "tourism revenue" on an investment story is not enough.
+_TITLE_ONLY_CATS = {"politics", "economy", "world"}
+_CRIME_TOPIC = re.compile(
+    r"\b(murder(?:ed)?|arrest(?:ed)?|crime|police|eviction|stabbing|stabbed|suspect|killed|homicide|fraud)\b"
+    r"|убийств\w*|арест\w*|задержан\w*|полици\w*|выселен\w*|ножев\w*|подозрева\w*"
+    r"|δολοφον\w*|συλληψ\w*|συνεληφθ\w*|αστυνομ\w*|εξωσ\w*|μαχαιρ\w*")
+def _travel_fields(s, titles_only=False):
+    fields=[]
+    for l in LANGS:
+        fields.append(_fold(s["title"][l]))
+        if not titles_only:
+            fields.extend(_fold(k) for k in s["kw"][l])
+    return [f for f in fields if f]
+def _topic_hit(fields, rx, skip_insurance=False):
+    for field in fields:
+        if skip_insurance and _TRAVEL_SKIP.search(field):
+            continue
+        if rx.search(field):
+            return True
+    return False
+def _beach_hit(fields):
+    for field in fields:
+        if _NOT_A_BEACH.search(field):
+            continue
+        if _BEACH_TOPIC.search(field):
+            return True
+    return False
+def _travel_topic(fields):
+    return (_topic_hit(fields, _TRAVEL_TOPIC, skip_insurance=True) or _topic_hit(fields, _AIRPORT_TOPIC)
+            or _beach_hit(fields) or _topic_hit(fields, _CAR_TOPIC) or _topic_hit(fields, _STAY_TOPIC)
+            or _topic_hit(fields, _ESIM_TOPIC) or _topic_hit(fields, _EVENT_TOPIC) or _topic_hit(fields, _TRANSPORT_TOPIC))
+def travel_relevant(s):
+    """Tourism always. Elsewhere, title or tags in any language.
+    Politics, economy and world news match on the title only, so a finance tag does not qualify.
+    A crime story that merely names an airport or a beach stays clear."""
+    if s.get("cat")=="tourism":
+        return True
+    fields=_travel_fields(s)
+    scope=_travel_fields(s, titles_only=True) if s.get("cat") in _TITLE_ONLY_CATS else fields
+    if not _travel_topic(scope) or _topic_hit(fields, _CRIME_TOPIC):
+        return False
+    return True
+def travel_context(s):
+    """Card order. Airport and beach are the explicit cases; car, stay and events are cheap to detect."""
+    fields=_travel_fields(s)
+    titles=_travel_fields(s, titles_only=True)
+    if _topic_hit(titles, _ESIM_TOPIC): return "esim"
+    if _topic_hit(titles, _CAR_TOPIC): return "car"
+    if _topic_hit(titles, _STAY_TOPIC): return "stay"
+    if _topic_hit(fields, _AIRPORT_TOPIC): return "airport"
+    if _beach_hit(fields): return "beach"
+    if _topic_hit(titles, _TRANSPORT_TOPIC): return "transfer"
+    if _topic_hit(fields, _EVENT_TOPIC): return "event"
+    return "default"
+_TICO = {
+ "car":'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 15h16M6.2 15 8 9.6A1.6 1.6 0 0 1 9.5 8.4h5a1.6 1.6 0 0 1 1.5 1.2L17.8 15"/><circle cx="8" cy="16.6" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="16.6" r="1.5" fill="currentColor" stroke="none"/></svg>',
+ "plane":'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="m21.2 13.1-7.6-2.1-.3-6.2a1.15 1.15 0 0 0-2.3 0l-.2 6.2-7.8 2.1v1.7l7.6-1.3v4.4l-2.1 1.5v1.5l3.7-1.1 3.7 1.1v-1.5l-2.1-1.5v-4.4l7.4 1.3z"/></svg>',
+ "taxi":'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="currentColor" d="M9 5h6v2.4H9z"/><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 15h16M6.2 15 8 10h8l1.8 5"/><circle cx="8" cy="16.7" r="1.5" fill="currentColor" stroke="none"/><circle cx="16" cy="16.7" r="1.5" fill="currentColor" stroke="none"/></svg>',
+ "pin":'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" d="M12 21s6-5.1 6-10a6 6 0 1 0-12 0c0 4.9 6 10 6 10z"/><circle cx="12" cy="11" r="2.1" fill="currentColor" stroke="none"/></svg>',
+ "ticket":'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M4 8.5A2 2 0 0 0 6 7h12a2 2 0 0 0 2 1.5 2 2 0 0 1 0 4A2 2 0 0 0 18 17H6a2 2 0 0 0-2-1.5 2 2 0 0 1 0-4z"/><path stroke="currentColor" stroke-width="1.8" stroke-dasharray="1.5 2.2" d="M12 7.5v9"/></svg>',
+ "sim":'<svg viewBox="0 0 24 24" width="20" height="20" aria-hidden="true"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linejoin="round" d="M7 3.5h6.2L18.5 8.8V20.5H7z"/><rect x="9.2" y="11" width="5.6" height="5.2" rx="1" fill="none" stroke="currentColor" stroke-width="1.6"/></svg>',
+}
+# Six cards. The seventh offer is dropped when it is the least useful for that story.
+TRAVEL_OFFERS = (
+ ("localrent","https://localrent.tpx.lt/XVEtrVFd","car",{"en":"Car rental","ru":"Аренда авто","el":"Αυτοκίνητο"}),
+ ("welcome","https://tpx.lt/HeqeBOtK","plane",{"en":"Larnaca transfer","ru":"Трансфер из Ларнаки","el":"Μεταφορά Λάρνακας"}),
+ ("kiwitaxi","https://kiwitaxi.tpx.lt/TTuXoyTH","taxi",{"en":"Cyprus transfers","ru":"Трансферы","el":"Μεταφορές"}),
+ ("klook","https://klook.tpx.lt/xtutlwca","pin",{"en":"Tours","ru":"Экскурсии","el":"Εκδρομές"}),
+ ("tiqets","https://tiqets.tpx.lt/PUqK4uu8","ticket",{"en":"Tickets","ru":"Билеты","el":"Εισιτήρια"}),
+ ("airalo","https://airalo.tpx.lt/Z3nl2F1z","sim",{"en":"eSIM","ru":"eSIM","el":"eSIM"}),
+ ("aviasales","https://aviasales.tpx.lt/45iBpc4b","plane",{"en":"Flights","ru":"Авиабилеты","el":"Πτήσεις"}),
+)
+TRAVEL_OFFER = {item[0]: item for item in TRAVEL_OFFERS}
+TRAVEL_ORDER = {
+ "airport": ("welcome","aviasales","airalo","kiwitaxi","localrent","klook"),
+ "beach": ("klook","localrent","tiqets","aviasales","airalo","kiwitaxi"),
+ "car": ("localrent","klook","kiwitaxi","welcome","aviasales","airalo"),
+ "stay": ("localrent","klook","aviasales","welcome","airalo","tiqets"),
+ "esim": ("airalo","aviasales","welcome","kiwitaxi","klook","localrent"),
+ "transfer": ("kiwitaxi","welcome","localrent","aviasales","airalo","klook"),
+ "event": ("tiqets","klook","localrent","kiwitaxi","aviasales","airalo"),
+ "default": ("klook","tiqets","localrent","aviasales","airalo","kiwitaxi"),
+}
+TRAVEL_BOX = {
+ "en": ("Travel in Cyprus", "Affiliate links", ": we may earn a commission at no extra cost to you."),
+ "ru": ("Путешествие по Кипру", "Партнёрские ссылки", ": мы можем получить комиссию без доплаты для вас."),
+ "el": ("Ταξίδι στην Κύπρο", "Σύνδεσμοι συνεργατών", ": ενδέχεται να λάβουμε προμήθεια χωρίς επιπλέον χρέωση για εσάς."),
+}
+def travel_box_html(l, context):
+    title, lead, rest = TRAVEL_BOX[l]
+    keys = TRAVEL_ORDER[context]
+    if len(keys) < 4 or len(keys) > 6:
+        raise SystemExit(f"travel block context {context} needs 4 to 6 cards")
+    cards=[]
+    for key in keys:
+        _id, url, icon, labels = TRAVEL_OFFER[key]
+        cards.append(
+            f'<li><a href="{e(url)}" target="_blank" rel="sponsored nofollow noopener">'
+            f'{_TICO[icon]}<span>{e(labels[l])}</span></a></li>')
+    disc=href(f"/{l}/affiliate-disclosure/")
+    return (f'<aside class="travelbox" data-travel="{e(context)}" aria-label="{e(title)}">'
+            f'<h2>{e(title)}</h2><ul class="travelcards">{"".join(cards)}</ul>'
+            f'<p class="fine"><a href="{disc}">{e(lead)}</a>{e(rest)}</p></aside>')
+def travel_box(l, s):
+    if not travel_relevant(s): return ""
+    return travel_box_html(l, travel_context(s))
 def affiliate_href(key, query=None):
     """Partner URL from the config. A query fills that partner's {query} search pattern."""
     if key not in AFFILIATES:
@@ -1797,6 +1964,7 @@ def page_article(l,s):
     if s["kw"][l]:
         h+=f'<h2 style="font-size:16px;margin:0 0 8px">{u["tags"]}</h2><ul class="tags">'+"".join(f'<li>{e(k)}</li>' for k in s["kw"][l])+'</ul>'
     h+=f'<p class="langsw">'+" ".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS if x!=l)+'</p>'
+    h+=travel_box(l, s)
     widget=partner_widget(l,s)
     amazon=amazon_block(l,s)
     h+=widget
@@ -2299,7 +2467,7 @@ def page_travel(l):
         breadcrumb_ld([(UI[l]["crumb_home"], f"/{l}/"), (TRAVEL_MENU[l], path)])]
     h=head(l, f'{title} | {SITE}', desc, [title, "Cyprus", SITE], path, pathfn, "/assets/og-default.jpg", jsonld=ld)
     h+=header(l, pathfn, "travel")
-    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(title)}</h1><p class="leadin">{e(desc)}</p><div class="fmts">{"".join(cards)}</div></article></main>'+footer(l)
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(title)}</h1><p class="leadin">{e(desc)}</p><div class="fmts">{"".join(cards)}</div>{travel_box_html(l, "default")}</article></main>'+footer(l)
     return h
 def page_events(l):
     u=EVL[l]; pathfn=lambda x:f"/{x}/events/"
