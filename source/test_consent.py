@@ -116,6 +116,53 @@ class ConsentTests(unittest.TestCase):
         self.assertNotIn("youtube.com", build.header("en", lambda x: f"/{x}/"))
         self.assertNotIn("youtube.com", " ".join(build.same_as()))
 
+    def test_threads_profile_is_linked_beside_the_other_social_profiles(self):
+        url = "https://www.threads.com/@cynews24"
+        icon = "M18.263 11.097"
+        self.assertEqual(build.THREADS_URL, url)
+        self.assertIn(url, build.same_as())
+        self.assertLess(build.same_as().index("https://www.instagram.com/cynews24/"), build.same_as().index(url))
+        for lang in ("ru", "en", "el"):
+            self.assertIn(url, build.org_ld(lang)["sameAs"])
+            for html in (build.header(lang, lambda x: f"/{x}/"), build.footer_social(lang)):
+                self._threads_link_ok(html, url, icon)
+            footer = build.footer_social(lang)
+            self.assertLess(footer.find("https://t.me/cynews24"), footer.find("https://www.instagram.com/cynews24/"))
+            self.assertLess(footer.find("https://www.instagram.com/cynews24/"), footer.find(url))
+            self.assertNotIn("facebook.com", footer)
+        with mock.patch.object(build, "mycytax_catalog", return_value=object()), \
+             mock.patch.object(build.mycytax, "projects_html", return_value=""):
+            for lang in ("ru", "en", "el"):
+                about = build.page_about(lang)
+                contact = build.page_advertising(lang)
+                advertise = build.page_advertise(lang)
+                for html in (about, contact, advertise):
+                    self._threads_link_ok(html, url, icon)
+                self.assertIn(url, contact)
+                self.assertGreaterEqual(contact.count(url), 2)
+
+    def _threads_link_ok(self, html, url, icon):
+        needle = f'href="{url}"'
+        start = 0
+        found = 0
+        while True:
+            at = html.find(needle, start)
+            if at < 0:
+                break
+            open_end = html.find(">", at)
+            tag = html[html.rfind("<a", 0, at):open_end + 1]
+            close = html.find("</a>", open_end)
+            self.assertIn('target="_blank"', tag)
+            self.assertIn('rel="noopener"', tag)
+            self.assertNotIn("noreferrer", tag)
+            self.assertIn('aria-label="Threads"', tag)
+            inner = html[open_end:close]
+            self.assertIn(icon, inner)
+            self.assertIn('aria-hidden="true"', inner)
+            found += 1
+            start = close
+        self.assertGreaterEqual(found, 1)
+
     def test_homepage_recommends_the_peachick_club(self):
         with mock.patch.object(build, "mycytax_catalog", return_value=object()), \
              mock.patch.object(build.mycytax, "projects_html", return_value=""):
