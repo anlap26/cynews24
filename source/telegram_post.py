@@ -13,6 +13,10 @@ recorded without sending, so enabling the bot later cannot flood the channels.
 TELEGRAM_BOT_TOKEN is the repository secret. When it is missing this script
 logs a notice, leaves the state file untouched and exits 0. DRY_RUN=1 (or
 --dry-run) prints the messages and does not call Telegram or write state.
+
+Telegram sometimes answers sendPhoto by URL with "failed to get HTTP URL content"
+and then keeps failing that same address. The JPEG we already downloaded is
+uploaded instead. A text message is used only when that upload also fails.
 """
 from __future__ import annotations
 
@@ -27,6 +31,7 @@ import sys
 import time
 import urllib.error
 import urllib.request
+import uuid
 from dataclasses import dataclass
 from zoneinfo import ZoneInfo
 
@@ -426,11 +431,16 @@ def http_get(url: str, timeout: float = 20) -> tuple[int, bytes]:
         return 0, b""
 
 
-def http_post(url: str, data: bytes, timeout: float = 30) -> tuple[int, bytes]:
+def http_post(
+    url: str,
+    data: bytes,
+    timeout: float = 30,
+    content_type: str = "application/json; charset=utf-8",
+) -> tuple[int, bytes]:
     request = urllib.request.Request(
         url,
         data=data,
-        headers={"Content-Type": "application/json; charset=utf-8", "User-Agent": USER_AGENT},
+        headers={"Content-Type": content_type, "User-Agent": USER_AGENT},
     )
     try:
         with urllib.request.urlopen(request, timeout=timeout) as response:
@@ -489,6 +499,120 @@ def send_telegram(token: str, payload: dict, *, post, sleep, attempts: int = 4) 
             return False, last
         sleep(retry_after if retry_after is not None else 2)
     return False, last
+
+
+def url_fetch_failed(message: str) -> bool:
+    """True when Telegram could not download the photo URL itself.
+
+    The API keeps that failure for the same address, so a later identical
+    sendPhoto fails again even after the file is publicly available.
+    """
+    text = (message or "").lower()
+    return (
+        "failed to get http url content" in text
+        or "wrong type of the web page content" in text
+        or "failed to get url content" in text
+    )
+
+
+def cache_busted(url: str) -> str:
+    sep = "&" if "?" in url else "?"
+    return f"{url}{sep}v=1"
+
+
+def multipart_body(fields: list[tuple[str, str]], filename: str, content: bytes, mime: str) -> tuple[bytes, str]:
+    boundary = "CyNews24" + uuid.uuid4().hex
+    chunks: list[bytes] = []
+    for name, value in fields:
+        chunks.append(
+            f"--{boundary}\r\nContent-Disposition: form-data; name=\"{name}\"\r\n\r\n".encode("utf-8")
+            + value.encode("utf-8")
+            + b"\r\n"
+        )
+    chunks.append(
+        (
+            f"--{boundary}\r\n"
+            f"Content-Disposition: form-data; name=\"photo\"; filename=\"{filename}\"\r\n"
+            f"Content-Type: {mime}\r\n\r\n"
+        ).encode("utf-8")
+        + content
+        + b"\r\n"
+    )
+    chunks.append(f"--{boundary}--\r\n".encode("utf-8"))
+    return b"".join(chunks), f"multipart/form-data; boundary={boundary}"
+
+
+def send_photo_bytes(token: str, payload: dict, image: bytes, *, post, sleep, attempts: int = 3) -> tuple[bool, str]:
+    """Upload a JPEG so Telegram does not have to fetch the public URL."""
+    body, content_type = multipart_body(
+        [
+            ("chat_id", str(payload["chat_id"])),
+            ("caption", payload.get("caption") or ""),
+            ("parse_mode", payload.get("parse_mode") or "HTML"),
+        ],
+        "photo.jpg",
+        image,
+        "image/jpeg",
+    )
+    url = f"https://api.telegram.org/bot{token}/sendPhoto"
+    last = "no response"
+    for attempt in range(attempts):
+        try:
+            status, raw = post(url, body, content_type=content_type)
+        except Exception as exc:
+            last = redact(str(exc), token)
+            if attempt == attempts - 1:
+                return False, last
+            sleep(2)
+            continue
+        ok, info, retry_after = parse_telegram(status, raw)
+        if ok:
+            return True, info
+        last = redact(info, token)
+        transient = status in {0, 429, 500, 502, 503, 504}
+        if not transient or attempt == attempts - 1:
+            return False, last
+        sleep(retry_after if retry_after is not None else 2)
+    return False, last
+
+
+def text_payload(payload: dict) -> dict:
+    return {
+        "method": "sendMessage",
+        "chat_id": payload["chat_id"],
+        "parse_mode": payload.get("parse_mode") or "HTML",
+        "text": payload.get("caption") or payload.get("text") or "",
+        "link_preview_options": {"is_disabled": False, "url": payload.get("url") or ""},
+        "url": payload.get("url"),
+    }
+
+
+def deliver(token: str, payload: dict, *, post, get, sleep) -> tuple[bool, str]:
+    """Send one post. A photo URL Telegram cannot fetch is uploaded, then sent as text."""
+    ok, info = send_telegram(token, payload, post=post, sleep=sleep)
+    if ok or payload.get("method") != "sendPhoto" or not url_fetch_failed(info):
+        return ok, info
+    photo = payload.get("photo") or ""
+    if photo:
+        busted = dict(payload)
+        busted["photo"] = cache_busted(photo)
+        ok, info = send_telegram(token, busted, post=post, sleep=sleep, attempts=2)
+        if ok:
+            payload["photo"] = busted["photo"]
+            return True, info
+        if not url_fetch_failed(info):
+            return False, info
+        status, image = get(photo)
+        if status == 200 and is_image_ready(image):
+            ok, info = send_photo_bytes(token, payload, image, post=post, sleep=sleep)
+            if ok or not url_fetch_failed(info):
+                return ok, info
+    message = text_payload(payload)
+    ok, info = send_telegram(token, message, post=post, sleep=sleep, attempts=2)
+    if ok:
+        payload.clear()
+        payload.update(message)
+    return ok, info
 
 
 def wait_until_live(action: Action, base: str, *, get, sleep, monotonic, deadline, log) -> bool:
@@ -713,7 +837,7 @@ def main(argv: list[str] | None = None) -> int:
             commit_and_push(ROOT, args.state)
 
     def send(payload: dict) -> tuple[bool, str]:
-        return send_telegram(token, payload, post=http_post, sleep=time.sleep)
+        return deliver(token, payload, post=http_post, get=http_get, sleep=time.sleep)
 
     return execute(
         articles,

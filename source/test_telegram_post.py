@@ -476,6 +476,99 @@ class ExecuteTests(unittest.TestCase):
         self.assertIn("boom", info)
         self.assertEqual(len(calls), 1)
 
+    def test_photo_url_failure_uploads_the_jpeg(self):
+        image = jpeg()
+        calls = []
+
+        def post(url, data, content_type=None):
+            calls.append((url, data, content_type))
+            if content_type is None:
+                return 400, json.dumps({
+                    "ok": False,
+                    "description": "Bad Request: failed to get HTTP URL content",
+                }).encode()
+            self.assertTrue(content_type.startswith("multipart/form-data; boundary="))
+            self.assertIn(b'name="photo"; filename="photo.jpg"', data)
+            self.assertIn(image, data)
+            self.assertIn(b"@cynews24", data)
+            self.assertNotIn(b"token-secret", data)
+            return 200, json.dumps({"ok": True, "result": {"message_id": 9}}).encode()
+
+        payload = {
+            "method": "sendPhoto",
+            "chat_id": "@cynews24",
+            "parse_mode": "HTML",
+            "photo": "https://cynews24.net/assets/img/france-gsi-og.jpg",
+            "caption": "<b>Paris</b>",
+            "url": "https://cynews24.net/ru/france-backs-gsi/",
+        }
+        ok, info = tg.deliver(
+            "token-secret", payload, post=post, get=lambda url: (200, image), sleep=lambda seconds: None,
+        )
+        self.assertTrue(ok)
+        self.assertEqual(info, "9")
+        self.assertEqual(payload["method"], "sendPhoto")
+        json_calls = [item for item in calls if item[2] is None]
+        uploads = [item for item in calls if item[2]]
+        self.assertEqual(len(json_calls), 2)
+        self.assertEqual(len(uploads), 1)
+        self.assertEqual(
+            json.loads(json_calls[1][1].decode())["photo"],
+            "https://cynews24.net/assets/img/france-gsi-og.jpg?v=1",
+        )
+        self.assertIn("/bottoken-secret/sendPhoto", uploads[0][0])
+
+    def test_photo_url_failure_without_a_jpeg_sends_text(self):
+        calls = []
+
+        def post(url, data, content_type=None):
+            calls.append(content_type)
+            body = json.loads(data.decode()) if content_type is None else {}
+            if body.get("method") == "sendMessage" or body.get("text"):
+                return 200, json.dumps({"ok": True, "result": {"message_id": 3}}).encode()
+            return 400, json.dumps({
+                "ok": False,
+                "description": "Bad Request: failed to get HTTP URL content token-secret",
+            }).encode()
+
+        payload = {
+            "method": "sendPhoto",
+            "chat_id": "@cynews24en",
+            "parse_mode": "HTML",
+            "photo": "https://cynews24.net/assets/img/france-gsi-og.jpg",
+            "caption": "<b>Paris</b>",
+            "url": "https://cynews24.net/en/france-backs-gsi/",
+        }
+        ok, info = tg.deliver(
+            "token-secret", payload, post=post, get=lambda url: (200, b"not-a-jpeg"), sleep=lambda seconds: None,
+        )
+        self.assertTrue(ok)
+        self.assertEqual(info, "3")
+        self.assertEqual(payload["method"], "sendMessage")
+        self.assertNotIn("token-secret", info)
+        self.assertEqual(calls, [None, None, None])
+
+    def test_other_photo_errors_are_not_retried_as_uploads(self):
+        calls = []
+
+        def post(url, data, content_type=None):
+            calls.append(content_type)
+            return 400, json.dumps({"ok": False, "description": "Bad Request: caption is too long"}).encode()
+
+        payload = {
+            "method": "sendPhoto",
+            "chat_id": "@cynews24",
+            "photo": "https://cynews24.net/assets/img/france-gsi-og.jpg",
+            "caption": "x",
+            "url": "https://cynews24.net/ru/france-backs-gsi/",
+        }
+        ok, info = tg.deliver(
+            "token-secret", payload, post=post, get=lambda url: (200, jpeg()), sleep=lambda seconds: None,
+        )
+        self.assertFalse(ok)
+        self.assertEqual(calls, [None])
+        self.assertIn("caption", info)
+
     def test_cli_missing_token_keeps_the_file(self):
         with tempfile.TemporaryDirectory() as tmp:
             articles_dir = os.path.join(tmp, "articles")
