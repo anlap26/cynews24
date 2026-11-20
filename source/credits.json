@@ -753,5 +753,96 @@
       0.38
     ],
     "depicts": "The arrivals hall at Larnaca airport"
+  },
+  "fuel-station": {
+    "author": "ToprakM",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Ak%C4%B1nc%C4%B1lar-Louroudjina_petrol_station.jpg",
+    "file": "fuel-station.jpg",
+    "focus": [
+      0.5,
+      0.55
+    ],
+    "depicts": "A petrol station at Louroujina, Cyprus; not an EKO station"
+  },
+  "fitto-portrait": {
+    "author": "European Commission Audiovisual Service",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Raffaele_Fitto_2024_(cropped).jpg",
+    "file": "fitto-portrait.jpg",
+    "focus": [
+      0.5,
+      0.22
+    ],
+    "depicts": "Raffaele Fitto, executive vice-president of the European Commission"
+  },
+  "dhekelia-power": {
+    "author": "eLNuko",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Dhekelia_Power_Station.jpg",
+    "file": "dhekelia-power.jpg",
+    "focus": [
+      0.5,
+      0.48
+    ],
+    "depicts": "Dhekelia power station on the south-east coast of Cyprus"
+  },
+  "tripylos-solar": {
+    "author": "Michal Klajban",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Solar_panels_and_a_tourist_shelter_on_the_top_of_Mt_Tripylos,_Troodos_Mountains,_Cyprus.jpg",
+    "file": "tripylos-solar.jpg",
+    "focus": [
+      0.5,
+      0.55
+    ],
+    "depicts": "Solar panels beside a shelter on Mount Tripylos in the Troodos mountains"
+  },
+  "speed-camera": {
+    "author": "ItzANormalFioko",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Orange_Italian_Speed_Camera.jpg",
+    "file": "speed-camera.jpg",
+    "focus": [
+      0.5,
+      0.42
+    ],
+    "depicts": "An orange speed camera in Italy; not a Cyprus traffic camera"
+  },
+  "asprokremmos-dam": {
+    "author": "Peter in s",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Asprokremmos_Dam_1.jpg",
+    "file": "asprokremmos-dam.jpg",
+    "focus": [
+      0.5,
+      0.5
+    ],
+    "depicts": "Asprokremmos Dam in the Paphos district"
+  },
+  "ypsonas-fields": {
+    "author": "Cypkipras55",
+    "source": "Wikimedia Commons",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Agriculture_in_Ypsonas_village_Limassol_Cyprus_at_sunset_10.jpg",
+    "file": "ypsonas-fields.jpg",
+    "focus": [
+      0.5,
+      0.62
+    ],
+    "depicts": "Farmland near Ypsonas, in the Limassol district, at sunset"
   }
 }
