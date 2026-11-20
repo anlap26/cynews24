@@ -1,0 +1,194 @@
+# Sets the channel descriptions of @cynews24 (Russian) and @cynews24en (English).
+# Manual only. workflow_dispatch is the only trigger, so a push never runs this.
+#
+# For each channel the job calls getChat. If the description does not already
+# contain threads.com/@cynews24, it appends one line and calls setChatDescription.
+# The only Telegram methods used are getChat and setChatDescription. Nothing is
+# posted to either channel.
+#
+# Repository secret: TELEGRAM_BOT_TOKEN (same secret as Post to Telegram,
+# bot @Cynews24_poster_bot). The value is never printed. Telegram allows 255
+# characters. If the appended text would exceed that, the job fails and does
+# not truncate or replace the existing description.
+name: Update Telegram channel descriptions
+
+on:
+  workflow_dispatch:
+
+permissions:
+  contents: none
+
+jobs:
+  update-descriptions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - name: Update channel descriptions
+        env:
+          TELEGRAM_BOT_TOKEN: ${{ secrets.TELEGRAM_BOT_TOKEN }}
+        run: |
+          python3 - <<'PY'
+          import json
+          import os
+          import re
+          import sys
+          import urllib.error
+          import urllib.parse
+          import urllib.request
+
+          LIMIT = 255
+          MARKER = "threads.com/@cynews24"
+          LINE = "🧵 Threads: https://www.threads.com/@cynews24"
+          CHANNELS = ("@cynews24", "@cynews24en")
+          ALLOWED_METHODS = frozenset({"getChat", "setChatDescription"})
+          TOKEN_RE = re.compile(r"\d{6,}:[A-Za-z0-9_-]{20,}")
+
+          class ApiError(Exception):
+              def __init__(self, method, error_code, description):
+                  self.method = method
+                  self.error_code = error_code
+                  self.description = description
+                  super().__init__(f"{method} error_code={error_code}: {description}")
+
+          def redact(text):
+              return TOKEN_RE.sub("[redacted]", text)
+
+          def telegram_len(text):
+              # Telegram counts text-length limits in UTF-16 code units.
+              return len(text.encode("utf-16-le")) // 2
+
+          def show(label, text):
+              print(f"{label} ({len(text)} code points, {telegram_len(text)} UTF-16):")
+              print("---BEGIN---")
+              print(text)
+              print("---END---")
+
+          def append_line(old):
+              if old == "":
+                  return LINE
+              if old.endswith("\n"):
+                  return old + LINE
+              return old + "\n" + LINE
+
+          token = os.environ.get("TELEGRAM_BOT_TOKEN", "")
+          if not token:
+              print("ERROR: TELEGRAM_BOT_TOKEN is not set (value not printed).")
+              sys.exit(1)
+          print("TELEGRAM_BOT_TOKEN is configured (value not printed).")
+
+          def api(method, params):
+              if method not in ALLOWED_METHODS:
+                  print(f"ERROR: refusing to call {method}. This workflow must not send messages.")
+                  sys.exit(1)
+              # The token is placed only in the request URL and is never logged.
+              url = f"https://api.telegram.org/bot{token}/{method}"
+              data = urllib.parse.urlencode(params).encode()
+              request = urllib.request.Request(url, data=data)
+              try:
+                  with urllib.request.urlopen(request, timeout=30) as response:
+                      raw = response.read().decode("utf-8", errors="replace")
+                      status = response.status
+              except urllib.error.HTTPError as exc:
+                  raw = exc.read().decode("utf-8", errors="replace")
+                  status = exc.code
+              except urllib.error.URLError as exc:
+                  reason = redact(str(getattr(exc, "reason", "connection failed")))
+                  raise ApiError(method, 0, f"could not reach Telegram: {reason}") from None
+              try:
+                  body = json.loads(raw)
+              except json.JSONDecodeError:
+                  snippet = redact(raw)[:500]
+                  raise ApiError(method, status, f"non-JSON response: {snippet}")
+              if not isinstance(body, dict) or not body.get("ok"):
+                  if isinstance(body, dict):
+                      error_code = body.get("error_code", status)
+                      description = redact(str(body.get("description", "")))
+                  else:
+                      error_code = status
+                      description = "response was not an object"
+                  raise ApiError(method, error_code, description)
+              return body.get("result")
+
+          failed = False
+          for chat in CHANNELS:
+              print(f"=== {chat} ===")
+              try:
+                  info = api("getChat", {"chat_id": chat})
+              except ApiError as exc:
+                  print(
+                      f"ERROR: could not read {chat}: {exc.method} "
+                      f"error_code={exc.error_code}: {exc.description}"
+                  )
+                  failed = True
+                  continue
+              if not isinstance(info, dict):
+                  print(f"ERROR: getChat for {chat} returned an unexpected result.")
+                  failed = True
+                  continue
+              print(
+                  f"title={info.get('title')!r} username={info.get('username')!r} "
+                  f"type={info.get('type')!r}"
+              )
+              old = info.get("description") or ""
+              if not isinstance(old, str):
+                  print(f"ERROR: description for {chat} is not a string.")
+                  failed = True
+                  continue
+              show("old description", old)
+              if MARKER in old:
+                  print(
+                      f"{chat} already contains {MARKER!r}; "
+                      "setChatDescription was not called."
+                  )
+                  show("new description", old)
+                  continue
+              new = append_line(old)
+              new_units = telegram_len(new)
+              if new_units > LIMIT or len(new) > LIMIT:
+                  print(
+                      f"ERROR: new description for {chat} would be {new_units} UTF-16 "
+                      f"code units ({len(new)} code points), over Telegram's "
+                      f"{LIMIT}-character limit. Existing text was not truncated "
+                      "and setChatDescription was not called."
+                  )
+                  show("rejected new description", new)
+                  failed = True
+                  continue
+              show("new description", new)
+              try:
+                  api("setChatDescription", {"chat_id": chat, "description": new})
+              except ApiError as exc:
+                  print(
+                      f"ERROR: could not update {chat}: {exc.method} "
+                      f"error_code={exc.error_code}: {exc.description}"
+                  )
+                  failed = True
+                  continue
+              print(f"setChatDescription succeeded for {chat}.")
+              try:
+                  confirmed_info = api("getChat", {"chat_id": chat})
+              except ApiError as exc:
+                  print(
+                      f"ERROR: setChatDescription succeeded for {chat}, but the "
+                      f"confirmation getChat failed: {exc.method} "
+                      f"error_code={exc.error_code}: {exc.description}"
+                  )
+                  failed = True
+                  continue
+              confirmed = ""
+              if isinstance(confirmed_info, dict):
+                  confirmed = confirmed_info.get("description") or ""
+              show("confirmed description", confirmed)
+              if confirmed != new:
+                  print(
+                      f"ERROR: Telegram stored a different description for {chat} "
+                      "than the one sent. Existing text was not truncated by this job."
+                  )
+                  failed = True
+                  continue
+              print(f"{chat} description updated. No message was sent.")
+
+          if failed:
+              sys.exit(1)
+          print("Done. Both channel descriptions were checked. No messages were sent.")
+          PY
