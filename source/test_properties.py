@@ -113,6 +113,41 @@ class PropertyTests(unittest.TestCase):
             self.assertIn('content="noindex,follow"', build.page_advertise_thanks(lang))
             self.assertIn('content="noindex,follow"', build.page_property_consult_thanks(lang))
 
+    def test_russian_listing_copy(self):
+        listings = {p["id"]: p for p in build.published_listings()}
+        bellissimo = listings["bellissimo"]
+        olivia = listings["olivia"]
+        city = listings["the-city-home-2"]
+        bell_card = build.listing_card(bellissimo, "ru")
+        olivia_card = build.listing_card(olivia, "ru")
+        city_card = build.listing_card(city, "ru")
+        self.assertIn("<h3>Вилла Bellissimo</h3>", bell_card)
+        self.assertNotIn('<span class="cat">Вилла</span>', bell_card)
+        self.assertIn("3 спальни", bell_card)
+        self.assertNotIn("3 спален", bell_card)
+        self.assertIn("<h3>Особняк Olivia</h3>", olivia_card)
+        self.assertIn('<span class="cat">Вилла</span>', olivia_card)
+        self.assertIn("6 спален", olivia_card)
+        self.assertIn("<h3>The City Home 2</h3>", city_card)
+        self.assertIn('<span class="cat">Проект</span>', city_card)
+        self.assertIn("3 спальни", city_card)
+        self.assertNotIn("3 спален", city_card)
+        bell_page = build.page_listing("ru", bellissimo)
+        olivia_page = build.page_listing("ru", olivia)
+        self.assertNotIn('<p class="cat">Вилла</p>', bell_page)
+        self.assertIn("<h1>Вилла Bellissimo</h1>", bell_page)
+        self.assertIn("3 спальни", bell_page)
+        self.assertIn('<p class="cat">Вилла</p>', olivia_page)
+        self.assertIn("Крытая жилая площадь", olivia_page)
+        self.assertNotIn("Крылая", olivia_page)
+        self.assertEqual(
+            [build._bedroom_phrase(n, "ru") for n in (1, 2, 3, 4, 5, 11, 12, 14, 21, 22)],
+            ["1 спальня", "2 спальни", "3 спальни", "4 спальни", "5 спален",
+             "11 спален", "12 спален", "14 спален", "21 спальня", "22 спальни"],
+        )
+        self.assertIn("3 bedrooms", build.listing_card(bellissimo, "en"))
+        self.assertIn('<span class="cat">Villa</span>', build.listing_card(bellissimo, "en"))
+
     def test_whatsapp_button_appears_only_with_a_stored_number(self):
         villa = dict(next(p for p in build.published_listings() if p["id"] == "olivia"))
         villa["contact"] = {"whatsapp": "35799111222"}

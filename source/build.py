@@ -1216,6 +1216,34 @@ def _prop_price(p, l):
     if p.get("vat_excluded"):
         text=text+" "+LISTING_UI[l]["vat"]
     return text
+def _title_opens_with(title, label):
+    """True when the title already begins with the type, so a second label would repeat it."""
+    title=(title or "").casefold().strip()
+    label=(label or "").casefold().strip()
+    if not label or not title.startswith(label):
+        return False
+    rest=title[len(label):]
+    return rest=="" or not rest[0].isalnum()
+def _bedroom_phrase(n, l):
+    """Russian bedroom counts: 1 спальня, 2–4 спальни, 5+ спален, with 11–14 on спален."""
+    if l!="ru":
+        return f'{n} {LISTING_UI[l]["beds"]}'
+    try:
+        num=int(n)
+    except (TypeError, ValueError):
+        return f'{n} {LISTING_UI["ru"]["beds"]}'
+    if isinstance(n, float) and not n.is_integer():
+        return f'{n} {LISTING_UI["ru"]["beds"]}'
+    if isinstance(n, str) and n.strip()!=str(num):
+        return f'{n} {LISTING_UI["ru"]["beds"]}'
+    mod10, mod100 = abs(num)%10, abs(num)%100
+    if mod10==1 and mod100!=11:
+        word="спальня"
+    elif mod10 in (2, 3, 4) and mod100 not in (12, 13, 14):
+        word="спальни"
+    else:
+        word="спален"
+    return f"{num} {word}"
 def _prop_facts(p, l):
     u=LISTING_UI[l]
     bits=[]
@@ -1225,7 +1253,7 @@ def _prop_facts(p, l):
     if place:
         bits.append(place)
     if p.get("bedrooms") not in (None, ""):
-        bits.append(f'{p["bedrooms"]} {u["beds"]}')
+        bits.append(_bedroom_phrase(p["bedrooms"], l))
     if p.get("area_m2") not in (None, ""):
         bits.append(f'{p["area_m2"]} {u["area"]}')
     return " · ".join(bits)
@@ -1266,10 +1294,12 @@ def listing_card(p, l):
     img=_listing_img(p, 0, l)
     media=f'<a class="img" href="{link}" tabindex="-1">{img}</a>' if img else ""
     kind=_prop_label(PROP_TYPES, l, p.get("type"))
+    title=_loc(p["title"], l)
+    cat="" if _title_opens_with(title, kind) else f'<span class="cat">{e(kind)}</span>'
     status=_prop_label(PROP_STATUS, l, p.get("status"))
     price=_prop_price(p, l)
     return (f'<article class="pcard">{media}<div class="pad"><span class="pstatus">{e(status)}</span>'
-            f'<span class="cat">{e(kind)}</span><a href="{link}"><h3>{e(_loc(p["title"], l))}</h3></a>'
+            f'{cat}<a href="{link}"><h3>{e(title)}</h3></a>'
             f'<p class="price">{e(price)}</p><p class="facts">{e(_prop_facts(p, l))}</p>'
             f'{listing_request_links(p, l, link+"#lead")}</div></article>')
 # Editorial cards under the ATEX listings. Not inventory, and not links to the developer.
@@ -1440,7 +1470,9 @@ def page_listing(l, p):
     h=head(l, f"{title} | {CATN[l]['real-estate']} | {SITE}", desc or title, [title, CATN[l]["real-estate"], SITE], path, pathfn, "/assets/og-default.jpg", jsonld=ld)
     h+=header(l, pathfn, "real-estate")
     h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{UI[l]["crumb_home"]}</a> › <a href="{href(f"/{l}/real-estate/")}">{CATN[l]["real-estate"]}</a></nav>'
-    h+=f'<article class="adpage"><p class="cat">{e(_prop_label(PROP_TYPES, l, p.get("type")))}</p><h1>{e(title)}</h1>'
+    kind=_prop_label(PROP_TYPES, l, p.get("type"))
+    cat="" if _title_opens_with(title, kind) else f'<p class="cat">{e(kind)}</p>'
+    h+=f'<article class="adpage">{cat}<h1>{e(title)}</h1>'
     h+=f'<p class="leadin">{e(price)}</p>{listing_request_links(p, l, "#lead")}'
     h+=f'<p class="meta">{e(_prop_facts(p, l))} · {e(_prop_label(PROP_STATUS, l, p.get("status")))}</p>'
     h+=gallery+f'<div class="body">{paras}</div><h2>{e(u["contact"])}</h2>{listing_cta(p, l)}{listing_form(l, p)}</article></main>'+footer(l)
