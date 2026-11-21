@@ -1,6 +1,12 @@
 {
   "note": "Slugs already handled for Telegram. ru is @cynews24 (link /ru/), en is @cynews24en (link /en/). A language entry means do not post again. Missing en means the English text was not posted yet.",
   "posted": {
+    "avakoum-monastery-receipts": {
+      "ru": {
+        "at": "2026-11-21T08:14:12Z",
+        "status": "sent"
+      }
+    },
     "camera-fines-180-days": {
       "en": {
         "at": "2026-11-20T07:34:19Z",
