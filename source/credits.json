@@ -934,5 +934,45 @@
     "file": "paphos-castle-night.jpg",
     "focus": [0.5, 0.38],
     "depicts": "Paphos castle floodlit at night, seen from the harbour. It does not show the complainant or the call"
+  },
+  "pyrgos-limassol": {
+    "author": "Elie El Hayek",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Pyrgos,_Cyprus_-_panoramio.jpg",
+    "file": "pyrgos-limassol.jpg",
+    "focus": [0.5, 0.48],
+    "depicts": "Pyrgos in the Limassol district in March 2012. It is not the YOO Limassol site"
+  },
+  "limassol-promenade-2012": {
+    "author": "Radosław Botev",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0 pl",
+    "license_url": "https://creativecommons.org/licenses/by/3.0/pl/",
+    "page": "https://commons.wikimedia.org/wiki/File:Limassol_promenade_Cyprus_(1).jpg",
+    "file": "limassol-promenade-2012.jpg",
+    "focus": [0.5, 0.55],
+    "depicts": "The public promenade in Limassol in November 2012. It is not Limassol Blu Marine"
+  },
+  "limassol-molos": {
+    "author": "Mboesch",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Lemesos-seafront.jpg",
+    "file": "limassol-molos.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "The Molos promenade in Limassol in October 2021. It is not the ONE tower"
+  },
+  "tsada-village": {
+    "author": "greglaskiewicz",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Tsada,_Cyprus_-_panoramio_(1).jpg",
+    "file": "tsada-village.jpg",
+    "focus": [0.5, 0.42],
+    "depicts": "Tsada in the Paphos district in January 2014. It is not a Minthis Residences house"
   }
 }
