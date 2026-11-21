@@ -874,5 +874,65 @@
     "file": "limassol-skyline.jpg",
     "focus": [0.45, 0.58],
     "depicts": "The Limassol skyline in June 2022. It is not the KEAN site"
+  },
+  "pallouriotissa-fire": {
+    "author": "The joy of all things",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:DFRMO_fire_Engine_at_Troodos.jpg",
+    "file": "pallouriotissa-fire.jpg",
+    "focus": [0.42, 0.55],
+    "depicts": "A DFRMO fire engine at Troodos, from the British bases. It is not a Nicosia Fire Service vehicle and not the Pallouriotissa venue"
+  },
+  "limassol-old-town": {
+    "author": "Tech bro",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Limassol_Old_Town_19.JPG",
+    "file": "limassol-old-town.jpg",
+    "focus": [0.5, 0.62],
+    "depicts": "A shopping street in old Limassol in 2012. It is not a named employer and not an employment agency"
+  },
+  "cyprus-police-car": {
+    "author": "Dickelbers",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Police_car_of_Cyprus_02.JPG",
+    "file": "cyprus-police-car.jpg",
+    "focus": [0.48, 0.45],
+    "depicts": "A Cyprus Police car by a harbour. It is not a photograph of the overnight operation of 21 November 2026"
+  },
+  "nicosia-supreme-court": {
+    "author": "NicosiaRepublicCyprus",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Cyprus_Supreme_Court_buildings_junction_next_to_Parliament_Nicosia_Republic_of_Cyprus.jpg",
+    "file": "nicosia-supreme-court.jpg",
+    "focus": [0.62, 0.55],
+    "depicts": "The Supreme Court buildings beside parliament in Nicosia. This is not the permanent criminal court hearing the Avakoum case"
+  },
+  "toyota-corolla-2005": {
+    "author": "Jayme Kimball",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2005_Toyota_Corolla_1.4_T3.jpg",
+    "file": "toyota-corolla-2005.jpg",
+    "focus": [0.48, 0.55],
+    "depicts": "A 2005 Toyota Corolla built for the British market. It is not one of the 249 vehicles on the Cyprus recall list"
+  },
+  "paphos-castle-night": {
+    "author": "Punteador",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Paphos_Castle_%E2%80%93_floodlit_at_night_from_the_harbour.jpg",
+    "file": "paphos-castle-night.jpg",
+    "focus": [0.5, 0.38],
+    "depicts": "Paphos castle floodlit at night, seen from the harbour. It does not show the complainant or the call"
   }
 }
