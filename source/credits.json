@@ -974,5 +974,18 @@
     "file": "tsada-village.jpg",
     "focus": [0.5, 0.42],
     "depicts": "Tsada in the Paphos district in January 2014. It is not a Minthis Residences house"
+  },
+  "kakopetria-village": {
+    "author": "Petros3",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Kakopetria_village_and_Troodos_Mountains_in_the_background_Republic_of_Cyprus.jpg",
+    "file": "kakopetria-village.jpg",
+    "focus": [
+      0.5,
+      0.48
+    ],
+    "depicts": "A view of Kakopetria village with the Troodos mountains behind it, in August 2011. It is not a photograph of the hotel and not the scene of the incident"
   }
 }
