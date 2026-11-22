@@ -72,6 +72,7 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `limassol-old-town` | A shopping street in old Limassol in 2012. It is not a named employer and not an employment agency | Tech bro | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Limassol_Old_Town_19.JPG) |
 | `toyota-corolla-2005` | A 2005 Toyota Corolla built for the British market. It is not one of the 249 vehicles on the Cyprus recall list | Jayme Kimball | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2005_Toyota_Corolla_1.4_T3.jpg) |
 | `pyrgos-limassol` | Pyrgos in the Limassol district in March 2012. It is not the YOO Limassol site | Elie El Hayek | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pyrgos,_Cyprus_-_panoramio.jpg) |
+| `kakopetria-village` | A view of Kakopetria village with the Troodos mountains behind it, in August 2011. It is not a photograph of the hotel and not the scene of the incident | Petros3 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kakopetria_village_and_Troodos_Mountains_in_the_background_Republic_of_Cyprus.jpg) |
 
 ## Event photographs
 
