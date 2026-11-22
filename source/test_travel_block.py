@@ -32,6 +32,7 @@ HIDE = (
     "november-17-blackout-rumour",
     "kyrenia-3-satellite",
     "microsoft-outage-second-day",
+    "kakopetria-student-death",
 )
 DISCLOSURE = {
     "en": "Affiliate links: we may earn a commission at no extra cost to you.",
