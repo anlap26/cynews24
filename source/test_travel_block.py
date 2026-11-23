@@ -14,6 +14,7 @@ SHOW = {
     "tourist-arrivals-october",
     "where-to-stay-in-cyprus",
     "weekend-events-14-15-november",
+    "short-term-rental-bed-cap",
 }
 HIDE = (
     "nicosia-murder-massage-parlour",

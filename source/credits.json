@@ -987,5 +987,18 @@
       0.48
     ],
     "depicts": "A view of Kakopetria village with the Troodos mountains behind it, in August 2011. It is not a photograph of the hotel and not the scene of the incident"
+  },
+  "short-term-rental-bed-cap": {
+    "author": "A.Savin",
+    "source": "Wikimedia Commons",
+    "license": "Free Art License",
+    "license_url": "https://artlibre.org/licence/lal/en/",
+    "page": "https://commons.wikimedia.org/wiki/File:Larnaca_01-2017_img14_Finikoudes.jpg",
+    "file": "short-term-rental-bed-cap.jpg",
+    "focus": [
+      0.5,
+      0.48
+    ],
+    "depicts": "Finikoudes promenade in Larnaca"
   }
 }
