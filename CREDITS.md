@@ -74,7 +74,7 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `pyrgos-limassol` | Pyrgos in the Limassol district in March 2012. It is not the YOO Limassol site | Elie El Hayek | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Pyrgos,_Cyprus_-_panoramio.jpg) |
 | `kakopetria-village` | A view of Kakopetria village with the Troodos mountains behind it, in August 2011. It is not a photograph of the hotel and not the scene of the incident | Petros3 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Kakopetria_village_and_Troodos_Mountains_in_the_background_Republic_of_Cyprus.jpg) |
 | `short-term-rental-bed-cap` | Finikoudes promenade in Larnaca | A.Savin | [Free Art License](https://artlibre.org/licence/lal/en/) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Larnaca_01-2017_img14_Finikoudes.jpg) |
-| `v-limasole-v-belykh-odezhdakh-prostilis-s-17-letney-shkolnitsey` | Original illustration kept | — | — | — |
+| `limassol-funeral-schoolgirl-kakopetria` | Original illustration kept | — | — | — |
 
 ## Event photographs
 
