@@ -1535,8 +1535,8 @@ _MD_LINK = re.compile(r"\[([^\]\n]+)\]\((https?://[^\s)]+|/[^)\s]+)\)")
 _OFFER_RE = re.compile(r"^\{\{offer:([a-z0-9]+)\}\}$")
 _TRAVEL_RE = re.compile(r"^\{\{travel:([A-Z0-9_]+)\|([^\n}]+)\}\}$")
 def _ext_rel(url):
-    """Temu affiliate links are sponsored. Other outbound links stay ordinary."""
-    if "temu.to/" in url or "://temu.to" in url:
+    """Temu and Travelpayouts links are sponsored. Other outbound links stay ordinary."""
+    if "temu.to/" in url or "://temu.to" in url or "tpx.lt" in url:
         return "sponsored nofollow noopener"
     return "noopener"
 def linkify(text):
@@ -1830,6 +1830,10 @@ def render_body(l, s):
             continue
         if p.startswith("## "):
             parts.append(f'<h2>{render_inline(p[3:].strip())}</h2>')
+            continue
+        lone = _MD_LINK.fullmatch(p.strip())
+        if lone and "tpx.lt" in lone.group(2):
+            parts.append(f'<p class="affbtns"><a class="affbtn" href="{e(lone.group(2))}" rel="sponsored nofollow noopener" target="_blank">{e(lone.group(1))}</a></p>')
             continue
         parts.append(f'<p>{render_inline(p)}</p>')
     missing = [key for key in offers if key not in seen]
