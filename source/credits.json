@@ -1000,5 +1000,15 @@
       0.48
     ],
     "depicts": "Finikoudes promenade in Larnaca"
+  },
+  "child-smartphone": {
+    "author": "Shixart1985",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Child_uses_smartphone_to_play_games_at_home_closeup.jpg",
+    "file": "child-smartphone.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "A child holding a smartphone. It is not a photograph taken in Cyprus"
   }
 }
