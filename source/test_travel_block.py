@@ -8,6 +8,7 @@ import build
 LANGS = ("ru", "en", "el")
 SHOW = {
     "best-things-to-do-cyprus-2026",
+    "cyprus-airport-transfers-2026",
     "esim-mobile-data-cyprus",
     "nicosia-christmas-market-2026",
     "renting-a-car-in-cyprus",
