@@ -1,0 +1,98 @@
+{
+  "slug": "jobs-and-pay-cyprus",
+  "cat": "economy",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "limassol-skyline",
+  "sources": [
+    {
+      "name": "Statistical Service of Cyprus",
+      "url": "https://www.cystat.gov.cy/"
+    },
+    {
+      "name": "Ministry of Labour and Social Insurance",
+      "url": "https://www.mlsi.gov.cy/"
+    },
+    {
+      "name": "PwC Cyprus, Tax Facts and Figures 2026, social insurance",
+      "url": "https://www.pwc.com.cy/en/publications/assets/tff-eng-2026.pdf"
+    },
+    {
+      "name": "Health Insurance Organisation, financing",
+      "url": "https://www.gesy.org.cy/sites/Sites?d=Desktop&locale=en_US&lookuphost=%2Fen-us%2F&lookuppage=hiofinancing"
+    }
+  ],
+  "en": {
+    "title": "Jobs and pay in Cyprus: what is published, and who is allowed to work",
+    "lede": "Cystat publishes earnings statistics. It does not publish a salary for your offer. Social insurance, in PwC's 2026 summary, is 8.8 percent from the employee and 8.8 percent from the employer, up to a ceiling. A right to work depends on the passport.",
+    "desc": "Jobs and pay in Cyprus: no invented salaries. Social insurance at 8.8 percent in PwC's 2026 summary, GeSY on top, and who may work.",
+    "alt": "The Limassol seafront and towers",
+    "kw": [
+      "jobs in Cyprus",
+      "salary Cyprus 2026",
+      "minimum wage Cyprus",
+      "social insurance Cyprus",
+      "work permit Cyprus"
+    ],
+    "faq": [
+      {
+        "q": "What is the average salary?",
+        "a": "Cystat publishes earnings releases. This page does not copy a figure from a table it has not reproduced, because the next release replaces it. Read the current Cystat table for the occupation you mean."
+      },
+      {
+        "q": "What is the minimum wage?",
+        "a": "The Ministry of Labour sets it by decree. The number changes. This page does not print a euro amount that might already be the previous decree. Read the Ministry's current text before you sign."
+      },
+      {
+        "q": "What comes off a legal payslip?",
+        "a": "PwC's 2026 booklet states social insurance at 8.8 percent for the employee and 8.8 percent for the employer, on earnings up to €68,904 in 2026. GeSY adds 2.65 percent for the employee and 2.90 percent for the employer, on the HIO's page. Other employer funds exist. A cash wage with none of these is not the legal payslip."
+      },
+      {
+        "q": "Can I work on a visitor permit or a nomad permit?",
+        "a": "No. The relocation guide says a pink slip is not permission to work. The nomad scheme forbids work for a Cyprus employer or a Cyprus client. EU citizens use the registration route and may work. A third-country job needs its own permit."
+      },
+      {
+        "q": "Is a 50 percent tax exemption automatic?",
+        "a": "No. PwC describes conditions for a first-employment exemption. They are summarised in the non-dom guide as conditions, not as a result. Do not let an employer deduct it before you have read the text."
+      }
+    ],
+    "body": "A job search that starts with \"salaries in Cyprus\" wants one number. The Statistical Service publishes earnings statistics by release, not a wage for the offer in your inbox. This guide points at the releases and then at the deductions that a legal job actually carries. It does not rank employers and it does not invent a monthly pay for a developer, a nurse or a waiter.\n\n## Earnings, and the minimum\n\nCystat is the office that publishes average earnings. Use the latest release, and read which population it covers. An average for an entire economy is not the pay in one sector, and a sector average is not your contract. The Ministry of Labour and Social Insurance publishes the national minimum wage by decree. Decrees are replaced. A figure copied into a guide becomes the previous decree the week the Ministry signs a new one. That is why this page refuses the number and sends you to mlsi.gov.cy. If an employer quotes the minimum, ask to see the decree they are using.\n\n[The cost of living guide](/en/cost-of-living-cyprus-2026/) explains why that wage, even once you have it, is not a budget. Rent is a separate contract.\n\n## What a payslip is made of\n\nPwC's Tax Facts and Figures 2026 states social-insurance contributions at 8.8 percent for the employee and 8.8 percent for the employer, applied up to a maximum. The maximum level of emoluments for 2026, in that booklet, is €68,904, which it also states as €1,325 a week and €5,742 a month. The same booklet says the 8.8 percent rate applies from 1 January 2024 for five years. It lists further employer contributions: a social cohesion fund at 2 percent with no maximum, a redundancy fund at 1.2 percent, an industrial training fund at 0.5 percent, and a holiday fund at 8 percent where the employer is not exempt. Those are PwC's statements of the funds. The Social Insurance Services are the collector. A payslip that shows none of this, paid in cash with a promise to \"sort the stamps later\", is not the scheme the booklet describes.\n\nGeSY sits on top for people in the categories that pay it. The Health Insurance Organisation's rates, 2.65 percent from the employee and 2.90 percent from the employer, are in [GeSY for foreigners](/en/gesy-for-foreigners/). Income tax is a third line, and only if the person is taxable. Bands and residence are in [tax residency](/en/cyprus-tax-residency-2026/). A first-job exemption of 50 percent, where PwC describes it, has conditions. They are not applied by the fact of moving. See [the non-dom guide](/en/cyprus-non-dom-tax-2026/) and then the statute.\n\n## Who is allowed to take the job\n\nAn EU, EEA or Swiss citizen who registers may work. The registration is in [EU residence in Cyprus](/en/eu-residence-cyprus/). A third-country visitor's permit is not a work permit. The site's [relocation guide](/en/relocating-to-cyprus/) says so directly. The digital nomad scheme is remote work for an employer or clients abroad, and it forbids Cyprus clients. It is not a local job. [The nomad guide](/en/cyprus-digital-nomad-visa-2026/) has the Department's wording.\n\nA cap on how long some third-country workers may stay was reported as news, not as a wage. The report is [the four-year cap](/en/third-country-workers-four-year-cap/). Read it if it might apply to the permit you are being offered. A job in a licensed financial firm is not a job in a café. [Fintech jobs and registrations](/en/fintech-jobs-not-registrations/) is the news item. [CySEC](/en/cysec-forex-crypto/) is the licence, which a job offer does not replace.\n\nNothing here is a vacancy. If the pay is only a headline, ask for the payslip lines before you move."
+  },
+  "ru": {
+    "title": "Работа и оплата на Кипре: что публикуют и кому можно работать",
+    "lede": "Cystat публикует статистику заработка. Зарплату из вашего оффера она не публикует. Социальное страхование, в сводке PwC за 2026 год, — 8,8 процента с работника и 8,8 процента с работодателя, до потолка. Право работать зависит от паспорта.",
+    "desc": "Работа и оплата на Кипре: зарплаты не выдуманы. Соцстрах 8,8 процента в сводке PwC 2026, сверху ГЕСИ, и кому можно работать.",
+    "alt": "Набережная и башни Лимассола",
+    "kw": [
+      "работа на Кипре",
+      "зарплата Кипр 2026",
+      "минимальная зарплата Кипр",
+      "социальное страхование Кипр",
+      "разрешение на работу"
+    ],
+    "faq": [
+      {
+        "q": "Какая средняя зарплата?",
+        "a": "Cystat публикует выпуски о заработке. Эта страница не копирует цифру из таблицы, которую не воспроизвела: следующий выпуск её заменит. Читайте текущую таблицу Cystat по той занятости, которая вам нужна."
+      },
+      {
+        "q": "Какая минимальная зарплата?",
+        "a": "Министерство труда задаёт её указом. Число меняется. Эта страница не печатает сумму в евро, которая может уже относиться к прошлому указу. Перед подписью прочитайте действующий текст министерства."
+      },
+      {
+        "q": "Что снимают с законного расчётного листка?",
+        "a": "Сводка PwC 2026 года называет соцстрах 8,8 процента с работника и 8,8 процента с работодателя, с заработка до €68 904 в 2026 году. ГЕСИ добавляет 2,65 процента с работника и 2,90 процента с работодателя, на странице Организации. Есть и другие фонды работодателя. Зарплата наличными без всего этого — не тот листок."
+      },
+      {
+        "q": "Можно ли работать по гостевому разрешению или по разрешению кочевника?",
+        "a": "Нет. Гид о переезде пишет, что розовый слип — не разрешение работать. Схема кочевника запрещает работу на кипрского работодателя или кипрского клиента. Граждане ЕС идут через регистрацию и работать могут. Работа для гражданина третьей страны требует своё разрешение."
+      },
+      {
+        "q": "Освобождение 50 процентов по налогу автоматическое?",
+        "a": "Нет. PwC описывает условия освобождения при первой работе. В гиде о non-dom они пересказаны как условия, не как результат. Не позволяйте работодателю применять его, пока вы не прочитали текст."
+      }
+    ],
+    "body": "Поиск работы, который начинается со «зарплат на Кипре», хочет одно число. Статистическая служба публикует статистику заработка выпусками, а не оплату из письма в вашем ящике. Этот гид указывает на выпуски и затем на удержания, которые законная работа действительно несёт. Работодателей он не ранжирует и не выдумывает месячную оплату разработчика, медсестры или официанта.\n\n## Заработок и минимум\n\nCystat — ведомство, которое публикует средний заработок. Берите последний выпуск и читайте, кого он покрывает. Среднее по всей экономике — не оплата в одном секторе, а среднее по сектору — не ваш договор. Министерство труда и социального страхования публикует национальную минимальную зарплату указом. Указы заменяют. Цифра, скопированная в гид, становится прошлым указом в ту неделю, когда министерство подписывает новый. Поэтому эта страница отказывается от числа и отправляет на mlsi.gov.cy. Если работодатель называет минимум, попросите указ, которым он пользуется.\n\n[Гид о стоимости жизни](/ru/cost-of-living-cyprus-2026/) объясняет, почему эта оплата, даже когда она у вас есть, — не бюджет. Аренда — отдельный договор.\n\n## Из чего состоит расчётный листок\n\nСводка PwC Tax Facts and Figures 2026 называет взносы социального страхования 8,8 процента с работника и 8,8 процента с работодателя, до максимума. Максимум заработка на 2026 год в этой брошюре — €68 904, она же пишет €1325 в неделю и €5742 в месяц. Там сказано, что ставка 8,8 процента действует с 1 января 2024 года в течение пяти лет. Дальше перечислены взносы работодателя: фонд социальной сплочённости 2 процента без потолка, фонд избыточности 1,2 процента, фонд промышленного обучения 0,5 процента и фонд отпусков 8 процентов, если работодатель не изъят. Это утверждения PwC о фондах. Собирает их служба социального страхования. Листок, где ничего этого нет, а деньги выданы наличными с обещанием «марки потом», — не та схема, которую описывает брошюра.\n\nГЕСИ ложится сверху для тех, кто входит в платящие категории. Ставки Организации, 2,65 процента с работника и 2,90 процента с работодателя, — в гиде [ГЕСИ для иностранцев](/ru/gesy-for-foreigners/). Подоходный налог — третья строка, и только если человек облагается. Полосы и резидентство — в гиде [о налоговом резидентстве](/ru/cyprus-tax-residency-2026/). Освобождение 50 процентов при первой работе, где его описывает PwC, имеет условия. Факт переезда их не применяет. Смотрите [гид о non-dom](/ru/cyprus-non-dom-tax-2026/) и затем статут.\n\n## Кому можно взять эту работу\n\nГражданин ЕС, ЕЭЗ или Швейцарии, который зарегистрировался, работать может. Регистрация — в гиде [проживание в ЕС на Кипре](/ru/eu-residence-cyprus/). Разрешение гостя из третьей страны — не разрешение на работу. [Гид о переезде](/ru/relocating-to-cyprus/) говорит это прямо. Схема цифрового кочевника — удалённая работа на работодателя или клиентов за границей, и она запрещает кипрских клиентов. Это не местная должность. Формулировка Департамента — в [гиде о кочевнике](/ru/cyprus-digital-nomad-visa-2026/).\n\nПотолок того, как долго некоторые работники из третьих стран могут оставаться, выходил как новость, не как зарплата. Материал: [четырёхлетний потолок](/ru/third-country-workers-four-year-cap/). Прочитайте его, если он может относиться к разрешению, которое вам предлагают. Работа в лицензированной финансовой фирме — не работа в кафе. [Финтех-работа и регистрации](/ru/fintech-jobs-not-registrations/) — новостной материал. [CySEC](/ru/cysec-forex-crypto/) — лицензия, которую предложение работы не заменяет.\n\nЗдесь нет вакансии. Если оплата — только заголовок, попросите строки расчётного листка до переезда."
+  }
+}

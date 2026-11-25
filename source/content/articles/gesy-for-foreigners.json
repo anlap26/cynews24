@@ -1,0 +1,90 @@
+{
+  "slug": "gesy-for-foreigners",
+  "cat": "society",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "nicosia-town-hall",
+  "sources": [
+    {
+      "name": "Health Insurance Organisation, beneficiaries",
+      "url": "https://www.gesy.org.cy/sites/Sites?d=Desktop&locale=en_US&lookuphost=%2Fen-us%2F&lookuppage=hiobeneficiaryeligiblility"
+    },
+    {
+      "name": "Health Insurance Organisation, financing",
+      "url": "https://www.gesy.org.cy/sites/Sites?d=Desktop&locale=en_US&lookuphost=%2Fen-us%2F&lookuppage=hiofinancing"
+    }
+  ],
+  "en": {
+    "title": "GeSY for foreigners: who is a beneficiary, and what the contributions are",
+    "lede": "Being in Cyprus is not the same as being in GeSY. The Health Insurance Organisation lists categories. A visitor, and a non-EU holder of only a temporary permit, should not assume the list includes them. The full contribution rates have applied since 1 March 2020.",
+    "desc": "GeSY for foreigners: beneficiary categories on the HIO site, contribution rates since March 2020, and the €180,000 cap. A permit is not enrolment.",
+    "alt": "Nicosia town hall, a public building of the Republic",
+    "kw": [
+      "GeSY foreigners",
+      "GHS Cyprus",
+      "GeSY contributions",
+      "GeSY registration",
+      "Cyprus healthcare"
+    ],
+    "faq": [
+      {
+        "q": "Am I covered because I live in Cyprus?",
+        "a": "No. The HIO's beneficiary page requires ordinary residence plus a category: for example citizenship, or an EU citizen who works or holds a permanent residence document, or a non-EU citizen with a permanent residence permit or equal treatment in social insurance. Read the category that matches you. A stay is not a category."
+      },
+      {
+        "q": "What are the rates?",
+        "a": "On the HIO financing page the full rates, since 1 March 2020, are 2.65 percent for an employee, 2.90 percent for an employer, 4.70 percent for the state, 4 percent for a self-employed person, and 2.65 percent for a pensioner, an income earner and an official. The maximum annual amount contributions are paid on is €180,000."
+      },
+      {
+        "q": "Does a digital nomad permit enrol me?",
+        "a": "The nomad permit is a temporary residence permit. The HIO's non-EU category, as published, speaks of a permanent residence permit or equal treatment in social insurance. This page does not treat the nomad card as a GeSY card. Ask the HIO."
+      },
+      {
+        "q": "Does GeSY cover me abroad?",
+        "a": "GeSY is the national system. Care outside Cyprus is not what it is for. Travel and longer-stay private policies are a different product, set out in the international health insurance guide."
+      },
+      {
+        "q": "Is this medical advice?",
+        "a": "No. It is a reading of two HIO pages. Emergencies in the EU, Cyprus included, are reached on 112. A policy does not replace that call."
+      }
+    ],
+    "body": "GeSY, the General Health System, is the public scheme run with the Health Insurance Organisation. The question foreigners actually have is not what the letters stand for. It is whether they are a beneficiary. The HIO's own beneficiary page is the list. This guide does not add a category the page does not contain.\n\n## The categories, in the HIO's words\n\nCypriot citizens who are ordinary residents of the areas the Republic controls, or of the Sovereign Base Areas, are one category. EU citizens who are ordinary residents of the areas the Republic controls and who either work there, or hold a permanent residence permit under the law on free movement, are another. Non-EU citizens who are ordinary residents and who either hold a permanent residence permit, or have the right of equal treatment in social insurance under the aliens and immigration law, are another. Refugees and people with subsidiary protection, ordinarily resident, are another. Family members are listed with their own conditions. For family members of a non-EU beneficiary who holds a permanent residence permit, the HIO says the members must also hold a permanent residence permit.\n\nA visitor is not on that list. A person who has just arrived and has not finished a residence file is not on it by virtue of the landing. The site's [relocation guide](/en/relocating-to-cyprus/) puts GeSY after the migration record can identify a non-Cypriot who holds a valid residence permit. [The resident handbook](/en/cyprus-resident-handbook/) separates a beneficiary record from a place on a personal doctor's list. This page does not repeat those steps as if they were optional.\n\n## The temporary permit, including the nomad card\n\nA digital nomad permit is a temporary residence permit for a year, as the Migration Department describes it. The HIO's non-EU category speaks of permanent residence or equal treatment in social insurance. Those are not the same words as \"temporary permit\". This guide will not bridge the gap with a guess. If you hold only the nomad card, ask the HIO whether any category applies, and keep the answer. Until then, the insurance the nomad file itself asks for is a private policy. The difference between that policy, a travel policy and GeSY is [the health insurance guide](/en/international-health-insurance/).\n\n## What people pay\n\nThe HIO financing page sets the rates. Full rates have applied since 1 March 2020. An employee pays 2.65 percent of earnings. An employer pays 2.90 percent. The state pays 4.70 percent on the earnings, self-employed remuneration, officials' pay and pensions it lists. A self-employed person pays 4 percent. A pensioner pays 2.65 percent of the pension. An income earner, the page's examples include rent, interest and dividends, pays 2.65 percent. An official pays 2.65 percent. The person who pays an official's remuneration pays 2.90 percent.\n\nThe maximum total annual amount on which contributions are paid, for each natural person, is €180,000. The HIO says a person who is not a Cyprus tax resident pays contributions only on income, earnings and pensions that arise in the Republic, excluding dividends and interest. That sentence is about contributions. It is not a statement that the person is a beneficiary.\n\nEarlier rates, from the first phase in 2019, still circulate. They are the lower percentages the HIO table shows for 1 March 2019 to 29 February 2020. They are not the rates in force after 1 March 2020.\n\n## What to do in a gap\n\nFor the months before any public enrolment, a private policy is the document that is actually in force, if you bought one. This page does not name a clinic that will bill a given insurer. Emergency services are on 112.\n\nContributions are one line in a budget, not the budget. [The cost of living guide](/en/cost-of-living-cyprus-2026/) keeps that line separate from rent."
+  },
+  "ru": {
+    "title": "ГЕСИ для иностранцев: кто бенефициар и каковы взносы",
+    "lede": "Находиться на Кипре — не то же самое, что быть в ГЕСИ. Организация медстрахования публикует категории. Посетителю и негражданину ЕС только с временным разрешением не стоит считать, что список их включает. Полные ставки взносов действуют с 1 марта 2020 года.",
+    "desc": "ГЕСИ для иностранцев: категории на сайте Организации, ставки взносов с марта 2020 года и потолок €180 000. Разрешение — не запись.",
+    "alt": "Ратуша Никосии, общественное здание Республики",
+    "kw": [
+      "ГЕСИ иностранцы",
+      "GHS Кипр",
+      "взносы ГЕСИ",
+      "регистрация ГЕСИ",
+      "медицина Кипр"
+    ],
+    "faq": [
+      {
+        "q": "Меня покрывают, потому что я живу на Кипре?",
+        "a": "Нет. Страница бенефициаров требует обычного проживания плюс категорию: например гражданство, или гражданина ЕС, который работает или имеет документ постоянного проживания, или гражданина страны вне ЕС с постоянным проживанием или равным обращением в соцстрахе. Читайте свою категорию. Пребывание — не категория."
+      },
+      {
+        "q": "Какие ставки?",
+        "a": "На странице финансирования полные ставки с 1 марта 2020 года: 2,65 процента с работника, 2,90 процента с работодателя, 4,70 процента с государства, 4 процента с самозанятого и 2,65 процента с пенсионера, получателя дохода и должностного лица. Максимум годовой суммы, с которой платят взносы, — €180 000."
+      },
+      {
+        "q": "Записывает ли меня разрешение цифрового кочевника?",
+        "a": "Разрешение кочевника — временное проживание. Категория Организации для граждан вне ЕС, как она опубликована, говорит о постоянном проживании или равном обращении в соцстрахе. Эта страница не считает карточку кочевника карточкой ГЕСИ. Спросите Организацию."
+      },
+      {
+        "q": "ГЕСИ покрывает меня за границей?",
+        "a": "ГЕСИ — национальная система. Лечение вне Кипра — не её задача. Туристический полис и полис на долгий срок — другой продукт, он в гиде о международной страховке."
+      },
+      {
+        "q": "Это медицинский совет?",
+        "a": "Нет. Это чтение двух страниц Организации. Экстренные службы в ЕС, включая Кипр, вызывают по номеру 112. Полис этот звонок не заменяет."
+      }
+    ],
+    "body": "ГЕСИ, общая система здравоохранения, — государственная схема, которую ведут вместе с Организацией медицинского страхования. Вопрос иностранца не в том, как расшифровываются буквы. Вопрос в том, бенефициар ли он. Список — на странице бенефициаров самой Организации. Этот гид не добавляет категорию, которой на странице нет.\n\n## Категории, словами Организации\n\nГраждане Кипра, которые обычно проживают в районах, контролируемых Республикой, или на территории британских баз, — одна категория. Граждане ЕС, которые обычно проживают в районах под контролем Республики и либо там работают, либо имеют разрешение на постоянное проживание по закону о свободном передвижении, — другая. Граждане стран вне ЕС, которые обычно проживают и либо имеют разрешение на постоянное проживание, либо имеют право равного обращения в социальном страховании по закону об иностранцах, — ещё одна. Беженцы и лица с дополнительной защитой, обычно проживающие, — ещё одна. Члены семьи перечислены со своими условиями. Для членов семьи бенефициара не из ЕС, у которого есть постоянное проживание, Организация пишет, что у членов тоже должно быть постоянное проживание.\n\nПосетителя в этом списке нет. Того, кто только приехал и не закончил дело о проживании, в списке нет в силу одной посадки. [Гид о переезде](/ru/relocating-to-cyprus/) ставит ГЕСИ после того, как миграционный учёт может опознать негражданина с действующим разрешением. [Справочник резидента](/ru/cyprus-resident-handbook/) отделяет запись бенефициара от места в списке личного врача. Эта страница не повторяет эти шаги так, будто они необязательны.\n\n## Временное разрешение, включая карточку кочевника\n\nРазрешение цифрового кочевника — временное проживание на год, как его описывает Департамент миграции. Категория Организации для граждан вне ЕС говорит о постоянном проживании или равном обращении в соцстрахе. Это не те же слова, что «временное разрешение». Этот гид не перекинет мост догадкой. Если у вас на руках только карточка кочевника, спросите Организацию, относится ли к вам какая-либо категория, и сохраните ответ. До тех пор страховка, которую просит само дело кочевника, — частный полис. Разница между этим полисом, туристическим полисом и ГЕСИ — в [гиде о медицинской страховке](/ru/international-health-insurance/).\n\n## Что платят\n\nСтраница финансирования Организации задаёт ставки. Полные ставки действуют с 1 марта 2020 года. Работник платит 2,65 процента заработка. Работодатель платит 2,90 процента. Государство платит 4,70 процента с заработка, вознаграждения самозанятых, оплаты должностных лиц и пенсий, которые страница перечисляет. Самозанятый платит 4 процента. Пенсионер платит 2,65 процента пенсии. Получатель дохода, в примерах страницы аренда, проценты и дивиденды, платит 2,65 процента. Должностное лицо платит 2,65 процента. Тот, кто платит вознаграждение должностному лицу, платит 2,90 процента.\n\nМаксимальная общая годовая сумма, с которой платят взносы, для каждого физического лица — €180 000. Организация пишет, что тот, кто не является налоговым резидентом Кипра, платит взносы только с дохода, заработка и пенсий, возникающих в Республике, кроме дивидендов и процентов. Эта фраза — про взносы. Она не утверждает, что человек является бенефициаром.\n\nПрежние ставки, с первой фазы 2019 года, всё ещё ходят. Это более низкие проценты, которые таблица Организации показывает для периода с 1 марта 2019 года по 29 февраля 2020 года. Это не ставки после 1 марта 2020 года.\n\n## Что делать в промежутке\n\nНа месяцы до любой государственной записи действует частный полис, если вы его купили. Эта страница не называет клинику, которая выставит счёт данному страховщику. Экстренные службы — по номеру 112.\n\nВзносы — одна строка бюджета, не весь бюджет. [Гид о стоимости жизни](/ru/cost-of-living-cyprus-2026/) держит эту строку отдельно от аренды."
+  }
+}

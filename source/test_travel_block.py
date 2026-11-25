@@ -16,6 +16,11 @@ SHOW = {
     "where-to-stay-in-cyprus",
     "weekend-events-14-15-november",
     "short-term-rental-bed-cap",
+    "cyprus-weather-by-month",
+    "flights-to-cyprus",
+    "beaches-in-cyprus",
+    "cyprus-digital-nomad-visa-2026",
+    "driving-in-cyprus",
 }
 HIDE = (
     "nicosia-murder-massage-parlour",

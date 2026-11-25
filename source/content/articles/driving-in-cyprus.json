@@ -1,0 +1,94 @@
+{
+  "slug": "driving-in-cyprus",
+  "cat": "society",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "cyprus-police-car",
+  "sources": [
+    {
+      "name": "Road Transport Department, foreign licence conversion",
+      "url": "https://www.mcw.gov.cy/mcw/rtd/rtd.nsf/All/AA805A89E5ED997BC225781C00296BCF"
+    },
+    {
+      "name": "Government visitor leaflet on driving",
+      "url": "https://www.gov.cy/media/sites/175/2026/01/2.2.16-KEEP_SAFE-ENGLISH-1.pdf"
+    },
+    {
+      "name": "Road Transport Department",
+      "url": "https://www.gov.cy/mtcw/en/road-transport-department/"
+    }
+  ],
+  "en": {
+    "title": "Driving in Cyprus: left-hand traffic, and whose licence lasts",
+    "lede": "Traffic keeps left. A visitor leaflet and the Road Transport Department do not describe the same person. EU licences can be kept. Some other licences must be exchanged after six months. Everyone else sits a test.",
+    "desc": "Driving in Cyprus: left-hand traffic, the visitor rules, and when a foreign licence must be exchanged. The Road Transport Department is the source.",
+    "alt": "A Cyprus police car",
+    "kw": [
+      "driving in Cyprus",
+      "Cyprus driving licence",
+      "left hand traffic Cyprus",
+      "exchange licence Cyprus",
+      "car hire Cyprus"
+    ],
+    "faq": [
+      {
+        "q": "Which side of the road?",
+        "a": "The left. The government's visitor leaflet says so in capital letters. Portugal, if you are comparing countries, drives on the right. Malta, like Cyprus, drives on the left."
+      },
+      {
+        "q": "Can I drive on my EU licence?",
+        "a": "The Road Transport Department says holders of EU licences may keep driving on them, and may exchange after a six-month stay if they wish. The exchange is described as optional for EU licences."
+      },
+      {
+        "q": "What about a UK or other non-EU licence?",
+        "a": "The Department says holders from countries on the Commissioner's notice must exchange after a six-month stay, without describing that exchange as optional. The notice is a legal list and it changes. Ask the district office whether your country is on it before you give the card up. Countries not recognised lead to a Cyprus test."
+      },
+      {
+        "q": "What can a visitor do?",
+        "a": "The visitor leaflet says European citizens may drive on their country's licence, and that non-European visitors may drive on their country's licence for up to 30 days or on a valid international driving permit. A visitor leaflet is not the residence procedure. If you have become resident, use the Department's page."
+      },
+      {
+        "q": "Is insurance optional?",
+        "a": "The visitor leaflet says to have valid insurance for injury and damage. This page does not quote a premium. A hire car's insurance is the hire contract, covered in the car-rental guide."
+      }
+    ],
+    "body": "Cyprus drives on the left. The government's visitor leaflet states it as the fact to read before anything else, because many arrivals come from countries that drive on the right. The rest of the rules depend on whether you are visiting or resident, and on which country issued the licence. Two public texts are used here. They are not duplicates. The leaflet is for a visitor. The Road Transport Department's conversion page is for a person who will exchange a licence.\n\n## Visitors\n\nThe leaflet says European citizens may drive using their country's licence. It says non-European visitors may drive using their country's licence for a maximum of 30 days, or on a valid international driving permit. It also tells the reader to hold valid insurance for injuries and damage. This page does not add a day to the 30, and it does not interpret an international permit beyond the sentence in the leaflet. If your stay is becoming residence, stop using the leaflet as the rule and read the Department.\n\nHiring a car is the usual way a visitor drives. The contract, the excess and the fact of left-hand traffic are in [renting a car in Cyprus](/en/renting-a-car-in-cyprus/). DiscoverCars is one of the affiliate links for a hire search. The button does not state a price.\n\n{{travel:DISCOVERCARS_URL|Search car hire}}\n\n## Residents, and the six-month line\n\nThe Department's conversion page says EU licences are recognised, and that an EU holder may exchange after a six-month stay if they wish. It says holders from countries on the Commissioner's published notice are obliged to exchange after a six-month stay. The exchange of a recognised licence, on that page, does not by itself mean sitting the Cyprus test. A licence from a country that is not an EU state and not on the notice cannot be exchanged that way. The holder applies for a learner licence and takes the test. The Department points to the Driving Licence Law of 2001 and its amendments.\n\nThe notice of recognised countries is a legal instrument and it has been replaced before. This guide does not paste a country list from a secondary article. Before you surrender a licence, ask the district office whether the country is recognised now. Giving up the only card you can drive on, in order to wait, is a practical risk the page should not push you into.\n\nThe Department asks exchange applicants to show normal residence. Its note says a foreign applicant must have resided in Cyprus for at least 185 days, and a non-EU citizen must show the registration certificate and the residence permit. That 185-day test is the Department's residence test for the licence. It is not the Tax Department's 183-day or 60-day test. The two counts are explained side by side in the site's [relocation guide](/en/relocating-to-cyprus/).\n\nPapers on the conversion page include form TOM 7D, a photograph, identity or alien registration, the passport, the foreign licence and every page of it, and a translation unless the licence is in English or Greek, done through the Press and Information Office's authorised translators. The applicant attends in person. The foreign licence, the page says, is sent to the authority that issued it. Read that line before you assume you will keep the old card in a drawer.\n\n## Fines and the road itself\n\nCameras and fixed penalties exist and change. A news report is a better place for a new fine than this guide. [Camera fines and the 180-day window](/en/camera-fines-180-days/) is one such report. It is not a highway code.\n\nSpeed, drink, and a roundabout taken as if the traffic were on the right are how visitors have collisions. None of that is fixed by owning the right plastic card. Insurance is not a substitute for the side of the road."
+  },
+  "ru": {
+    "title": "Вождение на Кипре: левостороннее движение и чьи права сколько действуют",
+    "lede": "Движение левостороннее. Листовка для гостей и Департамент дорожного транспорта описывают не одного человека. Права ЕС можно оставить. Некоторые другие нужно обменять через шесть месяцев. Остальные сдают экзамен.",
+    "desc": "Вождение на Кипре: левостороннее движение, правила для гостя и когда иностранные права нужно менять. Источник — Департамент дорожного транспорта.",
+    "alt": "Полицейский автомобиль Кипра",
+    "kw": [
+      "вождение на Кипре",
+      "водительские права Кипр",
+      "левостороннее движение",
+      "обмен прав Кипр",
+      "аренда авто Кипр"
+    ],
+    "faq": [
+      {
+        "q": "По какой стороне едут?",
+        "a": "По левой. Правительственная листовка для гостей говорит это прямым текстом. Португалия, если вы сравниваете страны, едет по правой. Мальта, как и Кипр, едет по левой."
+      },
+      {
+        "q": "Можно ли ездить по правам ЕС?",
+        "a": "Департамент дорожного транспорта пишет, что обладатели прав ЕС могут продолжать по ним ездить и могут обменять их после шести месяцев пребывания, если захотят. Для прав ЕС обмен описан как необязательный."
+      },
+      {
+        "q": "А британские или другие права не из ЕС?",
+        "a": "Департамент пишет, что обладатели прав стран из уведомления Комиссара обязаны обменять их после шести месяцев. Это не описано как выбор. Уведомление — юридический список, и он меняется. Спросите районный офис, есть ли ваша страна в списке, прежде чем отдавать карточку. Страны вне списка ведут к кипрскому экзамену."
+      },
+      {
+        "q": "Что можно гостю?",
+        "a": "Листовка говорит, что граждане Европы могут ездить по правам своей страны, а гости не из Европы — по правам своей страны до 30 дней или по действительному международному удостоверению. Листовка для гостя — не процедура для резидента. Если вы стали резидентом, берите страницу Департамента."
+      },
+      {
+        "q": "Страховка по желанию?",
+        "a": "Листовка просит иметь действующую страховку на вред и ущерб. Премию эта страница не называет. Страховка прокатной машины — это договор проката, он в гиде об аренде."
+      }
+    ],
+    "body": "На Кипре ездят по левой стороне. Правительственная листовка для гостей ставит это фактом, который нужно прочитать раньше остального: многие приезжают из стран с правосторонним движением. Дальше правила зависят от того, гость вы или резидент, и какая страна выдала права. Здесь использованы два публичных текста. Они не дублируют друг друга. Листовка — для гостя. Страница обмена Департамента дорожного транспорта — для того, кто будет менять права.\n\n## Гости\n\nЛистовка пишет, что граждане Европы могут ездить по правам своей страны. Гости не из Европы, пишет она, могут ездить по правам своей страны не дольше 30 дней или по действительному международному водительскому удостоверению. Там же сказано иметь действующую страховку на травмы и ущерб. Этот гид не прибавляет день к 30 и не толкнет международное удостоверение дальше фразы в листовке. Если пребывание становится проживанием, перестаньте считать листовку правилом и читайте Департамент.\n\nГость обычно едет на взятой машине. Договор, франшиза и сам факт левостороннего движения — в гиде [аренда авто на Кипре](/ru/renting-a-car-in-cyprus/). DiscoverCars — одна из партнёрских ссылок для поиска проката. Кнопка цену не называет.\n\n{{travel:DISCOVERCARS_URL|Искать аренду авто}}\n\n## Резиденты и черта в шесть месяцев\n\nСтраница обмена Департамента пишет, что права ЕС признаются и что обладатель прав ЕС может обменять их после шести месяцев пребывания, если захочет. Обладатели прав стран из опубликованного уведомления Комиссара, пишет она, обязаны обменять их после шести месяцев. Обмен признанных прав на этой странице сам по себе не означает сдачу кипрского экзамена. Права страны, которая не в ЕС и не в уведомлении, так не обменивают. Обладатель просит права ученика и сдаёт экзамен. Департамент ссылается на Закон о водительских правах 2001 года и поправки к нему.\n\nУведомление о признанных странах — правовой акт, и его уже заменяли. Этот гид не вставляет список стран из вторичной статьи. Прежде чем сдать права, спросите районный офис, признана ли страна сейчас. Отдать единственную карточку, по которой вы можете ездить, и ждать — практический риск, в который страница вас толкать не должна.\n\nДепартамент просит у заявителей на обмен доказательство обычного проживания. В примечании сказано, что иностранный заявитель должен прожить на Кипре не менее 185 дней, а гражданин страны вне ЕС должен показать свидетельство регистрации и разрешение на проживание. Эти 185 дней — тест Департамента для прав. Это не тест Налогового департамента на 183 или 60 дней. Оба подсчёта стоят рядом в [гиде о переезде](/ru/relocating-to-cyprus/).\n\nБумаги на странице обмена включают форму TOM 7D, фотографию, удостоверение или регистрацию иностранца, паспорт, иностранные права и каждую их страницу, а также перевод, если права не на английском и не на греческом, через уполномоченных переводчиков Бюро печати и информации. Заявитель является лично. Иностранные права, пишет страница, отправляют органу, который их выдал. Прочитайте эту строку, прежде чем считать, что старая карточка останется в ящике.\n\n## Штрафы и сама дорога\n\nКамеры и фиксированные штрафы существуют и меняются. Новому штрафу место в новости, не в этом гиде. [Штрафы камер и окно в 180 дней](/ru/camera-fines-180-days/) — один такой материал. Это не правила дорожного движения.\n\nСкорость, алкоголь и круговое движение, взятое так, будто едут по правой стороне, — то, из-за чего гости сталкиваются. Правильный пластик этого не лечит. Страховка не заменяет сторону дороги."
+  }
+}
