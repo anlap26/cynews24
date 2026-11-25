@@ -167,6 +167,12 @@ def load_stories():
     slugs = [s["slug"] for s in out]
     dup = {x for x in slugs if slugs.count(x) > 1}
     if dup: raise SystemExit(f"Duplicate slugs: {sorted(dup)}")
+    taken = set(slugs)
+    for s in out:
+        # A CMS file keeps its transliterated name after the address field is filled in.
+        # That name must not be another article's public address, or the alias would replace it.
+        if s["file"] != s["slug"] and s["file"] in taken:
+            raise SystemExit(f"{s['file']}: file name is already another article's address")
     # Articles migrated from the old generator keep their original order (seq). New ones follow, oldest first.
     return sorted(out, key=lambda s: (s["seq"] is None, s["seq"] if s["seq"] is not None else 0, s["date"], s["slug"]))
 STORIES = load_stories()
@@ -1983,6 +1989,21 @@ def amazon_block(l, s):
             f'<p>{e(copy["text"])}</p>'
             f'<div class="affbtns">{"".join(buttons)}</div>'
             f'<p class="fine">{e(AMAZON_NOTE[l])} <a href="{disc}">{e(UI[l]["disclosure"])}</a></p></aside>')
+def page_moved(l, s):
+    """Browser redirect from the CMS file name to the public address.
+
+    GitHub Pages has no server redirects. The alias is noindex and its
+    canonical points at the real article, so it is not a second copy.
+    """
+    target = abs_(f"/{l}/{s['slug']}/")
+    title = s["title"][l]
+    return (f'<!doctype html><html lang="{l}"><head><meta charset="utf-8">'
+            f'<meta name="robots" content="noindex">'
+            f'<link rel="canonical" href="{e(target)}">'
+            f'<meta http-equiv="refresh" content="0;url={e(target)}">'
+            f'<script>location.replace({json.dumps(target)});</script>'
+            f'<title>{e(title)}</title></head>'
+            f'<body><p><a href="{e(target)}">{e(title)}</a></p></body></html>')
 def page_article(l,s):
     u=UI[l]; path=f"/{l}/{s['slug']}/"; pathfn=lambda x:f"/{x}/{s['slug']}/"
     title=s["title"][l]
@@ -2707,6 +2728,9 @@ def main():
         for prop in published_listings():
             w(f"/{l}/real-estate/{prop['id']}/index.html", page_listing(l, prop))
         for s in STORIES: w(f"/{l}/{s['slug']}/index.html",page_article(l,s))
+        for s in STORIES:
+            if s["file"] != s["slug"]:
+                w(f"/{l}/{s['file']}/index.html", page_moved(l, s))
         w(f"/{l}/about/index.html",page_about(l))
         w(f"/{l}/editorial-policy/index.html",page_info(l,"editorial-policy",POLICY[l],"WebPage"))
         w(f"/{l}/affiliate-disclosure/index.html",page_info(l,"affiliate-disclosure",DISCLOSURE[l],"WebPage"))

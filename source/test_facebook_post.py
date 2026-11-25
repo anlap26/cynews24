@@ -147,6 +147,12 @@ class MessageTests(unittest.TestCase):
         title = "Governor's Beach & <law>"
         self.assertTrue(fb.is_page_ready(page(title, "en", "governors-beach"), "en", "governors-beach", title))
         self.assertFalse(fb.is_page_ready(page(title, "en", "governors-beach", og=False), "en", "governors-beach", title))
+        previous = page("Older headline", "en", "older-story")
+        quoted = previous.replace(
+            b"</body>",
+            b'<a href="/en/governors-beach/"><h3>Governor&#x27;s Beach &amp; &lt;law&gt;</h3></a></body>',
+        )
+        self.assertFalse(fb.is_page_ready(quoted, "en", "governors-beach", title))
         fallback = page("Русский заголовок", "en", "governors-beach", noindex=True)
         self.assertFalse(fb.is_page_ready(fallback, "en", "governors-beach", title))
         self.assertFalse(fb.is_image_ready(b"<html>no</html>"))

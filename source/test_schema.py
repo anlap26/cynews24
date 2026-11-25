@@ -151,6 +151,18 @@ class SchemaTests(unittest.TestCase):
             self.assertEqual(len(crumbs), 1)
             self._crumbs_ok(crumbs[0])
 
+    def test_cms_filename_redirects_to_the_public_address(self):
+        story = next(item for item in build.STORIES if item["slug"] == "limassol-funeral-schoolgirl-kakopetria")
+        self.assertEqual(story["file"], "v-limasole-v-belykh-odezhdakh-prostilis-s-17-letney-shkolnitsey")
+        self.assertNotEqual(story["file"], story["slug"])
+        html = build.page_moved("ru", story)
+        target = build.abs_("/ru/limassol-funeral-schoolgirl-kakopetria/")
+        self.assertIn(f'rel="canonical" href="{target}"', html)
+        self.assertIn(f'http-equiv="refresh" content="0;url={target}"', html)
+        self.assertIn('content="noindex"', html)
+        self.assertNotIn("<h1>", html)
+        self.assertIn(f'href="{target}"', html)
+
     def _crumbs_ok(self, crumb):
         items = crumb["itemListElement"]
         self.assertGreaterEqual(len(items), 2)
