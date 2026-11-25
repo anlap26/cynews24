@@ -99,6 +99,25 @@ class CaptionTests(unittest.TestCase):
         fallback = page("Русский заголовок", "en", "governors-beach", noindex=True)
         self.assertFalse(tg.is_page_ready(fallback, "en", "governors-beach", title))
         self.assertFalse(tg.is_page_ready(b"missing", "en", "governors-beach", title))
+
+    def test_related_card_on_the_previous_article_is_not_this_page(self):
+        new_title = "В Лимасоле в белых одеждах простились с 17-летней школьницей"
+        new_slug = "limassol-funeral-schoolgirl-kakopetria"
+        previous = page(
+            "В Какопетрии умерла 17-летняя школьница",
+            "ru",
+            "kakopetria-student-death",
+        )
+        # The older story's "read also" block quotes the new headline and links to it.
+        card = f'<a href="/ru/{new_slug}/"><h3>{html.escape(new_title)}</h3></a>'.encode()
+        body = previous.replace(b"</body>", card + b"</body>")
+        self.assertIn(new_title.encode(), body)
+        self.assertIn(f"/ru/{new_slug}/".encode(), body)
+        self.assertFalse(tg.is_page_ready(body, "ru", new_slug, new_title))
+        self.assertEqual(tg.page_mismatch(body, "ru", new_slug, new_title), "title")
+        self.assertTrue(tg.is_page_ready(page(new_title, "ru", new_slug), "ru", new_slug, new_title))
+        # A redirect stub whose canonical is the new address is not the file-name URL.
+        self.assertFalse(tg.is_page_ready(page(new_title, "ru", new_slug), "ru", "v-limasole-old-name", new_title))
         self.assertFalse(tg.is_image_ready(b"<html>no</html>"))
         self.assertTrue(tg.is_image_ready(jpeg()))
 
@@ -157,8 +176,15 @@ class LoadTests(unittest.TestCase):
                 "date": "2026-11-13T00:00:00.000Z",
                 "image": "source/src/photo.jpg",
                 "img": "ignored",
+                "slug": "",
                 "ru": {"title": "Новый закон", "lede": "Лид", "body": "Текст"},
                 "en": {"title": "  ", "lede": "Lede", "body": "Body"},
+            })
+            self.write(tmp, "cms-file.json", {
+                "slug": "public-address",
+                "cat": "society",
+                "date": "2026-11-13",
+                "ru": {"title": "Адрес", "lede": "Лид", "body": "Текст"},
             })
             self.write(tmp, "with-img.json", {
                 "slug": "kept-slug",
@@ -177,6 +203,9 @@ class LoadTests(unittest.TestCase):
             articles = {item.slug: item for item in tg.load_articles(tmp)}
         self.assertEqual(tg.slugify("Новый закон"), "novyj-zakon")
         self.assertEqual(articles["from-title"].image_key, "from-title")
+        self.assertEqual(articles["from-title"].file_stem, "from-title")
+        self.assertEqual(articles["public-address"].slug, "public-address")
+        self.assertEqual(articles["public-address"].file_stem, "cms-file")
         self.assertFalse(articles["from-title"].translated["en"])
         self.assertEqual(articles["kept-slug"].image_key, "fencing-bronze")
         self.assertTrue(articles["kept-slug"].translated["en"])
@@ -240,6 +269,23 @@ class PlanTests(unittest.TestCase):
         self.assertEqual([(item.kind, item.lang) for item in late], [("stale", "en")])
         soon = tg.plan([translated], state, datetime.date(2026, 11, 3))
         self.assertEqual([(item.kind, item.lang) for item in soon], [("send", "en")])
+
+    def test_filling_in_the_cms_address_does_not_post_again(self):
+        stem = "v-limasole-v-belykh-odezhdakh-prostilis-s-17-letney-shkolnitsey"
+        state = tg.empty_state()
+        tg.mark(state, stem, "ru", "sent", tg.utcnow())
+        tg.mark(state, stem, "en", "sent", tg.utcnow())
+        moved = tg.Article(
+            slug="limassol-funeral-schoolgirl-kakopetria",
+            cat="society",
+            date=datetime.date(2026, 11, 24),
+            titles={"ru": "Заголовок", "en": "English title"},
+            ledes={"ru": "Лид", "en": "Lede"},
+            translated={"ru": True, "en": True},
+            image_key="limassol-funeral-schoolgirl-kakopetria",
+            file_stem=stem,
+        )
+        self.assertEqual(tg.plan([moved], state, datetime.date(2026, 11, 24)), [])
 
 
 class ExecuteTests(unittest.TestCase):

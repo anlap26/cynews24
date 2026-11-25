@@ -1,6 +1,7 @@
 # Posts each new article once @cynews24 (Russian, /ru/) and @cynews24en
 # (English, /en/) after Build site has committed the pages. The job then waits
-# until the article URL returns HTTP 200 before sending, so link previews work.
+# until that URL returns HTTP 200 and the page's canonical, title and h1 are
+# this article, so the link cannot be the previous story's page.
 #
 # Dedup state lives in source/content/telegram-posted.json. This workflow commits
 # that file with GITHUB_TOKEN, which does not start other workflows. build.yml

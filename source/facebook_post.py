@@ -7,7 +7,9 @@ one- or two-sentence lead, and a few hashtags. Facebook builds the link
 preview from the article's og:title, og:description and og:image.
 
 Slugs already handled are stored in source/content/facebook-posted.json.
-Editing an article does not post it again. An article first seen more than
+Editing an article does not post it again. The file name is remembered as
+well as the public address, so filling in a CMS address later does not post
+the same story a second time. An article first seen more than
 3 days after its publication date is recorded without sending, so enabling
 the Page later cannot flood it. A run publishes at most 10 articles.
 
@@ -33,6 +35,8 @@ import urllib.parse
 import urllib.request
 from dataclasses import dataclass
 from zoneinfo import ZoneInfo
+
+from telegram_post import page_mismatch as telegram_page_mismatch
 
 ROOT = os.path.normpath(os.path.join(os.path.dirname(os.path.abspath(__file__)), ".."))
 DEFAULT_ARTICLES = os.path.join(ROOT, "source", "content", "articles")
@@ -242,6 +246,7 @@ class Article:
     ledes: dict
     translated: dict
     image_key: str | None
+    file_stem: str = ""
 
 
 @dataclass(frozen=True)
@@ -299,7 +304,8 @@ def load_article(path: str) -> Article:
         image_key = img.strip()
     else:
         image_key = None
-    return Article(slug, cat, date, titles, ledes, translated, image_key)
+    file_stem = slugify(stem) or stem
+    return Article(slug, cat, date, titles, ledes, translated, image_key, file_stem)
 
 
 def load_articles(directory: str) -> list[Article]:
@@ -319,6 +325,11 @@ def load_articles(directory: str) -> list[Article]:
     duplicates = sorted({slug for slug in slugs if slugs.count(slug) > 1})
     if duplicates:
         raise SystemExit(f"Duplicate slugs: {duplicates}")
+    taken = set(slugs)
+    for article in articles:
+        stem = article.file_stem
+        if stem and stem != article.slug and stem in taken:
+            raise SystemExit(f"{stem}: file name is already another article's address")
     return articles
 
 
@@ -369,6 +380,20 @@ def is_marked(state: dict, slug: str) -> bool:
     return True
 
 
+def article_marked(state: dict, article: Article) -> bool:
+    if is_marked(state, article.slug):
+        return True
+    stem = article.file_stem
+    return bool(stem and stem != article.slug and is_marked(state, stem))
+
+
+def mark_article(state: dict, article: Article, status: str, moment: datetime.datetime, lang: str) -> None:
+    mark(state, article.slug, status, moment, lang)
+    stem = article.file_stem
+    if stem and stem != article.slug:
+        mark(state, stem, status, moment, lang)
+
+
 def mark(state: dict, slug: str, status: str, moment: datetime.datetime, lang: str) -> None:
     entry = state.setdefault("posted", {})
     if not isinstance(entry, dict):
@@ -394,7 +419,7 @@ def plan(articles: list[Article], state: dict, today: datetime.date, lang: str) 
     actions = []
     ordered = sorted(articles, key=lambda article: (article.date, article.slug))
     for article in ordered:
-        if is_marked(state, article.slug):
+        if article_marked(state, article):
             continue
         if not article.translated.get(lang):
             actions.append(Action("untranslated", lang, article))
@@ -436,13 +461,11 @@ def og_image_url(body: bytes) -> str:
 
 
 def is_page_ready(body: bytes, lang: str, slug: str, title: str) -> bool:
+    # Same canonical/title/h1 rule as the Telegram poster: a related-story
+    # card that quotes this headline is not this article.
+    if telegram_page_mismatch(body, lang, slug, title):
+        return False
     text = body.decode("utf-8", errors="replace")
-    if f"/{lang}/{slug}/" not in text:
-        return False
-    if 'name="robots" content="noindex' in text:
-        return False
-    if title not in html.unescape(text):
-        return False
     for prop in ("og:title", "og:description", "og:image"):
         if f'property="{prop}"' not in text:
             return False
@@ -787,7 +810,7 @@ def execute(
             log(f"defer slug={article.slug}: post cap of {max_posts} reached; left unmarked")
             continue
         if action.kind == "stale":
-            mark(state, article.slug, "skipped-old", now, lang)
+            mark_article(state, article, "skipped-old", now, lang)
             dirty = True
             stale += 1
             log(
@@ -813,7 +836,7 @@ def execute(
             failures.append(f"{article.slug}: {info}")
             log(f"::error title=Facebook::{failures[-1]}")
             continue
-        mark(state, article.slug, "sent", now, lang)
+        mark_article(state, article, "sent", now, lang)
         dirty = True
         sent += 1
         log(f"sent slug={article.slug} link={post['link']} post={info or '-'}")

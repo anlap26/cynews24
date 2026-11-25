@@ -6,9 +6,15 @@ Russian goes to @cynews24 and links to /ru/<slug>/. English goes to
 has its own English title, lede and body, then posted once.
 
 Slugs already handled are stored in source/content/telegram-posted.json.
-Editing an article does not post it again. An article (or a late English
-translation) first seen more than 3 days after its publication date is
-recorded without sending, so enabling the bot later cannot flood the channels.
+Editing an article does not post it again. The file name is remembered as
+well as the public address, so filling in a CMS address later does not post
+the same story a second time. An article (or a late English translation)
+first seen more than 3 days after its publication date is recorded without
+sending, so enabling the bot later cannot flood the channels.
+
+A page is live only when it returns HTTP 200, is indexable, and its
+canonical URL, <title> and <h1> are this article. A headline quoted in
+another story's "read also" block does not count.
 
 TELEGRAM_BOT_TOKEN is the repository secret. When it is missing this script
 logs a notice, leaves the state file untouched and exits 0. DRY_RUN=1 (or
@@ -215,6 +221,9 @@ class Article:
     ledes: dict
     translated: dict
     image_key: str | None
+    # JSON file name, without .json. Blank CMS address uses this as the public
+    # slug; a later address edit must not be treated as a new article.
+    file_stem: str = ""
 
 
 @dataclass(frozen=True)
@@ -268,7 +277,8 @@ def load_article(path: str) -> Article:
         image_key = img.strip()
     else:
         image_key = None
-    return Article(slug, cat, date, titles, ledes, translated, image_key)
+    file_stem = slugify(stem) or stem
+    return Article(slug, cat, date, titles, ledes, translated, image_key, file_stem)
 
 
 def load_articles(directory: str) -> list[Article]:
@@ -288,6 +298,11 @@ def load_articles(directory: str) -> list[Article]:
     duplicates = sorted({slug for slug in slugs if slugs.count(slug) > 1})
     if duplicates:
         raise SystemExit(f"Duplicate slugs: {duplicates}")
+    taken = set(slugs)
+    for article in articles:
+        stem = article.file_stem
+        if stem and stem != article.slug and stem in taken:
+            raise SystemExit(f"{stem}: file name is already another article's address")
     return articles
 
 
@@ -338,6 +353,24 @@ def is_marked(state: dict, slug: str, lang: str) -> bool:
     return lang in entry
 
 
+def handled_keys(article: Article) -> tuple[str, ...]:
+    """Public address plus the file name, when the CMS address was filled in later."""
+    keys = [article.slug]
+    stem = article.file_stem
+    if stem and stem not in keys:
+        keys.append(stem)
+    return tuple(keys)
+
+
+def article_marked(state: dict, article: Article, lang: str) -> bool:
+    return any(is_marked(state, key, lang) for key in handled_keys(article))
+
+
+def mark_article(state: dict, article: Article, lang: str, status: str, moment: datetime.datetime) -> None:
+    for key in handled_keys(article):
+        mark(state, key, lang, status, moment)
+
+
 def mark(state: dict, slug: str, lang: str, status: str, moment: datetime.datetime) -> None:
     entry = state.setdefault("posted", {}).setdefault(slug, {})
     if not isinstance(entry, dict):
@@ -364,7 +397,7 @@ def plan(articles: list[Article], state: dict, today: datetime.date) -> list[Act
     ordered = sorted(articles, key=lambda article: (article.date, article.slug))
     for article in ordered:
         for lang in LANGS:
-            if is_marked(state, article.slug, lang):
+            if article_marked(state, article, lang):
                 continue
             if lang == "en" and not article.translated["en"]:
                 actions.append(Action("untranslated", lang, article))
@@ -398,13 +431,60 @@ def build_post(article: Article, lang: str, base: str) -> dict:
     return post
 
 
-def is_page_ready(body: bytes, lang: str, slug: str, title: str) -> bool:
+_TITLE_RE = re.compile(r"<title[^>]*>(.*?)</title>", re.I | re.S)
+_H1_RE = re.compile(r"<h1[^>]*>(.*?)</h1>", re.I | re.S)
+_CANON_RE = re.compile(r"<link\b[^>]*\brel=[\"']canonical[\"'][^>]*>", re.I)
+_HREF_RE = re.compile(r"""href=["']([^"']+)["']""", re.I)
+
+
+def plain_fragment(fragment: str) -> str:
+    text = re.sub(r"<[^>]+>", "", fragment)
+    return " ".join(html.unescape(text).split())
+
+
+def canonical_path(value: str) -> str:
+    """URL or path, without a host, query or fragment, with a trailing slash."""
+    text = html.unescape(value).strip()
+    text = text.split("#", 1)[0].split("?", 1)[0].strip()
+    if "://" in text:
+        rest = text.split("://", 1)[1]
+        slash = rest.find("/")
+        text = rest[slash:] if slash >= 0 else "/"
+    if not text.startswith("/"):
+        text = "/" + text
+    if len(text) > 1 and not text.endswith("/"):
+        text += "/"
+    return text
+
+
+def page_mismatch(body: bytes, lang: str, slug: str, title: str) -> str:
+    """Empty when this HTML is the article itself.
+
+    The previous story's "read also" block repeats the new headline and links
+    to the new address, so a search for those strings accepts the wrong page.
+    The canonical URL, the document title and the h1 have to be this article.
+    """
     text = body.decode("utf-8", errors="replace")
-    if f"/{lang}/{slug}/" not in text:
-        return False
     if 'name="robots" content="noindex' in text:
-        return False
-    return title in html.unescape(text)
+        return "noindex"
+    expected = " ".join((title or "").split())
+    if not expected:
+        return "title"
+    title_match = _TITLE_RE.search(text)
+    if not title_match or plain_fragment(title_match.group(1)) != expected:
+        return "title"
+    h1_match = _H1_RE.search(text)
+    if not h1_match or plain_fragment(h1_match.group(1)) != expected:
+        return "h1"
+    canon = _CANON_RE.search(text)
+    href = _HREF_RE.search(canon.group(0)) if canon else None
+    if not href or canonical_path(href.group(1)) != f"/{lang}/{slug}/":
+        return "canonical"
+    return ""
+
+
+def is_page_ready(body: bytes, lang: str, slug: str, title: str) -> bool:
+    return page_mismatch(body, lang, slug, title) == ""
 
 
 def is_image_ready(body: bytes) -> bool:
@@ -626,10 +706,17 @@ def wait_until_live(action: Action, base: str, *, get, sleep, monotonic, deadlin
         ready = True
         for url, check in checks:
             status, body = get(url)
-            if status != 200 or not check(body):
-                log(f"waiting for {url} (HTTP {status})")
-                ready = False
-                break
+            if status == 200 and check(body):
+                continue
+            detail = f"HTTP {status}"
+            if status == 200 and url == post["url"]:
+                detail = (
+                    f"HTTP 200, {page_mismatch(body, action.lang, action.article.slug, action.article.titles[action.lang])}"
+                    " does not match this article"
+                )
+            log(f"waiting for {url} ({detail})")
+            ready = False
+            break
         if ready:
             log(f"live {post['url']}")
             return True
@@ -778,7 +865,7 @@ def execute(
             log(f"skip {CHANNELS['en']} slug={article.slug}: no English translation yet")
             continue
         if action.kind == "stale":
-            mark(state, article.slug, action.lang, "skipped-old", now)
+            mark_article(state, article, action.lang, "skipped-old", now)
             dirty = True
             stale += 1
             log(
@@ -800,7 +887,7 @@ def execute(
             failures.append(f"{article.slug} {action.lang}: {info}")
             log(f"::error title=Telegram::{failures[-1]}")
             continue
-        mark(state, article.slug, action.lang, "sent", now)
+        mark_article(state, article, action.lang, "sent", now)
         dirty = True
         sent += 1
         log(f"sent {post['chat_id']} {post['method']} slug={article.slug} message_id={info or '-'}")
