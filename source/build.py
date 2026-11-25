@@ -49,6 +49,7 @@ LOCALE = {"ru":"ru_RU","en":"en_GB","el":"el_GR"}
 LANGNAME = {"ru":"Русский","en":"English","el":"Ελληνικά"}
 CATS = ["politics","economy","real-estate","society","tourism","sport","world"]
 TRAVEL_MENU = {"en":"Travel","ru":"Путешествия","el":"Ταξίδια"}
+GUIDE_MENU = {"en":"Guides","ru":"Гиды","el":"Οδηγοί"}
 CATN = {
  "en":dict(zip(CATS,["Politics","Economy","Real Estate","Society","Tourism","Sport","World"])),
  "ru":dict(zip(CATS,["Политика","Экономика","Недвижимость","Общество","Туризм","Спорт","В мире"])),
@@ -606,6 +607,7 @@ nav.cats li a:hover{border-color:var(--ink)}nav.cats li a[aria-current=page]{bor
 h1.sec{font-size:28px;margin:18px 0 14px;border-top:4px solid var(--ink);padding-top:8px;letter-spacing:-.3px}
 .lead{display:grid;grid-template-columns:1.9fr 1fr;gap:24px;margin:8px 0 28px}
 .card .img{display:block;background:var(--soft);overflow:hidden}.card .img img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.grid .card{content-visibility:auto;contain-intrinsic-size:auto 360px}
 .lead .big h2{font-size:34px;line-height:1.12;margin:12px 0 8px;letter-spacing:-.6px}
 .lead .big p{font-size:18px;color:#2b2f35;margin:0 0 8px}
 .cat{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--acc)}
@@ -957,6 +959,7 @@ def header(l, pathfn, active=None):
     sw="".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}" {"aria-current=\"true\"" if x==l else ""} title="{LANGNAME[x]}">{x.upper()}</a>' for x in LANGS)
     nav=f'<li><a href="{href(f"/{l}/")}" {"aria-current=\"page\"" if active=="home" else ""}>{u["home"]}</a></li>'+"".join(
       f'<li><a href="{href(f"/{l}/{c}/")}" {"aria-current=\"page\"" if active==c else ""}>{CATN[l][c]}</a></li>' for c in CATS)
+    nav+=f'<li><a href="{href(f"/{l}/guides/")}" {"aria-current=\"page\"" if active=="guides" else ""}>{GUIDE_MENU[l]}</a></li>'
     nav+=f'<li><a href="{href(f"/{l}/travel/")}" {"aria-current=\"page\"" if active=="travel" else ""}>{TRAVEL_MENU[l]}</a></li>'
     nav+=f'<li><a href="{href(f"/{l}/events/")}" {"aria-current=\"page\"" if active=="events" else ""}>{u["events"]}</a></li>'
     nav+=f'<li class="promo"><a href="{href(f"/{l}/advertise/")}" {"aria-current=\"page\"" if active=="advertise" else ""}>{ADVERTISE[l]["menu"]}</a></li>'
@@ -1037,7 +1040,7 @@ def breadcrumb_ld(trail):
         for i,(name,path) in enumerate(trail)]}
 def footer(l):
     u=UI[l]
-    links=[(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/affiliate-disclosure/",u["disclosure"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/cookies/",u["cookies"]),(f"/{l}/advertise/",ADVERTISE[l]["menu"]),(f"/{l}/property-consultation/",CONSULT[l]["menu"]),(f"/{l}/advertising/",u["ads"])]
+    links=[(f"/{l}/guides/",GUIDE_MENU[l]),(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/affiliate-disclosure/",u["disclosure"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/cookies/",u["cookies"]),(f"/{l}/advertise/",ADVERTISE[l]["menu"]),(f"/{l}/property-consultation/",CONSULT[l]["menu"]),(f"/{l}/advertising/",u["ads"])]
     fl="".join(f'<a href="{href(p)}">{e(n)}</a>' for p,n in links)
     fl+=f'<a href="{href(f"/{l}/cookies/")}" data-cookie-settings>{e(u["cookie_settings"])}</a>'
     langs=" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)
@@ -1065,6 +1068,9 @@ BYSLUG={s["slug"]:s for s in STORIES}
 BYFILE={s["file"]:s["slug"] for s in STORIES}
 def sorted_all():
     return sorted(STORIES,key=lambda s:(s["date"],STORIES.index(s)),reverse=True)
+def news_sorted():
+    """Homepage, the news feed and related news skip practical guides."""
+    return [s for s in sorted_all() if not s.get("guide")]
 def home_order():
     """Lead story and four side stories from content/home.json. Slugs that no longer exist are
     skipped and empty places are filled with the newest stories."""
@@ -1078,7 +1084,7 @@ def home_order():
         x=(x or "").strip() if isinstance(x,str) else ""
         x=x if x in BYSLUG else BYFILE.get(x,x)
         if x in BYSLUG and x not in out: out.append(x)
-    for s in sorted_all():
+    for s in news_sorted():
         if len(out)>=5: break
         if s["slug"] not in out: out.append(s["slug"])
     return out[:5]
@@ -1107,16 +1113,21 @@ def page_home(l):
     u=UI[l]; pathfn=lambda x:f"/{x}/"
     lead=BYSLUG[ORDER_LEAD[0]]; side=[BYSLUG[x] for x in ORDER_LEAD[1:]]
     # Real-estate band: articles added after the migration first (newest first), then the original ones in order.
-    re_=[s for s in sorted_all() if s["cat"]=="real-estate" and s["seq"] is None]+[s for s in STORIES if s["cat"]=="real-estate" and s["seq"] is not None]
+    re_=[s for s in news_sorted() if s["cat"]=="real-estate" and s["seq"] is None]+[s for s in STORIES if s["cat"]=="real-estate" and s["seq"] is not None and not s.get("guide")]
     used=set(ORDER_LEAD)|{s["slug"] for s in re_}
-    rest=[s for s in sorted_all() if s["slug"] not in used]
-    latest=sorted_all()[:8]
+    rest=[s for s in news_sorted() if s["slug"] not in used]
+    latest=news_sorted()[:8]
     kws=GKW[l]
     org=org_ld(l)
+    # ItemList covers the lead, the side stories and the latest column, not the whole archive.
+    # A list of every story was a second copy of the page and did not help the reader.
+    shown=[]
+    for s in [lead]+side+latest:
+        if s["slug"] not in {x["slug"] for x in shown}: shown.append(s)
     # No SearchAction: the site has no search box, so a query URL would be false.
     ld=[website_ld(l, f"/{l}/", HOME_D[l]),
         {"@context":"https://schema.org",**org},
-        {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":abs_(f"/{l}/{s['slug']}/"),"name":s["title"][l]} for i,s in enumerate(sorted_all())]}]
+        {"@context":"https://schema.org","@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":abs_(f"/{l}/{s['slug']}/"),"name":s["title"][l]} for i,s in enumerate(shown)]}]
     h=head(l,HOME_T[l],HOME_D[l],kws,f"/{l}/",pathfn,"/assets/og-default.jpg",jsonld=ld)
     h+=header(l,pathfn,"home")
     h+=f'<main id="main" class="wrap"><p class="tagline">{u["tagline"]}</p><h1 class="sec">{u["home_h"]}</h1>'
@@ -1506,6 +1517,8 @@ def page_listing(l, p):
 def page_cat(l,c):
     u=UI[l]; pathfn=lambda x:f"/{x}/{c}/"
     items=[s for s in sorted_all() if s["cat"]==c]
+    news_items=[s for s in items if not s.get("guide")]
+    guide_items=[s for s in items if s.get("guide") and l not in s.get("missing",())]
     title=f'{CATN[l][c]} — {SITE}' if l!="en" else f'{CATN[l][c]} News from Cyprus — {SITE}'
     if l=="ru": title=f'{CATN[l][c]}: новости Кипра — {SITE}'
     if l=="el": title=f'{CATN[l][c]}: ειδήσεις Κύπρου — {SITE}'
@@ -1513,11 +1526,17 @@ def page_cat(l,c):
     kws=[CATN[l][c]]+GKW[l][:6]
     ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":title,"url":abs_(f"/{l}/{c}/"),"inLanguage":l,"description":desc,"isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")}},
         breadcrumb_ld([(u["crumb_home"], f"/{l}/"), (CATN[l][c], f"/{l}/{c}/")])]
-    og=f'/assets/img/{items[0]["img"]}-og.jpg'
+    og_story=news_items[0] if news_items else items[0]
+    og=f'/assets/img/{og_story["img"]}-og.jpg'
     h=head(l,title,desc,kws,f"/{l}/{c}/",pathfn,og,jsonld=ld)+header(l,pathfn,c)
     block=listings_block(l) if c=="real-estate" else ""
     news=f'<h2 class="pnews">{e(LISTING_UI[l]["news"])}</h2>' if c=="real-estate" else ""
-    h+=f'<main id="main" class="wrap"><h1 class="sec">{CATN[l][c]}</h1><p class="meta" style="margin-top:-6px">{e(desc)}</p>{block}{news}<div class="grid g3" style="margin-top:18px">'+"".join(card(s,l,lazy=(i>2)) for i,s in enumerate(items))+'</div></main>'+footer(l)
+    grid="".join(card(s,l,lazy=(i>2)) for i,s in enumerate(news_items))
+    extra=""
+    if guide_items:
+        extra=(f'<h2 class="sec"><a href="{href(f"/{l}/guides/")}">{e(GUIDE_MENU[l])}</a></h2>'
+               f'<div class="grid g3">'+"".join(card(s,l) for s in guide_items)+'</div>')
+    h+=f'<main id="main" class="wrap"><h1 class="sec">{CATN[l][c]}</h1><p class="meta" style="margin-top:-6px">{e(desc)}</p>{block}{news}<div class="grid g3" style="margin-top:18px">{grid}</div>{extra}</main>'+footer(l)
     return h
 
 def article_times(s):
@@ -1958,6 +1977,17 @@ AMAZON_BLOCKS = {
     text="Ένα κλειδί υλικού αντέχει μια νέα SIM καλύτερα από ένα μήνυμα, όπου η τράπεζα το επιτρέπει. Ένας αποκλειστής δεδομένων USB είναι για φόρτιση από πρίζα που δεν εμπιστεύεστε. Ένα πορτοφόλι υλικού αφορά μόνο όποιον κρατά κρυπτονόμισμα. Αυτές είναι αναζητήσεις στο Amazon.de, όχι δοκιμή ενός μοντέλου, και οι τιμές αλλάζουν.",
     links=[("Κλειδί ασφαλείας (YubiKey)","YubiKey"),("Αποκλειστής δεδομένων USB","USB data blocker"),("Πορτοφόλι υλικού","hardware wallet")]),
  },
+ "flights-to-cyprus": {
+  "en": dict(title="What the cabin bag often needs",
+    text="Cyprus uses the UK square-pin socket, so a European two-pin plug needs an adapter. A power bank and a luggage scale are ordinary packing, not a visa. These open Amazon.de searches. They are not a review, and the results and prices change.",
+    links=[("UK plug adapter (Type G)","UK plug adapter Type G"),("Power bank","power bank"),("Luggage scale","luggage scale")]),
+  "ru": dict(title="Что часто нужно в ручной клади",
+    text="На Кипре розетки британского типа, с тремя прямоугольными штырями, поэтому европейская вилка с двумя штырями просит переходник. Пауэрбанк и весы для багажа — обычные дорожные вещи, не виза. Ссылки открывают поиск на Amazon.de. Это не обзор, а выдача и цены меняются.",
+    links=[("Переходник на британскую розетку","UK plug adapter Type G"),("Пауэрбанк","power bank"),("Весы для багажа","luggage scale")]),
+  "el": dict(title="Τι χρειάζεται συχνά η χειραποσκευή",
+    text="Η Κύπρος χρησιμοποιεί τη βρετανική πρίζα, με τρεις ορθογώνιες ακίδες, οπότε ένα ευρωπαϊκό διπολικό φις θέλει αντάπτορα. Ένα power bank και μια ζυγαριά αποσκευών είναι συνηθισμένα ταξιδιωτικά είδη, όχι βίζα. Οι σύνδεσμοι ανοίγουν αναζήτηση στο Amazon.de. Δεν είναι κριτική, και τα αποτελέσματα και οι τιμές αλλάζουν.",
+    links=[("Αντάπτορας βρετανικής πρίζας","UK plug adapter Type G"),("Power bank","power bank"),("Ζυγαριά αποσκευών","luggage scale")]),
+ },
  "cyprus-resident-handbook": {
   "en": dict(title="Once you have the keys",
     text="A lease does not, by itself, let you change the lock. Ask the landlord before you fit one. An indoor camera covers your own rooms, not a neighbour’s. These are Amazon.de searches for setting up a home, not a security survey, and prices change.",
@@ -2014,11 +2044,16 @@ def page_article(l,s):
     kws=s["kw"][l]+GKW[l][:4]
     pub,mod=article_times(s)
     og=f'/assets/img/{s["img"]}-og.jpg'
-    ld=[{"@context":"https://schema.org","@type":"NewsArticle","mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":title,"description":schema_desc,"image":[image_ld(s)],"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":CATN[l][s["cat"]],"keywords":", ".join(s["kw"][l]),
+    # News stays NewsArticle. A practical guide is an Article: it is not a news report,
+    # and it does not belong in the Google News sitemap.
+    kind="Article" if s.get("guide") else "NewsArticle"
+    section=GUIDE_MENU[l] if s.get("guide") else CATN[l][s["cat"]]
+    crumb_mid=(GUIDE_MENU[l], f"/{l}/guides/") if s.get("guide") else (CATN[l][s["cat"]], f"/{l}/{s['cat']}/")
+    ld=[{"@context":"https://schema.org","@type":kind,"mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":title,"description":schema_desc,"image":[image_ld(s)],"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":section,"keywords":", ".join(s["kw"][l]),
         "author":author_ld(),"publisher":publisher_ld(),
         "isBasedOn":[x[1] for x in s["sources"]],"citation":[{"@type":"CreativeWork","name":x[0],"url":x[1]} for x in s["sources"]],"articleBody":plain_body(s["body"][l]),"url":abs_(path),
         "locationCreated":{"@type":"Place","name":"Cyprus"},"about":{"@type":"Place","name":"Cyprus"}},
-      breadcrumb_ld([(u["crumb_home"], f"/{l}/"), (CATN[l][s["cat"]], f"/{l}/{s['cat']}/"), (title, path)])]
+      breadcrumb_ld([(u["crumb_home"], f"/{l}/"), crumb_mid, (title, path)])]
     faq=faq_ld(s["faq"][l])
     if faq: ld.append(faq)
     howto=howto_ld(l, s)
@@ -2027,9 +2062,10 @@ def page_article(l,s):
     # A missing translation repeats the Russian text, so it stays out of the index,
     # the sitemap and the hreflang cluster.
     robots = "noindex,follow" if l in s.get("missing", ()) else "index,follow,max-image-preview:large,max-snippet:-1"
-    h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod,robots=robots,langs=indexed_langs(s))+header(l,pathfn,s["cat"])
-    h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{u["crumb_home"]}</a> › <a href="{href(f"/{l}/{s["cat"]}/")}">{CATN[l][s["cat"]]}</a></nav>'
-    h+=f'<article class="a"><span class="cat">{CATN[l][s["cat"]]}</span><h1>{e(title)}</h1><p class="dek">{e(s["lede"][l])}</p>'
+    active="guides" if s.get("guide") else s["cat"]
+    h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod,robots=robots,langs=indexed_langs(s))+header(l,pathfn,active)
+    h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{u["crumb_home"]}</a> › <a href="{href(crumb_mid[1])}">{e(crumb_mid[0])}</a></nav>'
+    h+=f'<article class="a"><span class="cat">{e(section)}</span><h1>{e(title)}</h1><p class="dek">{e(s["lede"][l])}</p>'
     h+=f'<div class="by"><span class="who">{e(u["byline"])}</span><span class="when"><time datetime="{pub}">{e(u["published"])}: {fdt(pub,l)}</time><time datetime="{mod}">{e(u["updated"])}: {fdt(mod,l)}</time></span></div>'
     h+=f'<figure>{img_tag(s,l,1200,False,True,"(max-width:800px) 100vw,760px")}{f"<figcaption>{photo_caption(s,l)}</figcaption>" if photo_caption(s,l) else ""}</figure>'
     notice=f'<p class="disclosure">{e(u["disclosure_text"])} <a href="{href(f"/{l}/affiliate-disclosure/")}">{e(u["disclosure"])}</a></p>' if s["offers"][l] else ""
@@ -2056,7 +2092,14 @@ def page_article(l,s):
     if s["slug"] in BBF_BY_SLUG:
         h+=similar_atex(l)
     h+=property_consult(l, abs_(path), BBF_BY_SLUG[s["slug"]]["project"] if s["slug"] in BBF_BY_SLUG else "")
-    rel=[x for x in sorted_all() if x["slug"]!=s["slug"]]
+    if s.get("guide"):
+        others=[x for x in sorted_all() if x.get("guide") and x["slug"]!=s["slug"] and l not in x.get("missing",())]
+        # Same section first, then newer guides.
+        dated=sorted(others, key=lambda x:(x["cat"]!=s["cat"], x["date"]), reverse=True)
+        dated.sort(key=lambda x:x["cat"]!=s["cat"])
+        if dated:
+            h+=f'<section class="rel"><h2><a href="{href(f"/{l}/guides/")}">{e(GUIDE_MENU[l])}</a></h2><div class="grid">'+"".join(card(x,l) for x in dated[:4])+'</div></section>'
+    rel=[x for x in news_sorted() if x["slug"]!=s["slug"]]
     rel.sort(key=lambda x:(x["cat"]!=s["cat"],))
     h+=f'<section class="rel"><h2>{u["related"]}</h2><div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
     if s["offers"][l] or widget or amazon:
@@ -2419,17 +2462,17 @@ def page_ad_thanks(l):
     return h
 
 EVL={
- "en":dict(title="Events",week="This week",upcoming="Coming months",later="Later",see="All events",
+ "en":dict(title="Events in Cyprus",week="This week",upcoming="Coming months",later="Later",see="All events",
   desc="Concerts, festivals, fairs, exhibitions, theatre, family shows and sport in Cyprus. Dates and prices come from the linked sources and are left out where a source does not give them.",
   city="City",kind="Type",all="All",source="Source",empty="No events match these filters.",
   cities=dict(nicosia="Nicosia",limassol="Limassol",larnaca="Larnaca",paphos="Paphos",**{"ayia-napa":"Ayia Napa & Protaras"},other="Towns & villages"),
   types=dict(theatre="Theatre",cinema="Cinema",concert="Concerts",festival="Festivals",fair="Fairs & markets",exhibition="Exhibitions",kids="For children",sport="Sport")),
- "ru":dict(title="Мероприятия",week="На этой неделе",upcoming="В ближайшие месяцы",later="Позже",see="Все события",
+ "ru":dict(title="Мероприятия на Кипре",week="На этой неделе",upcoming="В ближайшие месяцы",later="Позже",see="Все события",
   desc="Концерты, фестивали, ярмарки, выставки, театр, семейные спектакли и спорт на Кипре. Даты и цены взяты из указанных источников и не дополняются, если источник их не называет.",
   city="Город",kind="Тип",all="Все",source="Источник",empty="Нет событий с таким фильтром.",
   cities=dict(nicosia="Никосия",limassol="Лимассол",larnaca="Ларнака",paphos="Пафос",**{"ayia-napa":"Айя-Напа и Протарас"},other="Города и деревни"),
   types=dict(theatre="Театр",cinema="Кино",concert="Концерты",festival="Фестивали",fair="Ярмарки",exhibition="Выставки",kids="Для детей",sport="Спорт")),
- "el":dict(title="Εκδηλώσεις",week="Αυτή την εβδομάδα",upcoming="Τους επόμενους μήνες",later="Αργότερα",see="Όλες οι εκδηλώσεις",
+ "el":dict(title="Εκδηλώσεις στην Κύπρο",week="Αυτή την εβδομάδα",upcoming="Τους επόμενους μήνες",later="Αργότερα",see="Όλες οι εκδηλώσεις",
   desc="Συναυλίες, φεστιβάλ, αγορές, εκθέσεις, θέατρο, οικογενειακές παραστάσεις και αθλητισμός στην Κύπρο. Ημερομηνίες και τιμές προέρχονται από τις πηγές και δεν συμπληρώνονται όταν η πηγή δεν τις δίνει.",
   city="Πόλη",kind="Είδος",all="Όλα",source="Πηγή",empty="Καμία εκδήλωση με αυτά τα φίλτρα.",
   cities=dict(nicosia="Λευκωσία",limassol="Λεμεσός",larnaca="Λάρνακα",paphos="Πάφος",**{"ayia-napa":"Αγία Νάπα & Πρωταράς"},other="Πόλεις και χωριά"),
@@ -2527,10 +2570,68 @@ TRAVEL_GUIDES = (
  "esim-mobile-data-cyprus",
 )
 TRAVEL_PAGE = {
- "en": ("Travel in Cyprus", "Guides to things to do, hiring a car, where to stay, and mobile data. Each page cites its sources and does not invent a price."),
- "ru": ("Путешествия по Кипру", "Путеводители: чем заняться, аренда машины, где остановиться и мобильный интернет. На каждой странице указаны источники, цены не выдуманы."),
- "el": ("Ταξίδι στην Κύπρο", "Οδηγοί για αξιοθέατα, ενοικίαση αυτοκινήτου, πού να μείνετε και δεδομένα κινητού. Κάθε σελίδα αναφέρει τις πηγές της και δεν επινοεί τιμή."),
+ "en": ("Travel in Cyprus: things to do, cars, stays and eSIM", "Guides to things to do, hiring a car, where to stay, and mobile data. Each page cites its sources and does not invent a price."),
+ "ru": ("Путешествия по Кипру: маршруты, авто, жильё и eSIM", "Путеводители: чем заняться, аренда машины, где остановиться и мобильный интернет. На каждой странице указаны источники, цены не выдуманы."),
+ "el": ("Ταξίδι στην Κύπρο: αξιοθέατα, αυτοκίνητο, διαμονή και eSIM", "Οδηγοί για αξιοθέατα, ενοικίαση αυτοκινήτου, πού να μείνετε και δεδομένα κινητού. Κάθε σελίδα αναφέρει τις πηγές της και δεν επινοεί τιμή."),
 }
+GUIDE_PAGE = {
+ "en": ("Guides to Cyprus", "Explainers on moving to Cyprus, EU residence, tax, property, healthcare, driving and travel. Each page cites public sources, shows when it was updated, and does not invent a price or a permit."),
+ "ru": ("Гиды по Кипру", "Разборы о переезде на Кипр, виде на жительство, налогах, жилье, медицине, вождении и поездках. У каждой страницы есть источники и дата обновления. Цены и разрешения здесь не выдуманы."),
+ "el": ("Οδηγοί για την Κύπρο", "Επεξηγήσεις για μετακόμιση, διαμονή, φόρους, ακίνητα, υγεία, οδήγηση και ταξίδια. Κάθε σελίδα αναφέρει πηγές και ημερομηνία ενημέρωσης και δεν επινοεί τιμή ή άδεια."),
+}
+GUIDE_NOTE = {
+ "en": "A guide is not a permit, a tax return or a quote. Where two official pages disagree, the guide says so.",
+ "ru": "Гид — не разрешение, не декларация и не оферта. Если две официальные страницы расходятся, материал об этом говорит.",
+ "el": "Ο οδηγός δεν είναι άδεια, δήλωση ή προσφορά. Όπου δύο επίσημες σελίδες διαφωνούν, το κείμενο το λέει.",
+}
+GUIDE_EL_NOTE = "Οδηγοί που δεν έχουν ακόμη ελληνικό κείμενο μένουν στα αγγλικά και στα ρωσικά."
+# Slugs in reading order. A missing file is a build error, so a renamed guide cannot vanish from the hub.
+GUIDE_GROUPS = (
+ ("move", {"en":"Moving and residence","ru":"Переезд и проживание","el":"Μετακόμιση και διαμονή"}, (
+    "eu-residence-cyprus","cyprus-digital-nomad-visa-2026","relocating-to-cyprus","cyprus-resident-handbook","cyprus-malta-portugal-relocation")),
+ ("tax", {"en":"Tax, work and companies","ru":"Налоги, работа и компании","el":"Φόροι, εργασία και εταιρείες"}, (
+    "cyprus-tax-residency-2026","cyprus-non-dom-tax-2026","cost-of-living-cyprus-2026","jobs-and-pay-cyprus","open-a-company-in-cyprus","cysec-forex-crypto","bank-account-cyprus")),
+ ("borders", {"en":"Borders and the region","ru":"Границы и регион","el":"Σύνορα και περιοχή"}, (
+    "cyprus-schengen-2026","ees-etias-cyprus-2026","cyprus-and-the-region")),
+ ("property", {"en":"Property","ru":"Жильё","el":"Ακίνητα"}, (
+    "buying-property-cyprus-foreigner","renting-in-cyprus")),
+ ("daily", {"en":"Health and the road","ru":"Здоровье и дорога","el":"Υγεία και δρόμος"}, (
+    "gesy-for-foreigners","international-health-insurance","driving-in-cyprus","protect-data-foreign-banks")),
+ ("travel", {"en":"Travel","ru":"Поездки","el":"Ταξίδια"}, (
+    "flights-to-cyprus","cyprus-weather-by-month","beaches-in-cyprus","best-things-to-do-cyprus-2026","where-to-stay-in-cyprus","renting-a-car-in-cyprus","esim-mobile-data-cyprus","cyprus-airport-transfers-2026")),
+ ("projects", {"en":"Development notes","ru":"Заметки о проектах","el":"Σημειώσεις για αναπτύξεις"}, (
+    "yoo-limassol-review","limassol-blu-marine-review","one-limassol-review","dream-tower-limassol-review","eden-coast-paphos-review","kean-limassol-review","minthis-residences-review")),
+)
+def page_guides(l):
+    title, desc = GUIDE_PAGE[l]
+    path=f"/{l}/guides/"
+    pathfn=lambda x:f"/{x}/guides/"
+    blocks=[]
+    listed=[]
+    for _key, names, slugs in GUIDE_GROUPS:
+        cards=[]
+        for slug in slugs:
+            s=BYSLUG.get(slug)
+            if not s:
+                raise SystemExit(f"guides hub lists unknown slug {slug}")
+            if l in s.get("missing", ()):
+                continue
+            cards.append(f'<article class="fmt"><h3><a href="{href(f"/{l}/{slug}/")}">{e(s["title"][l])}</a></h3><p>{e(trunc(s["lede"][l],180))}</p></article>')
+            listed.append(s)
+        if cards:
+            blocks.append(f'<h2>{e(names[l])}</h2><div class="fmts">{"".join(cards)}</div>')
+    note=f'<p>{e(GUIDE_NOTE[l])}</p>'
+    if l=="el":
+        note+=f'<p>{e(GUIDE_EL_NOTE)} <a href="{href("/en/guides/")}">English</a></p>'
+    elements=[{"@type":"ListItem","position":i+1,"url":abs_(f"/{l}/{s['slug']}/"),"name":s["title"][l]} for i,s in enumerate(listed)]
+    ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":title,"url":abs_(path),"inLanguage":l,"description":desc,
+         "isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")},
+         "mainEntity":{"@type":"ItemList","itemListElement":elements}},
+        breadcrumb_ld([(UI[l]["crumb_home"], f"/{l}/"), (GUIDE_MENU[l], path)])]
+    h=head(l, f'{title} | {SITE}', desc, [title, GUIDE_MENU[l], "Cyprus", SITE], path, pathfn, "/assets/og-default.jpg", jsonld=ld)
+    h+=header(l, pathfn, "guides")
+    h+=f'<main id="main" class="wrap"><article class="adpage"><h1>{e(title)}</h1><p class="leadin">{e(desc)}</p>{note}{"".join(blocks)}</article></main>'+footer(l)
+    return h
 def page_travel(l):
     title, desc = TRAVEL_PAGE[l]
     path=f"/{l}/travel/"
@@ -2638,7 +2739,7 @@ def page_root():
 {cookie_banner("en")}</body></html>'''
 
 def rss(l):
-    items=sorted_all()
+    items=news_sorted()
     x=['<?xml version="1.0" encoding="UTF-8"?><rss version="2.0"><channel>',f'<title>{SITE} ({l.upper()})</title><link>{abs_(f"/{l}/")}</link><description>{e(HOME_D[l])}</description><language>{l}</language>']
     for s in items:
         dt=datetime.datetime.fromisoformat(s["date"]+"T09:00:00+02:00")
@@ -2660,7 +2761,9 @@ def sitemap():
     for s in STORIES:
         langs=indexed_langs(s)
         if langs:
-            x.append(entry(lambda l,s=s:f"/{l}/{s['slug']}/",TODAY,"0.8",langs))
+            # A guide's lastmod is the date on the page. News keeps the build date.
+            last=(s.get("updated") or s["date"])[:10] if s.get("guide") else TODAY
+            x.append(entry(lambda l,s=s:f"/{l}/{s['slug']}/",last,"0.8",langs))
     x.append(entry(lambda l:f"/{l}/about/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/editorial-policy/",TODAY,"0.3"))
     x.append(entry(lambda l:f"/{l}/affiliate-disclosure/",TODAY,"0.3"))
@@ -2671,6 +2774,7 @@ def sitemap():
     x.append(entry(lambda l:f"/{l}/property-consultation/",TODAY,"0.5"))
     x.append(entry(lambda l:f"/{l}/events/",TODAY,"0.6"))
     x.append(entry(lambda l:f"/{l}/travel/",TODAY,"0.6"))
+    x.append(entry(lambda l:f"/{l}/guides/",TODAY,"0.8"))
     for prop in published_listings():
         pid=prop["id"]
         x.append(entry(lambda l, pid=pid: f"/{l}/real-estate/{pid}/", TODAY, "0.5"))
@@ -2738,6 +2842,7 @@ def main():
         w(f"/{l}/cookies/index.html",page_info(l,"cookies",cookies_for(l),"WebPage"))
         w(f"/{l}/events/index.html",page_events(l))
         w(f"/{l}/travel/index.html",page_travel(l))
+        w(f"/{l}/guides/index.html",page_guides(l))
         w(f"/{l}/advertising/index.html",page_advertising(l))
         w(f"/{l}/advertising/thanks/index.html",page_ad_thanks(l))
         w(f"/{l}/advertise/index.html",page_advertise(l))

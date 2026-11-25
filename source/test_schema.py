@@ -51,8 +51,11 @@ class SchemaTests(unittest.TestCase):
             for lang in LANGS:
                 html = build.page_article(lang, story)
                 nodes = blocks(html)
-                articles = by_type(nodes, "NewsArticle")
-                self.assertEqual(len(articles), 1, story["slug"])
+                kind = "Article" if story.get("guide") else "NewsArticle"
+                articles = by_type(nodes, kind)
+                self.assertEqual(len(articles), 1, (story["slug"], kind))
+                other = "NewsArticle" if kind == "Article" else "Article"
+                self.assertFalse(by_type(nodes, other), story["slug"])
                 article = articles[0]
                 self.assertEqual(article["headline"], story["title"][lang])
                 self.assertTrue(article["headline"].strip())

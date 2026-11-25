@@ -1,0 +1,90 @@
+{
+  "slug": "bank-account-cyprus",
+  "cat": "economy",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "provident-funds",
+  "sources": [
+    {
+      "name": "Central Bank of Cyprus",
+      "url": "https://www.centralbank.cy/"
+    },
+    {
+      "name": "European Commission, anti-money laundering",
+      "url": "https://finance.ec.europa.eu/financial-crime/anti-money-laundering-and-countering-financing-terrorism_en"
+    }
+  ],
+  "en": {
+    "title": "Opening a bank account in Cyprus: what no guide can print for you",
+    "lede": "A residence card is not an account. Banks apply their own checks under the anti-money-laundering rules. The Central Bank lists licensed institutions. This page does not name one as easier, and it does not list a pack of documents a bank has not published as a national form.",
+    "desc": "Opening a bank account in Cyprus: licensed banks are on the Central Bank's list. A residence card is not an account. No document pack is invented here.",
+    "alt": "The Ministry of Finance building in Nicosia",
+    "kw": [
+      "open bank account Cyprus",
+      "Cyprus bank for foreigners",
+      "Central Bank of Cyprus",
+      "KYC Cyprus",
+      "non resident account Cyprus"
+    ],
+    "faq": [
+      {
+        "q": "Which bank should I use?",
+        "a": "This page does not say. The Central Bank of Cyprus publishes the list of licensed credit institutions. A blog that ranks them by how friendly they are to newcomers is not that list."
+      },
+      {
+        "q": "Will my residence permit open the account?",
+        "a": "No. The permit shows an immigration status. The bank still has to identify you, understand where the money comes from and decide whether to take you as a customer. Some applications are refused. This page cannot tell you which."
+      },
+      {
+        "q": "What documents are required?",
+        "a": "There is no single national form this guide can copy. Banks ask for identity, an address, and evidence of the source of funds, and the pack differs. Ask the bank you are actually applying to, and keep what they send."
+      },
+      {
+        "q": "Can I open an account before I arrive?",
+        "a": "Some institutions talk to non-residents and some do not. This page does not know the current policy of a named bank. Remote onboarding, where a bank offers it, is still that bank's process."
+      },
+      {
+        "q": "How do I protect the login?",
+        "a": "A new SIM and a café network are a bad pair for a bank code. The practical page is the guide on protecting accounts you use from abroad. An eSIM is a way to have data. It is not the bank."
+      }
+    ],
+    "body": "Opening a bank account is the step that sounds administrative and is, in practice, a decision by a private institution. Cyprus has a Central Bank, and that Central Bank licenses and supervises credit institutions. The list of who is allowed to take deposits is on the Central Bank's site. A firm that is not on it is not made safer by a smooth website. This guide stops at that public fact. It does not review Bank of Cyprus, Hellenic Bank or any other name, and it does not claim that one of them is currently welcoming to new arrivals. Welcoming is a policy, and policies change without a statute.\n\n## What the bank is deciding\n\nUnder the anti-money-laundering framework a bank has to know its customer. In ordinary language that means identity, where you live, what you do, and where the money came from. A yellow slip, a pink slip or a nomad permit is evidence of an immigration status. It is not an instruction to the bank to open a ledger. Tax residence is a third status again. The three are separated in [the relocation guide](/en/relocating-to-cyprus/) and in [tax residency](/en/cyprus-tax-residency-2026/). Handing over a residence card and waiting for an IBAN is how people lose weeks.\n\nThere is no national checklist this page can honestly print. Banks ask for a passport, proof of address, and papers that show the source of funds. Which papers, how recent, and whether a foreign utility bill counts, is the bank's written list. If a guide elsewhere prints a universal pack, treat it as that author's last successful application, not as law. Ask the institution, and keep the email.\n\nRefusals happen. A refusal is not always explained in a way you can argue with. Nothing on this page is a route around a refusal, and nothing here is an offer to introduce you to a banker. CyNews 24 does not hold client money and does not refer account openings.\n\n## Non-residents and companies\n\nA person who is not yet in Cyprus sometimes wants the account first, because a landlord or an immigration file asks for one. Some banks will talk to a non-resident and some will not. This page will not say which, because that would be a claim about a policy it has not read this week. A company account is a different product from a personal account. The company itself is [opening a company](/en/open-a-company-in-cyprus/). The bank will ask who owns it and who directs it. A corporate tax rate does not answer those questions.\n\n## The login, once you have it\n\nThe risk after the account exists is the login. A one-time code to a number you no longer control, or a password typed on a network you do not know, is how accounts are taken over. [Protecting accounts you use from abroad](/en/protect-data-foreign-banks/) is the practical pair to this page. A travel eSIM can give you data on the day you land. Check whether it can receive the bank's text. Many data eSIMs cannot.\n\n{{travel:AIRALO_URL|See Airalo eSIM plans}}\n\n{{travel:YESIM_URL|See Yesim eSIM plans}}\n\nThis page will be wrong the week a bank changes its list. The updated date is the date of the words, not a promise that a branch will see you tomorrow."
+  },
+  "ru": {
+    "title": "Счёт в банке на Кипре: чего ни один гид не может напечатать за вас",
+    "lede": "Карточка проживания — не счёт. Банки проводят собственные проверки по правилам против отмывания. Центральный банк публикует список лицензированных учреждений. Эта страница не называет один из них более лёгким и не печатает пакет документов, которого банк не издавал как общегосударственную форму.",
+    "desc": "Счёт в банке на Кипре: лицензированные банки — в списке Центрального банка. Карточка проживания — не счёт. Пакет документов здесь не выдуман.",
+    "alt": "Здание Министерства финансов в Никосии",
+    "kw": [
+      "открыть счёт Кипр",
+      "банк Кипр для иностранцев",
+      "Центральный банк Кипра",
+      "KYC Кипр",
+      "счёт нерезидента Кипр"
+    ],
+    "faq": [
+      {
+        "q": "Какой банк выбрать?",
+        "a": "Эта страница не отвечает. Центральный банк Кипра публикует список лицензированных кредитных учреждений. Блог, который ранжирует их по приветливости к новоприбывшим, — не этот список."
+      },
+      {
+        "q": "Разрешение на проживание откроет счёт?",
+        "a": "Нет. Разрешение показывает иммиграционный статус. Банк всё равно должен вас опознать, понять, откуда деньги, и решить, брать ли вас клиентом. Часть заявлений отклоняют. Какое именно, эта страница сказать не может."
+      },
+      {
+        "q": "Какие документы нужны?",
+        "a": "Единой общегосударственной формы, которую этот гид мог бы скопировать, нет. Банки просят личность, адрес и подтверждение источника средств, и пакет разный. Спросите банк, в который вы действительно подаёте, и храните то, что он пришлёт."
+      },
+      {
+        "q": "Можно ли открыть счёт до приезда?",
+        "a": "Одни учреждения говорят с нерезидентами, другие нет. Текущую политику названного банка эта страница не знает. Удалённое открытие, где банк его предлагает, всё равно процесс этого банка."
+      },
+      {
+        "q": "Как защитить вход?",
+        "a": "Новая SIM и сеть кафе — плохая пара для кода банка. Практическая страница — гид о защите счетов, которыми пользуются из-за границы. eSIM даёт данные. Это не банк."
+      }
+    ],
+    "body": "Открытие счёта звучит как канцелярский шаг, а на деле это решение частного учреждения. На Кипре есть Центральный банк, и он лицензирует и надзирает кредитные учреждения. Список тех, кому позволено принимать вклады, лежит на сайте Центрального банка. Фирму, которой в списке нет, не делает безопаснее гладкий сайт. Этот гид останавливается на этом публичном факте. Он не рецензирует Bank of Cyprus, Hellenic Bank или любое другое имя и не утверждает, что кто-то из них сейчас рад новоприбывшим. Радушие — это политика, а политика меняется без статута.\n\n## Что решает банк\n\nВ рамках правил против отмывания банк должен знать клиента. Обычными словами это личность, где вы живёте, чем занимаетесь и откуда пришли деньги. Жёлтый слип, розовый слип или разрешение кочевника — доказательство иммиграционного статуса. Это не указание банку открыть книгу. Налоговое резидентство — третий статус. Три статуса разделены в [гиде о переезде](/ru/relocating-to-cyprus/) и в гиде [о налоговом резидентстве](/ru/cyprus-tax-residency-2026/). Отдать карточку проживания и ждать IBAN — способ потерять недели.\n\nОбщего списка, который эта страница могла бы честно напечатать, нет. Банки просят паспорт, подтверждение адреса и бумаги об источнике средств. Какие бумаги, какой свежести и считается ли иностранный коммунальный счёт, написано в списке банка. Если другой гид печатает универсальный пакет, считайте его последним удачным заявлением автора, не законом. Спросите учреждение и храните письмо.\n\nОтказы бывают. Отказ не всегда объяснён так, чтобы с ним спорить. На этой странице нет обхода отказа и нет предложения познакомить вас с банкиром. CyNews 24 не держит клиентские деньги и не направляет на открытие счетов.\n\n## Нерезиденты и компании\n\nТому, кого ещё нет на Кипре, иногда нужен сначала счёт, потому что его просит хозяин жилья или иммиграционное дело. Одни банки говорят с нерезидентом, другие нет. Какой именно, эта страница не скажет: это было бы утверждение о политике, которую она на этой неделе не читала. Счёт компании — другой продукт, не личный счёт. Сама компания — в гиде [открытие компании](/ru/open-a-company-in-cyprus/). Банк спросит, кто владелец и кто директор. Ставка налога компании на эти вопросы не отвечает.\n\n## Вход, когда счёт уже есть\n\nРиск после появления счёта — это вход. Одноразовый код на номер, который вы больше не контролируете, или пароль, набранный в чужой сети, — так счета и забирают. [Защита счетов, которыми пользуются из-за границы](/ru/protect-data-foreign-banks/), — пара к этой странице. Туристическая eSIM может дать данные в день посадки. Проверьте, примет ли она сообщение банка. Многие eSIM только с данными этого не умеют.\n\n{{travel:AIRALO_URL|Смотреть планы eSIM Airalo}}\n\n{{travel:YESIM_URL|Смотреть планы eSIM Yesim}}\n\nЭта страница устареет в ту неделю, когда банк сменит список. Дата обновления — дата слов, не обещание, что отделение примет вас завтра."
+  }
+}

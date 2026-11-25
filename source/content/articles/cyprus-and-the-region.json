@@ -1,0 +1,90 @@
+{
+  "slug": "cyprus-and-the-region",
+  "cat": "world",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "unficyp-ledra",
+  "sources": [
+    {
+      "name": "Ministry of Foreign Affairs of Cyprus",
+      "url": "https://www.mfa.gov.cy/"
+    },
+    {
+      "name": "United Nations Peacekeeping Force in Cyprus",
+      "url": "https://unficyp.unmissions.org/"
+    }
+  ],
+  "en": {
+    "title": "Cyprus and the region: what the map changes for a traveller",
+    "lede": "The Republic of Cyprus is the EU member state. The island is divided. UNFICYP patrols a buffer zone. Turkey, Syria, Lebanon and Israel are close enough that their news changes flights and politics. This page does not predict a war and does not brief one.",
+    "desc": "Cyprus and its neighbours: the Republic, the buffer zone, and why news from Turkey, Lebanon and Israel shows up in Cypriot life. No forecast of conflict.",
+    "alt": "A United Nations buffer-zone post at Ledra, Nicosia",
+    "kw": [
+      "Cyprus region",
+      "Green Line Cyprus",
+      "UNFICYP",
+      "Cyprus Turkey",
+      "Cyprus Middle East"
+    ],
+    "faq": [
+      {
+        "q": "Is the whole island in the EU?",
+        "a": "The Republic of Cyprus is the member state. The Republic does not control the north. EU law is suspended in the areas it does not control. A visitor who treats the island as one immigration space is using a map the authorities do not use."
+      },
+      {
+        "q": "What is the buffer zone?",
+        "a": "It is the UN-controlled strip between the sides, patrolled by UNFICYP. Crossing points are specific places with their own rules. This page does not list opening hours. Check the current notice before you go."
+      },
+      {
+        "q": "Does a flight via a neighbour count as entering the Republic?",
+        "a": "Only if you clear a Republic airport or port. Larnaca and Paphos are those airports. Ercan is not. The Schengen guide explains why that distinction matters for any future border system."
+      },
+      {
+        "q": "Should I cancel a trip because of regional news?",
+        "a": "This page will not say. Your own foreign ministry publishes travel advice and updates it. CyNews 24 reports events. It does not run a threat system."
+      },
+      {
+        "q": "Where do the politics show up on this site?",
+        "a": "In the news, not in a guide that pretends to settle them. Talks, crossings and the Schengen argument are reported as stories and linked below."
+      }
+    ],
+    "body": "Cyprus sits in the eastern Mediterranean, close to Turkey, Syria, Lebanon and Israel, and far enough from the mental map of \"a European island\" that the news surprises people who booked only the beach. This guide is the map a traveller or a new resident can use without a briefing on a war. It states who controls what, in the terms the institutions use, and it points at the news when the news is the point. It does not forecast violence and it does not advise a route around a conflict.\n\n## One island, not one authority\n\nThe Republic of Cyprus is the state that joined the European Union. It does not exercise effective control in the north. The United Nations Peacekeeping Force in Cyprus, UNFICYP, patrols the buffer zone between the sides. Crossing from one side to the other happens at designated points, not anywhere along the line. The rules at those points, including who may cross and with what papers, are published by the authorities that run them and they change. This page does not copy a list of eleven or nine crossings as if the number were the rule. [The Schengen report](/en/cyprus-schengen-july-2027/) mentioned a figure in a specific news story. That story is the place for the figure. The guide about whether the area itself is changing is [Cyprus and Schengen in 2026](/en/cyprus-schengen-2026/).\n\nA holiday that starts in the north and continues in the south is an immigration sequence, not a scenic drive. [Flights to Cyprus](/en/flights-to-cyprus/) names Larnaca and Paphos as the Republic's airports and says what Ercan is not.\n\n## Why the neighbours appear in Cypriot headlines\n\nTurkey is a party to the Cyprus problem and a neighbour. Meetings, customs talks and flights are news when they happen. A report on this site, when there is one, is the record. [Talks involving Turkey and customs](/en/turkey-customs-talks/) is one such story. It is not a permanent description of the border.\n\nLebanon, Israel and Syria are close. Their security news moves Cypriot politics, energy plans and, at times, the availability of routes. When this site reports a meeting or a statement, the story carries the source. A guide cannot freeze \"the situation\" in a paragraph that stays true for a year. If you are deciding whether to fly, read your own government's travel advice on the day, and read the airline's notice. The Ministry of Foreign Affairs of the Republic publishes the Republic's positions. It is not a substitute for the advice issued to citizens of the country whose passport you hold.\n\nEnergy links, including talk of interconnectors and gas, are economy stories. They are not a reason, on this page, to buy or sell anything. [CySEC](/en/cysec-forex-crypto/) is the page that says a licence is not a trading tip, if a regional headline is being used to sell you a product.\n\n## What a resident notices that a week-long visitor may not\n\nA resident hears the neighbours in the price of fuel, in the occasional change to a flight path, and in the politics of the crossings. None of that is a reason to skip the ordinary paperwork. Residence is [EU residence in Cyprus](/en/eu-residence-cyprus/). The buffer zone is not a tax border and not a GeSY border. Those systems are described in their own guides, and they apply in the areas and to the people those guides name.\n\nThis page will not tell you that the island is calm, or that it is not. It will tell you which office publishes the map it actually uses."
+  },
+  "ru": {
+    "title": "Кипр и регион: что карта меняет для путешественника",
+    "lede": "Республика Кипр — государство Евросоюза. Остров разделён. UNFICYP патрулирует буферную зону. Турция, Сирия, Ливан и Израиль достаточно близко, чтобы их новости меняли рейсы и политику. Эта страница не предсказывает войну и не инструктирует по ней.",
+    "desc": "Кипр и соседи: Республика, буферная зона и почему новости Турции, Ливана и Израиля входят в кипрскую жизнь. Прогноза конфликта нет.",
+    "alt": "Пост буферной зоны ООН у Ледры, Никосия",
+    "kw": [
+      "Кипр регион",
+      "зелёная линия",
+      "UNFICYP",
+      "Кипр Турция",
+      "Кипр Ближний Восток"
+    ],
+    "faq": [
+      {
+        "q": "Весь остров в ЕС?",
+        "a": "Член ЕС — Республика Кипр. Север Республика не контролирует. Право ЕС приостановлено там, где Республика не осуществляет контроль. Гость, который считает остров одним иммиграционным пространством, пользуется картой, которой власти не пользуются."
+      },
+      {
+        "q": "Что такое буферная зона?",
+        "a": "Это полоса под контролем ООН между сторонами, её патрулирует UNFICYP. Переходы — конкретные места со своими правилами. Часы работы эта страница не приводит. Перед выходом смотрите действующее объявление."
+      },
+      {
+        "q": "Перелёт через соседа считается въездом в Республику?",
+        "a": "Только если вы прошли аэропорт или порт Республики. Такие аэропорты — Ларнака и Пафос. Эрджан — нет. Гид о Шенгене объясняет, почему это различие важно для любой будущей пограничной системы."
+      },
+      {
+        "q": "Отменять ли поездку из-за региональных новостей?",
+        "a": "Эта страница не скажет. Собственный МИД публикует советы путешественникам и обновляет их. CyNews 24 сообщает о событиях. Систему угроз она не ведёт."
+      },
+      {
+        "q": "Где на сайте видна политика?",
+        "a": "В новостях, не в гиде, который делает вид, что её закрыл. Переговоры, переходы и спор о Шенгене выходят как материалы, ссылки ниже."
+      }
+    ],
+    "body": "Кипр лежит в восточном Средиземноморье, близко к Турции, Сирии, Ливану и Израилю, и достаточно далеко от мысленной карты «европейский остров», чтобы новости удивляли тех, кто бронировал только пляж. Этот гид — карта, которой может пользоваться путешественник или новый житель без инструктажа о войне. Он говорит, кто что контролирует, словами самих учреждений, и указывает на новость, когда новость и есть суть. Он не прогнозирует насилие и не советует маршрут в обход конфликта.\n\n## Один остров, не одна власть\n\nРеспублика Кипр — государство, которое вступило в Евросоюз. Эффективного контроля на севере она не осуществляет. Вооружённые силы ООН по поддержанию мира на Кипре, UNFICYP, патрулируют буферную зону между сторонами. Переход с одной стороны на другую идёт в назначенных пунктах, не в любом месте линии. Правила этих пунктов, включая то, кто может проходить и с какими документами, публикуют власти, которые их ведут, и правила меняются. Эта страница не копирует список из одиннадцати или девяти переходов так, будто число и есть правило. [Репортаж о Шенгене](/ru/cyprus-schengen-july-2027/) назвал цифру в конкретной новости. Цифре место в той новости. Гид о том, меняется ли сама зона, — [Кипр и Шенген в 2026 году](/ru/cyprus-schengen-2026/).\n\nОтпуск, который начинается на севере и продолжается на юге, — иммиграционная последовательность, не живописная поездка. [Авиабилеты на Кипр](/ru/flights-to-cyprus/) называют Ларнаку и Пафос аэропортами Республики и говорят, чем Эрджан не является.\n\n## Почему соседи попадают в кипрские заголовки\n\nТурция — сторона кипрской проблемы и сосед. Встречи, таможенные разговоры и рейсы становятся новостью, когда они происходят. Материал на этом сайте, когда он есть, и есть запись. [Разговоры Турции и таможни](/ru/turkey-customs-talks/) — один такой материал. Это не постоянное описание границы.\n\nЛиван, Израиль и Сирия близко. Их новости безопасности двигают кипрскую политику, энергетические планы и иногда доступность маршрутов. Когда этот сайт сообщает о встрече или заявлении, у материала есть источник. Гид не может заморозить «ситуацию» в абзаце, который останется верным год. Если вы решаете, лететь ли, читайте в этот день советы своего правительства и объявление авиакомпании. Министерство иностранных дел Республики публикует позиции Республики. Оно не заменяет советы, которые выдают гражданам страны вашего паспорта.\n\nЭнергетические связи, включая разговоры о перемычках и газе, — экономические новости. На этой странице они не повод что-либо купить или продать. [CySEC](/ru/cysec-forex-crypto/) — страница, которая говорит, что лицензия не является торговым советом, если региональным заголовком вам продают продукт.\n\n## Что замечает житель и может не заметить гость на неделю\n\nЖитель слышит соседей в цене топлива, в редкой смене маршрута рейса и в политике переходов. Ничто из этого не повод пропустить обычные бумаги. Проживание — в гиде [проживание в ЕС на Кипре](/ru/eu-residence-cyprus/). Буферная зона — не налоговая граница и не граница ГЕСИ. Эти системы описаны в своих гидах, и они действуют в тех районах и для тех людей, которых гиды называют.\n\nЭта страница не скажет, что на острове спокойно или что неспокойно. Она скажет, какое ведомство публикует карту, которой само пользуется."
+  }
+}

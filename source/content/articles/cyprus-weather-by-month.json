@@ -1,0 +1,90 @@
+{
+  "slug": "cyprus-weather-by-month",
+  "cat": "tourism",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "cape-greco",
+  "sources": [
+    {
+      "name": "Department of Meteorology, climatological information",
+      "url": "https://www.moa.gov.cy/moa/dm/dm.nsf/climateinfo_en/climateinfo_en?OpenDocument="
+    },
+    {
+      "name": "Department of Meteorology, area rainfall normals 1961-1990",
+      "url": "https://dom.org.cy/CLIMATOLOGY/English/Final%20Precipitation%20Data/2025/November/Monthly%20Area%20Average%20Precipitation_Cyprus_ENG_2025_26.pdf"
+    }
+  ],
+  "en": {
+    "title": "Cyprus weather by month: the pattern, not a forecast",
+    "lede": "Summers are hot and almost dry. Most rain falls from autumn into early spring. The Department of Meteorology publishes the normals. A city forecast is not this page, and the coast is not the mountains.",
+    "desc": "Cyprus weather by month: dry hot summers, rain from October to March, Troodos apart from the coast. Normals from the Department of Meteorology.",
+    "alt": "The coast at Cape Greco",
+    "kw": [
+      "Cyprus weather by month",
+      "Cyprus climate",
+      "Cyprus rain",
+      "Troodos snow",
+      "best time to visit Cyprus"
+    ],
+    "faq": [
+      {
+        "q": "When does it rain?",
+        "a": "The Department's area normals for 1961 to 1990, printed on its monthly rainfall bulletin, put most of the rain between October and March. June, July and August are the dry months on that table. A single storm does not repeal the normal."
+      },
+      {
+        "q": "Is the whole island the same temperature?",
+        "a": "No. The coast is milder. Nicosia and the plain run hotter in summer and colder on winter nights. Troodos is a mountain climate, and snow falls there in winter. The Department publishes station sheets. This page does not invent a degree for a beach."
+      },
+      {
+        "q": "When can you swim?",
+        "a": "The sea is warmest in late summer and cooler in winter. This page does not print a sea temperature, because it is not in the bulletin cited here. Check the Department or a current coastal report before you plan a swim."
+      },
+      {
+        "q": "What is a normal, as opposed to this year?",
+        "a": "A normal is a long average, here the 1961-1990 area average the Department still prints beside each month's actual rain. The actual month can be far from it. The bulletin shows both."
+      },
+      {
+        "q": "Does this page say the best month to move?",
+        "a": "No. Weather is not a residence rule. Flights and the two Republic airports are in the flights guide. A milder month is still a month you insure and pack for."
+      }
+    ],
+    "body": "Cyprus is talked about as endless summer. The Department of Meteorology's own rainfall normals are less romantic and more useful. They describe the government-controlled area as a place with a wet half of the year and a dry half, not as a single temperature you can pack for in every town.\n\n## The rain, from the Department's table\n\nThe Department's monthly rainfall bulletin prints a normal, an average for 1961 to 1990, beside the actual rain. For the area under government control those normals, in millimetres, are October 32.7, November 53.3, December 105.6, January 102.4, February 81.6, March 61.9, April 29.9, May 19.6, June 6.0, July 2.6, August 2.9, September 4.5. The annual normal on that sheet is 503.0. The sheet says the figures are area averages. They are not the rain that fell on one hotel, and they are not a forecast. The same PDF shows the actual month next to the normal, and in a dry year the actual is a long way under the line. Read the latest bulletin if you need this season rather than the climate.\n\nWhat the shape says is simple. The heavy months are December and January. November through March carry most of the year's water. June, July and August are almost dry on the normal. April and May, and then September and October, are the transitions. A week of cloud in August does not make August a rainy month on this table. A sunny week in January does not make January dry.\n\n## Coast, plain, mountain\n\nThe Department publishes station data as well as the island average. This guide does not copy a station's July high from a third-party table. The pattern the stations are there to show is the one residents already live: the coast is cooled by the sea, the central plain around Nicosia is hotter on summer afternoons and colder on winter nights, and Troodos, at mountain height, is a different climate. Snow on the Troodos roads in winter is ordinary enough that a coastal packing list is the wrong list for the mountains. If you need a number for a town, open the Department's climatological page and the station sheet, and keep the date of the normal in mind. A 1961-1990 rain normal and a later temperature normal are not the same object.\n\nSea temperature is not in the rainfall bulletin. People swim for a long season on the coast. This page will not invent a degree for the water in May or in November. A beach flag and a current report beat a guide that guessed.\n\n## How to use the year\n\nIf you are timing a holiday, the dry heat runs from late spring into early autumn, and the swimmable sea is a coastal fact rather than a mountain one. If you are timing a move, rain and heat are costs: damp in a winter flat, air conditioning in July, and a different bill in each case. Neither is priced here. [Renting](/en/renting-in-cyprus/) and [the cost of living](/en/cost-of-living-cyprus-2026/) refuse a single figure for the same reason this page refuses a single temperature.\n\nBeaches people ask about by name are listed, without a ranking, in [beaches in Cyprus](/en/beaches-in-cyprus/). Flights into the Republic's airports are in [flights to Cyprus](/en/flights-to-cyprus/). A search is not a forecast.\n\n{{travel:AVIASALES_URL|Search flights to Cyprus}}\n\n{{travel:KLOOK_URL|See tours on Klook}}\n\nThe buttons are affiliate links. They do not know whether it will rain on the day you land."
+  },
+  "ru": {
+    "title": "Погода на Кипре по месяцам: картина климата, не прогноз",
+    "lede": "Лето жаркое и почти сухое. Большая часть дождя падает с осени до начала весны. Нормы публикует Департамент метеорологии. Прогноз по городу — не эта страница, а побережье — не горы.",
+    "desc": "Погода на Кипре по месяцам: сухое жаркое лето, дождь с октября по март, Троодос отдельно от берега. Нормы Департамента метеорологии.",
+    "alt": "Побережье у мыса Греко",
+    "kw": [
+      "погода Кипр по месяцам",
+      "климат Кипр",
+      "дождь Кипр",
+      "снег Троодос",
+      "когда ехать на Кипр"
+    ],
+    "faq": [
+      {
+        "q": "Когда идут дожди?",
+        "a": "Нормы Департамента за 1961–1990 годы, напечатанные в ежемесячном бюллетене об осадках, кладут большую часть дождя между октябрём и мартом. Июнь, июль и август в этой таблице сухие. Один ливень норму не отменяет."
+      },
+      {
+        "q": "Температура одна на весь остров?",
+        "a": "Нет. Берег мягче. Никосия и равнина жарче летом и холоднее зимними ночами. Троодос — горный климат, зимой там лежит снег. Департамент публикует данные станций. Градус для пляжа эта страница не выдумывает."
+      },
+      {
+        "q": "Когда можно купаться?",
+        "a": "Море теплее в конце лета и прохладнее зимой. Температуру воды эта страница не печатает: её нет в цитируемом бюллетене. Перед купанием смотрите Департамент или текущую сводку по берегу."
+      },
+      {
+        "q": "Чем норма отличается от этого года?",
+        "a": "Норма — долгая средняя. Здесь это средняя за 1961–1990 годы по территории, которую Департамент печатает рядом с фактическим дождём месяца. Факт может сильно от неё отойти. Бюллетень показывает оба числа."
+      },
+      {
+        "q": "Эта страница называет лучший месяц для переезда?",
+        "a": "Нет. Погода — не правило проживания. Рейсы и два аэропорта Республики — в гиде об авиабилетах. Более мягкий месяц всё равно месяц, к которому собирают вещи и страховку."
+      }
+    ],
+    "body": "О Кипре говорят как о бесконечном лете. Нормы осадков самого Департамента метеорологии менее романтичны и полезнее. Они описывают территорию под контролем правительства как место с влажной половиной года и сухой половиной, а не как одну температуру, под которую можно собрать чемодан в любом городе.\n\n## Дождь, по таблице Департамента\n\nЕжемесячный бюллетень Департамента печатает норму, среднюю за 1961–1990 годы, рядом с фактическим дождём. Для территории под контролем правительства эти нормы в миллиметрах такие: октябрь 32,7, ноябрь 53,3, декабрь 105,6, январь 102,4, февраль 81,6, март 61,9, апрель 29,9, май 19,6, июнь 6,0, июль 2,6, август 2,9, сентябрь 4,5. Годовая норма на этом листе — 503,0. Лист говорит, что это средние по территории. Это не дождь, который прошёл над одним отелем, и не прогноз. Тот же PDF показывает фактический месяц рядом с нормой, и в сухой год факт далеко ниже черты. Если нужен этот сезон, а не климат, читайте последний бюллетень.\n\nФорма простая. Самые тяжёлые месяцы — декабрь и январь. С ноября по март проходит большая часть годовой воды. Июнь, июль и август по норме почти сухие. Апрель и май, затем сентябрь и октябрь — переход. Неделя облаков в августе не делает август дождливым по этой таблице. Солнечная неделя в январе не делает январь сухим.\n\n## Берег, равнина, горы\n\nДепартамент публикует и данные станций, не только среднюю по острову. Этот гид не копирует июльский максимум станции из чужой таблицы. Картина, ради которой эти станции существуют, жителям и так знакома: берег охлаждает море, центральная равнина вокруг Никосии жарче летним днём и холоднее зимней ночью, а Троодос на горной высоте — другой климат. Снег на дорогах Троодоса зимой достаточно обычен, чтобы береговой список вещей был неправильным списком для гор. Если нужна цифра по городу, откройте климатическую страницу Департамента и лист станции и держите в уме, к какому периоду относится норма. Норма дождя за 1961–1990 годы и более поздняя норма температуры — не один и тот же предмет.\n\nТемпературы моря в бюллетене об осадках нет. На берегу купаются долгий сезон. Градус воды в мае или в ноябре эта страница не выдумает. Флаг на пляже и текущая сводка лучше гида, который угадал.\n\n## Как пользоваться годом\n\nЕсли вы выбираете отпуск, сухая жара тянется с конца весны до начала осени, а море, в котором купаются, — факт берега, не гор. Если вы выбираете переезд, дождь и жара — это расходы: сырость в зимней квартире, кондиционер в июле и разный счёт в каждом случае. Цен здесь нет. [Аренда](/ru/renting-in-cyprus/) и [стоимость жизни](/ru/cost-of-living-cyprus-2026/) отказываются от одной цифры по той же причине, по которой эта страница отказывается от одной температуры.\n\nПляжи, которые спрашивают по имени, перечислены без рейтинга в гиде [пляжи Кипра](/ru/beaches-in-cyprus/). Рейсы в аэропорты Республики — в гиде [авиабилеты на Кипр](/ru/flights-to-cyprus/). Поиск — не прогноз.\n\n{{travel:AVIASALES_URL|Искать авиабилеты на Кипр}}\n\n{{travel:KLOOK_URL|Смотреть экскурсии на Klook}}\n\nКнопки — партнёрские ссылки. Они не знают, пойдёт ли дождь в день посадки."
+  }
+}

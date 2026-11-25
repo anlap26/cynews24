@@ -1,0 +1,94 @@
+{
+  "slug": "flights-to-cyprus",
+  "cat": "tourism",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "larnaca-arrivals",
+  "sources": [
+    {
+      "name": "Hermes Airports",
+      "url": "https://www.hermesairports.com/"
+    },
+    {
+      "name": "Ministry of Foreign Affairs of Cyprus",
+      "url": "https://www.mfa.gov.cy/"
+    },
+    {
+      "name": "European Commission, ETIAS",
+      "url": "https://home-affairs.ec.europa.eu/policies/schengen/smart-borders/european-travel-information-authorisation-system_en"
+    }
+  ],
+  "en": {
+    "title": "Flights to Cyprus: Larnaca, Paphos, and what a search does not decide",
+    "lede": "The Republic's international airports are Larnaca and Paphos, both run by Hermes Airports. A fare is whatever the search shows today. Ercan is not a Republic airport. ETIAS is not on sale.",
+    "desc": "Flights to Cyprus: Larnaca (LCA) and Paphos (PFO), run by Hermes. No invented fares or airlines. Ercan is not a Republic entry.",
+    "alt": "The arrivals hall at Larnaca airport",
+    "kw": [
+      "flights to Cyprus",
+      "Larnaca airport",
+      "Paphos airport",
+      "LCA PFO",
+      "cheap flights Cyprus"
+    ],
+    "faq": [
+      {
+        "q": "Which airports count as entry to the Republic?",
+        "a": "Larnaca and Paphos are the international airports of the Republic, operated by Hermes Airports. Their codes are LCA and PFO. A ticket to a different airfield is not, on this page, described as an arrival in the Republic."
+      },
+      {
+        "q": "Why do people mention Ercan?",
+        "a": "Ercan, also called Tymbou, is in the north and is not an airport of the Republic. The Schengen guide explains the recording problem that creates for a future border system. It is not a suggestion to use it."
+      },
+      {
+        "q": "How much is a flight?",
+        "a": "This page does not print a fare. Fares move by day and by airport of origin. Aviasales is a search, and the price you see there is the price at that moment, not a promise from CyNews 24."
+      },
+      {
+        "q": "Do I need ETIAS to board?",
+        "a": "Not while the European Commission says ETIAS is not collecting applications. Read the EES and ETIAS guide before you pay a website that claims otherwise. A visa, if your passport needs one for the Republic, is a separate question for the Ministry of Foreign Affairs."
+      },
+      {
+        "q": "How do I leave the airport?",
+        "a": "A pre-booked car, a taxi and a bus are different products. The site's transfer guide and the car-hire guide cover the practical side. Kiwitaxi and Welcome Pickups are affiliate buttons, not a statement that one firm is on strike or not."
+      }
+    ],
+    "body": "A flight to Cyprus lands, for the Republic, at one of two airports. Larnaca and Paphos are the international airports, and Hermes Airports is the company that operates them. Larnaca's code is LCA. Paphos's code is PFO. Which one is closer depends on the town you are going to, not on a slogan about the island as a whole. Limassol and Nicosia are commonly reached from Larnaca. Paphos town and the western resorts are the reason Paphos airport exists. That is geography, not a ranking of airlines.\n\n## What this page will not invent\n\nIt will not name a carrier as the one that flies your route. Schedules change, and a guide that freezes them is wrong by the next season. It will not print a fare. A search on the day you travel is the fare. Aviasales is the flight search this site is set up to link. The button opens that search. CyNews 24 does not add a markup in the sentence, and it does not know the price.\n\n{{travel:AVIASALES_URL|Search flights to Cyprus}}\n\nIt will not tell you that a particular month is cheap. [Weather by month](/en/cyprus-weather-by-month/) describes climate, which is not the same as a fare. School holidays in the country you leave from move the price more reliably than a paragraph about sunshine.\n\n## The airport that is not an entry to the Republic\n\nErcan, also called Tymbou, sits in the north. It is not an airport of the Republic of Cyprus. A ticket there is not described on this page as an arrival at Larnaca or Paphos. The practical consequence people run into is not a fare. It is the question of which border recorded the entry, which is set out in [Cyprus and Schengen in 2026](/en/cyprus-schengen-2026/). This guide does not advise anyone to arrive in the north in order to reach the Republic.\n\n## Papers before the search\n\nWhether your passport can board is a question for the Ministry of Foreign Affairs of the Republic, not for a search box. A Schengen visa and permission to enter Cyprus are not the same document while Cyprus is outside Schengen. ETIAS, the future travel authorisation, is not collecting applications. The Commission's position, and the place where official pages disagree about Cyprus, is in [EES and ETIAS in 2026](/en/ees-etias-cyprus-2026/). Pay the airline and, if a visa is required, the authority that issues it. Do not pay a private page for an authorisation the Commission has not opened.\n\n## After you land\n\nThe airport and the hotel are not the same booking. Transfers are covered in [airport transfers](/en/cyprus-airport-transfers-2026/). Hiring a car, and the fact that traffic keeps left, is [renting a car](/en/renting-a-car-in-cyprus/). A phone that works on landing is [the eSIM guide](/en/esim-mobile-data-cyprus/). The buttons below are the affiliate links for a transfer and for data. They do not include a fare, because the firms change it.\n\n{{travel:KIWITAXI_URL|See Kiwitaxi transfers}}\n\n{{travel:WELCOME_PICKUPS_URL|See Welcome Pickups}}\n\n{{travel:AIRALO_URL|See Airalo eSIM plans}}\n\n{{travel:YESIM_URL|See Yesim eSIM plans}}\n\nSockets on the island are the UK square-pin type. An adapter is ordinary packing. It is not a visa."
+  },
+  "ru": {
+    "title": "Авиабилеты на Кипр: Ларнака, Пафос и то, чего поиск не решает",
+    "lede": "Международные аэропорты Республики — Ларнака и Пафос, оба ведёт Hermes Airports. Тариф — тот, что поиск показывает сегодня. Эрджан — не аэропорт Республики. ETIAS не продаётся.",
+    "desc": "Авиабилеты на Кипр: Ларнака (LCA) и Пафос (PFO), оператор Hermes. Тарифы и авиакомпании не выдуманы. Эрджан — не въезд в Республику.",
+    "alt": "Зал прилёта аэропорта Ларнаки",
+    "kw": [
+      "авиабилеты на Кипр",
+      "аэропорт Ларнака",
+      "аэропорт Пафос",
+      "LCA PFO",
+      "дешёвые билеты Кипр"
+    ],
+    "faq": [
+      {
+        "q": "Какие аэропорты считаются въездом в Республику?",
+        "a": "Ларнака и Пафос — международные аэропорты Республики, их ведёт Hermes Airports. Коды LCA и PFO. Билет в другой аэропорт эта страница прилётом в Республику не называет."
+      },
+      {
+        "q": "Почему говорят про Эрджан?",
+        "a": "Эрджан, его также называют Тимву, на севере и не является аэропортом Республики. Гид о Шенгене объясняет, какую проблему учёта это создаёт для будущей пограничной системы. Это не совет им пользоваться."
+      },
+      {
+        "q": "Сколько стоит билет?",
+        "a": "Эта страница тариф не печатает. Цены двигаются по дню и по аэропорту вылета. Aviasales — это поиск, и цена там — цена в этот момент, не обещание CyNews 24."
+      },
+      {
+        "q": "Нужен ли ETIAS, чтобы сесть на рейс?",
+        "a": "Нет, пока Еврокомиссия пишет, что ETIAS заявления не собирает. Прочитайте гид про EES и ETIAS, прежде чем платить сайту, который утверждает иное. Виза, если вашему паспорту она нужна для Республики, — отдельный вопрос Министерства иностранных дел."
+      },
+      {
+        "q": "Как уехать из аэропорта?",
+        "a": "Заранее взятая машина, такси и автобус — разные продукты. Гид о трансфере и гид об аренде авто закрывают практику. Kiwitaxi и Welcome Pickups — партнёрские кнопки, не заявление, что одна фирма бастует или нет."
+      }
+    ],
+    "body": "Рейс на Кипр для Республики садится в одном из двух аэропортов. Ларнака и Пафос — международные аэропорты, и Hermes Airports — компания, которая их ведёт. Код Ларнаки — LCA. Код Пафоса — PFO. Какой ближе, зависит от города, куда вы едете, а не от лозунга про весь остров. Лимассол и Никосию обычно достигают из Ларнаки. Город Пафос и западные курорты — причина, по которой аэропорт Пафоса существует. Это география, не рейтинг авиакомпаний.\n\n## Чего эта страница не выдумает\n\nОна не назовёт перевозчика, который летает по вашему маршруту. Расписания меняются, и гид, который их заморозил, неверен к следующему сезону. Она не напечатает тариф. Поиск в день поездки и есть тариф. Aviasales — поиск авиабилетов, на который этот сайт настроен ссылаться. Кнопка открывает этот поиск. CyNews 24 не прибавляет наценку в предложении и цену не знает.\n\n{{travel:AVIASALES_URL|Искать авиабилеты на Кипр}}\n\nОна не скажет, что какой-то месяц дешёвый. [Погода по месяцам](/ru/cyprus-weather-by-month/) описывает климат, а это не то же самое, что тариф. Школьные каникулы в стране вылета двигают цену надёжнее, чем абзац про солнце.\n\n## Аэропорт, который не является въездом в Республику\n\nЭрджан, его также называют Тимву, находится на севере. Это не аэропорт Республики Кипр. Билет туда эта страница не описывает как прилёт в Ларнаку или Пафос. Практическое следствие, на которое наталкиваются, — не тариф. Это вопрос, какая граница записала въезд. Он изложен в гиде [Кипр и Шенген в 2026 году](/ru/cyprus-schengen-2026/). Этот гид никому не советует прилетать на север, чтобы попасть в Республику.\n\n## Документы до поиска\n\nМожно ли вашему паспорту сесть на рейс, решает Министерство иностранных дел Республики, не строка поиска. Шенгенская виза и разрешение въехать на Кипр — не один документ, пока Кипр вне Шенгена. ETIAS, будущее разрешение на поездку, заявления не собирает. Позиция Комиссии и место, где официальные страницы расходятся насчёт Кипра, — в гиде [EES и ETIAS в 2026 году](/ru/ees-etias-cyprus-2026/). Платите авиакомпании и, если виза нужна, органу, который её выдаёт. Не платите частной странице за разрешение, которое Комиссия не открыла.\n\n## После посадки\n\nАэропорт и отель — не одно бронирование. Трансферы разобраны в гиде [трансфер из аэропорта](/ru/cyprus-airport-transfers-2026/). Аренда машины и то, что движение левостороннее, — в гиде [аренда авто](/ru/renting-a-car-in-cyprus/). Телефон, который работает по прилёте, — в [гиде про eSIM](/ru/esim-mobile-data-cyprus/). Кнопки ниже — партнёрские ссылки на трансфер и на данные. Тарифа в них нет, потому что фирмы его меняют.\n\n{{travel:KIWITAXI_URL|Смотреть трансферы Kiwitaxi}}\n\n{{travel:WELCOME_PICKUPS_URL|Смотреть Welcome Pickups}}\n\n{{travel:AIRALO_URL|Смотреть планы eSIM Airalo}}\n\n{{travel:YESIM_URL|Смотреть планы eSIM Yesim}}\n\nРозетки на острове британского типа, с прямоугольными штырями. Переходник — обычная вещь в багаже. Это не виза."
+  }
+}

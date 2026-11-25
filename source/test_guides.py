@@ -65,7 +65,8 @@ class GuideContentTests(unittest.TestCase):
                 self.assertIn('hreflang="el"', html)
                 self.assertIn(f'hreflang="x-default" href="https://cynews24.net/en/{slug}/"', html)
                 self.assertNotIn('hreflang="x-default" href="https://cynews24.net/"', html)
-                self.assertIn('"@type": "NewsArticle"', html)
+                self.assertIn('"@type": "Article"', html)
+                self.assertNotIn('"@type": "NewsArticle"', html)
                 self.assertIn('"@type": "FAQPage"', html)
                 self.assertIn('rel="nofollow sponsored noopener"', html)
                 self.assertIn('target="_blank"', html)
@@ -100,6 +101,7 @@ class GuideContentTests(unittest.TestCase):
             "international-health-insurance": ("travel first aid kit", "digital thermometer", "UK plug adapter Type G"),
             "protect-data-foreign-banks": ("YubiKey", "USB data blocker", "hardware wallet"),
             "cyprus-resident-handbook": ("smart lock", "home security camera", "video doorbell"),
+            "flights-to-cyprus": ("UK plug adapter Type G", "power bank", "luggage scale"),
         }
         notes = {
             "en": "As an Amazon Associate I earn from qualifying purchases.",

@@ -1,0 +1,94 @@
+{
+  "slug": "beaches-in-cyprus",
+  "cat": "tourism",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "fig-tree-bay",
+  "sources": [
+    {
+      "name": "Visit Cyprus",
+      "url": "https://www.visitcyprus.com/"
+    },
+    {
+      "name": "CYMEPA",
+      "url": "https://www.cymepa.org.cy/"
+    },
+    {
+      "name": "Department of Meteorology",
+      "url": "https://www.moa.gov.cy/moa/dm/dm.nsf/climateinfo_en/climateinfo_en?OpenDocument="
+    }
+  ],
+  "en": {
+    "title": "Beaches in Cyprus: places people ask for, not a ranking",
+    "lede": "Nissi, Fig Tree Bay, Coral Bay, Lara, Konnos and Governor's Beach are real places. A Blue Flag is an annual award, not a permanent grade. This page does not call one of them the best.",
+    "desc": "Beaches in Cyprus without a fake ranking: the bays people ask for, what a Blue Flag is, and why the list changes every year.",
+    "alt": "Fig Tree Bay on the east coast of Cyprus",
+    "kw": [
+      "best beaches Cyprus",
+      "Nissi Beach",
+      "Fig Tree Bay",
+      "Coral Bay Cyprus",
+      "Blue Flag Cyprus"
+    ],
+    "faq": [
+      {
+        "q": "Which is the best beach?",
+        "a": "This page does not say. Best depends on wind, the month, whether you need a bus, and whether a bay is sheltered. The names below are places readers ask about, not a league table."
+      },
+      {
+        "q": "What is a Blue Flag?",
+        "a": "It is an award in a programme of the Foundation for Environmental Education. In Cyprus the partner people look up is CYMEPA. The award is for a season. A beach that had a flag last summer does not automatically have one now. Read the current list."
+      },
+      {
+        "q": "Are these beaches in the Republic?",
+        "a": "The places named here are on the coast of the area visitors usually reach through Larnaca or Paphos. This page does not describe beaches in the north and does not suggest a crossing as a beach trip."
+      },
+      {
+        "q": "Is the sea warm all year?",
+        "a": "No. The weather guide separates the dry summer from the wetter winter and refuses a made-up sea temperature. Swim to the conditions of the day, not to a paragraph."
+      },
+      {
+        "q": "Do I need a car?",
+        "a": "Some bays have a bus in season and some do not. The car-hire guide is the practical page. A transfer from the airport is a different booking from a day at a beach."
+      }
+    ],
+    "body": "Lists of the best beaches in Cyprus are mostly the same names in a different order. The order is the part this guide will not invent. What it will do is say which places the names point at, who gives a Blue Flag, and which neighbouring pages cover the weather, the car and the flight. Nothing below is a cleanliness score. A flag on a pole is a better source than a sentence.\n\n## Names, and where they sit\n\nNissi is the sandy bay in Ayia Napa that appears on almost every foreign search. Fig Tree Bay and the Protaras coast, including Konnos, are the east-coast names next to it. Coral Bay is the sheltered bay north of Paphos town. Lara, further along the Paphos coast, is known for a turtle nesting beach and for being less built-up than the hotel strip. Governor's Beach is on the south coast in the Limassol district, stonier than the Ayia Napa sand. In Larnaca, Finikoudes is the town promenade and Mackenzie is the beach beside the salt lake and the airport approach. Lady's Mile runs along the Akrotiri salt lake towards Limassol. These are descriptions of where a name sits. They are not a claim that one is cleaner, safer or emptier on the day you go.\n\nVisit Cyprus, the Republic's tourism site, publishes beach material of its own. Use it for how the place presents itself. Use your eyes for the seaweed, the wind and the jet skis.\n\n## A Blue Flag is for a season\n\nCYMEPA is the Cyprus body associated with the Blue Flag programme. The flag is awarded for a bathing season against criteria that include water quality and how the beach is managed. The list changes. A guide that names \"the Blue Flag beaches of 2026\" without opening that year's list is guessing. This one does not open a ranking and does not paste an old list as if it were current. Before you choose a hotel for the flag, read CYMEPA's current page.\n\nWater quality on a given morning is not the award. A beach can hold a flag and still be rough, or lose the flag and still be a pleasant swim. The Department of Meteorology is the climate source, in [weather by month](/en/cyprus-weather-by-month/). It does not issue a beach review.\n\n## Getting there, and staying\n\nPublic buses serve some resorts better than others, and Sunday service is a question for the current timetable, not for this paragraph. Hiring a car is covered in [renting a car in Cyprus](/en/renting-a-car-in-cyprus/), including the point that traffic keeps left. A day trip and a week in one bay are different bookings. [Where to stay](/en/where-to-stay-in-cyprus/) is the accommodation guide. [Flights](/en/flights-to-cyprus/) covers Larnaca and Paphos, which are the Republic's international airports.\n\nTours and tickets, where a company sells them, change price. Klook is one of the affiliate links the site is allowed to use. The button does not review a beach.\n\n{{travel:KLOOK_URL|See tours on Klook}}\n\nShade, fresh water and a hat matter more in July than in November. The weather page is the reason. This page will not tell you a beach is safe for a child, empty of jellyfish or free to enter. Those are conditions of the day."
+  },
+  "ru": {
+    "title": "Пляжи Кипра: места, которые спрашивают, а не рейтинг",
+    "lede": "Нисси, бухта Фиг-Три, Корал-Бэй, Лара, Коннос и Гувернор-Бич — настоящие места. Голубой флаг — награда на сезон, не вечная оценка. Эта страница не называет один из них лучшим.",
+    "desc": "Пляжи Кипра без выдуманного рейтинга: бухты, которые спрашивают, что такое Голубой флаг и почему список меняется каждый год.",
+    "alt": "Бухта Фиг-Три на восточном берегу Кипра",
+    "kw": [
+      "лучшие пляжи Кипр",
+      "пляж Нисси",
+      "бухта Фиг-Три",
+      "Корал Бэй",
+      "Голубой флаг Кипр"
+    ],
+    "faq": [
+      {
+        "q": "Какой пляж лучший?",
+        "a": "Эта страница не отвечает. Лучший зависит от ветра, месяца, нужен ли автобус и закрыта ли бухта. Имена ниже — места, о которых спрашивают, не турнирная таблица."
+      },
+      {
+        "q": "Что такое Голубой флаг?",
+        "a": "Это награда программы Фонда экологического образования. На Кипре организацию, которую ищут, зовут CYMEPA. Награда даётся на сезон. Пляж, у которого флаг был прошлым летом, не обязан иметь его сейчас. Читайте текущий список."
+      },
+      {
+        "q": "Эти пляжи в Республике?",
+        "a": "Названные места — на берегу, куда обычно попадают через Ларнаку или Пафос. Северные пляжи эта страница не описывает и не предлагает переход как поездку на пляж."
+      },
+      {
+        "q": "Море тёплое круглый год?",
+        "a": "Нет. Гид о погоде отделяет сухое лето от более влажной зимы и не выдумывает температуру воды. Купайтесь по условиям дня, не по абзацу."
+      },
+      {
+        "q": "Нужна ли машина?",
+        "a": "До некоторых бухт в сезон ходит автобус, до некоторых нет. Практическая страница — гид об аренде авто. Трансфер из аэропорта — другое бронирование, не день на пляже."
+      }
+    ],
+    "body": "Списки лучших пляжей Кипра — это в основном одни и те же имена в разном порядке. Порядок — та часть, которую этот гид не выдумает. Он скажет, на какие места указывают имена, кто даёт Голубой флаг и какие соседние страницы закрывают погоду, машину и перелёт. Ниже нет оценки чистоты. Флаг на столбе лучше абзаца.\n\n## Имена и где они лежат\n\nНисси — песчаная бухта в Айя-Напе, она есть почти в каждом зарубежном поиске. Бухта Фиг-Три и берег Протараса, включая Коннос, — восточные имена рядом. Корал-Бэй — закрытая бухта к северу от города Пафос. Лара дальше по пафосскому берегу известна как пляж, где откладывают яйца черепахи, и тем, что застроена слабее гостиничной полосы. Гувернор-Бич — на южном берегу в районе Лимассола, он каменистее айя-напского песка. В Ларнаке Финикудес — городская набережная, а Маккензи — пляж у солёного озера и глиссады аэропорта. Ледиз-Майл тянется вдоль солёного озера Акротири в сторону Лимассола. Это описание, где лежит имя. Это не утверждение, что одно место чище, безопаснее или пустее в день вашего приезда.\n\nVisit Cyprus, туристический сайт Республики, публикует собственные материалы о пляжах. Берите их как то, как место себя представляет. Водоросли, ветер и гидроциклы смотрите сами.\n\n## Голубой флаг — на сезон\n\nCYMEPA — кипрская организация, связанная с программой Голубого флага. Флаг дают на купальный сезон по критериям, куда входят качество воды и то, как пляж содержат. Список меняется. Гид, который называет «пляжи с Голубым флагом 2026 года», не открыв список этого года, гадает. Этот гид рейтинг не открывает и старый список как действующий не вставляет. Прежде чем выбирать отель из-за флага, прочитайте текущую страницу CYMEPA.\n\nКачество воды конкретным утром — не награда. Пляж может держать флаг и быть неспокойным или потерять флаг и остаться приятным для купания. Департамент метеорологии — источник климата, в гиде [погода по месяцам](/ru/cyprus-weather-by-month/). Пляжных рецензий он не выпускает.\n\n## Как добраться и где жить\n\nАвтобусы обслуживают одни курорты лучше других, а воскресное расписание — вопрос действующего графика, не этого абзаца. Аренда машины разобрана в гиде [аренда авто на Кипре](/ru/renting-a-car-in-cyprus/), включая то, что движение левостороннее. Поездка на день и неделя в одной бухте — разные бронирования. [Где остановиться](/ru/where-to-stay-in-cyprus/) — гид по жилью. [Авиабилеты](/ru/flights-to-cyprus/) закрывают Ларнаку и Пафос, международные аэропорты Республики.\n\nЭкскурсии и билеты, где их продаёт компания, меняют цену. Klook — одна из партнёрских ссылок, которые сайту разрешено ставить. Кнопка пляж не рецензирует.\n\n{{travel:KLOOK_URL|Смотреть экскурсии на Klook}}\n\nТень, вода и шляпа в июле важнее, чем в ноябре. Причина — на странице о погоде. Эта страница не скажет, что пляж безопасен для ребёнка, без медуз или бесплатный. Это условия дня."
+  }
+}

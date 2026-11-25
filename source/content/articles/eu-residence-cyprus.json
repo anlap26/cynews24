@@ -1,0 +1,90 @@
+{
+  "slug": "eu-residence-cyprus",
+  "cat": "society",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "larnaca-arrivals",
+  "sources": [
+    {
+      "name": "Deputy Ministry of Migration and International Protection",
+      "url": "https://www.gov.cy/mip-md/"
+    },
+    {
+      "name": "Migration Department, digital nomads",
+      "url": "https://www.gov.cy/mip-md/en/documents/digital-nomads-and-family-members/"
+    }
+  ],
+  "en": {
+    "title": "EU residence in Cyprus: the routes, and the clocks they actually use",
+    "lede": "There is no statute called the first 90 days. A Union citizen who stays applies for MEU1 within four months. A third-country visitor applies before the visa runs out. A digital nomad file is a third route. None of these is tax residence.",
+    "desc": "Residence in Cyprus for EU citizens and others: MEU1, the visitor permit, and the nomad scheme. A card is not tax residence and not GeSY.",
+    "alt": "The arrivals hall at Larnaca airport",
+    "kw": [
+      "MEU1 Cyprus",
+      "yellow slip",
+      "residence permit Cyprus",
+      "EU citizen Cyprus",
+      "pink slip Cyprus"
+    ],
+    "faq": [
+      {
+        "q": "What is the yellow slip?",
+        "a": "It is the registration certificate, MEU1, for a citizen of the EU, the EEA or Switzerland who stays. The site's relocation guide says the application is within four months of entry and that the Migration Department's fee is €20. Check the Department if you are filing, in case the fee has moved."
+      },
+      {
+        "q": "What is the pink slip?",
+        "a": "It is the visitor permit, MVIS8 in the relocation guide's wording, for a third-country national who is not working. It has to be filed before the visa expires. It is not permission to work and it is not the nomad scheme."
+      },
+      {
+        "q": "Can EU citizens work?",
+        "a": "Yes, once they are on the registration route the relocation guide describes. The certificate does not expire. A third-country national needs a permit that matches the work. A visitor file will not be examined as a work file."
+      },
+      {
+        "q": "Where does the digital nomad visa fit?",
+        "a": "It is a separate scheme for non-EU, non-EEA remote workers, with its own income test and a ban on Cyprus clients. The detail is in the nomad guide. Do not file it on a Union-citizen form."
+      },
+      {
+        "q": "Does the card make me tax resident or a GeSY patient?",
+        "a": "No. Tax residence is the 183-day or 60-day test. GeSY has its own beneficiary categories. Both are linked. A card is evidence of an immigration status only."
+      }
+    ],
+    "body": "People arriving in Cyprus ask for a residence checklist as if one form covered every passport. The Migration Department runs several. The site's [relocation guide](/en/relocating-to-cyprus/) already puts the first months in the order the deadlines impose, and it points at MyCyTax for the underlying pages. This guide is the map of those routes. Where it repeats a fee or a deadline, it is repeating that guide and the Department, not discovering a new number. If the Department's page shows a different fee on the day you file, the Department is right.\n\n## Union citizens\n\nA citizen of the European Union, the European Economic Area or Switzerland who will stay uses the registration certificate known as MEU1, the yellow slip. The relocation guide says the application is made within four months of entry, that the Department's fee is €20, and that the certificate does not expire. The holder may work. A permanent right comes later, on the terms the free-movement law sets, not on the day of the first certificate. This page does not calculate the five years for you.\n\nThe papers a later form asks for often include a place to live. [Renting in Cyprus](/en/renting-in-cyprus/) is the tenancy page. Buying is a different permission for some nationalities, even when the buyer is not the person who needs MEU1. See [buying as a foreigner](/en/buying-property-cyprus-foreigner/) before you assume an EU passport removes every property rule. The Ministry's current page frames the property permit around non-EU citizens. Read it anyway if a company or a spouse is part of the purchase.\n\n## Third-country visitors\n\nA third-country national who is visiting and not working uses the permit the relocation guide calls MVIS8, the pink slip, and files before the visa expires. The guide is plain that this permit is not permission to work and not permission to carry out an economic activity. Employment is a different file. An investment permit under Regulation 6(2), tied to criteria the Department publishes, is a third route again. It is not citizenship and it is not tax residence. A checklist for the yellow slip will not produce the pink slip. An investment file is not examined as a visitor application.\n\n## The nomad scheme, only if it is actually your route\n\nNon-EU and non-EEA nationals who work remotely for an employer or clients abroad, and who meet an income test, have a separate scheme. The cap, the €3,500 net figure, the family rule and the ban on Cyprus clients are in [the digital nomad guide](/en/cyprus-digital-nomad-visa-2026/). Filing a nomad application on a Union form, or a Union application on a nomad form, wastes the weeks the Department says an examination takes.\n\n## What none of the cards are\n\nThey are not tax residence. The tests are in [Cyprus tax residency in 2026](/en/cyprus-tax-residency-2026/). They are not GeSY enrolment. The categories are in [GeSY for foreigners](/en/gesy-for-foreigners/). They are not a driving licence. The 185-day exchange rule is in [driving in Cyprus](/en/driving-in-cyprus/). They are not a bank account. That decision is the bank's, in [opening an account](/en/bank-account-cyprus/).\n\nA Schengen stamp is not one of these cards either, because Cyprus is not in Schengen. See [Cyprus and Schengen in 2026](/en/cyprus-schengen-2026/) before you plan the rest of a European year around a Larnaca landing.\n\nThe Department's address for the current form is gov.cy under the Deputy Ministry of Migration. Take the form from there, not from a screenshot in a chat."
+  },
+  "ru": {
+    "title": "Проживание в ЕС на Кипре: маршруты и сроки, которыми они действительно пользуются",
+    "lede": "Закона под названием «первые 90 дней» нет. Гражданин Союза, который остаётся, подаёт на MEU1 в течение четырёх месяцев. Гость из третьей страны подаёт до конца визы. Дело цифрового кочевника — третий маршрут. Ни один из них — не налоговое резидентство.",
+    "desc": "Проживание на Кипре для граждан ЕС и других: MEU1, гостевое разрешение и схема кочевника. Карточка — не налог и не ГЕСИ.",
+    "alt": "Зал прилёта аэропорта Ларнаки",
+    "kw": [
+      "MEU1 Кипр",
+      "жёлтый слип",
+      "вид на жительство Кипр",
+      "гражданин ЕС Кипр",
+      "розовый слип"
+    ],
+    "faq": [
+      {
+        "q": "Что такое жёлтый слип?",
+        "a": "Это свидетельство о регистрации, MEU1, для гражданина ЕС, ЕЭЗ или Швейцарии, который остаётся. Гид о переезде пишет, что заявление подают в течение четырёх месяцев после въезда и что сбор Департамента — €20. В день подачи сверьте Департамент: сбор мог сдвинуться."
+      },
+      {
+        "q": "Что такое розовый слип?",
+        "a": "Это разрешение гостя, в формулировке гида о переезде — MVIS8, для гражданина третьей страны, который не работает. Его подают до истечения визы. Это не разрешение работать и не схема кочевника."
+      },
+      {
+        "q": "Могут ли граждане ЕС работать?",
+        "a": "Да, на маршруте регистрации, который описывает гид о переезде. Свидетельство не имеет срока. Гражданину третьей страны нужно разрешение, которое соответствует работе. Гостевое дело как рабочее не рассматривают."
+      },
+      {
+        "q": "Куда относится виза цифрового кочевника?",
+        "a": "Это отдельная схема для удалённых работников не из ЕС и не из ЕЭЗ, со своей проверкой дохода и запретом кипрских клиентов. Подробности — в гиде о кочевнике. Не подавайте её на бланке гражданина Союза."
+      },
+      {
+        "q": "Делает ли карточка налоговым резидентом или пациентом ГЕСИ?",
+        "a": "Нет. Налоговое резидентство — тест 183 или 60 дней. У ГЕСИ свои категории бенефициаров. Оба гида указаны. Карточка подтверждает только иммиграционный статус."
+      }
+    ],
+    "body": "Приезжающие на Кипр просят список для проживания так, будто один бланк закрывает любой паспорт. Департамент миграции ведёт несколько. [Гид о переезде](/ru/relocating-to-cyprus/) на этом сайте уже ставит первые месяцы в порядке сроков и отсылает к MyCyTax за исходными страницами. Этот гид — карта тех маршрутов. Где он повторяет сбор или срок, он повторяет тот гид и Департамент, а не открывает новое число. Если в день подачи на странице Департамента другой сбор, прав Департамент.\n\n## Граждане Союза\n\nГражданин Евросоюза, Европейской экономической зоны или Швейцарии, который останется, пользуется свидетельством о регистрации, известным как MEU1, жёлтый слип. Гид о переезде пишет, что заявление подают в течение четырёх месяцев после въезда, что сбор Департамента — €20 и что свидетельство не имеет срока. Обладатель может работать. Постоянное право появляется позже, на условиях закона о свободном передвижении, не в день первого свидетельства. Пять лет эта страница за вас не считает.\n\nБумаги, которые просит поздняя форма, часто включают место, где жить. [Аренда на Кипре](/ru/renting-in-cyprus/) — страница о найме. Покупка — другое разрешение для некоторых гражданств, даже если покупатель не тот, кому нужен MEU1. Смотрите [покупку иностранцем](/ru/buying-property-cyprus-foreigner/), прежде чем считать, что паспорт ЕС снимает любое правило о жилье. Действующая страница министерства строит разрешение на покупку вокруг граждан стран вне ЕС. Прочитайте её всё равно, если в покупке участвует компания или супруг.\n\n## Гости из третьих стран\n\nГражданин третьей страны, который гостит и не работает, пользуется разрешением, которое гид о переезде называет MVIS8, розовый слип, и подаёт до истечения визы. Гид прямо пишет, что это разрешение — не разрешение работать и не разрешение вести экономическую деятельность. Работа — другое дело. Иммиграционное разрешение по правилу 6(2), привязанное к критериям, которые публикует Департамент, — снова третий маршрут. Это не гражданство и не налоговое резидентство. Список для жёлтого слипа не произведёт розовый. Инвестиционное дело не рассматривают как заявление гостя.\n\n## Схема кочевника, только если это действительно ваш маршрут\n\nУ граждан стран вне ЕС и вне ЕЭЗ, которые работают удалённо на работодателя или клиентов за границей и проходят проверку дохода, есть отдельная схема. Потолок, цифра €3500 чистыми, правило для семьи и запрет кипрских клиентов — в [гиде о визе кочевника](/ru/cyprus-digital-nomad-visa-2026/). Подача кочевника на бланке Союза или подача гражданина Союза на бланке кочевника тратит те недели, которые Департамент называет сроком рассмотрения.\n\n## Чем ни одна карточка не является\n\nОни не налоговое резидентство. Тесты — в гиде [налоговое резидентство Кипра в 2026 году](/ru/cyprus-tax-residency-2026/). Они не запись в ГЕСИ. Категории — в гиде [ГЕСИ для иностранцев](/ru/gesy-for-foreigners/). Они не водительские права. Правило обмена после 185 дней — в гиде [вождение на Кипре](/ru/driving-in-cyprus/). Они не счёт в банке. Это решение банка, в гиде [открытие счёта](/ru/bank-account-cyprus/).\n\nШенгенский штамп тоже не одна из этих карточек, потому что Кипр не в Шенгене. Смотрите [Кипр и Шенген в 2026 году](/ru/cyprus-schengen-2026/), прежде чем строить остаток европейского года вокруг посадки в Ларнаке.\n\nАдрес Департамента для действующей формы — gov.cy, заместительство министерства миграции. Берите форму оттуда, не из снимка в чате."
+  }
+}

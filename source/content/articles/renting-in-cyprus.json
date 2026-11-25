@@ -1,0 +1,94 @@
+{
+  "slug": "renting-in-cyprus",
+  "cat": "real-estate",
+  "date": "2026-11-25",
+  "updated": "2026-11-25",
+  "guide": true,
+  "img": "limassol-old-town",
+  "sources": [
+    {
+      "name": "Ministry of Interior, purchasing property, on stamped contracts",
+      "url": "https://www.gov.cy/moi/en/purchasing-property/"
+    },
+    {
+      "name": "Electricity Authority of Cyprus",
+      "url": "https://www.eac.com.cy/"
+    },
+    {
+      "name": "Tax Department",
+      "url": "https://www.mof.gov.cy/tax"
+    }
+  ],
+  "en": {
+    "title": "Renting in Cyprus: the contract, the deposit, and what no office publishes",
+    "lede": "There is no official average rent on the sources this guide uses. What you can check is the contract, whether stamp duty applies, whose name is on the utility account, and the rules for short stays.",
+    "desc": "Renting in Cyprus: no official average rent, what a contract should show, stamp duty as a Tax Department question, and short-stay rules.",
+    "alt": "A street in old Limassol",
+    "kw": [
+      "renting in Cyprus",
+      "Cyprus rental contract",
+      "Limassol rent",
+      "short term rental Cyprus",
+      "tenant Cyprus"
+    ],
+    "faq": [
+      {
+        "q": "What is the average rent?",
+        "a": "This page does not print one. Listings are asks. Cystat does not, in the sources used here, publish a single rent for a flat in Limassol or Paphos."
+      },
+      {
+        "q": "Is the deposit a legal maximum?",
+        "a": "Not on any source cited here. The deposit is whatever the contract says. Read the line that says when it comes back and what can be deducted."
+      },
+      {
+        "q": "Does the lease need a stamp?",
+        "a": "The Ministry of Interior's property page talks about stamp duty on a contract of sale above a threshold it states for purchases. A lease is a different contract. Whether stamp duty applies, and at what amount, is a Tax Department question. Do not copy a sale rule onto a tenancy without reading the current notice."
+      },
+      {
+        "q": "Can I put the electricity in my name?",
+        "a": "The Electricity Authority is the supplier in the areas the Republic controls. The account is a contract with that authority. A landlord's verbal promise is not the bill. Take the tenancy when you ask for the account."
+      },
+      {
+        "q": "Are short stays the same as a home lease?",
+        "a": "No. Short-term rental has its own rules. CyNews 24 reported a bed-cap measure separately. A holiday let is not the residence document an immigration file asks for."
+      }
+    ],
+    "body": "A search for rent in Cyprus returns asking prices. It does not return a figure an office of the Republic has defined as the rent of a town. This guide does not invent one, and it does not average the listings. [The cost of living guide](/en/cost-of-living-cyprus-2026/) explains why an index is not a contract. What follows is the paperwork around a tenancy, not a table of bedrooms.\n\n## The contract is the price\n\nThe rent, the term, who pays the common expenses, who repairs what, and how the tenancy ends are in the document you sign. A message in a chat is a poor substitute if the other party later remembers a different number. Ask for the address as the Land Registry would recognise it, not only a project name. If the flat is new and the seller is also talking about a title deed, the rental question and the title question are different. Buying, including the permit some foreigners need, is [buying as a foreigner](/en/buying-property-cyprus-foreigner/).\n\nA deposit is a term of that contract. None of the sources below sets a statutory maximum deposit for an ordinary private tenancy. If someone tells you the law fixes it at one month or two, ask them for the section. Until that section is on the table, the number in your contract is the number. Photograph the meter and the rooms on the day you get the keys, and keep the photographs with the contract. That is a habit, not a statute.\n\n## Stamp duty, utilities, and whose name is on the bill\n\nThe Ministry of Interior's page on purchasing property says a contract of sale is submitted with the requisite stamp duty. That sentence is about a purchase file. A lease can also be a stampable instrument. The rate and the threshold are for the Tax Department, and they change. This page does not print a euro amount for stamping a lease, because copying the purchase wording onto a tenancy would be a guess.\n\nElectricity in the areas controlled by the Republic is supplied by the Electricity Authority of Cyprus. Water is a local board or a municipal service, and the name on the account matters when you leave. The practical order used in the site's [relocation guide](/en/relocating-to-cyprus/) is that electricity and water should be in the name of the person who is entitled to occupy the home. Take the tenancy with you. A bill in a previous tenant's name is their bill until the supplier moves it.\n\n## Short stays are a different product\n\nA week in a flat by the sea is not a home for an immigration file, and it is not always even a simple tenancy. Rules on short-term rentals, including limits reported in the press, are news rather than a standing rent table. The report on this site is [the short-term rental bed cap](/en/short-term-rental-bed-cap/). If you are the guest, the house rules and the registration the host is supposed to hold are the host's problem to show you, not a number this page can certify. If you are the host, read the current decree before you list the bed.\n\nWhere to stay as a traveller, as opposed to signing a yearly lease, is a travel question. The site's guide is [where to stay in Cyprus](/en/where-to-stay-in-cyprus/). Hotels and furnished flats are searched, not ranked here.\n\n## What to take to a viewing\n\nTake nothing that replaces the contract. Do take a question list: the term, the notice period, whether the rent includes common expenses, whether pets are written in or only promised, and what happens to the deposit. A viewing in August and a tenancy that starts in January are not the same weather and not the same humidity. [Weather by month](/en/cyprus-weather-by-month/) is the climate page, not a promise about one flat's mould.\n\nThis page is not a tenancy and not a ground for refusing to pay a bill you signed."
+  },
+  "ru": {
+    "title": "Аренда на Кипре: договор, задаток и то, чего ни одно ведомство не публикует",
+    "lede": "Официальной средней аренды в источниках этого гида нет. Проверять можно договор, вопрос гербового сбора, чьё имя стоит на коммунальном счёте и правила коротких заездов.",
+    "desc": "Аренда на Кипре: официальной средней нет, что смотреть в договоре, гербовый сбор как вопрос налогового ведомства и правила коротких заездов.",
+    "alt": "Улица старого Лимассола",
+    "kw": [
+      "аренда на Кипре",
+      "договор аренды Кипр",
+      "аренда Лимассол",
+      "краткосрочная аренда Кипр",
+      "квартиросъёмщик"
+    ],
+    "faq": [
+      {
+        "q": "Какая средняя аренда?",
+        "a": "Эта страница её не печатает. Объявления — это запрос цены. Cystat в использованных здесь источниках не публикует одну аренду квартиры в Лимассоле или Пафосе."
+      },
+      {
+        "q": "Задаток ограничен законом?",
+        "a": "Ни один источник ниже такого предела для обычного частного найма не задаёт. Задаток — то, что написано в договоре. Читайте строку, когда его возвращают и что можно удержать."
+      },
+      {
+        "q": "Нужен ли договору штамп гербового сбора?",
+        "a": "Страница Министерства внутренних дел о покупке говорит о гербовом сборе на договоре купли выше порога, который она называет для покупки. Наём — другой договор. Применяется ли сбор и с какой суммы, решает Налоговый департамент. Не переносите правило купли на наём, не прочитав действующее извещение."
+      },
+      {
+        "q": "Можно ли перевести свет на моё имя?",
+        "a": "В районах, которые контролирует Республика, поставщик — Электрическая компания Кипра. Счёт — договор с ней. Устное обещание хозяина — не счёт. Берите договор найма, когда просите лицевой счёт."
+      },
+      {
+        "q": "Короткий заезд — то же, что наём жилья?",
+        "a": "Нет. У краткосрочной сдачи свои правила. CyNews 24 отдельно писала о пределе коек. Отпускное жильё — не тот документ, который просит иммиграционное дело."
+      }
+    ],
+    "body": "Поиск аренды на Кипре возвращает цены из объявлений. Он не возвращает цифру, которую ведомство Республики назвало бы арендой города. Этот гид такую цифру не выдумывает и объявления не усредняет. [Гид о стоимости жизни](/ru/cost-of-living-cyprus-2026/) объясняет, почему индекс — не договор. Дальше — бумаги вокруг найма, а не таблица спален.\n\n## Цена — в договоре\n\nАренда, срок, кто платит общие расходы, кто что чинит и как наём кончается, написаны в документе, который вы подписываете. Сообщение в чате — плохая замена, если вторая сторона потом вспомнит другое число. Просите адрес так, как его узнал бы земельный кадастр, а не только имя проекта. Если квартира новая и продавец параллельно говорит о титуле, вопрос аренды и вопрос титула — разные. Покупка, включая разрешение, которое нужно некоторым иностранцам, — в гиде [покупка иностранцем](/ru/buying-property-cyprus-foreigner/).\n\nЗадаток — условие этого договора. Ни один источник ниже не задаёт законный максимум задатка для обычного частного найма. Если вам говорят, что закон фиксирует один месяц или два, попросите статью. Пока этой статьи нет на столе, число в вашем договоре и есть число. В день ключей снимите счётчик и комнаты и храните снимки вместе с договором. Это привычка, не статут.\n\n## Гербовый сбор, коммунальные услуги и чьё имя на счёте\n\nСтраница Министерства внутренних дел о покупке пишет, что договор купли подают с надлежащим гербовым сбором. Эта фраза — про покупку. Договор найма тоже может быть документом, который штемпелюют. Ставка и порог — у Налогового департамента, и они меняются. Сумму в евро за штамп на найме эта страница не печатает: перенести формулировку покупки на наём было бы догадкой.\n\nЭлектричество в районах, которые контролирует Республика, поставляет Электрическая компания Кипра. Вода — местное управление или муниципальная служба, и имя на счёте важно, когда вы съезжаете. Практический порядок в [гиде о переезде](/ru/relocating-to-cyprus/) на этом сайте такой: свет и вода должны быть на имя того, кто вправе занимать жильё. Берите с собой договор найма. Счёт на предыдущего жильца — его счёт, пока поставщик его не переведёт.\n\n## Короткий заезд — другой продукт\n\nНеделя в квартире у моря — не жильё для иммиграционного дела и не всегда даже простой наём. Правила краткосрочной сдачи, включая пределы, о которых писала пресса, — это новости, а не постоянная таблица аренды. Материал на этом сайте: [предел коек для краткосрочной сдачи](/ru/short-term-rental-bed-cap/). Если вы гость, правила дома и регистрацию, которую должен иметь хозяин, показывает хозяин. Эта страница их не удостоверяет. Если вы хозяин, прочитайте действующий указ до того, как выставите кровать.\n\nГде остановиться путешественнику, в отличие от годового найма, — вопрос поездки. Гид сайта: [где остановиться на Кипре](/ru/where-to-stay-in-cyprus/). Отели и меблированные квартиры ищут, здесь их не ранжируют.\n\n## Что взять на просмотр\n\nНе берите ничего, что заменяет договор. Возьмите список вопросов: срок, срок уведомления, входят ли общие расходы в аренду, животные записаны или только обещаны и что будет с задатком. Просмотр в августе и наём с января — не одна погода и не одна сырость. [Погода по месяцам](/ru/cyprus-weather-by-month/) — страница о климате, не обещание про плесень в одной квартире.\n\nЭта страница — не договор найма и не основание не платить счёт, который вы подписали."
+  }
+}
