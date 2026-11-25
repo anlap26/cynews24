@@ -22,6 +22,7 @@ nav.cats li a:hover{border-color:var(--ink)}nav.cats li a[aria-current=page]{bor
 h1.sec{font-size:28px;margin:18px 0 14px;border-top:4px solid var(--ink);padding-top:8px;letter-spacing:-.3px}
 .lead{display:grid;grid-template-columns:1.9fr 1fr;gap:24px;margin:8px 0 28px}
 .card .img{display:block;background:var(--soft);overflow:hidden}.card .img img{width:100%;height:auto;aspect-ratio:16/9;object-fit:cover}
+.grid .card{content-visibility:auto;contain-intrinsic-size:auto 360px}
 .lead .big h2{font-size:34px;line-height:1.12;margin:12px 0 8px;letter-spacing:-.6px}
 .lead .big p{font-size:18px;color:#2b2f35;margin:0 0 8px}
 .cat{font-size:12px;font-weight:800;text-transform:uppercase;letter-spacing:.6px;color:var(--acc)}
