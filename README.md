@@ -9,7 +9,9 @@ Trilingual Cyprus news site (Russian, English, Greek) at https://cynews24.net. S
 - The lead story and the four side stories on the home pages are set in `source/content/home.json`.
 - Uploaded photos go to `source/src/`. The generator crops them to 16:9, resizes and watermarks them. Photos of the original articles are listed in `source/credits.json` and stored in `source/photos/`.
 
-Article fields: `slug` (page address; empty = file name), `cat` (politics, economy, real-estate, society, tourism, sport, world), `date` (YYYY-MM-DD), `image` (uploaded photo) or `img` (credits.json key), `photo_credit`, `sources` (`name`, `url`), and per language `title`, `lede`, `body` (paragraphs separated by a blank line), `alt`, `kw`.
+Article fields: `slug` (page address; empty = file name), `cat` (politics, economy, real-estate, society, tourism, sport, world), `region` (only with `cat` `world`: europe, middle-east, russia-cis, asia, americas, africa — the story is also listed at `/world/{region}/`), `date` (YYYY-MM-DD), `image` (uploaded photo) or `img` (credits.json key), `photo_credit`, `sources` (`name`, `url`), and per language `title`, `lede`, `body` (paragraphs separated by a blank line), `alt`, `kw`, `desc` (optional meta description).
+
+The relocation hub at `/relocation/` lists existing guides and news. It does not change those articles' addresses.
 
 ## Publishing
 

@@ -1,0 +1,55 @@
+{
+  "slug": "bangkok-bangchak-depot-blast",
+  "cat": "world",
+  "region": "asia",
+  "date": "2026-11-26",
+  "sources": [
+    {
+      "name": "Euronews",
+      "url": "https://www.euronews.com/video/2026/11/26/huge-explosion-at-bangkok-oil-depot-sends-black-smoke-over-thai-capital"
+    },
+    {
+      "name": "Euronews — footage of the Bangchak fire",
+      "url": "https://www.euronews.com/video/2026/11/26/flames-and-thick-smoke-billow-from-bangkok-oil-facility-after-massive-explosion"
+    }
+  ],
+  "en": {
+    "title": "Explosion at Bangkok's Bangchak oil depot sends smoke over the city",
+    "lede": "The blast was reported at about 3 pm local time on Thursday. The city said the fire was out in under an hour. No casualties were reported straight away, and the cause is still unclear.",
+    "body": "A large explosion hit the Bangchak oil depot in eastern Bangkok on Thursday and sent flames and thick black smoke over the Thai capital. The site is run by Bangchak Corporation. Authorities in Bang Na district told people nearby to leave at once as a precaution.\n\nThe Bangkok city authority later said the fire had been put out less than an hour after the blast, which was reported at about 3 pm local time. No casualties were reported in the first accounts. The cause, and how much damage was done, were not clear. Bangchak told the Bang Na district office that the situation had been brought under control.\n\nEuronews described the refinery as processing about 120,000 barrels a day, Thailand's fifth-largest, and the only one sitting inside an urban area. That location is why a fire there empties streets even when injuries are not yet known.",
+    "alt": "The Bangkok skyline",
+    "kw": [
+      "Bangkok",
+      "Bangchak",
+      "oil depot",
+      "Thailand"
+    ],
+    "desc": "An explosion hit Bangkok's Bangchak oil depot. The fire was out within an hour; no casualties were reported at first."
+  },
+  "ru": {
+    "title": "Взрыв на нефтебазе Bangchak в Бангкоке накрыл город дымом",
+    "lede": "О взрыве сообщили около 15:00 по местному времени в четверг. Город сказал, что огонь потушили меньше чем за час. О пострадавших сразу не сообщали, причина пока неясна.",
+    "body": "В четверг крупный взрыв ударил по нефтебазе Bangchak на востоке Бангкока и поднял пламя и густой чёрный дым над тайской столицей. Площадкой управляет корпорация Bangchak. Власти района Бангна сразу попросили жителей рядом уйти — на всякий случай.\n\nПозже городские власти Бангкока сказали, что огонь потушили меньше чем через час после взрыва, о котором сообщили около 15:00 по местному времени. В первых сообщениях пострадавших не было. Причина и масштаб ущерба оставались неясны. Bangchak сообщила управе Бангна, что ситуацию взяли под контроль.\n\nEuronews описывает НПЗ как предприятие примерно на 120 000 баррелей в сутки, пятое по величине в Таиланде и единственное, которое стоит внутри города. Поэтому пожар там опустошает улицы ещё до того, как станет известно о раненых.",
+    "alt": "Панорама Бангкока",
+    "kw": [
+      "Бангкок",
+      "Bangchak",
+      "нефтебаза",
+      "Таиланд"
+    ],
+    "desc": "Взрыв на нефтебазе Bangchak в Бангкоке. Огонь потушили меньше чем за час, о пострадавших сразу не сообщили."
+  },
+  "el": {
+    "title": "Έκρηξη στην αποθήκη πετρελαίου Bangchak στην Μπανγκόκ στέλνει καπνό πάνω από την πόλη",
+    "lede": "Η έκρηξη αναφέρθηκε περίπου στις 3 μ.μ. τοπική ώρα την Πέμπτη. Η πόλη είπε ότι η φωτιά έσβησε σε λιγότερο από μία ώρα. Θύματα δεν αναφέρθηκαν αμέσως και η αιτία μένει ασαφής.",
+    "body": "Μεγάλη έκρηξη χτύπησε την αποθήκη πετρελαίου Bangchak στην ανατολική Μπανγκόκ την Πέμπτη και έστειλε φλόγες και πυκνό μαύρο καπνό πάνω από την ταϊλανδική πρωτεύουσα. Τον χώρο τον διαχειρίζεται η Bangchak Corporation. Οι αρχές της περιοχής Μπανγκ Να είπαν στους κατοίκους να φύγουν αμέσως, προληπτικά.\n\nΗ δημοτική αρχή της Μπανγκόκ είπε αργότερα ότι η φωτιά έσβησε σε λιγότερο από μία ώρα μετά την έκρηξη, που αναφέρθηκε περίπου στις 3 μ.μ. τοπική ώρα. Στις πρώτες αναφορές δεν υπήρχαν θύματα. Η αιτία και το μέγεθος της ζημιάς δεν ήταν σαφή. Η Bangchak είπε στο γραφείο της Μπανγκ Να ότι η κατάσταση τέθηκε υπό έλεγχο.\n\nΤο Euronews περιέγραψε το διυλιστήριο ως μονάδα περίπου 120.000 βαρελιών την ημέρα, το πέμπτο μεγαλύτερο της Ταϊλάνδης και το μόνο που βρίσκεται μέσα σε αστική περιοχή. Γι' αυτό μια φωτιά εκεί αδειάζει δρόμους ακόμη και όταν οι τραυματισμοί δεν είναι ακόμη γνωστοί.",
+    "alt": "Ο ορίζοντας της Μπανγκόκ",
+    "kw": [
+      "Μπανγκόκ",
+      "Bangchak",
+      "αποθήκη πετρελαίου",
+      "Ταϊλάνδη"
+    ],
+    "desc": "Έκρηξη στην αποθήκη Bangchak στην Μπανγκόκ. Η φωτιά έσβησε μέσα σε μία ώρα· θύματα δεν αναφέρθηκαν αρχικά."
+  }
+}
