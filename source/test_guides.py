@@ -25,7 +25,20 @@ class GuideContentTests(unittest.TestCase):
     def test_affiliate_config_is_the_only_partner_map(self):
         with open(os.path.join(HERE, "affiliates.json"), encoding="utf-8") as handle:
             data = json.load(handle)
-        self.assertEqual(set(data) - {"amazon"}, set(PARTNERS))
+        self.assertEqual(set(data) - {"amazon", "trezor"}, set(PARTNERS))
+        self.assertEqual(data["trezor"], "https://affil.trezor.io/aff_c?offer_id=352&aff_id=847056")
+        economy = build.page_cat("en", "economy")
+        self.assertIn('rel="sponsored nofollow noopener"', economy)
+        self.assertIn('href="https://affil.trezor.io/aff_c?offer_id=352&amp;aff_id=847056"', economy)
+        self.assertIn("Trezor Safe 7", economy)
+        self.assertIn("/en/affiliate-disclosure/", economy)
+        crypto = [s for s in build.STORIES if build.crypto_story(s)]
+        self.assertIn("cysec-forex-crypto", [s["slug"] for s in crypto])
+        self.assertIn("paphos-crypto-phone-scam", [s["slug"] for s in crypto])
+        self.assertNotIn("jobs-and-pay-cyprus", [s["slug"] for s in crypto])
+        page = build.page_article("en", build.BYSLUG["cysec-forex-crypto"])
+        self.assertIn('target="_blank"', page)
+        self.assertIn("https://affil.trezor.io/aff_c?offer_id=352&amp;aff_id=847056", page)
         for key in PARTNERS:
             self.assertTrue(data[key].startswith("#AFFILIATE_"), data[key])
             self.assertEqual(build.AFFILIATES[key], data[key])

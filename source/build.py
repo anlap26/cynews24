@@ -340,7 +340,7 @@ DISCLOSURE = {
  "en":dict(t="Affiliate disclosure",d="How CyNews 24 uses affiliate links, which partners they point to, and what those links do not promise.",
   sections=[
    ("What an affiliate link is",["Some practical guides on CyNews 24 link to companies whose products a reader who lives or travels abroad may actually use: international health insurance, a travel eSIM, a VPN, encrypted email, or a password manager. If you follow one of those links and buy, the company may pay CyNews 24 a commission. You do not pay an extra fee to us. The price, if there is one, is the price on the company’s own site."]),
-   ("Where the links live",["Every partner address is stored in one configuration file, source/affiliates.json. The site publishes that file as /assets/js/affiliates.js, and every partner button reads the address from there. Until a real address is added, the value is a placeholder such as #AFFILIATE_GENKI. A placeholder does not go to a shop. The partners named in the guides are Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass and Mail) and 1Password. Some practical pages also link to Amazon.de."]),
+   ("Where the links live",["Every partner address is stored in one configuration file, source/affiliates.json. The site publishes that file as /assets/js/affiliates.js, and every partner button reads the address from there. Until a real address is added, the value is a placeholder such as #AFFILIATE_GENKI. A placeholder does not go to a shop. The partners named in the guides are Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass and Mail) and 1Password. Some practical pages also link to Amazon.de. The Economy section, and articles about crypto, also link to a Trezor Safe 7 hardware wallet. That address is the trezor entry in the same file. The button does not state a price."]),
    ("Amazon",["Those Amazon links are searches on Amazon.de, not a page for one product, and they do not name a price. As an Amazon Associate I earn from qualifying purchases. The home address carries the tag cynews24-21, and a search uses the same tag. CyNews 24 does not invent a product code. What Amazon shows, and what it costs, is on Amazon at the time you look."]),
    ("Travel links",["Every travel-guide address lives in one file, source/travel_affiliates.json. Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups and Aviasales buttons inside the guides are Travelpayouts links, marker 603740. Booking, GetYourGuide, DiscoverCars and SafetyWing are still each company’s own homepage, until those programmes are approved. A separate row, Travel in Cyprus, uses marker 808586: Localrent, Welcome Pickups, Kiwitaxi, Klook, Tiqets, Airalo and Aviasales. A button is marked sponsored. None of these links states a price."]),
    ("How to recognise one",["A partner button opens in a new tab and is marked rel=\"nofollow sponsored\". The guide says, near the offers, that the links are affiliate links, and it links to this page. Stories about tourism, travel, beaches, airports, transport, events and hotels end with a Travel in Cyprus row of partner links. Politics, crime and economy stories do not, unless the story is about travel. A short box appears only on a few practical pages about moving, expat life, banking or technology, and it links back to the full guide."]),
@@ -349,7 +349,7 @@ DISCLOSURE = {
  "ru":dict(t="Раскрытие партнёрских ссылок",d="Как CyNews 24 использует партнёрские ссылки, на какие сервисы они ведут и чего эти ссылки не обещают.",
   sections=[
    ("Что такое партнёрская ссылка",["В некоторых практических материалах CyNews 24 есть ссылки на компании, чьи услуги могут пригодиться человеку, который живёт или путешествует за границей: международная медицинская страховка, туристическая eSIM, VPN, шифрованная почта или менеджер паролей. Если вы перейдёте по такой ссылке и купите услугу, компания может выплатить CyNews 24 комиссию. Нам вы отдельно ничего не доплачиваете. Цена, если она есть, — та, что указана на сайте самой компании."]),
-   ("Где лежат адреса",["Все партнёрские адреса собраны в одном файле настроек, source/affiliates.json. Сайт публикует его как /assets/js/affiliates.js, и каждая партнёрская кнопка берёт адрес оттуда. Пока вместо настоящего адреса стоит заглушка вроде #AFFILIATE_GENKI. Заглушка ни в какой магазин не ведёт. В материалах названы Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass и Mail) и 1Password. На некоторых практических страницах есть ссылки на Amazon.de."]),
+   ("Где лежат адреса",["Все партнёрские адреса собраны в одном файле настроек, source/affiliates.json. Сайт публикует его как /assets/js/affiliates.js, и каждая партнёрская кнопка берёт адрес оттуда. Пока вместо настоящего адреса стоит заглушка вроде #AFFILIATE_GENKI. Заглушка ни в какой магазин не ведёт. В материалах названы Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass и Mail) и 1Password. На некоторых практических страницах есть ссылки на Amazon.de. В разделе «Экономика» и в материалах о крипто есть ссылка на аппаратный кошелёк Trezor Safe 7. Этот адрес — запись trezor в том же файле. Кнопка не называет цену."]),
    ("Amazon",["Ссылки на Amazon — это поиск на Amazon.de, а не страница одного товара, и в них нет цены. Как участник партнёрской программы Amazon я зарабатываю на соответствующих покупках. В адресе главной страницы стоит метка cynews24-21, и тот же тег стоит в поиске. CyNews 24 не выдумывает код товара. Что показывает Amazon и сколько это стоит, видно на Amazon в момент, когда вы смотрите."]),
    ("Ссылки для путешествий",["Все адреса путеводителей лежат в одном файле, source/travel_affiliates.json. Кнопки Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups и Aviasales внутри путеводителей — ссылки Travelpayouts, метка 603740. Booking, GetYourGuide, DiscoverCars и SafetyWing пока остаются главными страницами компаний, пока эти программы не одобрены. Отдельный блок «Путешествие по Кипру» использует метку 808586: Localrent, Welcome Pickups, Kiwitaxi, Klook, Tiqets, Airalo и Aviasales. Кнопка помечена как sponsored. Ни одна из ссылок не называет цену."]),
    ("Как её узнать",["Партнёрская кнопка открывается в новой вкладке и помечена rel=\"nofollow sponsored\". Рядом с предложениями материал прямо говорит, что ссылки партнёрские, и ведёт на эту страницу. Материалы о туризме, путешествиях, пляжах, аэропортах, транспорте, событиях и отелях заканчиваются блоком «Путешествие по Кипру». В политике, криминале и экономике его нет, если сам материал не о путешествии. Короткий блок стоит только на нескольких практических страницах о переезде, жизни за границей, банках или технологиях и ведёт на полный материал."]),
@@ -358,7 +358,7 @@ DISCLOSURE = {
  "el":dict(t="Γνωστοποίηση συνεργατών",d="Πώς το CyNews 24 χρησιμοποιεί συνδέσμους συνεργατών, σε ποιες εταιρείες οδηγούν και τι δεν υπόσχονται.",
   sections=[
    ("Τι είναι ένας σύνδεσμος συνεργάτη",["Ορισμένοι πρακτικοί οδηγοί του CyNews 24 παραπέμπουν σε εταιρείες των οποίων τις υπηρεσίες μπορεί να χρησιμοποιήσει κάποιος που ζει ή ταξιδεύει στο εξωτερικό: διεθνή ασφάλιση υγείας, ταξιδιωτική eSIM, VPN, κρυπτογραφημένο email ή διαχειριστή κωδικών. Αν ακολουθήσετε έναν τέτοιο σύνδεσμο και αγοράσετε, η εταιρεία μπορεί να πληρώσει προμήθεια στο CyNews 24. Δεν πληρώνετε σε εμάς επιπλέον τέλος. Η τιμή, αν υπάρχει, είναι η τιμή στον ιστότοπο της εταιρείας."]),
-   ("Πού βρίσκονται οι διευθύνσεις",["Κάθε διεύθυνση συνεργάτη φυλάσσεται σε ένα αρχείο ρυθμίσεων, το source/affiliates.json. Ο ιστότοπος το δημοσιεύει ως /assets/js/affiliates.js, και κάθε κουμπί συνεργάτη διαβάζει τη διεύθυνση από εκεί. Μέχρι να προστεθεί πραγματική διεύθυνση, η τιμή είναι θέση όπως #AFFILIATE_GENKI. Η θέση δεν οδηγεί σε κατάστημα. Οι συνεργάτες που ονομάζονται στους οδηγούς είναι οι Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass και Mail) και 1Password. Ορισμένες πρακτικές σελίδες παραπέμπουν και στο Amazon.de."]),
+   ("Πού βρίσκονται οι διευθύνσεις",["Κάθε διεύθυνση συνεργάτη φυλάσσεται σε ένα αρχείο ρυθμίσεων, το source/affiliates.json. Ο ιστότοπος το δημοσιεύει ως /assets/js/affiliates.js, και κάθε κουμπί συνεργάτη διαβάζει τη διεύθυνση από εκεί. Μέχρι να προστεθεί πραγματική διεύθυνση, η τιμή είναι θέση όπως #AFFILIATE_GENKI. Η θέση δεν οδηγεί σε κατάστημα. Οι συνεργάτες που ονομάζονται στους οδηγούς είναι οι Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass και Mail) και 1Password. Ορισμένες πρακτικές σελίδες παραπέμπουν και στο Amazon.de. Η ενότητα Οικονομία, και τα άρθρα για κρυπτονομίσματα, παραπέμπουν και σε ένα hardware wallet Trezor Safe 7. Η διεύθυνση είναι η εγγραφή trezor στο ίδιο αρχείο. Το κουμπί δεν αναφέρει τιμή."]),
    ("Amazon",["Οι σύνδεσμοι της Amazon είναι αναζητήσεις στο Amazon.de, όχι σελίδα ενός προϊόντος, και δεν αναφέρουν τιμή. Ως συνεργάτης της Amazon, κερδίζω από αγορές που πληρούν τις προϋποθέσεις. Η διεύθυνση της αρχικής σελίδας έχει την ετικέτα cynews24-21, και την ίδια ετικέτα έχει η αναζήτηση. Το CyNews 24 δεν επινοεί κωδικό προϊόντος. Τι δείχνει η Amazon και πόσο κοστίζει φαίνεται στην Amazon τη στιγμή που κοιτάτε."]),
    ("Σύνδεσμοι για ταξίδια",["Κάθε διεύθυνση των οδηγών είναι σε ένα αρχείο, το source/travel_affiliates.json. Τα κουμπιά Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups και Aviasales μέσα στους οδηγούς είναι σύνδεσμοι Travelpayouts, δείκτης 603740. Οι Booking, GetYourGuide, DiscoverCars και SafetyWing μένουν η αρχική σελίδα της εταιρείας, μέχρι να εγκριθούν αυτά τα προγράμματα. Ξεχωριστή σειρά, Ταξίδι στην Κύπρο, χρησιμοποιεί τον δείκτη 808586: Localrent, Welcome Pickups, Kiwitaxi, Klook, Tiqets, Airalo και Aviasales. Το κουμπί σημειώνεται sponsored. Κανένας σύνδεσμος δεν αναφέρει τιμή."]),
    ("Πώς ξεχωρίζει",["Ένα κουμπί συνεργάτη ανοίγει σε νέα καρτέλα και φέρει rel=\"nofollow sponsored\". Ο οδηγός λέει, κοντά στις προσφορές, ότι οι σύνδεσμοι είναι συνεργατών και παραπέμπει σε αυτή τη σελίδα. Θέματα για τουρισμό, ταξίδια, παραλίες, αεροδρόμια, μεταφορές, εκδηλώσεις και ξενοδοχεία κλείνουν με τη σειρά Ταξίδι στην Κύπρο. Η πολιτική, το έγκλημα και η οικονομία δεν την έχουν, εκτός αν το ίδιο το θέμα είναι για ταξίδι. Ένα σύντομο πλαίσιο εμφανίζεται μόνο σε λίγες πρακτικές σελίδες για μετακόμιση, ζωή στο εξωτερικό, τράπεζες ή τεχνολογία και οδηγεί πίσω στον πλήρη οδηγό."]),
@@ -1633,8 +1633,11 @@ def page_cat(l,c):
     regions=region_nav(l) if c=="world" else ""
     paras=CAT_BODY.get(l,{}).get(c)
     lead=intro_html(paras) if paras else f'<p class="meta" style="margin-top:-6px">{e(desc)}</p>'
+    trezor=trezor_box(l) if c=="economy" else ""
     crumb=f'<nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{e(u["crumb_home"])}</a> › <span>{e(CATN[l][c])}</span></nav>'
-    h+=f'<main id="main" class="wrap">{crumb}<h1 class="sec">{e(CATN[l][c])}</h1>{lead}{regions}{block}{news}<div class="grid g3" style="margin-top:18px">{grid}</div>{extra}</main>'+footer(l)
+    h+=f'<main id="main" class="wrap">{crumb}<h1 class="sec">{e(CATN[l][c])}</h1>{lead}{trezor}{regions}{block}{news}<div class="grid g3" style="margin-top:18px">{grid}</div>{extra}</main>'+footer(l)
+    if trezor:
+        h=h.replace("</body></html>", affiliate_boot()+"</body></html>", 1)
     return h
 def page_region(l, r):
     if r not in REGIONS:
@@ -2039,6 +2042,43 @@ WIDGET_COPY = {
     buttons=[("nordvpn","Δείτε το NordVPN"),("onepassword","Δείτε το 1Password")]),
  },
 }
+_CRYPTO_RX = re.compile(
+    r"\bcrypto(?:currency|currencies)?\b|\bbitcoin\b"
+    r"|криптовалют\w*|криптоуслуг\w*|крипторежим\w*|\bкрипто\b"
+    r"|κρυπτονομ\w*|κρυπτοϋπ\w*",
+    re.I)
+_CRYPTO_LINK = re.compile(r"\[[^\]]+\]\([^)]*cysec-forex-crypto[^)]*\)")
+def crypto_story(s):
+    """True when the article is about crypto, not when it only links to the CySEC guide."""
+    chunks = []
+    for lang in LANGS:
+        chunks.append(s["title"][lang])
+        chunks.append(s["lede"][lang])
+        chunks.extend(s["kw"][lang])
+        chunks.extend(s["body"][lang])
+    text = _CRYPTO_LINK.sub(" ", "\n".join(chunks))
+    return bool(_CRYPTO_RX.search(text))
+TREZOR_BOX = {
+ "en": dict(kicker="Affiliate", title="Trezor Safe 7",
+    text="A hardware wallet keeps the keys on a device you hold, rather than only on an exchange account. This is an affiliate link. If you buy, CyNews 24 may earn a commission. Trezor sets the price. This is not investment advice.",
+    button="Trezor Safe 7"),
+ "ru": dict(kicker="Партнёрская ссылка", title="Trezor Safe 7",
+    text="Аппаратный кошелёк хранит ключи на устройстве у вас, а не только на счёте биржи. Это партнёрская ссылка. Если вы купите, CyNews 24 может получить комиссию. Цену назначает Trezor. Это не инвестиционный совет.",
+    button="Trezor Safe 7"),
+ "el": dict(kicker="Σύνδεσμος συνεργάτη", title="Trezor Safe 7",
+    text="Ένα hardware wallet κρατά τα κλειδιά σε συσκευή που έχετε εσείς, και όχι μόνο σε λογαριασμό ανταλλακτηρίου. Αυτός είναι σύνδεσμος συνεργάτη. Αν αγοράσετε, το CyNews 24 μπορεί να λάβει προμήθεια. Την τιμή την ορίζει η Trezor. Δεν είναι επενδυτική συμβουλή.",
+    button="Trezor Safe 7"),
+}
+def trezor_box(l):
+    copy = TREZOR_BOX[l]
+    url = AFFILIATES["trezor"]
+    disc = href(f"/{l}/affiliate-disclosure/")
+    return (f'<aside class="partner trezor" aria-label="{e(copy["title"])}">'
+            f'<p class="kicker">{e(copy["kicker"])}</p><h2>{e(copy["title"])}</h2>'
+            f'<p>{e(copy["text"])}</p>'
+            f'<div class="affbtns"><a class="affbtn" data-affiliate="trezor" href="{e(url)}" '
+            f'rel="sponsored nofollow noopener" target="_blank">{e(copy["button"])}</a></div>'
+            f'<p class="fine"><a href="{disc}">{e(UI[l]["disclosure"])}</a></p></aside>')
 def partner_widget(l, s):
     kind = PARTNER_WIDGETS.get(s["slug"])
     if not kind or s.get("guide"): return ""
@@ -2215,6 +2255,8 @@ def page_article(l,s):
     amazon=amazon_block(l,s)
     h+=widget
     h+=amazon
+    trezor=trezor_box(l) if crypto_story(s) else ""
+    h+=trezor
     # Page language, immediately before the Telegram subscribe line.
     plain=[(p[3:].strip() if p.startswith("## ") else p) for p in s["body"][l] if not _OFFER_RE.match(p.strip())]
     h+=mycytax.article_crosslink(l, s["title"][l], plain, s["kw"][l], mycytax_catalog())
@@ -2239,7 +2281,7 @@ def page_article(l,s):
         region_more=(f'<p class="meta"><a href="{href(f"/{l}/world/{s["region"]}/")}">{e(REGION_N[l][s["region"]])}</a>'
                      f' · <a href="{href(f"/{l}/world/")}">{e(CATN[l]["world"])}</a></p>')
     h+=f'<section class="rel"><h2>{u["related"]}</h2>{region_more}<div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
-    if s["offers"][l] or widget or amazon:
+    if s["offers"][l] or widget or amazon or trezor:
         h=h.replace("</body></html>", affiliate_boot()+"</body></html>", 1)
     return h
 
