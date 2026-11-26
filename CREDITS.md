@@ -76,6 +76,7 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `short-term-rental-bed-cap` | Finikoudes promenade in Larnaca | A.Savin | [Free Art License](https://artlibre.org/licence/lal/en/) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Larnaca_01-2017_img14_Finikoudes.jpg) |
 | `limassol-funeral-schoolgirl-kakopetria` | Original illustration kept | — | — | — |
 | `child-smartphone` | A child holding a smartphone. It is not a photograph taken in Cyprus | Shixart1985 | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Child_uses_smartphone_to_play_games_at_home_closeup.jpg) |
+| `kyrenia-harbour` | The old harbour of Kyrenia in September 2009. It is not a photograph of the ferry, the new port or the scene of the sinking | Julienbzh35 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:PortdeKyrenia.jpg) |
 
 ## Event photographs
 
