@@ -83,6 +83,19 @@ collections:
           - { label: Туризм, value: tourism }
           - { label: Спорт, value: sport }
           - { label: В мире, value: world }
+      - name: region
+        label: Регион мировых новостей
+        widget: select
+        required: false
+        hint: Только для рубрики «В мире». Пустое значение оставляет материал в общем списке без региона.
+        options:
+          - { label: "—", value: "" }
+          - { label: Европа, value: europe }
+          - { label: Ближний Восток, value: middle-east }
+          - { label: Россия и СНГ, value: russia-cis }
+          - { label: Азия, value: asia }
+          - { label: Америка, value: americas }
+          - { label: Африка, value: africa }
       - name: date
         label: Дата публикации
         widget: datetime

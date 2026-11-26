@@ -5,6 +5,7 @@
   "surfshark": "#AFFILIATE_SURFSHARK",
   "proton": "#AFFILIATE_PROTON",
   "onepassword": "#AFFILIATE_1PASSWORD",
+  "trezor": "https://affil.trezor.io/aff_c?offer_id=352&aff_id=847056",
   "amazon": {
     "url": "https://www.amazon.de/?tag=cynews24-21",
     "search": "https://www.amazon.de/s?k={query}&tag=cynews24-21"

@@ -852,7 +852,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "page": "https://commons.wikimedia.org/wiki/File:Vrysoudia_II_Beach,_Paphos,_Cyprus_5.jpg",
     "file": "vrysoudia-beach.jpg",
-    "focus": [0.5, 0.42],
+    "focus": [
+      0.5,
+      0.42
+    ],
     "depicts": "Vrysoudia II beach in Paphos. It is not the Eden Coast site in Geroskipou"
   },
   "agios-tychonas-view": {
@@ -862,7 +865,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "page": "https://commons.wikimedia.org/wiki/File:Limassol_view_from_Ayios_Tychonas_1.JPG",
     "file": "agios-tychonas-view.jpg",
-    "focus": [0.55, 0.42],
+    "focus": [
+      0.55,
+      0.42
+    ],
     "depicts": "Limassol seen from Agios Tychonas in January 2014. It is not Dream Tower"
   },
   "limassol-skyline": {
@@ -872,7 +878,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "page": "https://commons.wikimedia.org/wiki/File:Skyline_of_Limassol.jpg",
     "file": "limassol-skyline.jpg",
-    "focus": [0.45, 0.58],
+    "focus": [
+      0.45,
+      0.58
+    ],
     "depicts": "The Limassol skyline in June 2022. It is not the KEAN site"
   },
   "pallouriotissa-fire": {
@@ -882,7 +891,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "page": "https://commons.wikimedia.org/wiki/File:DFRMO_fire_Engine_at_Troodos.jpg",
     "file": "pallouriotissa-fire.jpg",
-    "focus": [0.42, 0.55],
+    "focus": [
+      0.42,
+      0.55
+    ],
     "depicts": "A DFRMO fire engine at Troodos, from the British bases. It is not a Nicosia Fire Service vehicle and not the Pallouriotissa venue"
   },
   "limassol-old-town": {
@@ -892,7 +904,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "page": "https://commons.wikimedia.org/wiki/File:Limassol_Old_Town_19.JPG",
     "file": "limassol-old-town.jpg",
-    "focus": [0.5, 0.62],
+    "focus": [
+      0.5,
+      0.62
+    ],
     "depicts": "A shopping street in old Limassol in 2012. It is not a named employer and not an employment agency"
   },
   "cyprus-police-car": {
@@ -902,7 +917,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "page": "https://commons.wikimedia.org/wiki/File:Police_car_of_Cyprus_02.JPG",
     "file": "cyprus-police-car.jpg",
-    "focus": [0.48, 0.45],
+    "focus": [
+      0.48,
+      0.45
+    ],
     "depicts": "A Cyprus Police car by a harbour. It is not a photograph of the overnight operation of 21 November 2026"
   },
   "nicosia-supreme-court": {
@@ -912,7 +930,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "page": "https://commons.wikimedia.org/wiki/File:Cyprus_Supreme_Court_buildings_junction_next_to_Parliament_Nicosia_Republic_of_Cyprus.jpg",
     "file": "nicosia-supreme-court.jpg",
-    "focus": [0.62, 0.55],
+    "focus": [
+      0.62,
+      0.55
+    ],
     "depicts": "The Supreme Court buildings beside parliament in Nicosia. This is not the permanent criminal court hearing the Avakoum case"
   },
   "toyota-corolla-2005": {
@@ -922,7 +943,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "page": "https://commons.wikimedia.org/wiki/File:2005_Toyota_Corolla_1.4_T3.jpg",
     "file": "toyota-corolla-2005.jpg",
-    "focus": [0.48, 0.55],
+    "focus": [
+      0.48,
+      0.55
+    ],
     "depicts": "A 2005 Toyota Corolla built for the British market. It is not one of the 249 vehicles on the Cyprus recall list"
   },
   "paphos-castle-night": {
@@ -932,7 +956,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "page": "https://commons.wikimedia.org/wiki/File:Paphos_Castle_%E2%80%93_floodlit_at_night_from_the_harbour.jpg",
     "file": "paphos-castle-night.jpg",
-    "focus": [0.5, 0.38],
+    "focus": [
+      0.5,
+      0.38
+    ],
     "depicts": "Paphos castle floodlit at night, seen from the harbour. It does not show the complainant or the call"
   },
   "pyrgos-limassol": {
@@ -942,7 +969,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
     "page": "https://commons.wikimedia.org/wiki/File:Pyrgos,_Cyprus_-_panoramio.jpg",
     "file": "pyrgos-limassol.jpg",
-    "focus": [0.5, 0.48],
+    "focus": [
+      0.5,
+      0.48
+    ],
     "depicts": "Pyrgos in the Limassol district in March 2012. It is not the YOO Limassol site"
   },
   "limassol-promenade-2012": {
@@ -952,7 +982,10 @@
     "license_url": "https://creativecommons.org/licenses/by/3.0/pl/",
     "page": "https://commons.wikimedia.org/wiki/File:Limassol_promenade_Cyprus_(1).jpg",
     "file": "limassol-promenade-2012.jpg",
-    "focus": [0.5, 0.55],
+    "focus": [
+      0.5,
+      0.55
+    ],
     "depicts": "The public promenade in Limassol in November 2012. It is not Limassol Blu Marine"
   },
   "limassol-molos": {
@@ -962,7 +995,10 @@
     "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
     "page": "https://commons.wikimedia.org/wiki/File:Lemesos-seafront.jpg",
     "file": "limassol-molos.jpg",
-    "focus": [0.5, 0.45],
+    "focus": [
+      0.5,
+      0.45
+    ],
     "depicts": "The Molos promenade in Limassol in October 2021. It is not the ONE tower"
   },
   "tsada-village": {
@@ -972,7 +1008,10 @@
     "license_url": "https://creativecommons.org/licenses/by/3.0",
     "page": "https://commons.wikimedia.org/wiki/File:Tsada,_Cyprus_-_panoramio_(1).jpg",
     "file": "tsada-village.jpg",
-    "focus": [0.5, 0.42],
+    "focus": [
+      0.5,
+      0.42
+    ],
     "depicts": "Tsada in the Paphos district in January 2014. It is not a Minthis Residences house"
   },
   "kakopetria-village": {
@@ -1008,7 +1047,10 @@
     "license_url": "https://creativecommons.org/licenses/by/2.0",
     "page": "https://commons.wikimedia.org/wiki/File:Child_uses_smartphone_to_play_games_at_home_closeup.jpg",
     "file": "child-smartphone.jpg",
-    "focus": [0.5, 0.45],
+    "focus": [
+      0.5,
+      0.45
+    ],
     "depicts": "A child holding a smartphone. It is not a photograph taken in Cyprus"
   },
   "kyrenia-harbour": {
@@ -1023,5 +1065,226 @@
       0.48
     ],
     "depicts": "The old harbour of Kyrenia in September 2009. It is not a photograph of the ferry, the new port or the scene of the sinking"
+  },
+  "es-vedra-ibiza": {
+    "author": "Macondo",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Es_Vedrà_2019-02-23.jpg",
+    "file": "es-vedra-ibiza.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The Es Vedrà rock off the coast of Ibiza"
+  },
+  "ecb-frankfurt": {
+    "author": "Maslmaslmasl",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:ECB_Frankfurt_with_Skyline.jpg",
+    "file": "ecb-frankfurt.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The European Central Bank building in Frankfurt, with the city skyline"
+  },
+  "uk-high-street": {
+    "author": "Des Blenkinsopp",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:High_Street_Shops_-_geograph.org.uk_-_6292051.jpg",
+    "file": "uk-high-street.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "Shops on a British high street; not a named Poundland store"
+  },
+  "hellenic-parliament": {
+    "author": "Gerard McGovern",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Hellenic_Parliament_from_high_above.jpg",
+    "file": "hellenic-parliament.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The Hellenic Parliament in Athens, seen from above"
+  },
+  "kuwait-skyline": {
+    "author": "Francisco Anzola from United States",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Kuwait_City_skyline_(39710595225).jpg",
+    "file": "kuwait-skyline.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The Kuwait City skyline"
+  },
+  "jerusalem-dome": {
+    "author": "Berthold Werner",
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Jerusalem_Dome_of_the_rock_BW_3.JPG",
+    "file": "jerusalem-dome.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The Dome of the Rock in Jerusalem; not a courtroom"
+  },
+  "baghdad-modern": {
+    "author": "Karl Oppolzer",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:A_view_of_modern_Baghdad.jpg",
+    "file": "baghdad-modern.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "A view of Baghdad"
+  },
+  "kyiv-maidan": {
+    "author": "Levchuk Volodymyr ( UAWeBeR )",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Ukraine-Kyiv-Maidan_Nezalezhnosti.JPG",
+    "file": "kyiv-maidan.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "Independence Square in Kyiv"
+  },
+  "bogor-hills": {
+    "author": "kasman70",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Cariu,_Bogor,_West_Java,_Indonesia_-_panoramio.jpg",
+    "file": "bogor-hills.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "Hills at Cariu in Bogor regency, West Java; not the flooded mine"
+  },
+  "pyongyang-view": {
+    "author": "Christophe95",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Panoramic_view_from_Juche_Tower.jpg",
+    "file": "pyongyang-view.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "Pyongyang seen from the Juche Tower; not a nuclear plant"
+  },
+  "bangkok-skyline": {
+    "author": "Vyacheslav Argenberg",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Bangkok_skyline,_Bangkok,_Thailand.jpg",
+    "file": "bangkok-skyline.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The Bangkok skyline"
+  },
+  "falcon-heavy": {
+    "author": "SpaceX",
+    "source": "Wikimedia Commons",
+    "license": "CC0",
+    "license_url": "http://creativecommons.org/publicdomain/zero/1.0/deed.en",
+    "page": "https://commons.wikimedia.org/wiki/File:Falcon_Heavy_Demo_Mission_(39337245145).jpg",
+    "file": "falcon-heavy.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "A SpaceX Falcon Heavy on the launch pad before a 2018 demonstration flight"
+  },
+  "nyse-facade": {
+    "author": "Arild Vågen",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:New_York_Stock_Exchange_August_2017_02.jpg",
+    "file": "nyse-facade.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The New York Stock Exchange facade"
+  },
+  "puerto-madero": {
+    "author": "RG72",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Puerto_Madero,_Buenos_Aires.jpg",
+    "file": "puerto-madero.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "Puerto Madero in Buenos Aires"
+  },
+  "mont-shari": {
+    "author": "Alfani Franck",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Mont_Shari.jpg",
+    "file": "mont-shari.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "Mount Shari in the Mudzipela quarter, about 3 km from the centre of Bunia"
+  },
+  "lusaka-2008": {
+    "author": "andresmh from USA",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 2.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:2008_Lusaka_Zambia_2778530807.jpg",
+    "file": "lusaka-2008.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "A street in Lusaka in 2008"
+  },
+  "mbabane-landscape": {
+    "author": "Umkhaya",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Mbabane_Landscape.jpg",
+    "file": "mbabane-landscape.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The landscape around Mbabane, Eswatini"
   }
 }

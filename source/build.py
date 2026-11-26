@@ -51,9 +51,17 @@ CATS = ["politics","economy","real-estate","society","tourism","sport","world"]
 TRAVEL_MENU = {"en":"Travel","ru":"Путешествия","el":"Ταξίδια"}
 GUIDE_MENU = {"en":"Guides","ru":"Гиды","el":"Οδηγοί"}
 CATN = {
- "en":dict(zip(CATS,["Politics","Economy","Real Estate","Society","Tourism","Sport","World"])),
- "ru":dict(zip(CATS,["Политика","Экономика","Недвижимость","Общество","Туризм","Спорт","В мире"])),
- "el":dict(zip(CATS,["Πολιτική","Οικονομία","Ακίνητα","Κοινωνία","Τουρισμός","Αθλητισμός","Κόσμος"]))}
+ "en":dict(zip(CATS,["Politics","Economy","Real Estate","Society","Tourism","Sport","World news"])),
+ "ru":dict(zip(CATS,["Политика","Экономика","Недвижимость","Общество","Туризм","Спорт","Мировые новости"])),
+ "el":dict(zip(CATS,["Πολιτική","Οικονομία","Ακίνητα","Κοινωνία","Τουρισμός","Αθλητισμός","Διεθνή νέα"]))}
+# Regional desks under /{lang}/world/{region}/. The parent /world/ address stays.
+REGIONS = ["europe","middle-east","russia-cis","asia","americas","africa"]
+REGION_N = {
+ "en":{"europe":"Europe","middle-east":"Middle East","russia-cis":"Russia & CIS","asia":"Asia","americas":"Americas","africa":"Africa"},
+ "ru":{"europe":"Европа","middle-east":"Ближний Восток","russia-cis":"Россия и СНГ","asia":"Азия","americas":"Америка","africa":"Африка"},
+ "el":{"europe":"Ευρώπη","middle-east":"Μέση Ανατολή","russia-cis":"Ρωσία και ΚΑΚ","asia":"Ασία","americas":"Αμερική","africa":"Αφρική"}}
+REGION_MENU = {"en":"Regions","ru":"Регионы","el":"Περιοχές"}
+RELOCATION_MENU = {"en":"Relocation","ru":"Переезд","el":"Μετακόμιση"}
 # ---------- articles ----------
 # One JSON file per article in content/articles/ (edited by hand or in the /admin/ CMS).
 # Russian is required. English and Greek are optional: a missing translation falls back
@@ -128,12 +136,15 @@ def load_story(path):
     if not slug: raise SystemExit(f"{path}: cannot make a page address (slug)")
     cat = _clean(d.get("cat"))
     if cat not in CATS: raise SystemExit(f"{path}: unknown category {cat!r}")
+    region = _clean(d.get("region"))
+    if region and region not in REGIONS: raise SystemExit(f"{path}: unknown region {region!r}")
+    if region and cat != "world": raise SystemExit(f"{path}: region is only for world news")
     date = str(_clean(d.get("date")))[:10]
     datetime.date.fromisoformat(date)
     ru = d.get("ru") or {}
     for k in ("title", "lede", "body"):
         if not _clean(ru.get(k)): raise SystemExit(f"{path}: Russian {k} is required")
-    s = {"slug": slug, "file": stem, "cat": cat, "date": date, "seq": d.get("seq"), "missing": set(), "guide": bool(d.get("guide"))}
+    s = {"slug": slug, "file": stem, "cat": cat, "date": date, "region": region, "seq": d.get("seq"), "missing": set(), "guide": bool(d.get("guide"))}
     for k in ("title", "lede", "alt", "desc"): s[k] = {}
     s["body"] = {}; s["kw"] = {}; s["offers"] = {}; s["faq"] = {}; s["steps"] = {}
     for l in LANGS:
@@ -252,19 +263,23 @@ UI = {
   disclosure_text="Ορισμένοι σύνδεσμοι σε αυτή τη σελίδα είναι σύνδεσμοι συνεργατών. Αν τους χρησιμοποιήσετε, το CyNews 24 μπορεί να λάβει προμήθεια. Την τιμή την ορίζει ο πάροχος. Οι όροι αλλάζουν· διαβάστε τους στον ιστότοπο του παρόχου πριν αγοράσετε. Η σελίδα δεν είναι ασφαλιστική, νομική ή άλλη επαγγελματική συμβουλή.",
   sources_note_guide="Οι σύνδεσμοι παρακάτω είναι οι δημόσιες σελίδες στις οποίες στηρίζεται αυτός ο οδηγός. Δεν είναι παράθεμα σύμβασης, και οι όροι ενός παρόχου μπορεί να αλλάξουν."),
 }
-HOME_T = {"en":"CyNews 24 – Latest Cyprus News: Politics, Economy, Property",
- "ru":"CyNews 24 — Новости Кипра сегодня: политика, экономика, недвижимость",
- "el":"CyNews 24 — Ειδήσεις Κύπρου: πολιτική, οικονομία, ακίνητα"}
-HOME_D = {"en":"CyNews 24 brings you the latest Cyprus news today in English, Russian and Greek: politics, economy, real estate, society, tourism and sport, with sources linked.",
- "ru":"CyNews 24 — свежие новости Кипра сегодня на русском, английском и греческом: политика, экономика, недвижимость, общество, туризм и спорт со ссылками на источники.",
- "el":"Το CyNews 24 φέρνει τις τελευταίες ειδήσεις Κύπρου σήμερα σε ελληνικά, αγγλικά και ρωσικά: πολιτική, οικονομία, ακίνητα, κοινωνία, τουρισμός, αθλητισμός, με συνδέσμους στις πηγές."}
+HOME_T = {"en":"CyNews 24 – Cyprus and world news today: politics, economy, property",
+ "ru":"CyNews 24 — Новости Кипра и мира сегодня: политика, экономика, недвижимость",
+ "el":"CyNews 24 — Ειδήσεις Κύπρου και κόσμου: πολιτική, οικονομία, ακίνητα"}
+HOME_D = {"en":"Cyprus and world news today in English, Russian and Greek: politics, economy, real estate, tourism, relocation and sport, with sources linked.",
+ "ru":"Новости Кипра и мира сегодня на русском, английском и греческом: политика, экономика, недвижимость, туризм, переезд и спорт со ссылками на источники.",
+ "el":"Ειδήσεις Κύπρου και κόσμου σήμερα σε ελληνικά, αγγλικά και ρωσικά: πολιτική, οικονομία, ακίνητα, τουρισμός, μετακόμιση και αθλητισμός, με πηγές."}
 GKW = {"en":["Cyprus news","Cyprus news today","latest news Cyprus","Cyprus real estate news","Cyprus property market","Limassol news","Nicosia news","Paphos news","Larnaca news","Cyprus politics","Cyprus economy","news from Cyprus in English"],
  "ru":["Кипр новости","новости Кипра сегодня","последние новости Кипра","новости недвижимости Кипра","рынок недвижимости Кипра","новости Лимассола","новости Никосии","новости Пафоса","Кипр на русском","политика Кипра","экономика Кипра"],
  "el":["Κύπρος ειδήσεις","ειδήσεις Κύπρου σήμερα","τελευταία νέα Κύπρος","ειδήσεις ακινήτων Κύπρος","αγορά ακινήτων Κύπρος","ειδήσεις Λεμεσός","ειδήσεις Λευκωσία","ειδήσεις Πάφος","πολιτική Κύπρος","οικονομία Κύπρου"]}
 CAT_D = {
- "en":{"politics":"Cyprus politics news: Cyprus problem, government, parliament and EU affairs.","economy":"Cyprus economy news: business, pensions, technology and finance.","real-estate":"Cyprus real estate news: property law, planning, new builds and housing market stories.","society":"Cyprus society news: courts, police, health and everyday life.","tourism":"Cyprus tourism and events news: what's on, festive markets and travel.","sport":"Cyprus sport news: results, athletes and major events.","world":"World news with a Cyprus angle: EU, technology and global events."},
- "ru":{"politics":"Политические новости Кипра: кипрская проблема, правительство, парламент и дела ЕС.","economy":"Экономические новости Кипра: бизнес, пенсии, технологии и финансы.","real-estate":"Новости недвижимости Кипра: законы, градостроительство, новостройки и рынок жилья.","society":"Общественные новости Кипра: суды, полиция, здоровье и повседневная жизнь.","tourism":"Новости туризма и событий Кипра: афиша, праздничные рынки и путешествия.","sport":"Спортивные новости Кипра: результаты, спортсмены и крупные события.","world":"Мировые новости с кипрским акцентом: ЕС, технологии и глобальные события."},
- "el":{"politics":"Πολιτικές ειδήσεις Κύπρου: Κυπριακό, κυβέρνηση, Βουλή και ευρωπαϊκά θέματα.","economy":"Οικονομικές ειδήσεις Κύπρου: επιχειρήσεις, συντάξεις, τεχνολογία και χρηματοοικονομικά.","real-estate":"Ειδήσεις ακινήτων Κύπρου: νομοθεσία, πολεοδομία, νεόδμητα και αγορά κατοικίας.","society":"Κοινωνικές ειδήσεις Κύπρου: δικαστήρια, αστυνομία, υγεία και καθημερινότητα.","tourism":"Ειδήσεις τουρισμού και εκδηλώσεων Κύπρου: προγράμματα, εορταστικές αγορές και ταξίδια.","sport":"Αθλητικές ειδήσεις Κύπρου: αποτελέσματα, αθλητές και μεγάλες διοργανώσεις.","world":"Παγκόσμιες ειδήσεις με κυπριακό ενδιαφέρον: ΕΕ, τεχνολογία και διεθνή γεγονότα."}}
+ "en":{"politics":"Cyprus politics news: the Cyprus problem, government, parliament and EU affairs, with sources linked.","economy":"Cyprus economy news: prices, tax, energy, jobs, pensions and finance, rewritten from linked sources.","real-estate":"Cyprus real estate news: property law, planning, new homes and the housing market, with sources linked.","society":"Cyprus society news: courts, police, health, schools and everyday life, with sources linked.","tourism":"Cyprus tourism news: visitor numbers, flights, beaches, holidays and what is on, with sources linked.","sport":"Cyprus sport news: results, athletes and major events, with sources linked.","world":"World news by region — Europe, the Middle East, Russia and the CIS, Asia, the Americas and Africa — rewritten from linked sources."},
+ "ru":{"politics":"Политические новости Кипра: кипрская проблема, правительство, парламент и дела ЕС, со ссылками на источники.","economy":"Экономика Кипра: цены, налоги, энергия, работа, пенсии и финансы, пересказ со ссылками на источники.","real-estate":"Недвижимость Кипра: законы, градостроительство, новостройки и рынок жилья, со ссылками на источники.","society":"Общество Кипра: суды, полиция, здоровье, школы и повседневная жизнь, со ссылками на источники.","tourism":"Туризм Кипра: приезды, рейсы, пляжи, отпуска и афиша, со ссылками на источники.","sport":"Спорт Кипра: результаты, спортсмены и крупные старты, со ссылками на источники.","world":"Мировые новости по регионам — Европа, Ближний Восток, Россия и СНГ, Азия, Америка и Африка — пересказ со ссылками на источники."},
+ "el":{"politics":"Πολιτικές ειδήσεις Κύπρου: Κυπριακό, κυβέρνηση, Βουλή και ευρωπαϊκά θέματα, με συνδέσμους στις πηγές.","economy":"Οικονομία Κύπρου: τιμές, φόροι, ενέργεια, εργασία, συντάξεις και χρηματοοικονομικά, με πηγές.","real-estate":"Ακίνητα Κύπρου: νομοθεσία, πολεοδομία, νεόδμητα και αγορά κατοικίας, με συνδέσμους στις πηγές.","society":"Κοινωνία Κύπρου: δικαστήρια, αστυνομία, υγεία, σχολεία και καθημερινότητα, με πηγές.","tourism":"Τουρισμός Κύπρου: αφίξεις, πτήσεις, παραλίες, διακοπές και πρόγραμμα, με συνδέσμους στις πηγές.","sport":"Αθλητισμός Κύπρου: αποτελέσματα, αθλητές και μεγάλες διοργανώσεις, με πηγές.","world":"Διεθνή νέα ανά περιοχή — Ευρώπη, Μέση Ανατολή, Ρωσία και ΚΑΚ, Ασία, Αμερική και Αφρική — με συνδέσμους στις πηγές."}}
+CAT_TITLE = {
+ "en":{"politics":"Cyprus politics news | CyNews 24","economy":"Cyprus economy news | CyNews 24","real-estate":"Cyprus real estate news | CyNews 24","society":"Cyprus society news | CyNews 24","tourism":"Cyprus tourism news | CyNews 24","sport":"Cyprus sport news | CyNews 24","world":"World news today | CyNews 24"},
+ "ru":{"politics":"Политика Кипра — новости | CyNews 24","economy":"Экономика Кипра — новости | CyNews 24","real-estate":"Недвижимость Кипра — новости | CyNews 24","society":"Общество Кипра — новости | CyNews 24","tourism":"Туризм Кипра — новости | CyNews 24","sport":"Спорт Кипра — новости | CyNews 24","world":"Мировые новости сегодня | CyNews 24"},
+ "el":{"politics":"Πολιτική Κύπρου — ειδήσεις | CyNews 24","economy":"Οικονομία Κύπρου — ειδήσεις | CyNews 24","real-estate":"Ακίνητα Κύπρου — ειδήσεις | CyNews 24","society":"Κοινωνία Κύπρου — ειδήσεις | CyNews 24","tourism":"Τουρισμός Κύπρου — ειδήσεις | CyNews 24","sport":"Αθλητισμός Κύπρου — ειδήσεις | CyNews 24","world":"Διεθνή νέα σήμερα | CyNews 24"}}
 AD_EMAIL="cynews24@gmail.com"
 PUBLISHER="Anna"
 # Real profile URLs only. An empty string is not rendered.
@@ -326,7 +341,7 @@ DISCLOSURE = {
  "en":dict(t="Affiliate disclosure",d="How CyNews 24 uses affiliate links, which partners they point to, and what those links do not promise.",
   sections=[
    ("What an affiliate link is",["Some practical guides on CyNews 24 link to companies whose products a reader who lives or travels abroad may actually use: international health insurance, a travel eSIM, a VPN, encrypted email, or a password manager. If you follow one of those links and buy, the company may pay CyNews 24 a commission. You do not pay an extra fee to us. The price, if there is one, is the price on the company’s own site."]),
-   ("Where the links live",["Every partner address is stored in one configuration file, source/affiliates.json. The site publishes that file as /assets/js/affiliates.js, and every partner button reads the address from there. Until a real address is added, the value is a placeholder such as #AFFILIATE_GENKI. A placeholder does not go to a shop. The partners named in the guides are Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass and Mail) and 1Password. Some practical pages also link to Amazon.de."]),
+   ("Where the links live",["Every partner address is stored in one configuration file, source/affiliates.json. The site publishes that file as /assets/js/affiliates.js, and every partner button reads the address from there. Until a real address is added, the value is a placeholder such as #AFFILIATE_GENKI. A placeholder does not go to a shop. The partners named in the guides are Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass and Mail) and 1Password. Some practical pages also link to Amazon.de. The Economy section, and articles about crypto, also link to a Trezor Safe 7 hardware wallet. That address is the trezor entry in the same file. The button does not state a price."]),
    ("Amazon",["Those Amazon links are searches on Amazon.de, not a page for one product, and they do not name a price. As an Amazon Associate I earn from qualifying purchases. The home address carries the tag cynews24-21, and a search uses the same tag. CyNews 24 does not invent a product code. What Amazon shows, and what it costs, is on Amazon at the time you look."]),
    ("Travel links",["Every travel-guide address lives in one file, source/travel_affiliates.json. Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups and Aviasales buttons inside the guides are Travelpayouts links, marker 603740. Booking, GetYourGuide, DiscoverCars and SafetyWing are still each company’s own homepage, until those programmes are approved. A separate row, Travel in Cyprus, uses marker 808586: Localrent, Welcome Pickups, Kiwitaxi, Klook, Tiqets, Airalo and Aviasales. A button is marked sponsored. None of these links states a price."]),
    ("How to recognise one",["A partner button opens in a new tab and is marked rel=\"nofollow sponsored\". The guide says, near the offers, that the links are affiliate links, and it links to this page. Stories about tourism, travel, beaches, airports, transport, events and hotels end with a Travel in Cyprus row of partner links. Politics, crime and economy stories do not, unless the story is about travel. A short box appears only on a few practical pages about moving, expat life, banking or technology, and it links back to the full guide."]),
@@ -335,7 +350,7 @@ DISCLOSURE = {
  "ru":dict(t="Раскрытие партнёрских ссылок",d="Как CyNews 24 использует партнёрские ссылки, на какие сервисы они ведут и чего эти ссылки не обещают.",
   sections=[
    ("Что такое партнёрская ссылка",["В некоторых практических материалах CyNews 24 есть ссылки на компании, чьи услуги могут пригодиться человеку, который живёт или путешествует за границей: международная медицинская страховка, туристическая eSIM, VPN, шифрованная почта или менеджер паролей. Если вы перейдёте по такой ссылке и купите услугу, компания может выплатить CyNews 24 комиссию. Нам вы отдельно ничего не доплачиваете. Цена, если она есть, — та, что указана на сайте самой компании."]),
-   ("Где лежат адреса",["Все партнёрские адреса собраны в одном файле настроек, source/affiliates.json. Сайт публикует его как /assets/js/affiliates.js, и каждая партнёрская кнопка берёт адрес оттуда. Пока вместо настоящего адреса стоит заглушка вроде #AFFILIATE_GENKI. Заглушка ни в какой магазин не ведёт. В материалах названы Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass и Mail) и 1Password. На некоторых практических страницах есть ссылки на Amazon.de."]),
+   ("Где лежат адреса",["Все партнёрские адреса собраны в одном файле настроек, source/affiliates.json. Сайт публикует его как /assets/js/affiliates.js, и каждая партнёрская кнопка берёт адрес оттуда. Пока вместо настоящего адреса стоит заглушка вроде #AFFILIATE_GENKI. Заглушка ни в какой магазин не ведёт. В материалах названы Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass и Mail) и 1Password. На некоторых практических страницах есть ссылки на Amazon.de. В разделе «Экономика» и в материалах о крипто есть ссылка на аппаратный кошелёк Trezor Safe 7. Этот адрес — запись trezor в том же файле. Кнопка не называет цену."]),
    ("Amazon",["Ссылки на Amazon — это поиск на Amazon.de, а не страница одного товара, и в них нет цены. Как участник партнёрской программы Amazon я зарабатываю на соответствующих покупках. В адресе главной страницы стоит метка cynews24-21, и тот же тег стоит в поиске. CyNews 24 не выдумывает код товара. Что показывает Amazon и сколько это стоит, видно на Amazon в момент, когда вы смотрите."]),
    ("Ссылки для путешествий",["Все адреса путеводителей лежат в одном файле, source/travel_affiliates.json. Кнопки Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups и Aviasales внутри путеводителей — ссылки Travelpayouts, метка 603740. Booking, GetYourGuide, DiscoverCars и SafetyWing пока остаются главными страницами компаний, пока эти программы не одобрены. Отдельный блок «Путешествие по Кипру» использует метку 808586: Localrent, Welcome Pickups, Kiwitaxi, Klook, Tiqets, Airalo и Aviasales. Кнопка помечена как sponsored. Ни одна из ссылок не называет цену."]),
    ("Как её узнать",["Партнёрская кнопка открывается в новой вкладке и помечена rel=\"nofollow sponsored\". Рядом с предложениями материал прямо говорит, что ссылки партнёрские, и ведёт на эту страницу. Материалы о туризме, путешествиях, пляжах, аэропортах, транспорте, событиях и отелях заканчиваются блоком «Путешествие по Кипру». В политике, криминале и экономике его нет, если сам материал не о путешествии. Короткий блок стоит только на нескольких практических страницах о переезде, жизни за границей, банках или технологиях и ведёт на полный материал."]),
@@ -344,7 +359,7 @@ DISCLOSURE = {
  "el":dict(t="Γνωστοποίηση συνεργατών",d="Πώς το CyNews 24 χρησιμοποιεί συνδέσμους συνεργατών, σε ποιες εταιρείες οδηγούν και τι δεν υπόσχονται.",
   sections=[
    ("Τι είναι ένας σύνδεσμος συνεργάτη",["Ορισμένοι πρακτικοί οδηγοί του CyNews 24 παραπέμπουν σε εταιρείες των οποίων τις υπηρεσίες μπορεί να χρησιμοποιήσει κάποιος που ζει ή ταξιδεύει στο εξωτερικό: διεθνή ασφάλιση υγείας, ταξιδιωτική eSIM, VPN, κρυπτογραφημένο email ή διαχειριστή κωδικών. Αν ακολουθήσετε έναν τέτοιο σύνδεσμο και αγοράσετε, η εταιρεία μπορεί να πληρώσει προμήθεια στο CyNews 24. Δεν πληρώνετε σε εμάς επιπλέον τέλος. Η τιμή, αν υπάρχει, είναι η τιμή στον ιστότοπο της εταιρείας."]),
-   ("Πού βρίσκονται οι διευθύνσεις",["Κάθε διεύθυνση συνεργάτη φυλάσσεται σε ένα αρχείο ρυθμίσεων, το source/affiliates.json. Ο ιστότοπος το δημοσιεύει ως /assets/js/affiliates.js, και κάθε κουμπί συνεργάτη διαβάζει τη διεύθυνση από εκεί. Μέχρι να προστεθεί πραγματική διεύθυνση, η τιμή είναι θέση όπως #AFFILIATE_GENKI. Η θέση δεν οδηγεί σε κατάστημα. Οι συνεργάτες που ονομάζονται στους οδηγούς είναι οι Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass και Mail) και 1Password. Ορισμένες πρακτικές σελίδες παραπέμπουν και στο Amazon.de."]),
+   ("Πού βρίσκονται οι διευθύνσεις",["Κάθε διεύθυνση συνεργάτη φυλάσσεται σε ένα αρχείο ρυθμίσεων, το source/affiliates.json. Ο ιστότοπος το δημοσιεύει ως /assets/js/affiliates.js, και κάθε κουμπί συνεργάτη διαβάζει τη διεύθυνση από εκεί. Μέχρι να προστεθεί πραγματική διεύθυνση, η τιμή είναι θέση όπως #AFFILIATE_GENKI. Η θέση δεν οδηγεί σε κατάστημα. Οι συνεργάτες που ονομάζονται στους οδηγούς είναι οι Genki, Airalo, NordVPN, Surfshark, Proton (VPN, Pass και Mail) και 1Password. Ορισμένες πρακτικές σελίδες παραπέμπουν και στο Amazon.de. Η ενότητα Οικονομία, και τα άρθρα για κρυπτονομίσματα, παραπέμπουν και σε ένα hardware wallet Trezor Safe 7. Η διεύθυνση είναι η εγγραφή trezor στο ίδιο αρχείο. Το κουμπί δεν αναφέρει τιμή."]),
    ("Amazon",["Οι σύνδεσμοι της Amazon είναι αναζητήσεις στο Amazon.de, όχι σελίδα ενός προϊόντος, και δεν αναφέρουν τιμή. Ως συνεργάτης της Amazon, κερδίζω από αγορές που πληρούν τις προϋποθέσεις. Η διεύθυνση της αρχικής σελίδας έχει την ετικέτα cynews24-21, και την ίδια ετικέτα έχει η αναζήτηση. Το CyNews 24 δεν επινοεί κωδικό προϊόντος. Τι δείχνει η Amazon και πόσο κοστίζει φαίνεται στην Amazon τη στιγμή που κοιτάτε."]),
    ("Σύνδεσμοι για ταξίδια",["Κάθε διεύθυνση των οδηγών είναι σε ένα αρχείο, το source/travel_affiliates.json. Τα κουμπιά Airalo, Yesim, Klook, Kiwitaxi, Welcome Pickups και Aviasales μέσα στους οδηγούς είναι σύνδεσμοι Travelpayouts, δείκτης 603740. Οι Booking, GetYourGuide, DiscoverCars και SafetyWing μένουν η αρχική σελίδα της εταιρείας, μέχρι να εγκριθούν αυτά τα προγράμματα. Ξεχωριστή σειρά, Ταξίδι στην Κύπρο, χρησιμοποιεί τον δείκτη 808586: Localrent, Welcome Pickups, Kiwitaxi, Klook, Tiqets, Airalo και Aviasales. Το κουμπί σημειώνεται sponsored. Κανένας σύνδεσμος δεν αναφέρει τιμή."]),
    ("Πώς ξεχωρίζει",["Ένα κουμπί συνεργάτη ανοίγει σε νέα καρτέλα και φέρει rel=\"nofollow sponsored\". Ο οδηγός λέει, κοντά στις προσφορές, ότι οι σύνδεσμοι είναι συνεργατών και παραπέμπει σε αυτή τη σελίδα. Θέματα για τουρισμό, ταξίδια, παραλίες, αεροδρόμια, μεταφορές, εκδηλώσεις και ξενοδοχεία κλείνουν με τη σειρά Ταξίδι στην Κύπρο. Η πολιτική, το έγκλημα και η οικονομία δεν την έχουν, εκτός αν το ίδιο το θέμα είναι για ταξίδι. Ένα σύντομο πλαίσιο εμφανίζεται μόνο σε λίγες πρακτικές σελίδες για μετακόμιση, ζωή στο εξωτερικό, τράπεζες ή τεχνολογία και οδηγεί πίσω στον πλήρη οδηγό."]),
@@ -695,6 +710,11 @@ nav.cats{border-bottom:1px solid var(--line);background:#fff;position:sticky;top
 nav.cats ul{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;scrollbar-width:none}
 nav.cats li a{display:block;padding:13px 14px;font-weight:700;font-size:15px;white-space:nowrap;border-bottom:4px solid transparent}
 nav.cats li a:hover{border-color:var(--ink)}nav.cats li a[aria-current=page]{border-color:var(--acc)}
+.subnav{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px}
+.subnav a{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-weight:700;font-size:14px;background:#fff}
+.subnav a[aria-current=page]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.intro{max-width:760px;margin:0 0 8px}
+.intro p{margin:0 0 12px;font-size:17px;line-height:1.55}
 .tagline{font-size:13px;color:var(--mut);padding:10px 0 0}
 h1.sec{font-size:28px;margin:18px 0 14px;border-top:4px solid var(--ink);padding-top:8px;letter-spacing:-.3px}
 .lead{display:grid;grid-template-columns:1.9fr 1fr;gap:24px;margin:8px 0 28px}
@@ -1068,6 +1088,7 @@ def header(l, pathfn, active=None):
     sw="".join(f'<a href="{href(pathfn(x))}" hreflang="{x}" lang="{x}" {"aria-current=\"true\"" if x==l else ""} title="{LANGNAME[x]}">{x.upper()}</a>' for x in LANGS)
     nav=f'<li><a href="{href(f"/{l}/")}" {"aria-current=\"page\"" if active=="home" else ""}>{u["home"]}</a></li>'+"".join(
       f'<li><a href="{href(f"/{l}/{c}/")}" {"aria-current=\"page\"" if active==c else ""}>{CATN[l][c]}</a></li>' for c in CATS)
+    nav+=f'<li><a href="{href(f"/{l}/relocation/")}" {"aria-current=\"page\"" if active=="relocation" else ""}>{RELOCATION_MENU[l]}</a></li>'
     nav+=f'<li><a href="{href(f"/{l}/guides/")}" {"aria-current=\"page\"" if active=="guides" else ""}>{GUIDE_MENU[l]}</a></li>'
     nav+=f'<li><a href="{href(f"/{l}/travel/")}" {"aria-current=\"page\"" if active=="travel" else ""}>{TRAVEL_MENU[l]}</a></li>'
     nav+=f'<li><a href="{href(f"/{l}/events/")}" {"aria-current=\"page\"" if active=="events" else ""}>{u["events"]}</a></li>'
@@ -1149,7 +1170,7 @@ def breadcrumb_ld(trail):
         for i,(name,path) in enumerate(trail)]}
 def footer(l):
     u=UI[l]
-    links=[(f"/{l}/guides/",GUIDE_MENU[l]),(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/affiliate-disclosure/",u["disclosure"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/cookies/",u["cookies"]),(f"/{l}/advertise/",ADVERTISE[l]["menu"]),(f"/{l}/property-consultation/",CONSULT[l]["menu"]),(f"/{l}/advertising/",u["ads"])]
+    links=[(f"/{l}/world/",CATN[l]["world"]),(f"/{l}/relocation/",RELOCATION_MENU[l]),(f"/{l}/tourism/",CATN[l]["tourism"]),(f"/{l}/economy/",CATN[l]["economy"]),(f"/{l}/real-estate/",CATN[l]["real-estate"]),(f"/{l}/events/",u["events"]),(f"/{l}/guides/",GUIDE_MENU[l]),(f"/{l}/about/",u["about"]),(f"/{l}/editorial-policy/",u["policy"]),(f"/{l}/affiliate-disclosure/",u["disclosure"]),(f"/{l}/privacy/",u["privacy"]),(f"/{l}/cookies/",u["cookies"]),(f"/{l}/advertise/",ADVERTISE[l]["menu"]),(f"/{l}/property-consultation/",CONSULT[l]["menu"]),(f"/{l}/advertising/",u["ads"])]
     fl="".join(f'<a href="{href(p)}">{e(n)}</a>' for p,n in links)
     fl+=f'<a href="{href(f"/{l}/cookies/")}" data-cookie-settings>{e(u["cookie_settings"])}</a>'
     langs=" · ".join(f'<a href="{href(f"/{x}/")}" hreflang="{x}" lang="{x}">{LANGNAME[x]}</a>' for x in LANGS)
@@ -1234,15 +1255,22 @@ def page_home(l):
     lead=BYSLUG[ORDER_LEAD[0]]; side=[BYSLUG[x] for x in ORDER_LEAD[1:]]
     # Real-estate band: articles added after the migration first (newest first), then the original ones in order.
     re_=[s for s in news_sorted() if s["cat"]=="real-estate" and s["seq"] is None]+[s for s in STORIES if s["cat"]=="real-estate" and s["seq"] is not None and not s.get("guide")]
+    world_news=[s for s in news_sorted() if s["cat"]=="world"]
+    cyprus=[s for s in news_sorted() if s["cat"]!="world"]
     used=set(ORDER_LEAD)|{s["slug"] for s in re_}
-    rest=[s for s in news_sorted() if s["slug"] not in used]
-    latest=news_sorted()[:8]
+    rest=[s for s in cyprus if s["slug"] not in used]
+    latest=cyprus[:8]
+    if len(latest)<8:
+        for s in world_news:
+            if len(latest)>=8: break
+            if s not in latest: latest.append(s)
+    world_show=[s for s in world_news if s["slug"] not in set(ORDER_LEAD)][:4]
     kws=GKW[l]
     org=org_ld(l)
     # ItemList covers the lead, the side stories and the latest column, not the whole archive.
     # A list of every story was a second copy of the page and did not help the reader.
     shown=[]
-    for s in [lead]+side+latest:
+    for s in [lead]+side+latest+world_show:
         if s["slug"] not in {x["slug"] for x in shown}: shown.append(s)
     # No SearchAction: the site has no search box, so a query URL would be false.
     ld=[website_ld(l, f"/{l}/", HOME_D[l]),
@@ -1255,6 +1283,8 @@ def page_home(l):
     h+=f'<section class="lead" aria-label="{u["toplines"]}"><article class="card big"><a href="{href(f"/{l}/{lead["slug"]}/")}" class="img">{img_tag(lead,l,1200,False,True,"(max-width:980px) 100vw,760px")}</a><span class="cat" style="display:block;margin-top:12px">{CATN[l][lead["cat"]]}</span><a href="{href(f"/{l}/{lead["slug"]}/")}"><h2>{e(lead["title"][l])}</h2></a><p>{e(lead["lede"][l])}</p><div class="meta"><time datetime="{lead["date"]}">{fdate(lead["date"],l)}</time></div></article>'
     h+='<div class="side">'+"".join(card(s,l,"side",False) for s in side)+'</div></section>'
     h+=f'</main><div class="band"><div class="wrap"><h2 style="font-size:24px;border-top:4px solid var(--acc);padding-top:8px;margin:18px 0 16px"><a href="{href(f"/{l}/real-estate/")}">{u["realestate_h"]}</a></h2><div class="grid">'+"".join(card(s,l) for s in re_[:4])+'</div></div></div>'
+    if world_show:
+        h+=f'<div class="wrap"><h2 style="font-size:24px;border-top:4px solid var(--ink);padding-top:8px;margin:18px 0 16px"><a href="{href(f"/{l}/world/")}">{e(CATN[l]["world"])}</a></h2><div class="grid">'+"".join(card(s,l) for s in world_show)+'</div></div>'
     h+=f'<div class="wrap"><div class="cols"><section><h2 style="font-size:24px;border-top:4px solid var(--ink);padding-top:8px;margin:0 0 16px">{u["more"]}</h2><div class="grid g3">'+"".join(card(s,l) for s in rest)+'</div></section>'
     h+=f'<aside class="latest" aria-label="{u["latest"]}"><h2>{u["latest"]}</h2><ol class="latest">'+"".join(f'<li><span class="cat">{CATN[l][s["cat"]]}</span><a href="{href(f"/{l}/{s["slug"]}/")}">{e(s["title"][l])}</a><span class="meta"><time datetime="{s["date"]}">{fdate(s["date"],l)}</time></span></li>' for s in latest)+'</ol>'+peachick_promo(l)+'</aside></div></div>'
     h+=footer(l)
@@ -1634,21 +1664,85 @@ def page_listing(l, p):
     h+=f'<p class="meta">{e(_prop_facts(p, l))} · {e(_prop_label(PROP_STATUS, l, p.get("status")))}</p>'
     h+=gallery+f'<div class="body">{paras}</div><h2>{e(u["contact"])}</h2>{listing_cta(p, l)}{listing_form(l, p)}</article></main>'+footer(l)
     return h
+def region_nav(l, current=""):
+    bits=[]
+    cur=' aria-current="page"' if current=="" else ""
+    bits.append(f'<a href="{href(f"/{l}/world/")}"{cur}>{e(CATN[l]["world"])}</a>')
+    for r in REGIONS:
+        on=' aria-current="page"' if r==current else ""
+        bits.append(f'<a href="{href(f"/{l}/world/{r}/")}"{on}>{e(REGION_N[l][r])}</a>')
+    return f'<nav class="subnav" aria-label="{e(REGION_MENU[l])}">{"".join(bits)}</nav>'
+def intro_html(paras):
+    return f'<div class="intro">{"".join("<p>"+render_inline(p)+"</p>" for p in paras)}</div>'
+CAT_BODY = {
+ "en":{
+  "tourism":[
+   "Tourism news from Cyprus: who is visiting, how they get here, and what beaches, holidays and town centres are making the headlines.",
+   "For a trip rather than the news, use the [travel guides](/en/travel/) and the diary of [events in Cyprus](/en/events/).",
+   "Readers who are staying longer can start with [relocation and expat life](/en/relocation/) and the [economy](/en/economy/) pages on prices, tax and work."],
+  "economy":[
+   "The economy section follows prices, tax, energy, jobs, pensions and public money in Cyprus. Each story is a rewrite and links to the outlet it came from.",
+   "Housing costs are collected under [real estate](/en/real-estate/). People moving for work can also read [relocation and expat life](/en/relocation/) and [tourism](/en/tourism/) when the story is about visitors' spending."],
+  "real-estate":[
+   "Real estate in Cyprus: planning law, new homes, rents and the resale market. Listings from advertisers, when any are published, sit above the news.",
+   "Practical pages for buyers and tenants are in the [guides](/en/guides/). The wider cost of living is in the [economy](/en/economy/) section, and [relocation](/en/relocation/) is the starting point for a move."],
+  "world":[
+   "World news is grouped by region: Europe, the Middle East, Russia and the CIS, Asia, the Americas and Africa. Each story is rewritten in our own words and links to the original report.",
+   "Cyprus politics, the [economy](/en/economy/) and [tourism](/en/tourism/) stay in their own sections. A story filed here is about the wider world."]},
+ "ru":{
+  "tourism":[
+   "Новости туризма Кипра: кто приезжает, как добирается и что происходит с пляжами, отпусками и курортными городами.",
+   "Если нужен не обзор новостей, а план поездки, откройте [путеводители](/ru/travel/) и [мероприятия на Кипре](/ru/events/).",
+   "Тем, кто остаётся дольше отпуска, подойдут страницы [переезда и жизни экспатов](/ru/relocation/) и раздел [экономики](/ru/economy/) — цены, налоги и работа."],
+  "economy":[
+   "В экономике — цены, налоги, энергия, работа, пенсии и государственные деньги Кипра. Каждый материал — пересказ со ссылкой на исходную публикацию.",
+   "Жильё собрано в разделе [недвижимости](/ru/real-estate/). Тем, кто переезжает ради работы, пригодятся страницы [переезда](/ru/relocation/), а траты туристов — в [туризме](/ru/tourism/)."],
+  "real-estate":[
+   "Недвижимость Кипра: градостроительные правила, новостройки, аренда и вторичный рынок. Объявления рекламодателей, если они опубликованы, стоят выше новостей.",
+   "Практические страницы для покупателей и арендаторов — в [гидах](/ru/guides/). Стоимость жизни — в [экономике](/ru/economy/), а начало переезда — в разделе [переезда](/ru/relocation/)."],
+  "world":[
+   "Мировые новости разложены по регионам: Европа, Ближний Восток, Россия и СНГ, Азия, Америка и Африка. Каждый текст написан своими словами и ссылается на исходный материал.",
+   "Политика Кипра, [экономика](/ru/economy/) и [туризм](/ru/tourism/) остаются в своих разделах. Здесь — новости остального мира."]},
+ "el":{
+  "tourism":[
+   "Ειδήσεις τουρισμού από την Κύπρο: ποιοι έρχονται, πώς ταξιδεύουν και τι αλλάζει σε παραλίες, διακοπές και πόλεις που ζουν από επισκέπτες.",
+   "Για ένα ταξίδι και όχι για την είδηση, δείτε τους [οδηγούς ταξιδιού](/el/travel/) και τις [εκδηλώσεις στην Κύπρο](/el/events/).",
+   "Όσοι μένουν περισσότερο μπορούν να ξεκινήσουν από τη [μετακόμιση και τη ζωή στην Κύπρο](/el/relocation/) και από την [οικονομία](/el/economy/) για τιμές, φόρους και δουλειά."],
+  "economy":[
+   "Η οικονομία ακολουθεί τιμές, φόρους, ενέργεια, δουλειά, συντάξεις και δημόσιο χρήμα στην Κύπρο. Κάθε κείμενο είναι αναδιατύπωση και συνδέεται με την πηγή του.",
+   "Το κόστος στέγασης είναι στα [ακίνητα](/el/real-estate/). Όσοι έρχονται για δουλειά διαβάζουν και τη [μετακόμιση](/el/relocation/), και οι δαπάνες επισκεπτών τον [τουρισμό](/el/tourism/)."],
+  "real-estate":[
+   "Ακίνητα στην Κύπρο: πολεοδομία, νεόδμητα, ενοίκια και μεταπωλήσεις. Οι αγγελίες διαφημιζόμενων, όταν υπάρχουν, μπαίνουν πάνω από τις ειδήσεις.",
+   "Πρακτικές σελίδες για αγορά και ενοίκιο είναι στους [οδηγούς](/el/guides/). Το κόστος ζωής είναι στην [οικονομία](/el/economy/) και η αρχή μιας μετακόμισης στη [μετακόμιση](/el/relocation/)."],
+  "world":[
+   "Τα διεθνή νέα χωρίζονται σε περιοχές: Ευρώπη, Μέση Ανατολή, Ρωσία και ΚΑΚ, Ασία, Αμερική και Αφρική. Κάθε κείμενο είναι δική μας διατύπωση και συνδέεται με το αρχικό ρεπορτάζ.",
+   "Η πολιτική της Κύπρου, η [οικονομία](/el/economy/) και ο [τουρισμός](/el/tourism/) μένουν στις δικές τους ενότητες. Εδώ είναι ο υπόλοιπος κόσμος."]}}
+REGION_D = {
+ "en":{
+  "europe":"Europe news: the EU, Britain and the Mediterranean, rewritten from the linked reports.","middle-east":"Middle East news from the Gulf, Israel, Iraq and the wider region, with sources linked.","russia-cis":"News from Russia, Ukraine and the CIS, rewritten from the linked reports.","asia":"Asia news from East, South and Southeast Asia, with sources linked.","americas":"News from the Americas, rewritten from the linked reports.","africa":"Africa news, rewritten from the linked reports."},
+ "ru":{
+  "europe":"Новости Европы: ЕС, Британия и Средиземноморье, пересказ со ссылками на источники.","middle-east":"Новости Ближнего Востока: Залив, Израиль, Ирак и соседние страны, со ссылками на источники.","russia-cis":"Новости России, Украины и СНГ, пересказ со ссылками на источники.","asia":"Новости Азии — Восточной, Южной и Юго-Восточной — со ссылками на источники.","americas":"Новости Северной и Южной Америки, пересказ со ссылками на источники.","africa":"Новости Африки, пересказ со ссылками на источники."},
+ "el":{
+  "europe":"Ειδήσεις Ευρώπης: ΕΕ, Βρετανία και Μεσόγειος, με συνδέσμους στις πηγές.","middle-east":"Ειδήσεις Μέσης Ανατολής από τον Κόλπο, το Ισραήλ, το Ιράκ και τη γύρω περιοχή, με πηγές.","russia-cis":"Ειδήσεις από Ρωσία, Ουκρανία και ΚΑΚ, με συνδέσμους στις πηγές.","asia":"Ειδήσεις Ασίας από την ανατολική, νότια και νοτιοανατολική Ασία, με πηγές.","americas":"Ειδήσεις από την Αμερική, με συνδέσμους στις πηγές.","africa":"Ειδήσεις Αφρικής, με συνδέσμους στις πηγές."}}
+def collection_ld(l, name, path, desc, stories):
+    page={"@context":"https://schema.org","@type":"CollectionPage","name":name,"url":abs_(path),"inLanguage":l,"description":desc,"isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")}}
+    if stories:
+        page["mainEntity"]={"@type":"ItemList","itemListElement":[{"@type":"ListItem","position":i+1,"url":abs_(f"/{l}/{s['slug']}/"),"name":s["title"][l]} for i,s in enumerate(stories[:30])]}
+    return page
 def page_cat(l,c):
     u=UI[l]; pathfn=lambda x:f"/{x}/{c}/"
     items=[s for s in sorted_all() if s["cat"]==c]
     news_items=[s for s in items if not s.get("guide")]
     guide_items=[s for s in items if s.get("guide") and l not in s.get("missing",())]
-    title=f'{CATN[l][c]} — {SITE}' if l!="en" else f'{CATN[l][c]} News from Cyprus — {SITE}'
-    if l=="ru": title=f'{CATN[l][c]}: новости Кипра — {SITE}'
-    if l=="el": title=f'{CATN[l][c]}: ειδήσεις Κύπρου — {SITE}'
+    title=CAT_TITLE[l][c]
     desc=CAT_D[l][c]
     kws=[CATN[l][c]]+GKW[l][:6]
-    ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":title,"url":abs_(f"/{l}/{c}/"),"inLanguage":l,"description":desc,"isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")}},
-        breadcrumb_ld([(u["crumb_home"], f"/{l}/"), (CATN[l][c], f"/{l}/{c}/")])]
+    path=f"/{l}/{c}/"
+    ld=[collection_ld(l, CATN[l][c], path, desc, news_items),
+        breadcrumb_ld([(u["crumb_home"], f"/{l}/"), (CATN[l][c], path)])]
     og_story=news_items[0] if news_items else items[0]
     og,og_w,og_h=og_image(og_story)
-    h=head(l,title,desc,kws,f"/{l}/{c}/",pathfn,og,jsonld=ld,og_w=og_w,og_h=og_h)+header(l,pathfn,c)
+    h=head(l,title,desc,kws,path,pathfn,og,jsonld=ld,og_w=og_w,og_h=og_h)+header(l,pathfn,c)
     block=listings_block(l) if c=="real-estate" else ""
     news=f'<h2 class="pnews">{e(LISTING_UI[l]["news"])}</h2>' if c=="real-estate" else ""
     grid="".join(card(s,l,lazy=(i>2)) for i,s in enumerate(news_items))
@@ -1656,7 +1750,37 @@ def page_cat(l,c):
     if guide_items:
         extra=(f'<h2 class="sec"><a href="{href(f"/{l}/guides/")}">{e(GUIDE_MENU[l])}</a></h2>'
                f'<div class="grid g3">'+"".join(card(s,l) for s in guide_items)+'</div>')
-    h+=f'<main id="main" class="wrap"><h1 class="sec">{CATN[l][c]}</h1><p class="meta" style="margin-top:-6px">{e(desc)}</p>{block}{news}<div class="grid g3" style="margin-top:18px">{grid}</div>{extra}</main>'+footer(l)
+    regions=region_nav(l) if c=="world" else ""
+    paras=CAT_BODY.get(l,{}).get(c)
+    lead=intro_html(paras) if paras else f'<p class="meta" style="margin-top:-6px">{e(desc)}</p>'
+    trezor=trezor_box(l) if c=="economy" else ""
+    crumb=f'<nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{e(u["crumb_home"])}</a> › <span>{e(CATN[l][c])}</span></nav>'
+    h+=f'<main id="main" class="wrap">{crumb}<h1 class="sec">{e(CATN[l][c])}</h1>{lead}{trezor}{regions}{block}{news}<div class="grid g3" style="margin-top:18px">{grid}</div>{extra}</main>'+footer(l)
+    if trezor:
+        h=h.replace("</body></html>", affiliate_boot()+"</body></html>", 1)
+    return h
+def page_region(l, r):
+    if r not in REGIONS:
+        raise SystemExit(f"unknown region {r}")
+    u=UI[l]
+    path=f"/{l}/world/{r}/"
+    pathfn=lambda x, r=r: f"/{x}/world/{r}/"
+    items=[s for s in sorted_all() if s.get("region")==r and not s.get("guide")]
+    name=REGION_N[l][r]
+    title=f'{name} — {CAT_TITLE[l]["world"]}'
+    desc=REGION_D[l][r]
+    ld=[collection_ld(l, name, path, desc, items),
+        breadcrumb_ld([(u["crumb_home"], f"/{l}/"), (CATN[l]["world"], f"/{l}/world/"), (name, path)])]
+    if items:
+        og,og_w,og_h=og_image(items[0])
+    else:
+        og,og_w,og_h="/assets/og-default.jpg",1200,630
+    h=head(l, title, desc, [name, CATN[l]["world"], SITE], path, pathfn, og, jsonld=ld, og_w=og_w, og_h=og_h)+header(l, pathfn, "world")
+    grid="".join(card(s,l,lazy=(i>2)) for i,s in enumerate(items))
+    empty={"en":"No stories in this region yet.","ru":"В этом регионе пока нет материалов.","el":"Δεν υπάρχουν ακόμη θέματα σε αυτή την περιοχή."}[l]
+    h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{e(u["crumb_home"])}</a> › <a href="{href(f"/{l}/world/")}">{e(CATN[l]["world"])}</a> › <span>{e(name)}</span></nav>'
+    h+=f'<h1 class="sec">{e(name)}</h1><div class="intro"><p>{e(desc)}</p></div>{region_nav(l, r)}'
+    h+=f'<div class="grid g3" style="margin-top:18px">{grid or "<p>"+e(empty)+"</p>"}</div></main>'+footer(l)
     return h
 
 def article_times(s):
@@ -2041,6 +2165,43 @@ WIDGET_COPY = {
     buttons=[("nordvpn","Δείτε το NordVPN"),("onepassword","Δείτε το 1Password")]),
  },
 }
+_CRYPTO_RX = re.compile(
+    r"\bcrypto(?:currency|currencies)?\b|\bbitcoin\b"
+    r"|криптовалют\w*|криптоуслуг\w*|крипторежим\w*|\bкрипто\b"
+    r"|κρυπτονομ\w*|κρυπτοϋπ\w*",
+    re.I)
+_CRYPTO_LINK = re.compile(r"\[[^\]]+\]\([^)]*cysec-forex-crypto[^)]*\)")
+def crypto_story(s):
+    """True when the article is about crypto, not when it only links to the CySEC guide."""
+    chunks = []
+    for lang in LANGS:
+        chunks.append(s["title"][lang])
+        chunks.append(s["lede"][lang])
+        chunks.extend(s["kw"][lang])
+        chunks.extend(s["body"][lang])
+    text = _CRYPTO_LINK.sub(" ", "\n".join(chunks))
+    return bool(_CRYPTO_RX.search(text))
+TREZOR_BOX = {
+ "en": dict(kicker="Affiliate", title="Trezor Safe 7",
+    text="A hardware wallet keeps the keys on a device you hold, rather than only on an exchange account. This is an affiliate link. If you buy, CyNews 24 may earn a commission. Trezor sets the price. This is not investment advice.",
+    button="Trezor Safe 7"),
+ "ru": dict(kicker="Партнёрская ссылка", title="Trezor Safe 7",
+    text="Аппаратный кошелёк хранит ключи на устройстве у вас, а не только на счёте биржи. Это партнёрская ссылка. Если вы купите, CyNews 24 может получить комиссию. Цену назначает Trezor. Это не инвестиционный совет.",
+    button="Trezor Safe 7"),
+ "el": dict(kicker="Σύνδεσμος συνεργάτη", title="Trezor Safe 7",
+    text="Ένα hardware wallet κρατά τα κλειδιά σε συσκευή που έχετε εσείς, και όχι μόνο σε λογαριασμό ανταλλακτηρίου. Αυτός είναι σύνδεσμος συνεργάτη. Αν αγοράσετε, το CyNews 24 μπορεί να λάβει προμήθεια. Την τιμή την ορίζει η Trezor. Δεν είναι επενδυτική συμβουλή.",
+    button="Trezor Safe 7"),
+}
+def trezor_box(l):
+    copy = TREZOR_BOX[l]
+    url = AFFILIATES["trezor"]
+    disc = href(f"/{l}/affiliate-disclosure/")
+    return (f'<aside class="partner trezor" aria-label="{e(copy["title"])}">'
+            f'<p class="kicker">{e(copy["kicker"])}</p><h2>{e(copy["title"])}</h2>'
+            f'<p>{e(copy["text"])}</p>'
+            f'<div class="affbtns"><a class="affbtn" data-affiliate="trezor" href="{e(url)}" '
+            f'rel="sponsored nofollow noopener" target="_blank">{e(copy["button"])}</a></div>'
+            f'<p class="fine"><a href="{disc}">{e(UI[l]["disclosure"])}</a></p></aside>')
 def partner_widget(l, s):
     kind = PARTNER_WIDGETS.get(s["slug"])
     if not kind or s.get("guide"): return ""
@@ -2167,13 +2328,27 @@ def page_article(l,s):
     # News stays NewsArticle. A practical guide is an Article: it is not a news report,
     # and it does not belong in the Google News sitemap.
     kind="Article" if s.get("guide") else "NewsArticle"
-    section=GUIDE_MENU[l] if s.get("guide") else CATN[l][s["cat"]]
-    crumb_mid=(GUIDE_MENU[l], f"/{l}/guides/") if s.get("guide") else (CATN[l][s["cat"]], f"/{l}/{s['cat']}/")
+    trail=[(u["crumb_home"], f"/{l}/")]
+    if s.get("guide"):
+        section=GUIDE_MENU[l]
+        trail.append((section, f"/{l}/guides/"))
+        active="guides"
+    elif s.get("region"):
+        section=REGION_N[l][s["region"]]
+        trail.append((CATN[l]["world"], f"/{l}/world/"))
+        trail.append((section, f"/{l}/world/{s['region']}/"))
+        active="world"
+    else:
+        section=CATN[l][s["cat"]]
+        trail.append((section, f"/{l}/{s['cat']}/"))
+        active=s["cat"]
+    trail.append((title, path))
+    about_place=REGION_N[l][s["region"]] if s.get("region") else "Cyprus"
     ld=[{"@context":"https://schema.org","@type":kind,"mainEntityOfPage":{"@type":"WebPage","@id":abs_(path)},"headline":title,"description":schema_desc,"image":[image_ld(s)],"datePublished":pub,"dateModified":mod,"inLanguage":l,"articleSection":section,"keywords":", ".join(s["kw"][l]),
         "author":author_ld(),"publisher":publisher_ld(),
         "isBasedOn":[x[1] for x in s["sources"]],"citation":[{"@type":"CreativeWork","name":x[0],"url":x[1]} for x in s["sources"]],"articleBody":plain_body(s["body"][l]),"url":abs_(path),
-        "locationCreated":{"@type":"Place","name":"Cyprus"},"about":{"@type":"Place","name":"Cyprus"}},
-      breadcrumb_ld([(u["crumb_home"], f"/{l}/"), crumb_mid, (title, path)])]
+        "locationCreated":{"@type":"Place","name":"Cyprus"},"about":{"@type":"Place","name":about_place}},
+      breadcrumb_ld(trail)]
     faq=faq_ld(s["faq"][l])
     if faq: ld.append(faq)
     howto=howto_ld(l, s)
@@ -2183,9 +2358,10 @@ def page_article(l,s):
     # A missing translation repeats the Russian text, so it stays out of the index,
     # the sitemap and the hreflang cluster. robots_content adds the large image preview.
     robots = "noindex,follow" if l in s.get("missing", ()) else "index,follow,max-image-preview:large,max-snippet:-1"
-    active="guides" if s.get("guide") else s["cat"]
-    h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod,robots=robots,langs=indexed_langs(s),og_w=og_w,og_h=og_h)+header(l,pathfn,active)
-    h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{u["crumb_home"]}</a> › <a href="{href(crumb_mid[1])}">{e(crumb_mid[0])}</a></nav>'
+    html_title=title if SITE in title else f"{title} | {SITE}"
+    h=head(l,html_title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod,robots=robots,langs=indexed_langs(s),og_w=og_w,og_h=og_h)+header(l,pathfn,active)
+    crumbs=" › ".join(f'<a href="{href(p)}">{e(n)}</a>' for n,p in trail[:-1])
+    h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb">{crumbs}</nav>'
     h+=f'<article class="a"><span class="cat">{e(section)}</span><h1>{e(title)}</h1><p class="dek">{e(s["lede"][l])}</p>'
     h+=f'<div class="by"><span class="who">{e(u["byline"])}</span><span class="when"><time datetime="{pub}">{e(u["published"])}: {fdt(pub,l)}</time><time datetime="{mod}">{e(u["updated"])}: {fdt(mod,l)}</time></span></div>'
     h+=f'<figure>{img_tag(s,l,1200,False,True,"(max-width:800px) 100vw,760px")}{f"<figcaption>{photo_caption(s,l)}</figcaption>" if photo_caption(s,l) else ""}</figure>'
@@ -2203,6 +2379,8 @@ def page_article(l,s):
     amazon=amazon_block(l,s)
     h+=widget
     h+=amazon
+    trezor=trezor_box(l) if crypto_story(s) else ""
+    h+=trezor
     # Page language, immediately before the Telegram subscribe line.
     plain=[(p[3:].strip() if p.startswith("## ") else p) for p in s["body"][l] if not _OFFER_RE.match(p.strip())]
     h+=mycytax.article_crosslink(l, s["title"][l], plain, s["kw"][l], mycytax_catalog())
@@ -2221,9 +2399,13 @@ def page_article(l,s):
         if dated:
             h+=f'<section class="rel"><h2><a href="{href(f"/{l}/guides/")}">{e(GUIDE_MENU[l])}</a></h2><div class="grid">'+"".join(card(x,l) for x in dated[:4])+'</div></section>'
     rel=[x for x in news_sorted() if x["slug"]!=s["slug"]]
-    rel.sort(key=lambda x:(x["cat"]!=s["cat"],))
-    h+=f'<section class="rel"><h2>{u["related"]}</h2><div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
-    if s["offers"][l] or widget or amazon:
+    rel.sort(key=lambda x:((not s.get("region")) or x.get("region")!=s.get("region"), x["cat"]!=s["cat"]))
+    region_more=""
+    if s.get("region"):
+        region_more=(f'<p class="meta"><a href="{href(f"/{l}/world/{s["region"]}/")}">{e(REGION_N[l][s["region"]])}</a>'
+                     f' · <a href="{href(f"/{l}/world/")}">{e(CATN[l]["world"])}</a></p>')
+    h+=f'<section class="rel"><h2>{u["related"]}</h2>{region_more}<div class="grid">'+"".join(card(x,l) for x in rel[:3])+'</div></section></main>'+footer(l)
+    if s["offers"][l] or widget or amazon or trezor:
         h=h.replace("</body></html>", affiliate_boot()+"</body></html>", 1)
     return h
 
@@ -2723,6 +2905,66 @@ GUIDE_GROUPS = (
  ("projects", {"en":"Development notes","ru":"Заметки о проектах","el":"Σημειώσεις για αναπτύξεις"}, (
     "yoo-limassol-review","limassol-blu-marine-review","one-limassol-review","dream-tower-limassol-review","eden-coast-paphos-review","kean-limassol-review","minthis-residences-review")),
 )
+RELOCATION_PAGE = {
+ "en": ("Relocation and expat life in Cyprus", "How people move to Cyprus: residence, tax, work, healthcare, driving and housing. The pages below are guides and news already on the site, each with its sources."),
+ "ru": ("Переезд на Кипр и жизнь экспатов", "Как переезжают на Кипр: вид на жительство, налоги, работа, медицина, вождение и жильё. Ниже — гиды и новости, которые уже есть на сайте, у каждого свои источники."),
+ "el": ("Μετακόμιση και ζωή στην Κύπρο", "Πώς μετακομίζει κανείς στην Κύπρο: διαμονή, φόροι, εργασία, υγεία, οδήγηση και στέγη. Παρακάτω είναι οδηγοί και ειδήσεις που υπάρχουν ήδη στον ιστότοπο, ο καθένας με τις πηγές του."),
+}
+RELOCATION_NOTE = {
+ "en": "A page here is not a residence permit or a tax opinion. Where two official sources disagree, the article says so.",
+ "ru": "Страница в этом разделе — не вид на жительство и не налоговая консультация. Если два официальных источника расходятся, материал об этом говорит.",
+ "el": "Μια σελίδα εδώ δεν είναι άδεια διαμονής ούτε φορολογική γνώμη. Όπου δύο επίσημες πηγές διαφωνούν, το κείμενο το λέει.",
+}
+RELOCATION_GROUPS = (
+ ("move", {"en":"Moving and residence","ru":"Переезд и проживание","el":"Μετακόμιση και διαμονή"}, (
+    "relocating-to-cyprus","eu-residence-cyprus","cyprus-digital-nomad-visa-2026","cyprus-resident-handbook","cyprus-malta-portugal-relocation","digital-citizen-residence-documents")),
+ ("tax", {"en":"Tax, work and the cost of living","ru":"Налоги, работа и стоимость жизни","el":"Φόροι, εργασία και κόστος ζωής"}, (
+    "cyprus-tax-residency-2026","cyprus-non-dom-tax-2026","cost-of-living-cyprus-2026","jobs-and-pay-cyprus","open-a-company-in-cyprus","bank-account-cyprus","third-country-workers-four-year-cap")),
+ ("daily", {"en":"Healthcare, driving and a home","ru":"Медицина, дорога и жильё","el":"Υγεία, οδήγηση και σπίτι"}, (
+    "gesy-for-foreigners","international-health-insurance","driving-in-cyprus","renting-in-cyprus","buying-property-cyprus-foreigner")),
+ ("borders", {"en":"Borders","ru":"Границы","el":"Σύνορα"}, (
+    "cyprus-schengen-2026","cyprus-schengen-july-2027","ees-etias-cyprus-2026")),
+)
+EVENT_RELATED = ("nicosia-christmas-market-2026","weekend-events-14-15-november","tourist-arrivals-october")
+EVENT_INTRO = {
+ "en":[
+  "Visitor numbers and holiday plans are in [tourism](/en/tourism/). People who live here year-round start with [relocation and expat life](/en/relocation/)."],
+ "ru":[
+  "Число гостей и отпускные планы — в разделе [туризма](/ru/tourism/). Тем, кто живёт здесь круглый год, ближе [переезд и жизнь экспатов](/ru/relocation/)."],
+ "el":[
+  "Οι αφίξεις και τα σχέδια διακοπών είναι στον [τουρισμό](/el/tourism/). Όσοι μένουν όλο τον χρόνο ξεκινούν από τη [μετακόμιση](/el/relocation/)."],
+}
+def page_relocation(l):
+    title, desc = RELOCATION_PAGE[l]
+    path=f"/{l}/relocation/"
+    pathfn=lambda x:f"/{x}/relocation/"
+    blocks=[]
+    listed=[]
+    for _key, names, slugs in RELOCATION_GROUPS:
+        cards=[]
+        for slug in slugs:
+            s=BYSLUG.get(slug)
+            if not s:
+                raise SystemExit(f"relocation hub lists unknown slug {slug}")
+            if l in s.get("missing", ()):
+                continue
+            cards.append(f'<article class="fmt"><h3><a href="{href(f"/{l}/{slug}/")}">{e(s["title"][l])}</a></h3><p>{e(trunc(s["lede"][l],180))}</p></article>')
+            listed.append(s)
+        if cards:
+            blocks.append(f'<h2>{e(names[l])}</h2><div class="fmts">{"".join(cards)}</div>')
+    links=intro_html([
+        {"en":"News that affects a move also sits in the [economy](/en/economy/), [real estate](/en/real-estate/) and [tourism](/en/tourism/) sections. The full [guide index](/en/guides/) lists every explainer.",
+         "ru":"Новости, от которых зависит переезд, есть и в разделах [экономики](/ru/economy/), [недвижимости](/ru/real-estate/) и [туризма](/ru/tourism/). Полный список разборов — в [гидах](/ru/guides/).",
+         "el":"Ειδήσεις που αλλάζουν μια μετακόμιση βρίσκονται και στην [οικονομία](/el/economy/), στα [ακίνητα](/el/real-estate/) και στον [τουρισμό](/el/tourism/). Όλοι οι οδηγοί είναι στους [οδηγούς](/el/guides/)."}[l]])
+    note=f'<p>{e(RELOCATION_NOTE[l])}</p>'
+    if l=="el":
+        note+=f'<p>{e(GUIDE_EL_NOTE)} <a href="{href("/en/relocation/")}">English</a></p>'
+    ld=[collection_ld(l, title, path, desc, listed),
+        breadcrumb_ld([(UI[l]["crumb_home"], f"/{l}/"), (RELOCATION_MENU[l], path)])]
+    h=head(l, f'{title} | {SITE}', desc, [title, "Cyprus", SITE], path, pathfn, "/assets/og-default.jpg", jsonld=ld)
+    h+=header(l, pathfn, "relocation")
+    h+=f'<main id="main" class="wrap"><article class="adpage"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{e(UI[l]["crumb_home"])}</a> › <span>{e(RELOCATION_MENU[l])}</span></nav><h1>{e(title)}</h1><p class="leadin">{e(desc)}</p>{note}{links}{"".join(blocks)}</article></main>'+footer(l)
+    return h
 def page_guides(l):
     title, desc = GUIDE_PAGE[l]
     path=f"/{l}/guides/"
@@ -2814,6 +3056,10 @@ def page_events(l):
     h=head(l,f'{u["title"]} | {SITE}',u["desc"],[u["title"],"Cyprus",SITE],f"/{l}/events/",pathfn,"/assets/og-default.jpg",jsonld=ld)
     h+=header(l,pathfn,"events")
     h+=f'<main id="main" class="wrap"><h1 class="sec">{e(u["title"])}</h1><p class="leadin" style="max-width:760px">{e(u["desc"])}</p>'
+    h+=intro_html(EVENT_INTRO[l])
+    related=[BYSLUG[slug] for slug in EVENT_RELATED if slug in BYSLUG and l not in BYSLUG[slug].get("missing",())]
+    if related:
+        h+=f'<div class="grid g3" style="margin:8px 0 18px">'+"".join(card(s,l) for s in related)+'</div>'
     h+=f'<div class="filters"><p>{e(u["city"])}</p>{cities}<p>{e(u["kind"])}</p>{kinds}</div>'
     h+=f'<p data-evempty hidden>{e(u["empty"])}</p>{groups}</main>'
     h+=script+footer(l)
@@ -2896,6 +3142,9 @@ def sitemap():
     x.append(entry(lambda l:f"/{l}/events/",TODAY,"0.6"))
     x.append(entry(lambda l:f"/{l}/travel/",TODAY,"0.6"))
     x.append(entry(lambda l:f"/{l}/guides/",TODAY,"0.8"))
+    x.append(entry(lambda l:f"/{l}/relocation/",TODAY,"0.7"))
+    for r in REGIONS:
+        x.append(entry(lambda l, r=r: f"/{l}/world/{r}/", TODAY, "0.6"))
     for prop in published_listings():
         pid=prop["id"]
         x.append(entry(lambda l, pid=pid: f"/{l}/real-estate/{pid}/", TODAY, "0.5"))
@@ -2973,6 +3222,9 @@ def main():
         w(f"/{l}/privacy/index.html",page_info(l,"privacy",privacy_for(l),"WebPage"))
         w(f"/{l}/cookies/index.html",page_info(l,"cookies",cookies_for(l),"WebPage"))
         w(f"/{l}/events/index.html",page_events(l))
+        for r in REGIONS:
+            w(f"/{l}/world/{r}/index.html", page_region(l, r))
+        w(f"/{l}/relocation/index.html", page_relocation(l))
         w(f"/{l}/travel/index.html",page_travel(l))
         w(f"/{l}/guides/index.html",page_guides(l))
         w(f"/{l}/advertising/index.html",page_advertising(l))

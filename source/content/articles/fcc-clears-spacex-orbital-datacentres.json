@@ -1,0 +1,52 @@
+{
+  "slug": "fcc-clears-spacex-orbital-datacentres",
+  "cat": "world",
+  "region": "americas",
+  "date": "2026-11-26",
+  "sources": [
+    {
+      "name": "Euronews",
+      "url": "https://www.euronews.com/2026/11/26/us-says-spacex-can-deploy-1-million-satellites-to-build-data-centres-in-space"
+    }
+  ],
+  "en": {
+    "title": "US clears SpaceX to put a million computing satellites in orbit",
+    "lede": "The Federal Communications Commission authorised a constellation it calls Starmind. SpaceX must have at least one craft up by 2033. Petitions to refuse the plan were among the public comments.",
+    "body": "On Wednesday the Trump administration let Elon Musk's company SpaceX deploy one million satellites that the firm says would work as data centres in space, as governments look for other ways to power artificial intelligence. The Federal Communications Commission called the decision a first in the race over AI. The satellites, described as orbital compute modules, would form a constellation named Starmind and process data used back on Earth.\n\nFCC chairman Brendan Carr, appointed by Donald Trump, said America was leading the world into an era of super intelligence and that the move opened a new frontier. The longer order says SpaceX must deploy at least one authorised station by 2033 and then add more through 2040. Musk welcomed the decision on social media. The commission said the plan fits its rules on orbital debris and serves the public interest.\n\nIt also noted a substantial number of public comments, including petitions to deny the request. Scientists and industry specialists have pointed to the technical and financial obstacles, and to pollution from launches and from craft falling back into the atmosphere. Supporters argue that collecting the sun's energy in orbit would ease the load on power grids on the ground. The authorisation is a licence to try, not proof that a million working stations will fly.",
+    "alt": "A SpaceX Falcon Heavy on the launch pad before a 2018 demonstration flight",
+    "kw": [
+      "SpaceX",
+      "FCC",
+      "satellites",
+      "artificial intelligence"
+    ],
+    "desc": "The FCC cleared SpaceX to deploy up to a million computing satellites, with a first launch deadline of 2033."
+  },
+  "ru": {
+    "title": "США разрешили SpaceX вывести миллион вычислительных спутников",
+    "lede": "Федеральная комиссия по связи одобрила группировку под именем Starmind. Хотя бы один аппарат должен быть на орбите к 2033 году. Среди отзывов были и просьбы отказать.",
+    "body": "В среду администрация Трампа позволила компании Илона Маска SpaceX развернуть миллион спутников, которые, по словам фирмы, станут центрами обработки данных в космосе: правительства ищут другие способы питать искусственный интеллект. Федеральная комиссия по связи назвала решение первым в гонке вокруг ИИ. Спутники, описанные как орбитальные вычислительные модули, составят группировку Starmind и будут обрабатывать данные для Земли.\n\nПредседатель комиссии Брендан Карр, назначенный Дональдом Трампом, сказал, что Америка ведёт мир в эпоху сверхразума и что шаг открывает новый рубеж. В более длинном решении сказано, что SpaceX должна вывести хотя бы одну разрешённую станцию к 2033 году и затем добавлять аппараты до 2040-го. Маск приветствовал решение в соцсетях. Комиссия заявила, что план соответствует правилам по космическому мусору и отвечает общественному интересу.\n\nОна также отметила большое число отзывов, включая петиции с просьбой отказать. Учёные и специалисты отрасли указывают на технические и финансовые препятствия и на загрязнение от пусков и от аппаратов, которые возвращаются в атмосферу. Сторонники говорят, что сбор солнечной энергии на орбите снизит нагрузку на земные сети. Разрешение — это лицензия попробовать, а не доказательство, что миллион рабочих станций полетит.",
+    "alt": "Falcon Heavy компании SpaceX на старте перед демонстрационным пуском 2018 года",
+    "kw": [
+      "SpaceX",
+      "FCC",
+      "спутники",
+      "искусственный интеллект"
+    ],
+    "desc": "FCC разрешила SpaceX до миллиона вычислительных спутников. Первый срок — 2033 год."
+  },
+  "el": {
+    "title": "Οι ΗΠΑ επιτρέπουν στη SpaceX ένα εκατομμύριο υπολογιστικούς δορυφόρους",
+    "lede": "Η Ομοσπονδιακή Επιτροπή Επικοινωνιών ενέκρινε συστοιχία με το όνομα Starmind. Τουλάχιστον μία συσκευή πρέπει να είναι σε τροχιά ως το 2033. Ανάμεσα στα σχόλια υπήρχαν και αιτήματα απόρριψης.",
+    "body": "Την Τετάρτη η κυβέρνηση Τραμπ επέτρεψε στην εταιρεία του Έλον Μασκ, SpaceX, να αναπτύξει ένα εκατομμύριο δορυφόρους που η εταιρεία λέει ότι θα λειτουργούν ως κέντρα δεδομένων στο διάστημα, καθώς οι κυβερνήσεις ψάχνουν άλλους τρόπους να τροφοδοτήσουν την τεχνητή νοημοσύνη. Η Ομοσπονδιακή Επιτροπή Επικοινωνιών χαρακτήρισε την απόφαση πρωτιά στην κούρσα της ΤΝ. Οι δορυφόροι, που περιγράφονται ως τροχιακές υπολογιστικές μονάδες, θα σχηματίσουν τη συστοιχία Starmind και θα επεξεργάζονται δεδομένα για τη Γη.\n\nΟ πρόεδρος της επιτροπής Μπρένταν Καρ, διορισμένος από τον Ντόναλντ Τραμπ, είπε ότι η Αμερική οδηγεί τον κόσμο σε εποχή υπερευφυΐας και ότι το βήμα ανοίγει νέο σύνορο. Η αναλυτικότερη απόφαση λέει ότι η SpaceX πρέπει να αναπτύξει τουλάχιστον έναν εγκεκριμένο σταθμό ως το 2033 και έπειτα να προσθέτει κι άλλους ως το 2040. Ο Μασκ χαιρέτισε την απόφαση στα κοινωνικά δίκτυα. Η επιτροπή είπε ότι το σχέδιο συνάδει με τους κανόνες για διαστημικά σκουπίδια και υπηρετεί το δημόσιο συμφέρον.\n\nΣημείωσε επίσης μεγάλο αριθμό σχολίων, συμπεριλαμβανομένων αιτημάτων απόρριψης. Επιστήμονες και ειδικοί του κλάδου δείχνουν τα τεχνικά και οικονομικά εμπόδια και τη ρύπανση από εκτοξεύσεις και από συσκευές που πέφτουν πίσω στην ατμόσφαιρα. Οι υποστηρικτές λένε ότι η συλλογή ηλιακής ενέργειας σε τροχιά θα ελαφρύνει τα δίκτυα στο έδαφος. Η άδεια είναι δικαίωμα να δοκιμαστεί η ιδέα, όχι απόδειξη ότι ένα εκατομμύριο σταθμοί θα πετάξουν.",
+    "alt": "Ένα Falcon Heavy της SpaceX στην εξέδρα πριν από την επίδειξη του 2018",
+    "kw": [
+      "SpaceX",
+      "FCC",
+      "δορυφόροι",
+      "τεχνητή νοημοσύνη"
+    ],
+    "desc": "Η FCC ενέκρινε στη SpaceX ως ένα εκατομμύριο υπολογιστικούς δορυφόρους, με πρώτη προθεσμία το 2033."
+  },
+  "img": "falcon-heavy"
+}
