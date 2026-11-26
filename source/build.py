@@ -160,7 +160,8 @@ def load_story(path):
     elif _clean(d.get("img")):
         s["img"] = _clean(d["img"])
     else:
-        # No picture yet: a plain CyNews 24 card is generated so the build never fails.
+        # No picture yet: a plain card is drawn. A new article still fails the build
+        # until a photograph at least 1200px wide is added. See KNOWN_SMALL_LEADS.
         s["img"] = slug; s["upload"] = None; s["credit"] = {}
     return s
 def load_stories():
@@ -492,10 +493,87 @@ def photo_caption(s,l):
     return (f'{label}: {e(c["author"])} / '
             f'<a href="{e(c["page"])}">{e(c["source"])}</a>, '
             f'<a href="{e(c["license_url"])}">{e(c["license"])}</a>')
+# Photographs already published below 1200px stay. A new article has to clear that width.
+KNOWN_SMALL_LEADS=frozenset({
+ "avakoum-monastery-receipts",
+ "christodoulides-erhurman-24-november",
+ "christodoulides-erhurman-meeting",
+ "christodoulides-property-witness",
+ "cyprus-copper-hellenic-cuprum",
+ "cyprus-students-uk-home-fees",
+ "helleniq-energy-cyprus-gas",
+ "limassol-funeral-schoolgirl-kakopetria",
+ "mafia-state-tax-commissioner-dossier",
+ "presidential-election-spending-cap",
+})
+FULL_LEAD=(1200,675)
+FULL_OG=(1200,630)
+FULL_SMALL=(600,338)
+_GEO={}
+def story_photo_path(s):
+    """Source file for the lead photograph. Empty when the page uses the generated card."""
+    if "upload" in s:
+        return s.get("upload") or ""
+    c=CREDITS.get(s["img"])
+    if c:
+        return os.path.join(HERE,"photos",c["file"])
+    p=os.path.join(SRC,f"{s['img']}.jpg")
+    return p if os.path.exists(p) else ""
+def _native_16x9(sw,sh):
+    """Largest 16:9 crop that fits inside the file. Never rounds up past the file."""
+    if sw<=0 or sh<=0: return 0,0
+    tr=16/9
+    if sw/sh>tr:
+        return max(int(sh*tr),1), sh
+    return sw, max(int(sw/tr),1)
+def lead_geometry(s):
+    """Pixel sizes we actually publish. A small photograph is not enlarged."""
+    # Property cards pass an image stub with no page address. Geometry follows the file.
+    key=s["slug"] if s.get("slug") else "img:"+s["img"]
+    if key in _GEO: return _GEO[key]
+    path=story_photo_path(s)
+    if not path or not os.path.exists(path):
+        geo={"placeholder":True,"native":(0,0),"native_lead":(0,0),"lead":FULL_LEAD,"og":FULL_OG,"small":FULL_SMALL}
+    else:
+        with Image.open(path) as im:
+            sw,sh=im.size
+        nw,nh=_native_16x9(sw,sh)
+        if nw>=1200:
+            geo={"placeholder":False,"native":(sw,sh),"native_lead":(nw,nh),"lead":FULL_LEAD,"og":FULL_OG,"small":FULL_SMALL}
+        else:
+            og_h=min(nh, int(nw*630/1200)) or nh
+            small=(nw,nh) if nw<=600 else (600, max(1, int(round(600*nh/nw))))
+            geo={"placeholder":False,"native":(sw,sh),"native_lead":(nw,nh),"lead":(nw,nh),"og":(nw,og_h),"small":small}
+    _GEO[key]=geo
+    return geo
+def og_image(s):
+    w,h=lead_geometry(s)["og"]
+    return f'/assets/img/{s["img"]}-og.jpg', w, h
+def small_lead_stories():
+    """Articles whose own photograph cannot fill a 1200px-wide 16:9 frame."""
+    return [s for s in STORIES if lead_geometry(s)["placeholder"] or lead_geometry(s)["native_lead"][0]<1200]
+def lead_size_error(slug, native_lead_width, placeholder=False):
+    if placeholder or native_lead_width<1200:
+        if slug not in KNOWN_SMALL_LEADS:
+            if placeholder:
+                return f"{slug}: no lead photograph. New articles need a photo at least 1200px wide (16:9)."
+            return (f"{slug}: the lead photograph is {native_lead_width}px wide. "
+                    "New articles need a photo at least 1200px wide (16:9). The build will not replace it.")
+    return ""
+def enforce_lead_images():
+    bad=[]
+    for s in small_lead_stories():
+        geo=lead_geometry(s)
+        err=lead_size_error(s["slug"], geo["native_lead"][0], geo["placeholder"])
+        if err: bad.append(err)
+    if bad:
+        raise SystemExit("Lead image is too small for a new article:\n"+"\n".join(bad))
+    return small_lead_stories()
 def image_ld(s):
     c=credit_for(s)
-    obj={"@type":"ImageObject","url":abs_(f"/assets/img/{s['img']}-1200.webp"),
-         "contentUrl":abs_(f"/assets/img/{s['img']}-1200.webp"),"width":1200,"height":675}
+    w,h=lead_geometry(s)["lead"]
+    url=abs_(f"/assets/img/{s['img']}-1200.webp")
+    obj={"@type":"ImageObject","url":url,"contentUrl":url,"width":w,"height":h}
     if c:
         credit=", ".join(x for x in (" / ".join(x for x in (c["author"],c.get("source")) if x),c.get("license")) if x)
         obj.update({"creditText":credit,"copyrightNotice":credit})
@@ -541,28 +619,42 @@ def placeholder_image(s):
     d.rectangle((420,390,780,470),fill=(196,87,26)); d.text((600,430),"24",font=ImageFont.truetype(FONT_BOLD,64),fill=(255,255,255),anchor="mm")
     d.text((600,560),CATN["en"][s["cat"]].upper(),font=f2,fill=(200,205,213),anchor="mm")
     return im
+def save_lead_files(s, plain, d, mark=True):
+    """Write the lead, the smaller srcset file and the social image. plain is unwatermarked 16:9."""
+    geo=lead_geometry(s)
+    lw,lh=geo["lead"]
+    name=s["img"]
+    def stamp(im):
+        return watermark(im) if mark else im
+    stamp(plain).save(f"{d}/{name}-1200.webp","WEBP",quality=78,method=6)
+    sw,sh=geo["small"]
+    thumb=plain if (sw,sh)==(lw,lh) else plain.resize((sw,sh),Image.LANCZOS)
+    stamp(thumb).save(f"{d}/{name}-600.webp","WEBP",quality=76,method=6)
+    if (lw,lh)==FULL_LEAD:
+        og=plain.crop((0,22,1200,652))
+    else:
+        ow,oh=geo["og"]
+        top=max(0,(lh-oh)//2)
+        og=plain.crop((0,top,lw,min(lh,top+oh)))
+    stamp(og).save(f"{d}/{name}-og.jpg","JPEG",quality=82,optimize=True,progressive=True)
 def build_assets():
     d=OUT+"/assets/img"; os.makedirs(d,exist_ok=True)
+    seen=set()
     for s in STORIES:
-        c=None if "upload" in s else CREDITS.get(s["img"])
-        photo=s["upload"] if "upload" in s else (os.path.join(HERE,"photos",c["file"]) if c else "")
-        if "upload" in s and not photo:
+        # Two stories can share one photograph. Write that file once.
+        if s["img"] in seen: continue
+        seen.add(s["img"])
+        geo=lead_geometry(s)
+        if geo["placeholder"]:
             plain=placeholder_image(s)
-            plain.save(f"{d}/{s['img']}-1200.webp","WEBP",quality=78,method=6)
-            plain.resize((600,338),Image.LANCZOS).save(f"{d}/{s['img']}-600.webp","WEBP",quality=76,method=6)
-            plain.crop((0,22,1200,652)).save(f"{d}/{s['img']}-og.jpg","JPEG",quality=82,optimize=True,progressive=True)
-        elif photo and os.path.exists(photo):
-            src=Image.open(photo)
-            focus=tuple(c.get("focus",[0.5,0.5])) if c else (0.5,0.5)
-            plain=cover_crop(src,1200,675,focus)
-            watermark(plain).save(f"{d}/{s['img']}-1200.webp","WEBP",quality=78,method=6)
-            watermark(plain.resize((600,338),Image.LANCZOS)).save(f"{d}/{s['img']}-600.webp","WEBP",quality=76,method=6)
-            watermark(plain.crop((0,22,1200,652))).save(f"{d}/{s['img']}-og.jpg","JPEG",quality=82,optimize=True,progressive=True)
-        else:
-            im=Image.open(os.path.join(SRC, f"{s['img']}.jpg")).convert("RGB")
-            a=im.resize((1200,675),Image.LANCZOS); a.save(f"{d}/{s['img']}-1200.webp","WEBP",quality=78,method=6)
-            b=im.resize((600,338),Image.LANCZOS); b.save(f"{d}/{s['img']}-600.webp","WEBP",quality=76,method=6)
-            o=im.resize((1200,675),Image.LANCZOS).crop((0,22,1200,652)); o.save(f"{d}/{s['img']}-og.jpg","JPEG",quality=82,optimize=True,progressive=True)
+            save_lead_files(s, plain, d, mark=False)
+            continue
+        c=None if "upload" in s else CREDITS.get(s["img"])
+        focus=tuple(c.get("focus",[0.5,0.5])) if c else (0.5,0.5)
+        lw,lh=geo["lead"]
+        with Image.open(story_photo_path(s)) as src:
+            plain=cover_crop(src,lw,lh,focus)
+        save_lead_files(s, plain, d)
     # logo
     W=512; lg=Image.new("RGB",(W,W),(17,24,39)); dr=ImageDraw.Draw(lg)
     f1=ImageFont.truetype("/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",150)
@@ -928,7 +1020,24 @@ def alt_links(l, pathfn, langs=None):
     out.append(f'<link rel="alternate" hreflang="x-default" href="{abs_(x_default_path(pathfn, langs))}">')
     return "\n".join(out)
 
-def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None, mod=None, robots="index,follow,max-image-preview:large,max-snippet:-1", langs=None):
+def robots_content(value):
+    """One robots meta. Indexable pages keep index,follow and gain a large image preview."""
+    parts=[p.strip() for p in (value or "").split(",") if p.strip()]
+    low=[p.lower() for p in parts]
+    noindex=any(p=="noindex" or p.startswith("noindex") for p in low)
+    # noindex pages stay out of Discover. Do not add a preview directive or flip them to index.
+    if noindex:
+        return ",".join(parts)
+    if not any(p=="index" for p in low):
+        parts.insert(0,"index"); low.insert(0,"index")
+    if not any(p=="follow" for p in low):
+        at=next(i for i,p in enumerate(low) if p=="index")+1
+        parts.insert(at,"follow"); low.insert(at,"follow")
+    if "max-image-preview:large" not in low:
+        parts.append("max-image-preview:large")
+    return ",".join(parts)
+def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jsonld=None, pub=None, mod=None, robots="index,follow,max-image-preview:large,max-snippet:-1", langs=None, og_w=1200, og_h=630):
+    robots=robots_content(robots)
     h=[f'<!doctype html><html lang="{l}"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">',
     PATH_CANON_JS, YANDEX_VERIFICATION, IMPACT_VERIFICATION]
     if bing_meta(): h.append(bing_meta())
@@ -937,7 +1046,7 @@ def head(l, title, desc, kws, path, pathfn, og_img, typ="website", extra="", jso
     f'<meta name="robots" content="{e(robots)}">',
     f'<link rel="canonical" href="{abs_(path)}">',
     alt_links(l,pathfn,langs) if not robots.lower().startswith("noindex") else "",
-    f'<meta property="og:site_name" content="{SITE}"><meta property="og:type" content="{typ}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{abs_(path)}"><meta property="og:image" content="{abs_(og_img)}"><meta property="og:image:width" content="1200"><meta property="og:image:height" content="630"><meta property="og:locale" content="{LOCALE[l]}">']
+    f'<meta property="og:site_name" content="{SITE}"><meta property="og:type" content="{typ}"><meta property="og:title" content="{e(title)}"><meta property="og:description" content="{e(desc)}"><meta property="og:url" content="{abs_(path)}"><meta property="og:image" content="{abs_(og_img)}"><meta property="og:image:width" content="{int(og_w)}"><meta property="og:image:height" content="{int(og_h)}"><meta property="og:locale" content="{LOCALE[l]}">']
     for x in LANGS:
         if x!=l: h.append(f'<meta property="og:locale:alternate" content="{LOCALE[x]}">')
     if pub:
@@ -1050,11 +1159,22 @@ def footer(l):
       f'<p>{langs}</p><p>© 2026 {SITE}. {u["copy"]}</p></div>{cookie_banner(l)}</footer></body></html>')
 
 def S_(s,key,l): return s[key][l]
+def img_srcset(s):
+    """Srcset widths are the files' real widths, so a small photo is not advertised as 1200."""
+    n=s["img"]; geo=lead_geometry(s)
+    lw,lh=geo["lead"]; sw,sh=geo["small"]
+    large=href(f"/assets/img/{n}-1200.webp"); small=href(f"/assets/img/{n}-600.webp")
+    if (sw,sh)==(lw,lh):
+        return large, lw, lh, f"{large} {lw}w"
+    return large, lw, lh, f"{small} {sw}w, {large} {lw}w"
 def img_tag(s,l,w,lazy=True,prio=False,sizes="100%"):
     n=s["img"]; alt=e(s["alt"][l])
-    if w==600: src=href(f"/assets/img/{n}-600.webp"); W,H=600,338
-    else: src=href(f"/assets/img/{n}-1200.webp"); W,H=1200,675
-    srcset=f'{href(f"/assets/img/{n}-600.webp")} 600w, {href(f"/assets/img/{n}-1200.webp")} 1200w'
+    geo=lead_geometry(s)
+    lw,lh=geo["lead"]; sw,sh=geo["small"]
+    large,_,_,srcset=img_srcset(s)
+    small=href(f"/assets/img/{n}-600.webp")
+    if w==600 and (sw,sh)!=(lw,lh): src,W,H=small,sw,sh
+    else: src,W,H=large,lw,lh
     ex = ' fetchpriority="high"' if prio else (' loading="lazy"' if lazy else '')
     return f'<img src="{src}" srcset="{srcset}" sizes="{sizes}" width="{W}" height="{H}" alt="{alt}" decoding="async"{ex}>'
 
@@ -1527,8 +1647,8 @@ def page_cat(l,c):
     ld=[{"@context":"https://schema.org","@type":"CollectionPage","name":title,"url":abs_(f"/{l}/{c}/"),"inLanguage":l,"description":desc,"isPartOf":{"@type":"WebSite","name":SITE,"url":abs_(f"/{l}/")}},
         breadcrumb_ld([(u["crumb_home"], f"/{l}/"), (CATN[l][c], f"/{l}/{c}/")])]
     og_story=news_items[0] if news_items else items[0]
-    og=f'/assets/img/{og_story["img"]}-og.jpg'
-    h=head(l,title,desc,kws,f"/{l}/{c}/",pathfn,og,jsonld=ld)+header(l,pathfn,c)
+    og,og_w,og_h=og_image(og_story)
+    h=head(l,title,desc,kws,f"/{l}/{c}/",pathfn,og,jsonld=ld,og_w=og_w,og_h=og_h)+header(l,pathfn,c)
     block=listings_block(l) if c=="real-estate" else ""
     news=f'<h2 class="pnews">{e(LISTING_UI[l]["news"])}</h2>' if c=="real-estate" else ""
     grid="".join(card(s,l,lazy=(i>2)) for i,s in enumerate(news_items))
@@ -2043,7 +2163,7 @@ def page_article(l,s):
     schema_desc=s["desc"][l] or s["lede"][l]
     kws=s["kw"][l]+GKW[l][:4]
     pub,mod=article_times(s)
-    og=f'/assets/img/{s["img"]}-og.jpg'
+    og,og_w,og_h=og_image(s)
     # News stays NewsArticle. A practical guide is an Article: it is not a news report,
     # and it does not belong in the Google News sitemap.
     kind="Article" if s.get("guide") else "NewsArticle"
@@ -2058,12 +2178,13 @@ def page_article(l,s):
     if faq: ld.append(faq)
     howto=howto_ld(l, s)
     if howto: ld.append(howto)
-    preload=f'<link rel="preload" as="image" href="{href(f"/assets/img/{s["img"]}-1200.webp")}" imagesrcset="{href(f"/assets/img/{s["img"]}-600.webp")} 600w, {href(f"/assets/img/{s["img"]}-1200.webp")} 1200w" imagesizes="(max-width:800px) 100vw,760px">'
+    large,_,_,srcset=img_srcset(s)
+    preload=f'<link rel="preload" as="image" href="{large}" imagesrcset="{srcset}" imagesizes="(max-width:800px) 100vw,760px">'
     # A missing translation repeats the Russian text, so it stays out of the index,
-    # the sitemap and the hreflang cluster.
+    # the sitemap and the hreflang cluster. robots_content adds the large image preview.
     robots = "noindex,follow" if l in s.get("missing", ()) else "index,follow,max-image-preview:large,max-snippet:-1"
     active="guides" if s.get("guide") else s["cat"]
-    h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod,robots=robots,langs=indexed_langs(s))+header(l,pathfn,active)
+    h=head(l,title,desc,kws,path,pathfn,og,"article",preload,ld,pub,mod,robots=robots,langs=indexed_langs(s),og_w=og_w,og_h=og_h)+header(l,pathfn,active)
     h+=f'<main id="main" class="wrap"><nav class="crumb" aria-label="breadcrumb"><a href="{href(f"/{l}/")}">{u["crumb_home"]}</a> › <a href="{href(crumb_mid[1])}">{e(crumb_mid[0])}</a></nav>'
     h+=f'<article class="a"><span class="cat">{e(section)}</span><h1>{e(title)}</h1><p class="dek">{e(s["lede"][l])}</p>'
     h+=f'<div class="by"><span class="who">{e(u["byline"])}</span><span class="when"><time datetime="{pub}">{e(u["published"])}: {fdt(pub,l)}</time><time datetime="{mod}">{e(u["updated"])}: {fdt(mod,l)}</time></span></div>'
@@ -2816,6 +2937,17 @@ def page_404():
       f'</div></main>{cookie_banner("en")}</body></html>')
 
 def main():
+    small=enforce_lead_images()
+    if small:
+        photos=[s for s in small if not lead_geometry(s)["placeholder"]]
+        print(f"Lead photographs under 1200px: {len(photos)} (kept; social tags use that file)")
+        for s in small:
+            geo=lead_geometry(s)
+            if geo["placeholder"]:
+                print(f"  {s['slug']}: no source photograph")
+            else:
+                sw,sh=geo["native"]; lw,lh=geo["lead"]
+                print(f"  {s['slug']}: source {sw}x{sh}px, lead {lw}x{lh}px")
     for d in ["ru","en","el","assets"]:
         shutil.rmtree(f"{OUT}/{d}",ignore_errors=True)
     os.makedirs(OUT+"/assets/css",exist_ok=True)
