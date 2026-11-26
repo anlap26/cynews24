@@ -10,6 +10,7 @@ window.CYNEWS_AFFILIATES = {
   "surfshark": "#AFFILIATE_SURFSHARK",
   "proton": "#AFFILIATE_PROTON",
   "onepassword": "#AFFILIATE_1PASSWORD",
+  "trezor": "https://affil.trezor.io/aff_c?offer_id=352&aff_id=847056",
   "amazon": "https://www.amazon.de/?tag=cynews24-21"
 };
 window.CYNEWS_AFFILIATE_SEARCH = {

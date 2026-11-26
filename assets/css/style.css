@@ -18,6 +18,11 @@ nav.cats{border-bottom:1px solid var(--line);background:#fff;position:sticky;top
 nav.cats ul{list-style:none;margin:0;padding:0;display:flex;overflow-x:auto;scrollbar-width:none}
 nav.cats li a{display:block;padding:13px 14px;font-weight:700;font-size:15px;white-space:nowrap;border-bottom:4px solid transparent}
 nav.cats li a:hover{border-color:var(--ink)}nav.cats li a[aria-current=page]{border-color:var(--acc)}
+.subnav{display:flex;flex-wrap:wrap;gap:8px;margin:4px 0 18px}
+.subnav a{display:inline-block;padding:6px 12px;border:1px solid var(--line);border-radius:999px;font-weight:700;font-size:14px;background:#fff}
+.subnav a[aria-current=page]{background:var(--ink);color:#fff;border-color:var(--ink)}
+.intro{max-width:760px;margin:0 0 8px}
+.intro p{margin:0 0 12px;font-size:17px;line-height:1.55}
 .tagline{font-size:13px;color:var(--mut);padding:10px 0 0}
 h1.sec{font-size:28px;margin:18px 0 14px;border-top:4px solid var(--ink);padding-top:8px;letter-spacing:-.3px}
 .lead{display:grid;grid-template-columns:1.9fr 1fr;gap:24px;margin:8px 0 28px}
