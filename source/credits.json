@@ -1010,5 +1010,18 @@
     "file": "child-smartphone.jpg",
     "focus": [0.5, 0.45],
     "depicts": "A child holding a smartphone. It is not a photograph taken in Cyprus"
+  },
+  "kyrenia-harbour": {
+    "author": "Julienbzh35",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:PortdeKyrenia.jpg",
+    "file": "kyrenia-harbour.jpg",
+    "focus": [
+      0.52,
+      0.48
+    ],
+    "depicts": "The old harbour of Kyrenia in September 2009. It is not a photograph of the ferry, the new port or the scene of the sinking"
   }
 }
