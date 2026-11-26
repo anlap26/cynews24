@@ -13,6 +13,8 @@ Article fields: `slug` (page address; empty = file name), `cat` (politics, econo
 
 The relocation hub at `/relocation/` lists existing guides and news. It does not change those articles' addresses.
 
+Headlines should be clear and interesting, and not clickbait: say what happened, without a false promise. The lead photo should be at least 1200 pixels wide, 16:9 if you can. The generator crops it, adds `max-image-preview:large` on article and section pages, and writes the NewsArticle data (headline, image, dates, author, publisher logo) for every new article. A photograph already narrower than 1200 pixels stays on the page; the social tags use the largest version of that same photo. Do not paste in a picture you do not have the rights to use. A new article whose photo is under 1200 pixels wide does not build.
+
 ## Publishing
 
 A push to `main` that touches `source/` starts the **Build site** workflow (`.github/workflows/build.yml`). It runs `source/build.py` with `BASE=https://cynews24.net` and commits the generated pages to `main`. Pages keeps serving `main` / root, with the custom domain in `CNAME`. That push already starts a Pages build. A commit the workflow itself pushes does not, so the workflow requests a Pages build after its own commit, and also on the daily and manual runs. The workflow runs daily so the date in the header, the events of the week and the sitemaps stay current, and on pull requests as a check. A commit that only updates `source/content/telegram-posted.json`, `source/content/telegram-digest.json` or `source/content/facebook-posted.json` does not start a rebuild.
