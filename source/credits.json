@@ -1366,5 +1366,55 @@
     "file": "makariou-avenue.jpg",
     "focus": [0.5, 0.45],
     "depicts": "Makarios Avenue, a shopping street in central Nicosia"
+  },
+  "east-coast-storm": {
+    "author": "CSU/CIRA and NOAA",
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Eastern_Seaboard_gets_Blasted_by_East_Coast_Storm_(CIRA_2023-12-18).png",
+    "file": "east-coast-storm.png",
+    "focus": [0.5, 0.45],
+    "depicts": "A satellite image of a storm along the US East Coast in December 2023; not Thursday's storm"
+  },
+  "hormuz-tanker": {
+    "author": "US Department of Defense",
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:A_port_view_of_the_guided_missile_frigate_USS_TAYLOR_(FFG-50)_as_it_passes_a_tanker_after_going_through_the_Strait_of_Hormuz_during_Operation_Desert_Shield_-_DPLA_-_1fb70620034c5304df096b4526972ace.jpeg",
+    "file": "hormuz-tanker.jpg",
+    "focus": [0.55, 0.45],
+    "depicts": "A tanker in the Strait of Hormuz in 1990, with a US Navy frigate; not Thursday's incident"
+  },
+  "white-house": {
+    "author": "Andreas Praefcke",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 3.0",
+    "license_url": "https://creativecommons.org/licenses/by/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:White_House_Washington_DC.jpg",
+    "file": "white-house.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "The White House in Washington"
+  },
+  "port-singapore": {
+    "author": "Aaaatu",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Port_of_Singapore.jpg",
+    "file": "port-singapore.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "The port of Singapore"
+  },
+  "turkish-parliament": {
+    "author": "Makril",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Building_of_the_Grand_National_Assembly_of_Turkey.jpg",
+    "file": "turkish-parliament.jpg",
+    "focus": [0.5, 0.4],
+    "depicts": "The building of the Grand National Assembly of Turkey in Ankara"
   }
 }
