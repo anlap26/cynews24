@@ -64,8 +64,10 @@ REGION_MENU = {"en":"Regions","ru":"Регионы","el":"Περιοχές"}
 RELOCATION_MENU = {"en":"Relocation","ru":"Переезд","el":"Μετακόμιση"}
 # ---------- articles ----------
 # One JSON file per article in content/articles/ (edited by hand or in the /admin/ CMS).
-# Russian is required. English and Greek are optional: a missing translation falls back
-# to the Russian text, and that language version is marked noindex until it is translated.
+# Russian is required for news. English and Greek are optional: a missing translation
+# falls back to the Russian text, and that language version is marked noindex until it
+# is translated. A guide may be English only: Russian and Greek stay noindex and out of
+# the sitemap, and the fallback text is the English text.
 CONTENT = os.path.join(HERE, "content")
 ART_DIR = os.path.join(CONTENT, "articles")
 TEXT_FIELDS = ("title", "lede", "body", "alt", "kw")
@@ -73,10 +75,23 @@ def _clean(v):
     if v is None: return ""
     return v.strip() if isinstance(v, str) else v
 def _paras(v):
-    """Body as a list of paragraphs. Accepts a list, or text with blank lines between paragraphs."""
+    """Body as a list of paragraphs. Accepts a list, or text with blank lines between paragraphs.
+
+    A block whose lines are all bullets, or all table rows, keeps the line breaks
+    so the renderer can make a list or a table. Ordinary paragraphs are joined.
+    """
     if isinstance(v, list): return [str(p).strip() for p in v if str(p).strip()]
     v = (v or "").replace("\r\n", "\n")
-    return [" ".join(x.strip() for x in p.split("\n")).strip() for p in re.split(r"\n\s*\n", v) if p.strip()]
+    out = []
+    for p in re.split(r"\n\s*\n", v):
+        lines = [x.strip() for x in p.split("\n") if x.strip()]
+        if not lines:
+            continue
+        if all(x.startswith(("- ", "* ")) for x in lines) or (len(lines) >= 2 and all(x.startswith("|") for x in lines)):
+            out.append("\n".join(lines))
+        else:
+            out.append(" ".join(lines))
+    return out
 def _kw(v):
     if isinstance(v, str): v = v.split(",")
     return [str(k).strip() for k in (v or []) if str(k).strip()]
@@ -142,15 +157,23 @@ def load_story(path):
     date = str(_clean(d.get("date")))[:10]
     datetime.date.fromisoformat(date)
     ru = d.get("ru") or {}
-    for k in ("title", "lede", "body"):
-        if not _clean(ru.get(k)): raise SystemExit(f"{path}: Russian {k} is required")
+    en = d.get("en") or {}
+    def _ready(src):
+        return all(_clean(src.get(k)) for k in ("title", "lede", "body"))
+    # News needs Russian. An English-only guide is allowed: the other languages are noindex.
+    if _ready(ru):
+        base_lang, base = "ru", ru
+    elif d.get("guide") and _ready(en):
+        base_lang, base = "en", en
+    else:
+        raise SystemExit(f"{path}: Russian title, lede and body are required")
     s = {"slug": slug, "file": stem, "cat": cat, "date": date, "region": region, "seq": d.get("seq"), "missing": set(), "guide": bool(d.get("guide"))}
     for k in ("title", "lede", "alt", "desc"): s[k] = {}
     s["body"] = {}; s["kw"] = {}; s["offers"] = {}; s["faq"] = {}; s["steps"] = {}
     for l in LANGS:
         src = d.get(l) or {}
-        if l != "ru" and not (_clean(src.get("title")) and _clean(src.get("lede")) and _clean(src.get("body"))):
-            s["missing"].add(l); src = ru
+        if l != base_lang and not _ready(src):
+            s["missing"].add(l); src = base
         s["title"][l] = _clean(src.get("title")); s["lede"][l] = _clean(src.get("lede"))
         s["body"][l] = _paras(src.get("body"))
         s["alt"][l] = _clean(src.get("alt")) or _clean(ru.get("alt")) or s["title"][l]
@@ -750,6 +773,19 @@ article.a h1{font-size:40px;line-height:1.1;letter-spacing:-.8px;margin:6px 0 12
 figure{margin:0 0 22px}figcaption{font-size:13px;color:var(--mut);padding-top:6px}figcaption a{color:#0b57b0;text-decoration:underline}
 .body p{font-size:18px;line-height:1.65;margin:0 0 18px;overflow-wrap:anywhere}.body a{color:#0b57b0;text-decoration:underline}
 .body h2{font-size:26px;line-height:1.25;letter-spacing:-.3px;margin:28px 0 12px;border-top:4px solid var(--ink);padding-top:8px}
+.body h3{font-size:20px;line-height:1.3;margin:22px 0 8px}
+.body ul{margin:0 0 18px;padding-left:1.25em}
+.body li{font-size:18px;line-height:1.55;margin:0 0 8px}
+.body .tablewrap{overflow-x:auto;margin:0 0 18px;-webkit-overflow-scrolling:touch}
+.body table{width:100%;border-collapse:collapse;font-size:15px;line-height:1.45}
+.body th,.body td{border:1px solid var(--line);padding:8px 10px;text-align:left;vertical-align:top}
+.body th{background:var(--soft)}
+.readalso{margin:8px 0 22px}
+.readalso h2{font-size:22px;border-top:4px solid var(--ink);padding-top:8px;margin:0 0 8px}
+.readalso ul{margin:0;padding-left:1.2em}
+.readalso li{margin:6px 0;font-size:16.5px;line-height:1.4}
+.readalso a{color:#0b57b0;text-decoration:underline}
+figure.shot{margin:8px 0 22px}
 .disclosure{font-size:14.5px;line-height:1.5;color:#33383f;background:var(--soft);border-left:4px solid var(--acc);padding:12px 14px;margin:0 0 18px}
 .disclosure a{color:#0b57b0;text-decoration:underline}
 .offer{background:var(--soft);border:1px solid var(--line);border-top:4px solid var(--acc);padding:14px 16px;margin:0 0 18px}
@@ -885,7 +921,7 @@ button.send:hover{background:var(--acc)}
 .cookie-actions button:hover{background:#fff;color:var(--dark)}
 .cookie-actions button:focus{outline:2px solid #fff;outline-offset:2px}
 @media(max-width:980px){.lead{grid-template-columns:1fr}.grid,.g3{grid-template-columns:repeat(2,1fr)}.cols{grid-template-columns:1fr}.rel .grid{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.travelcards{grid-template-columns:1fr 1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}.body h2{font-size:22px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a,.affbtn{flex:1 1 100%;display:block;width:100%}}
+@media(max-width:600px){.lead .big h2{font-size:26px}article.a h1,.adpage h1{font-size:30px}.grid,.g3,.rel .grid,.fmts,.weekband ul{grid-template-columns:1fr}.travelcards{grid-template-columns:1fr 1fr}.side .card{grid-template-columns:110px 1fr}.ev{grid-template-columns:1fr}.date{display:none}.body p{font-size:17px}.body h2{font-size:22px}.body h3{font-size:18px}.body li{font-size:17px}h1.sec{font-size:24px}.by .when{align-items:flex-start;text-align:left}.req a,.affbtn{flex:1 1 100%;display:block;width:100%}}
 """
 
 _GA_WARNED=False
@@ -1803,6 +1839,7 @@ _URL_RE = re.compile(r"https?://[^\s<]+")
 _MD_LINK = re.compile(r"\[([^\]\n]+)\]\((https?://[^\s)]+|/[^)\s]+)\)")
 _OFFER_RE = re.compile(r"^\{\{offer:([a-z0-9]+)\}\}$")
 _TRAVEL_RE = re.compile(r"^\{\{travel:([A-Z0-9_]+)\|([^\n}]+)\}\}$")
+_FIGURE_RE = re.compile(r"^\{\{figure:([a-z0-9-]+)\}\}$")
 def _ext_rel(url):
     """Temu and Travelpayouts links are sponsored. Other outbound links stay ordinary."""
     if "temu.to/" in url or "://temu.to" in url or "tpx.lt" in url:
@@ -1836,8 +1873,23 @@ def render_inline(text):
 def plain_body(paras):
     out = []
     for p in paras:
-        if _OFFER_RE.match(p.strip()) or _TRAVEL_RE.match(p.strip()): continue
-        out.append(p[3:].strip() if p.startswith("## ") else p)
+        raw = p.strip()
+        if _OFFER_RE.match(raw) or _TRAVEL_RE.match(raw) or _FIGURE_RE.match(raw): continue
+        if raw.startswith("### "):
+            out.append(raw[4:].strip()); continue
+        if raw.startswith("## "):
+            out.append(raw[3:].strip()); continue
+        lines = raw.split("\n")
+        if len(lines) >= 1 and all(x.startswith(("- ", "* ")) for x in lines):
+            out.append(" ".join(x[2:].strip() for x in lines)); continue
+        if raw.startswith("|"):
+            bits = []
+            for line in lines:
+                if re.match(r"^\|?\s*:?-{3,}", line.replace("|", "").strip()) or set(line) <= set("|-: "):
+                    continue
+                bits.append(re.sub(r"\s+", " ", line.replace("|", " ")).strip())
+            out.append(" ".join(x for x in bits if x)); continue
+        out.append(raw)
     return " ".join(out)
 def load_affiliates():
     path = os.path.join(HERE, "affiliates.json")
@@ -2078,12 +2130,40 @@ def offer_html(offer):
     return (f'<aside class="offer">{note}<div class="affbtns">'
             f'<a class="affbtn" data-affiliate="{e(partner)}" href="{e(AFFILIATES[partner])}" '
             f'rel="nofollow sponsored noopener" target="_blank">{e(offer["label"])}</a></div></aside>')
+def render_table(text):
+    rows = []
+    for line in text.split("\n"):
+        cells = [c.strip() for c in line.strip().strip("|").split("|")]
+        if not cells or all(re.fullmatch(r":?-{3,}:?", c) for c in cells):
+            continue
+        rows.append(cells)
+    if len(rows) < 2:
+        raise SystemExit("a table needs a header and at least one row")
+    width = len(rows[0])
+    head = "".join(f"<th>{render_inline(c)}</th>" for c in rows[0])
+    body = []
+    for row in rows[1:]:
+        padded = row + [""] * (width - len(row))
+        body.append("<tr>" + "".join(f"<td>{render_inline(c)}</td>" for c in padded[:width]) + "</tr>")
+    return f'<div class="tablewrap"><table><thead><tr>{head}</tr></thead><tbody>{"".join(body)}</tbody></table></div>'
+def figure_block(l, key):
+    """An extra photograph already credited and used as some story's lead, so the file is built."""
+    story = next((item for item in STORIES if item.get("img") == key and "upload" not in item), None)
+    if story is None or key not in CREDITS:
+        raise SystemExit(f"unknown figure {key}")
+    alt = CREDITS[key].get("depicts") or story["alt"].get(l) or story["title"][l]
+    stub = dict(story)
+    stub["alt"] = {x: alt for x in LANGS}
+    cap = photo_caption(stub, l)
+    return (f'<figure class="shot">{img_tag(stub, l, 1200, True, False, "(max-width:800px) 100vw,760px")}'
+            f'{f"<figcaption>{cap}</figcaption>" if cap else ""}</figure>')
 def render_body(l, s):
     offers = s["offers"][l]
     parts = []
     seen = set()
     for p in s["body"][l]:
-        m = _OFFER_RE.match(p.strip())
+        raw = p.strip()
+        m = _OFFER_RE.match(raw)
         if m:
             key = m.group(1)
             if key not in offers:
@@ -2091,7 +2171,7 @@ def render_body(l, s):
             parts.append(offer_html(offers[key]))
             seen.add(key)
             continue
-        tm = _TRAVEL_RE.match(p.strip())
+        tm = _TRAVEL_RE.match(raw)
         if tm:
             key, label = tm.group(1), tm.group(2).strip()
             url = TRAVEL_LINKS.get(key)
@@ -2099,10 +2179,25 @@ def render_body(l, s):
                 raise SystemExit(f'{s["slug"]}: unknown travel link {key}')
             parts.append(f'<p class="affbtns"><a class="affbtn" href="{e(url)}" rel="sponsored nofollow noopener" target="_blank">{e(label)}</a></p>')
             continue
-        if p.startswith("## "):
-            parts.append(f'<h2>{render_inline(p[3:].strip())}</h2>')
+        fm = _FIGURE_RE.match(raw)
+        if fm:
+            parts.append(figure_block(l, fm.group(1)))
             continue
-        lone = _MD_LINK.fullmatch(p.strip())
+        if raw.startswith("### "):
+            parts.append(f'<h3>{render_inline(raw[4:].strip())}</h3>')
+            continue
+        if raw.startswith("## "):
+            parts.append(f'<h2>{render_inline(raw[3:].strip())}</h2>')
+            continue
+        lines = raw.split("\n")
+        if all(x.startswith(("- ", "* ")) for x in lines):
+            items = "".join(f"<li>{render_inline(x[2:].strip())}</li>" for x in lines)
+            parts.append(f"<ul>{items}</ul>")
+            continue
+        if raw.startswith("|"):
+            parts.append(render_table(raw))
+            continue
+        lone = _MD_LINK.fullmatch(raw)
         if lone and "tpx.lt" in lone.group(2):
             parts.append(f'<p class="affbtns"><a class="affbtn" href="{e(lone.group(2))}" rel="sponsored nofollow noopener" target="_blank">{e(lone.group(1))}</a></p>')
             continue
@@ -2206,7 +2301,8 @@ def trezor_box(l):
             f'<p class="fine"><a href="{disc}">{e(UI[l]["disclosure"])}</a></p></aside>')
 def partner_widget(l, s):
     kind = PARTNER_WIDGETS.get(s["slug"])
-    if not kind or s.get("guide"): return ""
+    # A named practical page keeps its partner box, including when the page is a guide.
+    if not kind: return ""
     copy = WIDGET_COPY[kind][l]
     buttons = []
     for key, label in copy["buttons"]:
@@ -2317,6 +2413,39 @@ def page_moved(l, s):
             f'<script>location.replace({json.dumps(target)});</script>'
             f'<title>{e(title)}</title></head>'
             f'<body><p><a href="{e(target)}">{e(title)}</a></p></body></html>')
+# English settling guides. Each page links the others. A language without its own text is skipped.
+SETTLING_GUIDES = (
+ "relocating-to-cyprus",
+ "buying-property-cyprus",
+ "renting-apartment-cyprus",
+ "cyprus-permanent-residency-300k",
+ "best-areas-to-live-cyprus",
+ "cyprus-pink-slip-visitor-visa",
+ "digital-nomad-visa-cyprus",
+ "moving-to-cyprus-with-pets",
+ "cyprus-taxes-for-individuals",
+ "cost-of-living-cyprus",
+ "opening-bank-account-cyprus",
+ "gesy-healthcare-cyprus",
+ "schools-kindergartens-cyprus",
+ "driving-license-car-cyprus",
+)
+READ_ALSO = {"en": "Read also", "ru": "Читайте также", "el": "Διαβάστε επίσης"}
+def read_also_html(l, s):
+    if s["slug"] not in SETTLING_GUIDES:
+        return ""
+    items = []
+    for slug in SETTLING_GUIDES:
+        if slug == s["slug"]:
+            continue
+        other = BYSLUG.get(slug)
+        if not other or l in other.get("missing", ()):
+            continue
+        items.append(f'<li><a href="{href(f"/{l}/{slug}/")}">{e(other["title"][l])}</a></li>')
+    if not items:
+        return ""
+    return (f'<section class="readalso" aria-label="{e(READ_ALSO[l])}">'
+            f'<h2>{e(READ_ALSO[l])}</h2><ul>{"".join(items)}</ul></section>')
 def page_article(l,s):
     u=UI[l]; path=f"/{l}/{s['slug']}/"; pathfn=lambda x:f"/{x}/{s['slug']}/"
     title=s["title"][l]
@@ -2370,6 +2499,7 @@ def page_article(l,s):
     notice=f'<p class="disclosure">{e(u["disclosure_text"])} <a href="{href(f"/{l}/affiliate-disclosure/")}">{e(u["disclosure"])}</a></p>' if s["offers"][l] else ""
     h+=f'<div class="body">{notice}{render_body(l,s)}</div>'
     h+=faq_html(l,s)
+    h+=read_also_html(l,s)
     if s["sources"]:
         note=u["sources_note_guide"] if s.get("guide") else u["sources_note"]
         h+=f'<section class="src" aria-label="{u["sources"]}"><h2>{u["sources"]}</h2><p>{note}</p><ul>'+"".join(f'<li><a href="{e(x[1])}" target="_blank" rel="noopener nofollow">{e(x[0])}</a></li>' for x in s["sources"])+'</ul></section>'
@@ -2893,15 +3023,15 @@ GUIDE_EL_NOTE = "Οδηγοί που δεν έχουν ακόμη ελληνικ
 # Slugs in reading order. A missing file is a build error, so a renamed guide cannot vanish from the hub.
 GUIDE_GROUPS = (
  ("move", {"en":"Moving and residence","ru":"Переезд и проживание","el":"Μετακόμιση και διαμονή"}, (
-    "eu-residence-cyprus","cyprus-digital-nomad-visa-2026","relocating-to-cyprus","cyprus-resident-handbook","cyprus-malta-portugal-relocation")),
+    "relocating-to-cyprus","cyprus-pink-slip-visitor-visa","digital-nomad-visa-cyprus","cyprus-digital-nomad-visa-2026","cyprus-permanent-residency-300k","eu-residence-cyprus","best-areas-to-live-cyprus","moving-to-cyprus-with-pets","cyprus-resident-handbook","cyprus-malta-portugal-relocation")),
  ("tax", {"en":"Tax, work and companies","ru":"Налоги, работа и компании","el":"Φόροι, εργασία και εταιρείες"}, (
-    "cyprus-tax-residency-2026","cyprus-non-dom-tax-2026","cost-of-living-cyprus-2026","jobs-and-pay-cyprus","open-a-company-in-cyprus","cysec-forex-crypto","bank-account-cyprus")),
+    "cyprus-taxes-for-individuals","cyprus-tax-residency-2026","cyprus-non-dom-tax-2026","cost-of-living-cyprus","cost-of-living-cyprus-2026","jobs-and-pay-cyprus","open-a-company-in-cyprus","cysec-forex-crypto","opening-bank-account-cyprus","bank-account-cyprus")),
  ("borders", {"en":"Borders and the region","ru":"Границы и регион","el":"Σύνορα και περιοχή"}, (
     "cyprus-schengen-2026","ees-etias-cyprus-2026","cyprus-and-the-region")),
  ("property", {"en":"Property","ru":"Жильё","el":"Ακίνητα"}, (
-    "buying-property-cyprus-foreigner","renting-in-cyprus")),
+    "buying-property-cyprus","buying-property-cyprus-foreigner","renting-apartment-cyprus","renting-in-cyprus")),
  ("daily", {"en":"Health and the road","ru":"Здоровье и дорога","el":"Υγεία και δρόμος"}, (
-    "gesy-for-foreigners","international-health-insurance","driving-in-cyprus","protect-data-foreign-banks")),
+    "gesy-healthcare-cyprus","gesy-for-foreigners","international-health-insurance","schools-kindergartens-cyprus","driving-license-car-cyprus","driving-in-cyprus","protect-data-foreign-banks")),
  ("travel", {"en":"Travel","ru":"Поездки","el":"Ταξίδια"}, (
     "flights-to-cyprus","cyprus-weather-by-month","beaches-in-cyprus","best-things-to-do-cyprus-2026","where-to-stay-in-cyprus","renting-a-car-in-cyprus","esim-mobile-data-cyprus","cyprus-airport-transfers-2026")),
  ("projects", {"en":"Development notes","ru":"Заметки о проектах","el":"Σημειώσεις για αναπτύξεις"}, (
@@ -2919,11 +3049,11 @@ RELOCATION_NOTE = {
 }
 RELOCATION_GROUPS = (
  ("move", {"en":"Moving and residence","ru":"Переезд и проживание","el":"Μετακόμιση και διαμονή"}, (
-    "relocating-to-cyprus","eu-residence-cyprus","cyprus-digital-nomad-visa-2026","cyprus-resident-handbook","cyprus-malta-portugal-relocation","digital-citizen-residence-documents")),
+    "relocating-to-cyprus","cyprus-pink-slip-visitor-visa","digital-nomad-visa-cyprus","cyprus-permanent-residency-300k","best-areas-to-live-cyprus","moving-to-cyprus-with-pets","eu-residence-cyprus","cyprus-digital-nomad-visa-2026","cyprus-resident-handbook","cyprus-malta-portugal-relocation","digital-citizen-residence-documents")),
  ("tax", {"en":"Tax, work and the cost of living","ru":"Налоги, работа и стоимость жизни","el":"Φόροι, εργασία και κόστος ζωής"}, (
-    "cyprus-tax-residency-2026","cyprus-non-dom-tax-2026","cost-of-living-cyprus-2026","jobs-and-pay-cyprus","open-a-company-in-cyprus","bank-account-cyprus","third-country-workers-four-year-cap")),
+    "cyprus-taxes-for-individuals","cost-of-living-cyprus","opening-bank-account-cyprus","cyprus-tax-residency-2026","cyprus-non-dom-tax-2026","cost-of-living-cyprus-2026","jobs-and-pay-cyprus","open-a-company-in-cyprus","bank-account-cyprus","third-country-workers-four-year-cap")),
  ("daily", {"en":"Healthcare, driving and a home","ru":"Медицина, дорога и жильё","el":"Υγεία, οδήγηση και σπίτι"}, (
-    "gesy-for-foreigners","international-health-insurance","driving-in-cyprus","renting-in-cyprus","buying-property-cyprus-foreigner")),
+    "gesy-healthcare-cyprus","schools-kindergartens-cyprus","driving-license-car-cyprus","buying-property-cyprus","renting-apartment-cyprus","gesy-for-foreigners","international-health-insurance","driving-in-cyprus","renting-in-cyprus","buying-property-cyprus-foreigner")),
  ("borders", {"en":"Borders","ru":"Границы","el":"Σύνορα"}, (
     "cyprus-schengen-2026","cyprus-schengen-july-2027","ees-etias-cyprus-2026")),
 )

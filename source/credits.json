@@ -1416,5 +1416,44 @@
     "file": "turkish-parliament.jpg",
     "focus": [0.5, 0.4],
     "depicts": "The building of the Grand National Assembly of Turkey in Ankara"
+  },
+"nicosia-state-hospital": {
+    "author": "Seksen iki yüz kırk beş",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 4.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Nicosia_State_Hospital_north.jpg",
+    "file": "nicosia-state-hospital.jpg",
+    "focus": [
+      0.5,
+      0.42
+    ],
+    "depicts": "The north side of Nicosia State Hospital"
+  },
+  "pet-cat": {
+    "author": "Adina Voicu",
+    "source": "Wikimedia Commons",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Tabby_cat_with_blue_eyes-3336579.jpg",
+    "file": "pet-cat.jpg",
+    "focus": [
+      0.5,
+      0.35
+    ],
+    "depicts": "A pet cat. The photograph is not an animal arriving in Cyprus"
+  },
+  "cyprus-left-driving-sign": {
+    "author": "Dickelbers",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Left_driving_sign_on_Cyprus.JPG",
+    "file": "cyprus-left-driving-sign.jpg",
+    "focus": [
+      0.5,
+      0.55
+    ],
+    "depicts": "A road sign in Cyprus telling drivers to keep to the left"
   }
 }

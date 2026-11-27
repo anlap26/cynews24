@@ -1,0 +1,66 @@
+{
+  "slug": "cyprus-taxes-for-individuals",
+  "cat": "economy",
+  "date": "2026-11-27",
+  "updated": "2026-11-27",
+  "guide": true,
+  "img": "tax-deadline",
+  "sources": [
+    {
+      "name": "Tax residency and domicile, Tax Department",
+      "url": "https://www.gov.cy/mof-tax/en/documents/tax-residency-domicility/"
+    },
+    {
+      "name": "Individual income tax return, Tax Department",
+      "url": "https://www.gov.cy/mof-tax/en/documents/forologiki-dilosi-eisodimatos-atomoy/"
+    },
+    {
+      "name": "Tax reform, Gov.cy",
+      "url": "https://www.gov.cy/taxreform/"
+    },
+    {
+      "name": "Business portal, 2026 scales",
+      "url": "https://www.businessincyprus.gov.cy/doing-business-in-cyprus/start-your-business/registering-for-income-tax-and-value-added-tax/"
+    },
+    {
+      "name": "MyCyTax",
+      "url": "https://mycytax.com"
+    }
+  ],
+  "en": {
+    "title": "Cyprus taxes for individuals: residency, non-dom status and the 2026 bands",
+    "lede": "The 183-day rule and the 60-day rule decide tax residence. Non-dom status decides defence contribution. The 2026 bands start at €22,000.",
+    "desc": "The 183-day and 60-day tests, non-dom status, and the income-tax bands that apply from the 2026 tax year.",
+    "alt": "A calculator used to work out a tax figure",
+    "kw": [
+      "Cyprus income tax",
+      "tax residency",
+      "non-dom",
+      "60-day rule",
+      "2026 tax bands"
+    ],
+    "faq": [
+      {
+        "q": "What are the 2026 income-tax bands?",
+        "a": "Nil to €22,000, then 20 percent to €32,000, 25 percent to €42,000, 30 percent to €72,000 and 35 percent above that. The nil band applies to taxable income, after reliefs."
+      },
+      {
+        "q": "Who must file?",
+        "a": "From 2026, a tax resident with income inside section 5, or a tax resident aged 25 to 70 even with no income. The department’s FAQ puts the 2026 return deadline at 31 July 2027. Confirm it in the year you file."
+      },
+      {
+        "q": "What is the 60-day rule?",
+        "a": "Sixty days in Cyprus, no more than 183 days in any other one country, a business, job or office in Cyprus, and a permanent home you own or rent. All four. If the job ends during the year, the rule fails for that year."
+      },
+      {
+        "q": "What does non-dom change?",
+        "a": "It takes Special Defence Contribution off dividends and interest. It does not remove income tax, and it does not remove GeSY contributions. Rent left the defence-contribution net after 2025."
+      },
+      {
+        "q": "Where do I calculate a figure?",
+        "a": "On MyCyTax at mycytax.com. The calculator is a sketch. The return, and then the Tax Department, is the assessment."
+      }
+    ],
+    "body": "Tax residence, domicile and the income-tax bands are three different ideas, and the 2026 reform moved the third of them. This guide is for an individual. It is not a company guide and it is not a personal assessment. The Tax Department’s pages, and the [MyCyTax calculators](https://mycytax.com), are where a figure should be checked. As of 2026, use those pages if a number here and a number in a circular ever diverge.\n\n## Who is tax resident\n\nAn individual is tax resident of Cyprus if the 183-day rule is met, or if every part of the 60-day rule is met. The department states both on [tax residency and domicile](https://www.gov.cy/mof-tax/en/documents/tax-residency-domicility/). A residence permit, a pink slip, a nomad card or an investment permit does not decide the question. Days and facts do.\n\n### The 183-day rule\n\nOne or more periods in Cyprus that together exceed 183 days in the tax year, which is the calendar year. The day you arrive counts as a day in Cyprus. The day you leave counts as a day outside Cyprus. If you arrive and leave on the same day, that day counts as a day in Cyprus. If you leave and arrive on the same day, that day counts as a day outside Cyprus. Keep the stamps. A reconstruction from memory in March is how people miscount.\n\n### The 60-day rule\n\nAll of the following have to be true. You are in Cyprus for at least 60 days. You do not spend more than 183 days in any other single country. You carry on a business in Cyprus, or you are employed in Cyprus, or you hold an office in Cyprus. You maintain a permanent home in Cyprus that you own or rent. If the business stops, or the employment ends, during the year, you cease to be tax resident for that year under this rule. A home with no activity, or activity with no home, does not complete the test. Sixty days on a visitor permit, with no business and no employment in Cyprus, is not the 60-day rule.\n\n## Who has to file\n\nFrom the 2026 tax year the filing net is wider than the old “income above €19,500” line. The Tax Department’s page on the [individual return](https://www.gov.cy/mof-tax/en/documents/forologiki-dilosi-eisodimatos-atomoy/) says a Cyprus tax resident files if they have gross income within section 5 of the Income Tax Law, or if they are aged 25 to 70 during the year, even with no income. A resident under 25, or 71 and over, with no such gross income, is outside that duty. The Council of Ministers can still exempt a category by order. The department’s Greek FAQ on the reform says the 2026 return is filed in 2027, by 31 July 2027. Confirm the deadline on the return page in the year you file. A date in a guide is how deadlines get missed.\n\nSomeone who is not tax resident files if they have Cyprus-source income of the kinds the law names. Non-residence is not a blanket exemption for rent from a Cyprus flat or for a Cyprus salary.\n\n{{figure:pension-reform}}\n\n## The 2026 bands\n\nThe tax-free amount, meaning taxable income charged at nil, rose from €19,500 to €22,000 from the 2026 tax year. Taxable income is the figure after the exemptions and deductions the law allows. It is not the salary printed on a contract. The bands the Tax Department and the business portal both publish are these.\n\n| Taxable income | Rate |\n| --- | --- |\n| €0 to €22,000 | 0% |\n| €22,001 to €32,000 | 20% |\n| €32,001 to €42,000 | 25% |\n| €42,001 to €72,000 | 30% |\n| Over €72,000 | 35% |\n\nThe department’s return page also prints the tax in each band and a cumulative figure: €2,000 of tax by €32,000, €4,500 by €42,000, €13,500 by €72,000, and 35 percent of the excess after that. Use those to check a mental sum. Then use [MyCyTax](https://mycytax.com), which is built to apply the current scales to a set of figures you type in. The calculator is not the assessment. The assessment is the return, and then the department.\n\nA separate exemption can apply to remuneration from first employment in Cyprus, including a partial exemption above a salary threshold, for a set number of years. The threshold and the years have been amended before. This page does not copy them. Read the current note on the Tax Department site before you let an employer calculate a net salary from a 2022 article.\n\n## Non-dom status\n\nDomicile is not residence. A person is generally domiciled in Cyprus, for Special Defence Contribution, if their domicile of origin is in Cyprus, subject to the exceptions the department describes for a long-held domicile of choice abroad and for long absence. Separately, a person who has been tax resident for at least 17 of the 20 years before the tax year is deemed domiciled, whatever the domicile of origin. That deemed domicile lasts until the person has 20 years of non-residence.\n\nA person who is not domiciled, or who is not tax resident, is not charged Special Defence Contribution on interest or on dividends. The department’s page also says rental income was subject to that contribution up to and including 2025, and that the charge on rent was then abolished. From 2026, rent is not a defence-contribution question for anyone. It can still be an income-tax question.\n\nFor people who are both resident and domiciled, the contribution on dividends and on interest continues, at rates the 2026 reform changed for dividends. Commentaries on the amending law describe 5 percent on dividends out of profits generated from 2026, with a transitional 17 percent still relevant to some older Cyprus-company profits, and 17 percent still the ordinary rate on interest. Those rates are not the non-dom story. Non-dom means the contribution on dividends and interest is not charged. Confirm the domiciled rates on the department’s page or in the law before you withhold. The reform overview is on [gov.cy/taxreform](https://www.gov.cy/taxreform/).\n\nThere is an alternative method, Article 3D, for a person who has no Cyprus domicile of origin but has become deemed-domiciled under the 17-out-of-20 rule. It allows up to two extra periods of five years, each against a lump sum of €250,000. The application form says it is filed by 30 June of the first year of the period. The June 2026 window for people who had just become deemed-domiciled has a specific circular. If that date has passed for you, the election may simply be unavailable for that period. Read [the form](https://www.gov.cy/media/sites/167/2026/06/Application-Extension-of-Non-Dom.pdf) and circular 02/2026. Do not treat a blog’s “you can always extend” as the statute.\n\nGeSY contributions are a different charge. Non-dom status does not switch them off. Dividends, interest and rent can still carry a GeSY contribution, within a cap the Health Insurance Organisation publishes. See [GeSY](/en/gesy-healthcare-cyprus/).\n\n## What this means for someone who has just moved\n\nCount the days. If you will cross 183, plan to be tax resident and to file. If you are trying to be resident on 60 days, list the four conditions and do not skip the one about a business, a job or an office in Cyprus. If you will not meet either test, do not let a bank or an agent describe you as tax resident because you bought a flat.\n\nA flat is not the test. The tests are above. The purchase and the rent still have their own taxes, which are a transaction question: VAT, transfer fees, stamp duty if it still applies to the instrument. Those calculators are also on [MyCyTax](https://mycytax.com), under [transfer fees](https://mycytax.com/calculators/transfer-fees/), [stamp duty](https://mycytax.com/calculators/stamp-duty/) and [VAT](https://mycytax.com/calculators/vat/). They do not compute your income tax. The income-tax bands are the table on this page, applied to taxable income, on the calculator the site links at the top of that family of tools.\n\nThe move itself, and which residence card you hold while the days accumulate, is in [moving to Cyprus](/en/relocating-to-cyprus/).\n\n## Useful services\n\n- The Tax Department’s TAXISnet, for the return, once you have a tax number. Get the number when you know a return is coming, not on the eve of the deadline.\n- An accountant admitted in Cyprus, if you have foreign employment, a company, or a year that is split. This page will not replace that conversation.\n- [MyCyTax](https://mycytax.com) for a sketch of the bands and of the property charges.\n- The department’s domicile page before anyone sells you a non-dom opinion. The opinion is only as good as the domicile facts.\n\n## Property and the return\n\nA home does not make you tax resident. The address is still what a bank and the department will ask for. If you are choosing a lease or a purchase and want the papers read before you rely on them as your address, use the [property consultation](/en/property-consultation/). Say whether you want to rent or buy, and name the city. The form asks for a name and an email. It is not a tax opinion. You can also write to [cynews24@gmail.com](mailto:cynews24@gmail.com).\n\n## A note on advice\n\nNothing here is a tax opinion. Two official pages can be updated a month apart. The later page wins. If a figure in this guide and a figure on gov.cy disagree, use gov.cy and write to [cynews24@gmail.com](mailto:cynews24@gmail.com) with the link so the guide can be corrected.\n"
+  }
+}
