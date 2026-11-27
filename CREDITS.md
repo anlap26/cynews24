@@ -94,6 +94,14 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `kyiv-maidan` | Independence Square in Kyiv | Levchuk Volodymyr ( UAWeBeR ) | [CC BY 3.0](https://creativecommons.org/licenses/by/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Ukraine-Kyiv-Maidan_Nezalezhnosti.JPG) |
 | `mbabane-landscape` | The landscape around Mbabane, Eswatini | Umkhaya | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Mbabane_Landscape.jpg) |
 | `lusaka-2008` | A street in Lusaka in 2008 | andresmh from USA | [CC BY-SA 2.0](https://creativecommons.org/licenses/by-sa/2.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:2008_Lusaka_Zambia_2778530807.jpg) |
+| `nicosia-courthouse` | A courthouse in Nicosia | ΣτηρίζωΚύπρο | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Court_House_of_JUSTICE_in_Nicosia_Republic_of_Cyprus.jpg) |
+| `cyprus-national-guard-2004` | Cyprus National Guard soldiers in 2004; not the Paphos air base | Leonid Mamchenkov | [CC BY 2.0](https://creativecommons.org/licenses/by/2.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Cyprus_National_Guard_soldiers_2004.jpg) |
+| `eleftheria-square` | Eleftheria Square in Nicosia; not a polling station | Iakovos Hatzistavrou, European Commission | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eleftherias_Square_5.jpg) |
+| `larnaca-airport-aerial` | Larnaca International Airport seen from the air | Mosbatho | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Larnaca_International_Airport_in_2022.jpg) |
+| `athalassa-lake` | The lake at Athalassa Park in Nicosia; not the state-fair grounds | DanielMichaelPerry | [CC0 1.0](https://creativecommons.org/publicdomain/zero/1.0/) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Lake_at_Athalassa_Park,_Nicosia,_Cyprus.jpg) |
+| `paphos-harbour-2024` | Yachts in Paphos harbour in July 2024; not the scene of the injury | Captain Galaxy | [CC BY 4.0](https://creativecommons.org/licenses/by/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Yachts_docked_at_Paphos_Harbour_-_July_2024.jpg) |
+| `limassol-seafront-view` | The seafront and buildings of Limassol | Xaris333 | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:View_of_Limassol_01.JPG) |
+| `makariou-avenue` | Makarios Avenue, a shopping street in central Nicosia | NicosiaSkylines | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Makariou_shopping_avenue_in_downtown_Nicosia,_Cyprus.JPG) |
 
 ## Event photographs
 
