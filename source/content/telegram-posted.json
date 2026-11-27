@@ -2,6 +2,10 @@
   "note": "Slugs already handled for Telegram. ru is @cynews24 (link /ru/), en is @cynews24en (link /en/). A language entry means do not post again. Missing en means the English text was not posted yet.",
   "posted": {
     "anti-corruption-investigators-bill": {
+      "en": {
+        "at": "2026-11-27T22:59:18Z",
+        "status": "sent"
+      },
       "ru": {
         "at": "2026-11-27T22:59:18Z",
         "status": "sent"
