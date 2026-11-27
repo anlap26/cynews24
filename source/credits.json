@@ -1286,5 +1286,85 @@
       0.45
     ],
     "depicts": "The landscape around Mbabane, Eswatini"
+  },
+  "eleftheria-square": {
+    "author": "Iakovos Hatzistavrou, European Commission",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Eleftherias_Square_5.jpg",
+    "file": "eleftheria-square.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "Eleftheria Square in Nicosia; not a polling station"
+  },
+  "larnaca-airport-aerial": {
+    "author": "Mosbatho",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Aerial_view_of_the_Larnaca_International_Airport_in_2022.jpg",
+    "file": "larnaca-airport-aerial.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "Larnaca International Airport seen from the air"
+  },
+  "paphos-harbour-2024": {
+    "author": "Captain Galaxy",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 4.0",
+    "license_url": "https://creativecommons.org/licenses/by/4.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Yachts_docked_at_Paphos_Harbour_-_July_2024.jpg",
+    "file": "paphos-harbour-2024.jpg",
+    "focus": [0.5, 0.5],
+    "depicts": "Yachts in Paphos harbour in July 2024; not the scene of the injury"
+  },
+  "limassol-seafront-view": {
+    "author": "Xaris333",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:View_of_Limassol_01.JPG",
+    "file": "limassol-seafront-view.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "The seafront and buildings of Limassol"
+  },
+  "athalassa-lake": {
+    "author": "DanielMichaelPerry",
+    "source": "Wikimedia Commons",
+    "license": "CC0 1.0",
+    "license_url": "https://creativecommons.org/publicdomain/zero/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:Lake_at_Athalassa_Park,_Nicosia,_Cyprus.jpg",
+    "file": "athalassa-lake.jpg",
+    "focus": [0.5, 0.5],
+    "depicts": "The lake at Athalassa Park in Nicosia; not the state-fair grounds"
+  },
+  "nicosia-courthouse": {
+    "author": "ΣτηρίζωΚύπρο",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Court_House_of_JUSTICE_in_Nicosia_Republic_of_Cyprus.jpg",
+    "file": "nicosia-courthouse.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "A courthouse in Nicosia"
+  },
+  "cyprus-national-guard-2004": {
+    "author": "Leonid Mamchenkov",
+    "source": "Wikimedia Commons",
+    "license": "CC BY 2.0",
+    "license_url": "https://creativecommons.org/licenses/by/2.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Cyprus_National_Guard_soldiers_2004.jpg",
+    "file": "cyprus-national-guard-2004.jpg",
+    "focus": [0.5, 0.4],
+    "depicts": "Cyprus National Guard soldiers in 2004; not the Paphos air base"
+  },
+  "makariou-avenue": {
+    "author": "NicosiaSkylines",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Makariou_shopping_avenue_in_downtown_Nicosia,_Cyprus.JPG",
+    "file": "makariou-avenue.jpg",
+    "focus": [0.5, 0.45],
+    "depicts": "Makarios Avenue, a shopping street in central Nicosia"
   }
 }
