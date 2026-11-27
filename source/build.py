@@ -1934,9 +1934,11 @@ _NOT_A_BEACH = re.compile(
 # A tag such as "tourism revenue" on an investment story is not enough.
 _TITLE_ONLY_CATS = {"politics", "economy", "world"}
 _CRIME_TOPIC = re.compile(
-    r"\b(murder(?:ed)?|arrest(?:ed)?|crime|police|eviction|stabbing|stabbed|suspect|killed|homicide|fraud|dies|died|death|dead)\b"
+    r"\b(murder(?:ed)?|arrest(?:ed)?|crime|police|eviction|stabbing|stabbed|suspect|killed|homicide|fraud|dies|died|death|dead|cannabis|seized|seizure|narcotics|drugs)\b"
     r"|убийств\w*|арест\w*|задержан\w*|полици\w*|выселен\w*|ножев\w*|подозрева\w*|умер\w*|смерт\w*|погиб\w*"
-    r"|δολοφον\w*|συλληψ\w*|συνεληφθ\w*|αστυνομ\w*|εξωσ\w*|μαχαιρ\w*|θανατ\w*")
+    r"|каннабис\w*|изъял\w*|наркотик\w*"
+    r"|δολοφον\w*|συλληψ\w*|συνεληφθ\w*|αστυνομ\w*|εξωσ\w*|μαχαιρ\w*|θανατ\w*"
+    r"|κανναβ\w*|κατασχε\w*|ναρκωτικ\w*")
 def _travel_fields(s, titles_only=False):
     fields=[]
     for l in LANGS:

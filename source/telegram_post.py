@@ -471,7 +471,9 @@ def page_mismatch(body: bytes, lang: str, slug: str, title: str) -> str:
     if not expected:
         return "title"
     title_match = _TITLE_RE.search(text)
-    if not title_match or plain_fragment(title_match.group(1)) != expected:
+    # Article pages use "Headline | CyNews 24". The h1 stays the headline alone.
+    got = plain_fragment(title_match.group(1)) if title_match else ""
+    if got != expected and got != f"{expected} | CyNews 24":
         return "title"
     h1_match = _H1_RE.search(text)
     if not h1_match or plain_fragment(h1_match.group(1)) != expected:

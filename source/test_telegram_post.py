@@ -96,6 +96,12 @@ class CaptionTests(unittest.TestCase):
     def test_live_page_matches_escaped_title_and_rejects_fallback(self):
         title = "Governor's Beach & <law>"
         self.assertTrue(tg.is_page_ready(page(title, "en", "governors-beach"), "en", "governors-beach", title))
+        suffixed = page(title, "en", "governors-beach").replace(
+            f"<title>{html.escape(title, quote=True)}</title>".encode(),
+            f"<title>{html.escape(title, quote=True)} | CyNews 24</title>".encode(),
+            1,
+        )
+        self.assertTrue(tg.is_page_ready(suffixed, "en", "governors-beach", title))
         fallback = page("Русский заголовок", "en", "governors-beach", noindex=True)
         self.assertFalse(tg.is_page_ready(fallback, "en", "governors-beach", title))
         self.assertFalse(tg.is_page_ready(b"missing", "en", "governors-beach", title))
