@@ -1,6 +1,11 @@
 {
   "note": "Slugs already handled for the Facebook Page. FB_POST_LANG chooses the post language (default en, link /en/; ru links to /ru/, el to /el/). An entry means do not post again.",
   "posted": {
+    "anti-corruption-investigators-bill": {
+      "at": "2026-11-27T22:59:18Z",
+      "lang": "en",
+      "status": "sent"
+    },
     "argentina-technical-recession": {
       "at": "2026-11-27T07:27:00Z",
       "lang": "en",
