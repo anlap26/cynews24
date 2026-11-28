@@ -111,6 +111,8 @@ Story photographs are openly licensed pictures. The generator crops each one to 
 | `makariou-avenue` | Makarios Avenue, a shopping street in central Nicosia | NicosiaSkylines | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Makariou_shopping_avenue_in_downtown_Nicosia,_Cyprus.JPG) |
 | `port-singapore` | The port of Singapore | Aaaatu | [CC BY-SA 4.0](https://creativecommons.org/licenses/by-sa/4.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Port_of_Singapore.jpg) |
 | `east-coast-storm` | A satellite image of a storm along the US East Coast in December 2023; not Thursday's storm | CSU/CIRA and NOAA | [Public domain](https://creativecommons.org/publicdomain/mark/1.0/) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Eastern_Seaboard_gets_Blasted_by_East_Coast_Storm_(CIRA_2023-12-18).png) |
+| `supreme-court-canada` | The Supreme Court of Canada building in Ottawa | D. Gordon E. Robertson | [CC BY-SA 3.0](https://creativecommons.org/licenses/by-sa/3.0) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:Supreme_Court_of_Canada,_Ottawa.jpg) |
+| `pentagon-building` | The Pentagon in Arlington, headquarters of the US Department of Defense; not a picture of the cloud systems | Ken Hammond, U.S. Air Force | [Public domain](https://creativecommons.org/publicdomain/mark/1.0/) | [Wikimedia Commons](https://commons.wikimedia.org/wiki/File:The_Pentagon_US_Department_of_Defense_building.jpg) |
 
 ## Event photographs
 
