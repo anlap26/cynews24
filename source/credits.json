@@ -1455,5 +1455,31 @@
       0.55
     ],
     "depicts": "A road sign in Cyprus telling drivers to keep to the left"
+  },
+  "pentagon-building": {
+    "author": "Ken Hammond, U.S. Air Force",
+    "source": "Wikimedia Commons",
+    "license": "Public domain",
+    "license_url": "https://creativecommons.org/publicdomain/mark/1.0/",
+    "page": "https://commons.wikimedia.org/wiki/File:The_Pentagon_US_Department_of_Defense_building.jpg",
+    "file": "pentagon-building.jpg",
+    "focus": [
+      0.5,
+      0.45
+    ],
+    "depicts": "The Pentagon in Arlington, headquarters of the US Department of Defense; not a picture of the cloud systems"
+  },
+  "supreme-court-canada": {
+    "author": "D. Gordon E. Robertson",
+    "source": "Wikimedia Commons",
+    "license": "CC BY-SA 3.0",
+    "license_url": "https://creativecommons.org/licenses/by-sa/3.0",
+    "page": "https://commons.wikimedia.org/wiki/File:Supreme_Court_of_Canada,_Ottawa.jpg",
+    "file": "supreme-court-canada.jpg",
+    "focus": [
+      0.5,
+      0.42
+    ],
+    "depicts": "The Supreme Court of Canada building in Ottawa"
   }
 }
